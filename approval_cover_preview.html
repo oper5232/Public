@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>채용공고 자동화 관제실 미리보기</title>
+<style>
+:root{--bg:#eef1f5;--panel:#fff;--ink:#17202a;--muted:#718096;--line:#d9e0e8;--blue:#2f6fed;--green:#12805c;--amber:#b7791f;--red:#c53030;--nav:#182332}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,"Noto Sans KR",Arial,sans-serif;color:var(--ink)}
+.app{max-width:1400px;margin:24px auto;padding:0 20px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.brand{font-size:21px;font-weight:800}.sub{color:var(--muted);font-size:13px;margin-top:4px}.pill{padding:8px 12px;border-radius:999px;background:#e5f5ee;color:var(--green);font-weight:700;font-size:13px}.layout{display:grid;grid-template-columns:210px 1fr;gap:18px}.side,.panel,.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 5px 16px #192b3d0b}.side{padding:18px}.side h3{margin:0 0 16px;font-size:14px}.step{display:flex;gap:10px;align-items:center;padding:11px 8px;color:var(--muted);font-size:13px;border-radius:8px}.step.active{background:#edf3ff;color:var(--blue);font-weight:700}.dot{width:9px;height:9px;border-radius:50%;background:#cbd5e0}.step.done .dot{background:var(--green)}.step.active .dot{background:var(--blue)}.main{display:grid;gap:18px}.panel{padding:22px}.panelhead{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:17px}.eyebrow{font-size:12px;color:var(--blue);font-weight:800;letter-spacing:.04em}.title{font-size:22px;font-weight:800;margin:6px 0}.meta{color:var(--muted);font-size:13px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}.field{padding:13px;background:#f8fafc;border-radius:10px}.label{font-size:11px;color:var(--muted);margin-bottom:6px}.value{font-size:14px;font-weight:700}.tag{display:inline-block;padding:5px 8px;border-radius:6px;background:#eaf1ff;color:#2857a6;font-size:12px;margin:3px 4px 0 0}.notice{padding:13px 15px;background:#fff8e6;border:1px solid #f4dfaa;border-radius:10px;color:#805b12;font-size:13px;line-height:1.5}.actions{display:flex;gap:9px;justify-content:flex-end;margin-top:18px}.btn{border:0;border-radius:8px;padding:11px 16px;font-weight:800;cursor:pointer}.primary{background:var(--blue);color:white}.secondary{background:#edf2f7;color:#344054}.danger{background:#fff0f0;color:var(--red)}.status{font-size:13px;font-weight:800;color:var(--amber)}.hidden{display:none}.question{border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}.qhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:800}.qbody{width:100%;min-height:85px;border:1px solid #cbd5e0;border-radius:8px;padding:11px;font:inherit;resize:vertical}.row{display:flex;gap:12px;align-items:center;margin-top:10px;color:var(--muted);font-size:12px}.num{width:90px;padding:7px;border:1px solid #cbd5e0;border-radius:6px}.hint{font-size:12px;color:var(--muted);line-height:1.55;margin-top:12px}.toast{position:fixed;right:24px;bottom:24px;background:#17202a;color:#fff;padding:13px 17px;border-radius:9px;display:none;font-size:13px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.side{display:none}.grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top"><div><div class="brand">채용공고 자동화 관제실</div><div class="sub">승인 전 후보 검토 → 승인 후 정식 저장 및 자기소개서 초안</div></div><div class="pill" id="globalState">후보 검토 대기</div></div>
+  <div class="layout">
+    <aside class="side"><h3>처리 Pipeline</h3><div class="step done"><span class="dot"></span>후보 수집</div><div class="step active" id="stepReview"><span class="dot"></span>사용자 검토</div><div class="step" id="stepSave"><span class="dot"></span>정식 저장</div><div class="step" id="stepAnalysis"><span class="dot"></span>상세 분석</div><div class="step" id="stepLetter"><span class="dot"></span>자소서 초안</div></aside>
+    <main class="main">
+      <section class="panel" id="approvalScreen">
+        <div class="panelhead"><div><div class="eyebrow">REVIEW REQUIRED</div><div class="title">SK하이이엔지 · 반도체 전기설비 운영 및 유지보수</div><div class="meta">기업 공식 채용사이트 · 후보 수집 2026.10.06 20:00</div></div><div class="status" id="status">검토대기</div></div>
+        <div class="grid"><div class="field"><div class="label">근무지</div><div class="value">경기도 이천</div></div><div class="field"><div class="label">고용형태</div><div class="value">정규직</div></div><div class="field"><div class="label">경력조건</div><div class="value">신입·경력 3년 이하</div></div><div class="field"><div class="label">마감일</div><div class="value">2026.10.15</div></div><div class="field"><div class="label">원문 확보</div><div class="value">상세본문</div></div><div class="field"><div class="label">중복 판정</div><div class="value">동일 공고 없음</div></div></div>
+        <div><div class="label">직무 관련 키워드</div><span class="tag">전기설비 유지보수</span><span class="tag">수변전</span><span class="tag">반도체 생산시설</span><span class="tag">예방정비</span></div>
+        <div class="notice" style="margin-top:16px">승인 전에는 점수·기업조사·초안을 생성하지 않습니다. 승인 후 공고를 정식 저장하고 상세 분석을 시작합니다.<br>현재 확인되지 않은 항목: 연봉, 복지, 실제 고용주 법인</div>
+        <div class="actions"><button class="btn secondary" onclick="setDecision('보류')">보류</button><button class="btn danger" onclick="setDecision('제외')">제외</button><button class="btn primary" onclick="approve()">승인하고 정식 저장</button></div>
+      </section>
+      <section class="panel hidden" id="letterScreen">
+        <div class="panelhead"><div><div class="eyebrow">COVER LETTER INPUT</div><div class="title">자기소개서 문항 입력</div><div class="meta">SK하이이엔지 · 초안 작성 전 단계</div></div><div class="status">문항 입력 필요</div></div>
+        <div id="questions"><div class="question"><div class="qhead"><span>문항 1</span><button class="btn secondary" onclick="this.closest('.question').remove()">삭제</button></div><textarea class="qbody" placeholder="자기소개서 문항을 입력하세요."></textarea><div class="row">글자 수 제한 <input class="num" type="number" value="1000"> <label><input type="radio" name="space1" checked> 공백 포함</label><label><input type="radio" name="space1"> 공백 제외</label></div></div></div>
+        <div class="actions" style="justify-content:flex-start"><button class="btn secondary" onclick="addQuestion()">+ 문항 추가</button><button class="btn primary" onclick="saveQuestions()">문항 저장</button><button class="btn primary" onclick="draft()">초안 작성 요청</button></div>
+        <div class="hint">문항 자동확보에 실패하면 이 입력창에서 직접 등록합니다. 초안은 확인된 Career Master 경험만 사용하며 항상 ‘초안’ 상태로 저장됩니다.</div>
+      </section>
+    </main>
+  </div>
+</div><div class="toast" id="toast"></div>
+<script>
+function toast(t){const e=document.getElementById('toast');e.textContent=t;e.style.display='block';setTimeout(()=>e.style.display='none',2400)}
+function setDecision(v){document.getElementById('status').textContent=v;document.getElementById('globalState').textContent=v==='보류'?'검토 보류':'검토 제외';toast('사용자 결정이 저장되었습니다: '+v)}
+function approve(){document.getElementById('status').textContent='승인됨';document.getElementById('globalState').textContent='정식 저장 및 분석 대기';document.getElementById('stepReview').className='step done';document.getElementById('stepSave').className='step active';setTimeout(()=>{document.getElementById('stepSave').className='step done';document.getElementById('stepAnalysis').className='step done';document.getElementById('stepLetter').className='step active';document.getElementById('approvalScreen').classList.add('hidden');document.getElementById('letterScreen').classList.remove('hidden');document.getElementById('globalState').textContent='자소서 문항 입력 필요';toast('정식 저장 완료. 자소서 문항을 입력해주세요.')},900)}
+function addQuestion(){const n=document.querySelectorAll('.question').length+1;const d=document.createElement('div');d.className='question';d.innerHTML='<div class="qhead"><span>문항 '+n+'</span><button class="btn secondary" onclick="this.closest(\'.question\').remove()">삭제</button></div><textarea class="qbody" placeholder="자기소개서 문항을 입력하세요."></textarea><div class="row">글자 수 제한 <input class="num" type="number" value="800"> <label><input type="radio" name="space'+n+'" checked> 공백 포함</label><label><input type="radio" name="space'+n+'"> 공백 제외</label></div>';document.getElementById('questions').appendChild(d)}
+function saveQuestions(){toast('문항이 저장되었습니다.')}function draft(){toast('초안 작성 요청이 등록되었습니다. 결과는 초안 상태로 저장됩니다.')}
+</script>
+</body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JOB HARVEST · 커리어 작업실</title>
+  <link rel="stylesheet" href="/app.css">
+  <script defer src="/app.js"></script>
+</head>
+<body>
+  <div class="workshop">
+    <header class="hud">
+      <a class="brand" href="#list">JOB HARVEST<span>채용공고 자동화 관제실</span></a>
+      <div class="hud-right"><span id="mode" class="badge">연결 확인 중</span><span class="clock" id="clock"></span></div>
+    </header>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="profile"><span class="avatar" aria-hidden="true">J</span><strong>커리어 작업실</strong><small>공고 검토부터 답변 초안까지</small></div>
+        <nav aria-label="공고 메뉴">
+          <a href="#list" data-state="검토대기">공고 검토 <span>01</span></a>
+          <a href="#list/승인" data-state="승인">승인 공고 <span>02</span></a>
+          <a href="#list/보류" data-state="보류">보류 공고 <span>03</span></a>
+          <a href="#list/제외" data-state="제외">제외 공고 <span>04</span></a>
+        </nav>
+        <div class="side-note"><b>나의 다음 단계</b><p>공고를 확인하고 승인하면<br>자소서 문항을 작성할 수 있어요.</p><small>초안은 검토 후 직접 제출하세요.</small></div>
+        <div class="side-footer">REVIEW → WRITE → SAVE</div>
+      </aside>
+      <main id="main" tabindex="-1"><div class="loading">작업실을 준비하고 있습니다…</div></main>
+    </div>
+    <footer class="footer">내가 승인한 공고, 내가 확인한 경험.<span>CAREER WORKSHOP</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

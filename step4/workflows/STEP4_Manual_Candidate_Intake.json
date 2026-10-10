@@ -1,0 +1,143 @@
+{
+  "name": "STEP4_Manual_Candidate_Intake",
+  "nodes": [
+    {
+      "id": "25e1c6d0-c208-48d4-831e-25119f88a9f9",
+      "name": "01 공고 직접 입력 · 인증",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "career-candidates",
+        "authentication": "headerAuth",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "6d2f8581-dd99-4436-849e-0df3c236003c",
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_INTAKE_CREDENTIAL",
+          "name": "Career Intake Header Auth"
+        }
+      }
+    },
+    {
+      "id": "24c0b7ba-3c6b-434c-a951-62f25f8140ca",
+      "name": "02 입력 검증·정규화·중복·후보 기록",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "parameters": {
+        "method": "POST",
+        "url": "http://pipeline:8787/intake",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "position": [
+        260,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_PIPELINE_CREDENTIAL",
+          "name": "Career Pipeline Header Auth"
+        }
+      }
+    },
+    {
+      "id": "dfddb336-d22b-4c9d-bc5b-19222e2978bd",
+      "name": "03 Notion 후보 동기화·오류 기록",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "parameters": {
+        "method": "POST",
+        "url": "http://pipeline:8787/sync",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "position": [
+        520,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_PIPELINE_CREDENTIAL",
+          "name": "Career Pipeline Header Auth"
+        }
+      }
+    },
+    {
+      "id": "1c3517b1-2c8a-4390-aa42-5d6af26e2b2f",
+      "name": "04 접수 결과 반환 · 승인 대기",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.4,
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ intake: $(\"02 입력 검증·정규화·중복·후보 기록\").first().json, sync: $json }) }}",
+        "options": {}
+      },
+      "position": [
+        780,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "01 공고 직접 입력 · 인증": {
+      "main": [
+        [
+          {
+            "node": "02 입력 검증·정규화·중복·후보 기록",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "02 입력 검증·정규화·중복·후보 기록": {
+      "main": [
+        [
+          {
+            "node": "03 Notion 후보 동기화·오류 기록",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "03 Notion 후보 동기화·오류 기록": {
+      "main": [
+        [
+          {
+            "node": "04 접수 결과 반환 · 승인 대기",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Seoul",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none"
+  },
+  "pinData": {}
+}

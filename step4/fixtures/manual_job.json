@@ -1,0 +1,17 @@
+{
+  "request_id": "synthetic-sample-001",
+  "job": {
+    "url": "https://example.org/jobs/electrical-001",
+    "title": "합성 예시 · 생산설비 전기보전",
+    "company": "테스트 제조사",
+    "source": "사용자입력",
+    "unit": "전기보전",
+    "round": "synthetic-2026",
+    "duties": "생산설비 전기 유지보수, 예방정비",
+    "requirements": "전기기사 또는 전기산업기사, 신입 또는 경력 1~3년",
+    "employment": "정규직",
+    "location": "미확인",
+    "capture_level": "상세본문",
+    "is_synthetic": true
+  }
+}

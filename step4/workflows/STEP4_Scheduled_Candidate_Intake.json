@@ -1,0 +1,74 @@
+{
+  "name": "STEP4_Scheduled_Candidate_Intake",
+  "nodes": [
+    {
+      "id": "007b7b2c-e15c-4041-b1c2-f8d893d9b790",
+      "name": "01 매일 08시·20시 서울",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 8,20 * * *"
+            }
+          ]
+        }
+      },
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "850b3449-2d60-4e62-a32a-a4b04f9e9f62",
+      "name": "02 입력함 처리·중복검사·후보 동기화",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "parameters": {
+        "method": "POST",
+        "url": "http://pipeline:8787/scheduled",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "position": [
+        260,
+        0
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "CONFIGURE_PIPELINE_CREDENTIAL",
+          "name": "Career Pipeline Header Auth"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "01 매일 08시·20시 서울": {
+      "main": [
+        [
+          {
+            "node": "02 입력함 처리·중복검사·후보 동기화",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Seoul",
+    "saveDataErrorExecution": "all",
+    "saveDataSuccessExecution": "none"
+  },
+  "pinData": {}
+}

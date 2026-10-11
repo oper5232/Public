@@ -41,6 +41,43 @@ class StoreFixture(unittest.TestCase):
 
 
 class ServiceTests(StoreFixture):
+    def test_progress_tracks_saved_completion_and_next_question(self):
+        path = f"/api/candidates/{self.job['id']}/progress"
+        initial = self.call('GET', path)
+        self.assertEqual((initial['total'], initial['pending'], initial['percent']), (2, 2, 0))
+        self.assertEqual(initial['next_id'], self.q['id'])
+        self.assertNotIn('answer', json.dumps(initial))
+        saved = self.call('PATCH', self.path_q, self.body(status='완료'))
+        progress = self.call('GET', path)
+        second = self.store.questions(self.job['id'])[1]
+        self.assertEqual((progress['completed'], progress['percent'], progress['next_id']),
+                         (1, 50, second['id']))
+        self.store.save_question(second, '둘째 답변', '직접 작성', '완료')
+        progress = self.call('GET', path)
+        self.assertTrue(progress['all_completed'])
+        self.assertIsNone(progress['next_id'])
+        self.assertEqual(progress['percent'], 100)
+        self.call('PATCH', self.path_q, self.body(version=saved['version'], status='작성중'))
+        progress = self.call('GET', path)
+        self.assertFalse(progress['all_completed'])
+        self.assertEqual((progress['writing'], progress['next_id']), (1, self.q['id']))
+        self.assertEqual(self.call('GET', f"/api/candidates/{self.job['id']}/questions")['progress'], progress)
+
+    def test_progress_requires_current_approval(self):
+        path = f"/api/candidates/{self.job['id']}/progress"
+        for state in ('검토대기', '보류', '제외'):
+            self.store.set_status(self.store.get_candidate(self.job['id']), state)
+            self.error(403, 'GET', path)
+
+    def test_empty_and_invalid_completion_are_not_all_complete(self):
+        from app import writing_progress
+        self.assertEqual(writing_progress([])['percent'], 0)
+        self.assertFalse(writing_progress([])['all_completed'])
+        self.store.save_question(self.q, '  ', '직접 작성', '완료')
+        p = self.call('GET', f"/api/candidates/{self.job['id']}/progress")
+        self.assertEqual((p['completed'], p['writing'], p['invalid_completed']), (0, 1, 1))
+        self.assertEqual(p['next_id'], self.q['id'])
+
     def test_list_and_approved_question_link(self):
         result = self.call('GET', '/api/candidates', query={'status': ['승인']})
         self.assertEqual([c['id'] for c in result['items']], [self.job['id']])

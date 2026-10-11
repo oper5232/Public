@@ -1,0 +1,15 @@
+const assert = require('node:assert/strict');
+const {summarize} = require('../static/progress.js');
+const items = [{id:'first',status:'입력대기',answer:''}, {id:'second',status:'작성중',answer:'답변'}];
+assert.equal(summarize([]).all_completed, false);
+assert.equal(summarize(items).next_id, 'first');
+items[0] = {...items[0],status:'완료',answer:'첫 답변'};
+assert.equal(summarize(items).percent, 50);
+assert.equal(summarize(items).next_id, 'second');
+items[1].status = '완료';
+assert.equal(summarize(items).all_completed, true);
+items[1].answer = '  ';
+assert.equal(summarize(items).all_completed, false);
+assert.equal(summarize(items).invalid_completed, 1);
+assert.equal(summarize(items).writing, 1);
+console.log('Progress transitions PASS');

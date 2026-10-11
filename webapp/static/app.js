@@ -2,6 +2,7 @@
 const main = document.getElementById('main');
 let config, routeGeneration = 0, currentRoute = location.hash || '#list', toastTimer;
 const dirty = new Set();
+let stopProgressWatch = () => {};
 const charLength = value => Array.from(value).length;
 const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const field = (label, value) => `<div class="field"><dt>${esc(label)}</dt><dd>${esc(value || '미확인')}</dd></div>`;
@@ -115,6 +116,49 @@ function activeNav(state) {
     if (a.dataset.state === state) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
   });
 }
+function progressHTML(p, cid, onPage = false) {
+  const label = !p.total ? '문항 미등록' : p.all_completed ? '전체 작성 완료' : `작성 완료 ${p.completed}/${p.total}문항 · ${p.percent}%`;
+  const href = `#questions/${cid}${p.next_id ? '/' + encodeURIComponent(p.next_id) : ''}`;
+  return `<div class="writing-progress"><strong>${label}</strong>
+    <progress max="100" value="${p.percent}" aria-label="자소서 작성 완료율">${p.percent}%</progress>
+    <p>전체 ${p.total}문항 · 완료 ${p.completed} · 작성중 ${p.writing} · 입력대기 ${p.pending}</p>
+    ${p.invalid_completed ? '<p class="over">완료 상태지만 답변이 빈 문항이 있습니다. 답변을 입력하고 저장해주세요.</p>' : ''}
+    ${onPage ? '<small>저장된 답변 기준입니다. 전체 작성 완료는 지원서 제출 완료와 다릅니다.</small>' : ''}
+    ${onPage ? (p.next_id ? '<button type="button" class="button small" id="continue-writing">미완료 문항 이어쓰기 →</button>' : '') : `<a class="button small primary" href="${href}">${!p.total ? '문항 확인' : p.all_completed ? '답변 검토' : '이어쓰기 →'}</a>`}</div>`;
+}
+function watchProgress(container, generation) {
+  stopProgressWatch();
+  let alive = true, running = false;
+  const queue = [];
+  async function drain() {
+    if (running) return;
+    running = true;
+    try {
+      while (alive && generation === routeGeneration && queue.length) {
+        const el = queue.shift(), cid = el.dataset.progress;
+        try {
+          const p = await api(`/api/candidates/${cid}/progress`);
+          if (alive && generation === routeGeneration) el.innerHTML = progressHTML(p, cid);
+        } catch (error) {
+          if (alive && generation === routeGeneration) {
+            el.innerHTML = `<p class="over">${esc(error.message)}</p><button class="button small" type="button">진행률 다시 확인</button>`;
+            el.querySelector('button').addEventListener('click', e => {
+              e.target.disabled = true; queue.push(el); drain();
+            });
+          }
+        }
+      }
+    } finally { running = false; }
+  }
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) if (entry.isIntersecting) {
+      observer.unobserve(entry.target); queue.push(entry.target);
+    }
+    drain();
+  });
+  container.querySelectorAll('[data-progress]').forEach(el => observer.observe(el));
+  stopProgressWatch = () => { alive = false; observer.disconnect(); queue.length = 0; };
+}
 function jobCard(c) {
   const s = c.snapshot || {}, validID = /^[0-9a-f-]{36}$/i.test(c.id), url = validID ? `#candidate/${c.id}` : '';
   return `<article class="job-card"><div class="card-top"><span class="company">${esc(c.company || '회사 미확인')}</span>${stateTag(c.status)}</div>
@@ -122,8 +166,9 @@ function jobCard(c) {
     <div class="job-meta"><span>${esc(s.location || '근무지 미확인')}</span><span>${esc(s.employment || '고용형태 미확인')}</span><span>기업 규모 ${esc(JobFilters.metadata(c).size)}</span></div>
     <div class="job-meta">마감 ${esc(s.deadline || '미확인')} · ${esc(c.capture_level || '확보수준 미확인')}</div>
     <div class="card-note">${esc(c.family || '직무 미분류')}${c.synthetic ? ' · 합성 테스트' : ''}</div>
+    ${c.status === '승인' && validID ? `<div data-progress="${c.id}"><p class="muted">작성 진행률 확인 중…</p><a class="button small primary" href="#questions/${c.id}">자소서 작성 →</a></div>` : ''}
     <div class="card-bottom">${validID ? `<a class="button small" href="${url}">상세 보기</a>` : '<span class="over">후보ID 확인 필요</span>'}
-      ${c.status === '승인' && validID ? `<a class="button small primary" href="#questions/${c.id}">자소서 작성 →</a>` : ''}</div></article>`;
+      </div></article>`;
 }
 async function renderList(state, generation) {
   activeNav(state);
@@ -155,6 +200,7 @@ async function renderList(state, generation) {
     const filtered = JobFilters.filter(items, activePreset().filters, quickSearch);
     document.getElementById('cards').innerHTML = filtered.length ? filtered.map(jobCard).join('') : empty('조건에 맞는 공고가 없습니다', '검색어를 지우거나 검색 설정의 조건과 미확인 정보 포함 여부를 확인하세요.');
     document.getElementById('list-count').textContent = `전체 ${items.length}건 · 조건 일치 ${filtered.length}건`;
+    watchProgress(document.getElementById('cards'), generation);
   };
   draw(); document.getElementById('search').addEventListener('input', draw);
   document.getElementById('refresh').addEventListener('click', renderRoute);
@@ -207,15 +253,26 @@ function questionHTML(q) {
       <p class="save-message" role="status">저장된 답변을 불러왔습니다.</p>
       <p class="ai-note">${config.ai_ready ? '확인된 경력 근거로 초안을 생성합니다. 생성 결과는 작성중으로 저장되며, 직접 검토해야 합니다.' : 'AI 생성은 키·모델·확인된 경력 설정 후 사용할 수 있습니다. 직접 작성과 저장은 지금 가능합니다.'}</p></form></article>`;
 }
-async function renderQuestions(cid, generation) {
+async function renderQuestions(cid, generation, targetID) {
   const data = await api(`/api/candidates/${encodeURIComponent(cid)}/questions`);
   if (generation !== routeGeneration) return;
   activeNav('승인');
   main.innerHTML = `<a class="back" href="#candidate/${cid}">← 공고 상세</a>
     <div class="page-head"><div><div class="eyebrow">COVER LETTER DESK</div><h1>자기소개서 작성</h1><p class="subtitle">${esc(data.candidate.company)} · ${esc(data.candidate.title)}</p></div><span class="badge live">승인 공고</span></div>
     <div class="notice info">문항별 답변초안과 작성상태를 저장합니다. 화면을 닫기 전에 저장해주세요. 작성상태 ‘완료’는 지원서 제출을 의미하지 않습니다.</div>
+    <section class="panel" id="writing-summary" aria-live="polite"></section>
     ${data.items.length ? data.items.map(questionHTML).join('') : empty('연결된 자소서 문항이 없습니다','Notion 자소서 문항 DB에 문항을 등록하고, 이 공고의 후보ID를 입력하세요.')}
     <div class="actions"><button class="button ghost" id="questions-refresh">문항 다시 불러오기</button><a class="button" href="#list/승인">승인 공고 목록</a></div>`;
+  function focusQuestion(id) {
+    const article = Array.from(main.querySelectorAll('[data-question]')).find(el => el.dataset.question === id);
+    if (article) { article.scrollIntoView({block:'start'}); article.querySelector('textarea').focus({preventScroll:true}); }
+  }
+  function updateSummary() {
+    const p = WritingProgress.summarize(data.items);
+    document.getElementById('writing-summary').innerHTML = progressHTML(p, cid, true);
+    document.getElementById('continue-writing')?.addEventListener('click', () => focusQuestion(p.next_id));
+  }
+  updateSummary();
   data.items.forEach(original => {
     let q = original;
     const article = main.querySelector(`[data-question="${q.id}"]`), form = article.querySelector('form');
@@ -242,6 +299,7 @@ async function renderQuestions(cid, generation) {
           generate ? {version:q.version} : {version:q.version, answer:answer.value, method:selectedMethod(), status:state.value});
         if (generation !== routeGeneration) return;
         q = next; answer.value = q.answer; state.value = q.status;
+        data.items[data.items.findIndex(item => item.id === q.id)] = q; updateSummary();
         form.querySelectorAll('input[type=radio]').forEach(e => e.checked = e.value === q.method);
         article.querySelector('.saved-state').textContent = q.status;
         dirty.delete(q.id); updateCount(); message.textContent = generate ? 'AI 초안을 저장했습니다. 내용을 검토해주세요.' : '답변초안과 작성상태를 저장했습니다.';
@@ -261,8 +319,10 @@ async function renderQuestions(cid, generation) {
     if (dirty.size && !window.confirm('저장하지 않은 답변이 있습니다. 변경사항을 버리고 다시 불러올까요?')) return;
     dirty.clear(); renderRoute();
   });
+  if (targetID) focusQuestion(targetID);
 }
 async function renderRoute() {
+  stopProgressWatch();
   const generation = ++routeGeneration; dirty.clear();
   main.innerHTML = '<div class="loading" role="status">공고와 문항을 불러오고 있습니다…</div>';
   try {
@@ -270,7 +330,7 @@ async function renderRoute() {
     if (parts[0] === 'list') await renderList(config.states.includes(parts[1]) ? parts[1] : '검토대기', generation);
     else if (parts[0] === 'settings' && parts.length === 1) renderSettings();
     else if (parts.length === 2 && /^[0-9a-f-]{36}$/i.test(parts[1]) && parts[0] === 'candidate') await renderCandidate(parts[1], generation);
-    else if (parts.length === 2 && /^[0-9a-f-]{36}$/i.test(parts[1]) && parts[0] === 'questions') await renderQuestions(parts[1], generation);
+    else if ((parts.length === 2 || parts.length === 3) && /^[0-9a-f-]{36}$/i.test(parts[1]) && parts[0] === 'questions' && (!parts[2] || /^[0-9a-f-]{36}$/i.test(parts[2]))) await renderQuestions(parts[1], generation, parts[2]);
     else throw new Error('화면 주소를 확인하세요.');
   } catch (error) {
     if (generation !== routeGeneration) return;

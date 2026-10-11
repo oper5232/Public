@@ -124,6 +124,19 @@ def question(page):
             'status': select_property(p, '작성상태'), 'version': version(page)}
 
 
+def writing_progress(items):
+    completed = [q for q in items if q['status'] == '완료' and q['answer'].strip()]
+    invalid = sum(q['status'] == '완료' and not q['answer'].strip() for q in items)
+    writing = sum(q['status'] == '작성중' for q in items) + invalid
+    next_question = next((q for q in items if q not in completed), None)
+    total = len(items)
+    return {'total': total, 'completed': len(completed), 'writing': writing,
+            'pending': total - len(completed) - writing, 'invalid_completed': invalid,
+            'percent': len(completed) * 100 // total if total else 0,
+            'all_completed': bool(total and len(completed) == total),
+            'next_id': next_question['id'] if next_question else None}
+
+
 class NotionStore:
     def __init__(self, token, candidates_id, questions_id):
         self.token, self.candidates_id, self.questions_id = token, uid(candidates_id), uid(questions_id)
@@ -412,7 +425,11 @@ class Service:
                 return self.store.set_status(item, body['status'])
             if len(parts) == 4 and parts[3] == 'questions' and method == 'GET':
                 job = self.approved(cid)
-                return {'candidate': job, 'items': self.store.questions(cid)}
+                items = self.store.questions(cid)
+                return {'candidate': job, 'items': items, 'progress': writing_progress(items)}
+            if len(parts) == 4 and parts[3] == 'progress' and method == 'GET':
+                self.approved(cid)
+                return writing_progress(self.store.questions(cid))
             if len(parts) in (5, 6) and parts[3] == 'questions':
                 job = self.approved(cid)
                 q = self.get_question(cid, parts[4])
@@ -473,7 +490,7 @@ def handler(service):
                     if not hmac.compare_digest(self.headers.get('X-CSRF-Token', ''), csrf):
                         raise ApiError(403, '화면을 새로고침한 뒤 다시 시도하세요.')
                 url = urlsplit(self.path)
-                if self.command == 'GET' and url.path in ('/', '/index.html', '/app.css', '/app.js', '/filters.js'):
+                if self.command == 'GET' and url.path in ('/', '/index.html', '/app.css', '/app.js', '/filters.js', '/progress.js'):
                     name = 'index.html' if url.path == '/' else url.path.lstrip('/')
                     mime = {'html': 'text/html; charset=utf-8', 'css': 'text/css; charset=utf-8',
                             'js': 'text/javascript; charset=utf-8'}[name.rsplit('.', 1)[1]]

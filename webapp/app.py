@@ -8,6 +8,7 @@ from pathlib import Path
 import secrets
 import sqlite3
 import threading
+import time
 import uuid
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.error import HTTPError, URLError
@@ -65,6 +66,14 @@ def select_property(props, name):
     return (props.get(name, {}).get('select') or {}).get('name')
 
 
+def optional_label(props, *names):
+    for name in names:
+        value = select_property(props, name) or text_property(props, name)
+        if value:
+            return value
+    return None
+
+
 def rich(value):
     return {'rich_text': [{'text': {'content': value[i:i + 1800]}}
                           for i in range(0, len(value), 1800)]}
@@ -89,6 +98,7 @@ def candidate(page):
             'missing': text_property(p, '누락정보'),
             'reason': text_property(p, '판정사유'),
             'synthetic': p.get('합성테스트', {}).get('checkbox', False),
+            'company_size': optional_label(p, '기업규모', '기업 규모', '기업형태') or snapshot.get('company_size'),
             'snapshot': snapshot, 'version': version(page)}
 
 
@@ -112,13 +122,22 @@ class NotionStore:
                       data=json.dumps(body, ensure_ascii=False).encode() if body is not None else None,
                       headers={'Authorization': 'Bearer ' + self.token,
                                'Notion-Version': '2025-09-03', 'Content-Type': 'application/json'})
-        try:
-            with urlopen(req, timeout=30) as response:
-                return json.load(response)
-        except HTTPError as exc:
-            raise ApiError(502, f'Notion 요청 실패(HTTP {exc.code}). 연동 권한과 속성을 확인하세요.') from None
-        except (URLError, TimeoutError, ValueError):
-            raise ApiError(502, 'Notion 연결 실패. 잠시 후 다시 확인하세요.') from None
+        for attempt in range(3):
+            try:
+                with urlopen(req, timeout=30) as response:
+                    return json.load(response)
+            except HTTPError as exc:
+                if exc.code == 429 and attempt < 2 and (method == 'GET' or path.endswith('/query')):
+                    try:
+                        delay = max(0, float(exc.headers.get('Retry-After', '1')))
+                    except (ValueError, TypeError, AttributeError):
+                        delay = 1
+                    if delay <= 5:
+                        time.sleep(delay)
+                        continue
+                raise ApiError(502, f'Notion 요청 실패(HTTP {exc.code}). 연동 권한과 속성을 확인하세요.') from None
+            except (URLError, TimeoutError, ValueError):
+                raise ApiError(502, 'Notion 연결 실패. 잠시 후 다시 확인하세요.') from None
 
     def validate_schema(self):
         specs = [(self.candidates_id, {'후보ID': 'rich_text', '후보명': 'title', '사용자상태': 'select'},
@@ -424,7 +443,7 @@ def handler(service):
                     if not hmac.compare_digest(self.headers.get('X-CSRF-Token', ''), csrf):
                         raise ApiError(403, '화면을 새로고침한 뒤 다시 시도하세요.')
                 url = urlsplit(self.path)
-                if self.command == 'GET' and url.path in ('/', '/index.html', '/app.css', '/app.js'):
+                if self.command == 'GET' and url.path in ('/', '/index.html', '/app.css', '/app.js', '/filters.js'):
                     name = 'index.html' if url.path == '/' else url.path.lstrip('/')
                     mime = {'html': 'text/html; charset=utf-8', 'css': 'text/css; charset=utf-8',
                             'js': 'text/javascript; charset=utf-8'}[name.rsplit('.', 1)[1]]

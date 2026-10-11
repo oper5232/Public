@@ -175,6 +175,26 @@ class HttpTests(StoreFixture):
 
 
 class NotionContractTests(unittest.TestCase):
+    def test_company_size_is_optional_and_not_inferred(self):
+        from app import candidate
+        page = {'id': 'page', 'properties': {'회사': {'rich_text': [{'text': {'content': '대기업 계열사'}}]}}}
+        self.assertIsNone(candidate(page)['company_size'])
+        page['properties']['기업규모'] = {'select': {'name': '중견기업'}}
+        self.assertEqual(candidate(page)['company_size'], '중견기업')
+
+    def test_rate_limited_query_retries_but_write_does_not(self):
+        import io
+        from unittest.mock import patch
+        from urllib.error import HTTPError
+        store = NotionStore('not-real', str(__import__('uuid').uuid4()), str(__import__('uuid').uuid4()))
+        def limited(): return HTTPError('https://api.notion.com/v1/test', 429, 'rate limited', {'Retry-After': '0'}, None)
+        with patch('app.urlopen', side_effect=[limited(), io.BytesIO(b'{"results": []}')]) as request:
+            self.assertEqual(store.request('POST', 'data_sources/test/query', {}), {'results': []})
+            self.assertEqual(request.call_count, 2)
+        with patch('app.urlopen', side_effect=limited()) as request:
+            with self.assertRaises(ApiError): store.request('PATCH', 'pages/test', {})
+            self.assertEqual(request.call_count, 1)
+
     def test_exact_properties_and_long_answer_not_truncated(self):
         class Capture(NotionStore):
             def request(self, method, path, body=None):

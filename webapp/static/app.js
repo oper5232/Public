@@ -8,6 +8,91 @@ const field = (label, value) => `<div class="field"><dt>${esc(label)}</dt><dd>${
 const stateClass = s => ({'승인':'approved','제외':'excluded','보류':'held'}[s] || '');
 const stateTag = s => `<span class="state ${stateClass(s)}">${esc(s || '미확인')}</span>`;
 const empty = (title, text) => `<div class="empty"><h2>${esc(title)}</h2><p>${esc(text)}</p></div>`;
+const FILTER_KEY = 'career.search-settings.v1';
+const defaultFilterState = () => ({version:1, activeId:'all', presets:[{id:'all', name:'전체 공고', filters:JobFilters.defaults()}]});
+function readFilterState() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(FILTER_KEY));
+    if (!raw || raw.version !== 1 || !Array.isArray(raw.presets)) return defaultFilterState();
+    const ids = new Set(), presets = raw.presets.filter(p => {
+      if (!p || typeof p.id !== 'string' || !/^[\w-]{1,50}$/.test(p.id) || ids.has(p.id) || typeof p.name !== 'string' || !p.name.trim()) return false;
+      ids.add(p.id); return true;
+    }).slice(0,20).map(p => ({id:p.id, name:p.name.trim().slice(0,40), filters:JobFilters.normalize(p.filters)}));
+    if (!presets.length) return defaultFilterState();
+    return {version:1, presets, activeId:presets.some(p => p.id === raw.activeId) ? raw.activeId : presets[0].id};
+  } catch { return defaultFilterState(); }
+}
+let filterState = readFilterState(), quickSearch = '';
+const activePreset = () => filterState.presets.find(p => p.id === filterState.activeId) || filterState.presets[0];
+function saveFilterState(next) {
+  try { localStorage.setItem(FILTER_KEY, JSON.stringify(next)); filterState = next; return true; }
+  catch { notify('브라우저에 설정을 저장하지 못했습니다. 저장 공간과 개인정보 보호 설정을 확인하세요.'); return false; }
+}
+function renderSettings() {
+  activeNav('settings');
+  const preset = activePreset(), f = preset.filters;
+  const checks = (name, options, selected) => options.map(v => `<label><input type="checkbox" name="${name}" value="${esc(v)}" ${selected.includes(v) ? 'checked' : ''}>${esc(v)}</label>`).join('');
+  main.innerHTML = `<div class="page-head"><div><div class="eyebrow">SEARCH PREFERENCES</div><h1>검색 설정</h1><p class="subtitle">나에게 맞는 조건을 저장하고, 찾는 직무에 따라 전환하세요.</p></div><a class="button small ghost" href="#list">공고 목록</a></div>
+    <section class="panel"><div class="preset-bar"><label for="preset-select">저장한 조건</label><select id="preset-select">${filterState.presets.map(p => `<option value="${esc(p.id)}" ${p.id === preset.id ? 'selected' : ''}>${esc(p.name)}</option>`).join('')}</select><button class="button small danger" id="delete-preset" ${filterState.presets.length === 1 ? 'disabled' : ''}>조건 삭제</button></div></section>
+    <form id="settings-form"><section class="panel"><div class="panel-heading"><h2>공고 선택 조건</h2><span class="badge">복수 선택</span></div>
+      <label class="form-label" for="preset-name">검색 조건 이름</label><input id="preset-name" name="presetName" required maxlength="40" value="${esc(preset.name)}" placeholder="예: 전기보전 · 정규직">
+      <fieldset class="filter-group"><legend>기업 규모</legend><div class="check-grid">${checks('sizes', JobFilters.sizes, f.sizes)}</div><p class="muted">선택하지 않으면 모든 규모를 표시합니다. 회사명만으로 기업 규모를 추정하지 않습니다.</p></fieldset>
+      <fieldset class="filter-group"><legend>고용 형태</legend><div class="check-grid">${checks('employment', JobFilters.employment, f.employment)}</div></fieldset>
+      <label class="form-label" for="roles">모집 분야</label><input id="roles" name="roles" value="${esc(f.roles)}" maxlength="1000" placeholder="전기설비, 전기보전, 설비기술"><p class="search-hint">제목·기본직무·담당업무에 하나라도 포함하면 표시합니다.</p>
+      <label class="form-label" for="regions">근무 지역</label><input id="regions" name="regions" value="${esc(f.regions)}" maxlength="1000" placeholder="울산, 이천, 여수"><p class="search-hint">빈 값이면 지역 제한이 없습니다. 키워드는 쉼표로 구분합니다.</p></section>
+    <section class="panel"><div class="panel-heading"><h2>키워드 검색</h2></div>
+      <label class="form-label" for="include">포함 키워드</label><input id="include" name="include" value="${esc(f.include)}" maxlength="1000" placeholder="변압기, 수변전">
+      <label class="form-label" for="exclude">제외 키워드</label><input id="exclude" name="exclude" value="${esc(f.exclude)}" maxlength="1000" placeholder="영업, 파견"><p class="search-hint">제외 키워드 중 하나라도 포함되면 숨깁니다. 회사명도 검색 범위로 선택할 수 있습니다.</p>
+      <fieldset class="filter-group"><legend>검색 범위</legend><div class="check-grid">${[['title','공고 제목'],['company','회사명'],['duties','담당업무'],['requirements','자격요건']].map(([key,label]) => `<label><input type="checkbox" name="scopes" value="${key}" ${f.scopes.includes(key) ? 'checked' : ''}>${label}</label>`).join('')}</div></fieldset>
+      <label class="form-label" for="keyword-mode">포함 키워드·목록 검색어 일치 방식</label><select id="keyword-mode" name="keywordMode"><option value="any" ${f.keywordMode === 'any' ? 'selected' : ''}>하나라도 포함</option><option value="all" ${f.keywordMode === 'all' ? 'selected' : ''}>모두 포함</option></select></section>
+    <section class="panel"><h2>표시 방식</h2><div class="check-stack"><label><input type="checkbox" name="includeUnknown" ${f.includeUnknown ? 'checked' : ''}>선택한 기업 규모·고용 형태·지역이 미확인인 공고도 포함</label><label><input type="checkbox" name="hideClosed" ${f.hideClosed ? 'checked' : ''}>마감된 공고 숨김</label></div>
+      <label class="form-label" for="sort">정렬</label><select id="sort" name="sort"><option value="original" ${f.sort === 'original' ? 'selected' : ''}>기존 조회 순서</option><option value="deadline" ${f.sort === 'deadline' ? 'selected' : ''}>마감일 가까운 순</option></select>
+      <div class="notice">기업 규모가 없는 공고는 미확인으로 처리합니다. 마감일이 없으면 마감된 것으로 간주하지 않습니다. 날짜는 한국 시간 기준입니다.</div>
+      <div class="actions"><button class="button primary" type="submit">설정 저장·적용</button><button class="button" type="button" id="save-new-preset">새 조건으로 저장</button><button class="button ghost" type="button" id="reset-settings">조건 초기화</button></div>
+      <p class="save-message" id="settings-message" role="status">설정은 이 브라우저에 저장됩니다. 기존 공고와 승인 상태는 변경하지 않습니다.</p></section></form>`;
+  const form = document.getElementById('settings-form');
+  const message = document.getElementById('settings-message');
+  form.addEventListener('input', () => { dirty.add('settings'); message.textContent = '변경한 설정을 아직 저장하지 않았습니다.'; });
+  form.addEventListener('change', () => dirty.add('settings'));
+  function readForm() {
+    const values = new FormData(form);
+    if (!values.getAll('scopes').length) throw new Error('검색 범위를 하나 이상 선택하세요.');
+    return JobFilters.normalize({sizes:values.getAll('sizes'), employment:values.getAll('employment'),
+      scopes:values.getAll('scopes'), roles:values.get('roles'), regions:values.get('regions'),
+      include:values.get('include'), exclude:values.get('exclude'), keywordMode:values.get('keywordMode'),
+      includeUnknown:values.has('includeUnknown'), hideClosed:values.has('hideClosed'), sort:values.get('sort')});
+  }
+  function save(asNew) {
+    if (!form.reportValidity()) return;
+    try {
+      const name = form.elements.presetName.value.trim();
+      if (!name) throw new Error('검색 조건 이름을 입력하세요.');
+      if (asNew && filterState.presets.length >= 20) throw new Error('검색 조건은 최대 20개까지 저장할 수 있습니다.');
+      if (filterState.presets.some(p => p.name === name && (asNew || p.id !== preset.id))) throw new Error('다른 이름으로 저장하세요. 같은 이름의 검색 조건이 있습니다.');
+      const next = {id:asNew ? crypto.randomUUID() : preset.id, name, filters:readForm()};
+      const presets = asNew ? [...filterState.presets, next] : filterState.presets.map(p => p.id === preset.id ? next : p);
+      if (!saveFilterState({version:1, activeId:next.id, presets})) return;
+      dirty.delete('settings'); quickSearch = ''; notify('검색 조건을 저장하고 적용했습니다.'); renderSettings();
+    } catch (error) { message.textContent = error.message; message.classList.add('error'); }
+  }
+  form.addEventListener('submit', e => { e.preventDefault(); save(false); });
+  document.getElementById('save-new-preset').addEventListener('click', () => save(true));
+  document.getElementById('reset-settings').addEventListener('click', () => {
+    form.querySelectorAll('input[type=checkbox]').forEach(e => e.checked = ['scopes','includeUnknown'].includes(e.name));
+    for (const name of ['roles','regions','include','exclude']) form.elements[name].value = '';
+    form.elements.keywordMode.value = 'any'; form.elements.sort.value = 'original';
+    dirty.add('settings'); message.textContent = '조건을 초기화했습니다. 설정 저장·적용을 눌러 반영하세요.';
+  });
+  document.getElementById('preset-select').addEventListener('change', e => {
+    if (dirty.size && !window.confirm('저장하지 않은 설정을 버리고 다른 조건을 불러올까요?')) { e.target.value = preset.id; return; }
+    if (saveFilterState({...filterState, activeId:e.target.value})) { dirty.clear(); quickSearch = ''; renderSettings(); }
+  });
+  document.getElementById('delete-preset').addEventListener('click', () => {
+    if (filterState.presets.length < 2 || !window.confirm('이 검색 조건을 삭제할까요?')) return;
+    const presets = filterState.presets.filter(p => p.id !== preset.id);
+    if (saveFilterState({version:1, presets, activeId:presets[0].id})) { dirty.clear(); quickSearch = ''; renderSettings(); }
+  });
+}
 function safeURL(value) {
   try { const u = new URL(value); return ['http:','https:'].includes(u.protocol) && !u.username && !u.password ? u.href : ''; }
   catch { return ''; }
@@ -34,7 +119,7 @@ function jobCard(c) {
   const s = c.snapshot || {}, validID = /^[0-9a-f-]{36}$/i.test(c.id), url = validID ? `#candidate/${c.id}` : '';
   return `<article class="job-card"><div class="card-top"><span class="company">${esc(c.company || '회사 미확인')}</span>${stateTag(c.status)}</div>
     <h2>${validID ? `<a href="${url}">${esc(c.title)}</a>` : esc(c.title)}</h2>
-    <div class="job-meta"><span>${esc(s.location || '근무지 미확인')}</span><span>${esc(s.employment || '고용형태 미확인')}</span></div>
+    <div class="job-meta"><span>${esc(s.location || '근무지 미확인')}</span><span>${esc(s.employment || '고용형태 미확인')}</span><span>기업 규모 ${esc(JobFilters.metadata(c).size)}</span></div>
     <div class="job-meta">마감 ${esc(s.deadline || '미확인')} · ${esc(c.capture_level || '확보수준 미확인')}</div>
     <div class="card-note">${esc(c.family || '직무 미분류')}${c.synthetic ? ' · 합성 테스트' : ''}</div>
     <div class="card-bottom">${validID ? `<a class="button small" href="${url}">상세 보기</a>` : '<span class="over">후보ID 확인 필요</span>'}
@@ -47,31 +132,35 @@ async function renderList(state, generation) {
     '보류':['보류 공고','추가 확인이 필요한 공고를 다시 살펴보세요.'],
     '제외':['제외 공고','제외한 공고도 기록으로 남아 있습니다.']};
   const [title, subtitle] = labels[state] || labels['검토대기'];
-  const data = await api('/api/candidates?status=' + encodeURIComponent(state));
-  if (generation !== routeGeneration) return;
-  let items = data.items, cursor = data.next_cursor;
-  main.innerHTML = `<div class="page-head"><div><div class="eyebrow">MY OPPORTUNITIES</div><h1>${title}</h1><p class="subtitle">${subtitle}</p></div><button class="button small ghost" id="refresh">새로고침</button></div>
+  const items = [], cursors = new Set(); let cursor = null;
+  do {
+    const data = await api('/api/candidates?status=' + encodeURIComponent(state) +
+      (cursor ? '&cursor=' + encodeURIComponent(cursor) : ''));
+    if (generation !== routeGeneration) return;
+    items.push(...data.items); cursor = data.next_cursor;
+    if (cursor && (cursors.has(cursor) || cursors.size >= 400)) throw new Error('공고 전체 조회를 완료하지 못했습니다. 잠시 후 다시 조회하세요.');
+    if (cursor) cursors.add(cursor);
+    main.innerHTML = `<div class="loading" role="status">전체 공고를 확인하고 있습니다… ${items.length}건 조회</div>`;
+  } while (cursor);
+  const preset = activePreset();
+  main.innerHTML = `<div class="page-head"><div><div class="eyebrow">MY OPPORTUNITIES</div><h1>${title}</h1><p class="subtitle">${subtitle}</p></div><div class="page-tools"><a class="button small ghost" href="#settings">검색 설정</a><button class="button small ghost" id="refresh">새로고침</button></div></div>
     <div class="tabs" aria-label="상태별 공고">${config.states.map(s => `<a href="#list/${s}" class="${s === state ? 'active' : ''}" ${s === state ? 'aria-current="page"' : ''}>${s}</a>`).join('')}</div>
-    <div class="toolbar"><span class="count" id="list-count"></span><label for="search">공고 찾기 <input id="search" type="search" placeholder="회사 또는 공고명" autocomplete="off"></label></div>
+    <section class="filter-summary"><label for="active-preset">저장한 검색 조건</label><select id="active-preset">${filterState.presets.map(p => `<option value="${esc(p.id)}" ${p.id === preset.id ? 'selected' : ''}>${esc(p.name)}</option>`).join('')}</select><a href="#settings">조건 편집</a><p>${esc(JobFilters.summarize(preset.filters))}</p></section>
+    <div class="toolbar"><span class="count" id="list-count"></span><label for="search">포함 검색 <input id="search" type="search" placeholder="예: 전기보전, 변압기" value="${esc(quickSearch)}" autocomplete="off"></label></div>
+    <p class="search-hint">쉼표로 단어를 구분합니다. 설정한 검색 범위에서 ${preset.filters.keywordMode === 'all' ? '모든 단어' : '하나 이상의 단어'}를 포함하는 공고를 찾습니다.</p>
     ${state === '검토대기' ? '<div class="notice">승인 전에는 점수·기업조사·자소서 초안을 생성하지 않습니다.</div>' : ''}
-    <div id="cards" class="cards"></div><button id="more" class="button load-more">더 불러오기</button>`;
+    <div id="cards" class="cards"></div>`;
   const draw = () => {
-    const term = document.getElementById('search').value.toLowerCase().trim();
-    const filtered = items.filter(c => `${c.company} ${c.title}`.toLowerCase().includes(term));
-    document.getElementById('cards').innerHTML = filtered.length ? filtered.map(jobCard).join('') : empty('표시할 공고가 없습니다', term ? '검색어를 바꾸거나 다음 페이지를 불러오세요.' : '이 상태의 공고가 아직 없습니다.');
-    document.getElementById('list-count').textContent = `불러온 ${items.length}건 · 표시 ${filtered.length}건`;
-    document.getElementById('more').hidden = !cursor;
+    quickSearch = document.getElementById('search').value;
+    const filtered = JobFilters.filter(items, activePreset().filters, quickSearch);
+    document.getElementById('cards').innerHTML = filtered.length ? filtered.map(jobCard).join('') : empty('조건에 맞는 공고가 없습니다', '검색어를 지우거나 검색 설정의 조건과 미확인 정보 포함 여부를 확인하세요.');
+    document.getElementById('list-count').textContent = `전체 ${items.length}건 · 조건 일치 ${filtered.length}건`;
   };
   draw(); document.getElementById('search').addEventListener('input', draw);
   document.getElementById('refresh').addEventListener('click', renderRoute);
-  document.getElementById('more').addEventListener('click', async e => {
-    const button = e.currentTarget; button.disabled = true;
-    try {
-      const next = await api(`/api/candidates?status=${encodeURIComponent(state)}&cursor=${encodeURIComponent(cursor)}`);
-      if (generation !== routeGeneration) return;
-      items.push(...next.items); cursor = next.next_cursor; draw();
-    } catch (error) { notify(error.message); }
-    finally { button.disabled = false; }
+  document.getElementById('active-preset').addEventListener('change', e => {
+    if (saveFilterState({...filterState, activeId:e.target.value})) { quickSearch = ''; renderRoute(); }
+    else e.target.value = preset.id;
   });
 }
 async function renderCandidate(cid, generation) {
@@ -82,7 +171,7 @@ async function renderCandidate(cid, generation) {
   main.innerHTML = `<a class="back" href="#list/${esc(c.status || '검토대기')}">← 공고 목록</a>
     <div class="page-head"><div><div class="eyebrow">JOB CARD DETAIL</div><h1>${esc(c.title)}</h1><p class="subtitle">${esc(c.company || '회사 미확인')}${c.synthetic ? ' · 합성 테스트 공고' : ''}</p></div>${stateTag(c.status)}</div>
     <section class="panel"><div class="panel-heading"><h2>공고 정보</h2>${url ? `<a class="button small ghost" href="${esc(url)}" target="_blank" rel="noopener noreferrer">원문 열기 ↗</a>` : '<span class="muted">원문 URL 미확인</span>'}</div>
-      <dl class="fields">${field('근무지',s.location)}${field('고용형태',s.employment)}${field('경력·필수요건',s.requirements)}${field('마감일',s.deadline)}${field('원문 확보',c.capture_level)}${field('수집판정',c.decision)}${field('수집 출처',s.source)}${field('기본직무',c.family)}${field('시스템상태',c.system_status)}</dl>
+      <dl class="fields">${field('기업 규모',JobFilters.metadata(c).size)}${field('근무지',s.location)}${field('고용형태',s.employment)}${field('경력·필수요건',s.requirements)}${field('마감일',s.deadline)}${field('원문 확보',c.capture_level)}${field('수집판정',c.decision)}${field('수집 출처',s.source)}${field('기본직무',c.family)}${field('시스템상태',c.system_status)}</dl>
       <div class="text-block"><h3>담당업무</h3><p>${esc(s.duties || '미확인')}</p></div>
       <div class="text-block"><h3>수집 판정 근거</h3><p>${esc(c.reason || '미확인')}</p></div>
       <div class="notice">누락정보: ${esc(c.missing || '기록된 누락정보 없음')}</div></section>
@@ -179,6 +268,7 @@ async function renderRoute() {
   try {
     const parts = decodeURIComponent((location.hash || '#list').slice(1)).split('/');
     if (parts[0] === 'list') await renderList(config.states.includes(parts[1]) ? parts[1] : '검토대기', generation);
+    else if (parts[0] === 'settings' && parts.length === 1) renderSettings();
     else if (parts.length === 2 && /^[0-9a-f-]{36}$/i.test(parts[1]) && parts[0] === 'candidate') await renderCandidate(parts[1], generation);
     else if (parts.length === 2 && /^[0-9a-f-]{36}$/i.test(parts[1]) && parts[0] === 'questions') await renderQuestions(parts[1], generation);
     else throw new Error('화면 주소를 확인하세요.');
@@ -190,7 +280,7 @@ async function renderRoute() {
 }
 window.addEventListener('beforeunload', e => { if (dirty.size) { e.preventDefault(); e.returnValue = ''; } });
 window.addEventListener('hashchange', () => {
-  if (dirty.size && !window.confirm('저장하지 않은 답변이 있습니다. 변경사항을 버리고 이동할까요?')) {
+  if (dirty.size && !window.confirm('저장하지 않은 변경사항이 있습니다. 변경사항을 버리고 이동할까요?')) {
     history.replaceState(null, '', currentRoute); return;
   }
   currentRoute = location.hash; renderRoute();

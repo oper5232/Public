@@ -175,6 +175,44 @@ class HttpTests(StoreFixture):
 
 
 class NotionContractTests(unittest.TestCase):
+    def schema_store(self, options):
+        class Schema(NotionStore):
+            def request(self, method, path, body=None):
+                if method == 'PATCH':
+                    self.saved = body['properties']
+                    return {'id': 'page', 'properties': body['properties']}
+                if path.endswith(self.candidates_id):
+                    return {'properties': {'후보ID': {'type': 'rich_text'}, '후보명': {'type': 'title'},
+                        '사용자상태': {'type': 'select', 'select': {'options': [{'name': n} for n in ('검토대기','승인','보류','제외')]}}}}
+                props = {n: {'type': t} for n,t in [('문항명','title'),('글자수제한','number'),
+                    ('답변초안','rich_text'),('문항내용','rich_text'),('문항번호','number'),('후보ID','rich_text')]}
+                props['작성방식'] = {'type':'select','select':{'options':[{'name':n} for n in options]}}
+                props['작성상태'] = {'type':'select','select':{'options':[{'name':n} for n in ('입력대기','작성중','완료')]}}
+                return {'properties': props}
+        return Schema('not-real',str(__import__('uuid').uuid4()),str(__import__('uuid').uuid4()))
+
+    def test_method_spacing_is_accepted_and_actual_option_is_written(self):
+        store = self.schema_store(['AI 초안', '직접작성 '])
+        store.validate_schema()
+        saved = store.save_question({'id':'page'}, '답변', '직접 작성', '작성중')
+        self.assertEqual(store.saved['작성방식']['select']['name'], '직접작성 ')
+        self.assertEqual(saved['method'], '직접 작성')
+        self.assertEqual(saved['method_option'], '직접작성 ')
+
+    def test_existing_method_option_preserved_when_both_variants_exist(self):
+        store = self.schema_store(['AI초안','AI 초안','직접 작성'])
+        store.validate_schema()
+        store.save_question({'id':'page','method_option':'AI 초안'}, '답변', 'AI초안', '작성중')
+        self.assertEqual(store.saved['작성방식']['select']['name'], 'AI 초안')
+
+    def test_missing_method_error_identifies_db_and_actual_options(self):
+        store = self.schema_store(['AI초안','수동'])
+        with self.assertRaises(ApiError) as caught: store.validate_schema()
+        self.assertIn('자소서 문항 DB', caught.exception.message)
+        self.assertIn('직접 작성', caught.exception.message)
+        self.assertIn('수동', caught.exception.message)
+        self.assertIn(store.questions_id, caught.exception.message)
+
     def test_company_size_is_optional_and_not_inferred(self):
         from app import candidate
         page = {'id': 'page', 'properties': {'회사': {'rich_text': [{'text': {'content': '대기업 계열사'}}]}}}

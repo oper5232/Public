@@ -10,6 +10,7 @@ import sqlite3
 import threading
 import time
 import uuid
+import unicodedata
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qs, urlsplit
@@ -19,6 +20,15 @@ ROOT = Path(__file__).resolve().parent
 STATES = ('검토대기', '승인', '보류', '제외')
 METHODS = ('AI초안', '직접 작성')
 WRITING_STATES = ('입력대기', '작성중', '완료')
+
+
+def method_key(value):
+    return ''.join(c for c in unicodedata.normalize('NFKC', str(value or ''))
+                   if not c.isspace() and c not in '\u200b\ufeff').upper()
+
+
+def canonical_method(value):
+    return next((name for name in METHODS if method_key(name) == method_key(value)), value)
 
 
 class ApiError(Exception):
@@ -109,13 +119,15 @@ def question(page):
             'number': p.get('문항번호', {}).get('number'),
             'limit': p.get('글자수제한', {}).get('number'),
             'answer': text_property(p, '답변초안'),
-            'method': select_property(p, '작성방식'),
+            'method': canonical_method(select_property(p, '작성방식')),
+            'method_option': select_property(p, '작성방식'),
             'status': select_property(p, '작성상태'), 'version': version(page)}
 
 
 class NotionStore:
     def __init__(self, token, candidates_id, questions_id):
         self.token, self.candidates_id, self.questions_id = token, uid(candidates_id), uid(questions_id)
+        self.method_names = {name: name for name in METHODS}
 
     def request(self, method, path, body=None):
         req = Request('https://api.notion.com/v1/' + path, method=method,
@@ -147,14 +159,30 @@ class NotionStore:
                   '작성상태': 'select', '후보ID': 'rich_text'},
                   {'작성방식': METHODS, '작성상태': WRITING_STATES})]
         for ds, fields, selects in specs:
-            props = self.request('GET', 'data_sources/' + ds)['properties']
+            label = '자소서 문항 DB' if ds == self.questions_id else '후보 공고 DB'
+            try:
+                props = self.request('GET', 'data_sources/' + ds)['properties']
+            except ApiError as exc:
+                raise ApiError(exc.status, f'{label} 조회 실패: {exc.message}') from None
             for name, typ in fields.items():
                 if props.get(name, {}).get('type') != typ:
-                    raise ApiError(422, f'Notion 속성 타입 확인 필요: {name} ({typ})')
+                    raise ApiError(422, f'{label} 속성 타입 확인 필요: {name} ({typ})')
             for name, values in selects.items():
                 options = {x['name'] for x in props[name]['select']['options']}
-                if not set(values) <= options:
-                    raise ApiError(422, f'Notion 선택값 확인 필요: {name}')
+                mapping = {}
+                for value in values:
+                    matches = [option for option in options if (method_key(option) == method_key(value)
+                               if name == '작성방식' else option == value)]
+                    if value in matches:
+                        mapping[value] = value
+                    elif len(matches) == 1:
+                        mapping[value] = matches[0]
+                    else:
+                        actual = ', '.join(repr(option) for option in sorted(options)) or '(없음)'
+                        raise ApiError(422, f'{label} ({ds}) 선택값 확인 필요: {name}. '
+                                       f'필요 값: {value!r} / 실제 옵션: {actual}')
+                if name == '작성방식':
+                    self.method_names = mapping
 
     def list_candidates(self, status='', cursor=None):
         body = {'page_size': 50, 'sorts': [{'timestamp': 'last_edited_time', 'direction': 'descending'}]}
@@ -195,8 +223,10 @@ class NotionStore:
         return sorted(items, key=lambda q: (q['number'] or 0, q['id']))
 
     def save_question(self, item, answer, method, state):
+        existing = item.get('method_option')
+        option = existing if existing and canonical_method(existing) == method else self.method_names[method]
         result = self.request('PATCH', 'pages/' + item['id'], {'properties': {
-            '답변초안': rich(answer), '작성방식': {'select': {'name': method}},
+            '답변초안': rich(answer), '작성방식': {'select': {'name': option}},
             '작성상태': {'select': {'name': state}}}})
         return question(result)
 

@@ -1,12 +1,12 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {assertBankPreserved} from '../scripts/bank-preservation.mjs';
 import {planImport,reduceEvents,attemptEvent,validateSession,validateEvent} from '../src/core.js';
 const bank=JSON.parse(fs.readFileSync(new URL('../src/questions.json',import.meta.url)));
 const session=()=>({id:'test-session',ids:['q001'],orders:{q001:[2,0,3,1]},answers:{},pos:0});
-test('원본 189문항의 ID·문제·정답·해설·그림 보존',()=>{
- const html=fs.readFileSync(new URL('../backups/original.html',import.meta.url),'utf8');const old=JSON.parse(html.match(/id="questionData">([\s\S]*?)<\/script>/)[1]);assert.equal(old.length,189);assert.equal(new Set(bank.map(q=>q.id)).size,bank.length);
- for(const q of old){const now=bank.find(x=>x.id===q.id);for(const k of Object.keys(q))assert.deepEqual(now[k],q[k]);}
+test('원본 189문항의 ID와 명시적 정정 외 모든 원본 필드 보존',()=>{
+ assert.equal(assertBankPreserved(bank).length,189);assert.equal(new Set(bank.map(q=>q.id)).size,bank.length);
 });
 test('중복 이벤트 전송은 한 번 집계, 새로운 풀이는 추가 집계',()=>{
  const s=session(),first=attemptEvent(s,bank[0],0);assert(first.correct);const next=attemptEvent(s,bank[0],1);const h=reduceEvents([first,first,next],bank).history.q001;

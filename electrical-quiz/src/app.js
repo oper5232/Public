@@ -23,7 +23,7 @@ function refreshLedger(){
 }
 store.onchange=refreshLedger;
 function toast(t){$('toast').textContent=t;$('toast').classList.add('show');clearTimeout(window._toastId);window._toastId=setTimeout(()=>$('toast').classList.remove('show'),2400)}
-function show(page){$('homeTools').classList.toggle('hidden',page!=='home');['home','quiz','results'].forEach(id=>$(id).classList.toggle('hidden',id!==page));window.scrollTo({top:0,behavior:'instant'});if(page==='home')renderHome();if(page==='quiz')renderQuiz();if(page==='results')renderResults()}
+function show(page){const homeTools=$('homeTools')||document.querySelector('.account-panel');homeTools?.classList.toggle('hidden',page!=='home');['home','quiz','results'].forEach(id=>$(id).classList.toggle('hidden',id!==page));window.scrollTo({top:0,behavior:'instant'});if(page==='home')renderHome();if(page==='quiz')renderQuiz();if(page==='results')renderResults()}
 function fisher(a){let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
 function pool(){let y=$('yearSelect').value,t=$('topicSelect').value;return BANK.filter(q=>(y==='all'||q.year===y)&&(t==='all'||q.category===t))}
 function neverAttempted(q){return !(Number(state.history[q.id]?.attempts)>0)}
@@ -101,9 +101,30 @@ try{cloud=await connectCloud(store,{
  busy:value=>{identityBusy=value;$('studySections').inert=value;}
 });}catch(e){$('syncStatus').textContent='인증 초기화 실패 · '+e.message;}
 if('serviceWorker' in navigator){
- navigator.serviceWorker.register('./sw.js').then(reg=>{
-  const ready=()=>{if(reg.waiting)$('updateApp').classList.remove('hidden');};ready();reg.addEventListener('updatefound',()=>reg.installing?.addEventListener('statechange',ready));
-  $('updateApp').onclick=async()=>{await save();window.__applyAppUpdate=true;reg.waiting?.postMessage('ACTIVATE_UPDATE');};
+ navigator.serviceWorker.register('./sw.js',{updateViaCache:'none'}).then(reg=>{
+  const button=$('updateApp');
+  const ready=()=>{if(reg.waiting)button.classList.remove('hidden');};
+  const watch=worker=>worker?.addEventListener('statechange',()=>setTimeout(ready,0));
+  ready();watch(reg.installing);reg.addEventListener('updatefound',()=>watch(reg.installing));
+  button.onclick=async()=>{
+   if(button.disabled)return;
+   button.disabled=true;button.textContent='새 버전 적용 중…';
+   try{
+    await store.saveSession(state.session);
+    if(!reg.waiting){
+     await reg.update();
+     const worker=reg.installing;
+     if(worker&&worker.state!=='installed')await new Promise((resolve,reject)=>{
+      const timer=setTimeout(()=>{worker.removeEventListener('statechange',changed);reject(Error('업데이트 준비 시간이 초과됐습니다. 연결을 확인하고 다시 시도하세요.'));},30000);
+      function changed(){if(worker.state==='installed'){clearTimeout(timer);worker.removeEventListener('statechange',changed);resolve();}else if(worker.state==='redundant'){clearTimeout(timer);worker.removeEventListener('statechange',changed);reject(Error('새 버전 설치가 중단됐습니다. 다시 시도하세요.'));}}
+      worker.addEventListener('statechange',changed);changed();
+     });
+    }
+    window.__applyAppUpdate=true;
+    if(reg.waiting)reg.waiting.postMessage('ACTIVATE_UPDATE');
+    else location.reload();
+   }catch(e){window.__applyAppUpdate=false;button.disabled=false;button.textContent='새 버전 적용';toast('업데이트 실패: '+e.message);}
+  };
  }).catch(e=>{$('installHelp').textContent='오프라인 캐시 설정 실패: '+e.message;});
  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(window.__applyAppUpdate&&!window.__appReloading){window.__appReloading=true;location.reload();}});
 }

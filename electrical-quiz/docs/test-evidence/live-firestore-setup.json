@@ -1,0 +1,9 @@
+{
+  "check": "unauthenticated-firestore-setup-probe",
+  "httpStatus": 403,
+  "status": "PERMISSION_DENIED",
+  "message": "Cloud Firestore API has not been used in project quiz-8e834 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=quiz-8e834 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.",
+  "reasons": [
+    "SERVICE_DISABLED"
+  ]
+}

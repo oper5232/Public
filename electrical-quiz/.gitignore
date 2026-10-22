@@ -1,0 +1,10 @@
+node_modules/
+.firebase/
+*-debug.log
+test-results/
+*.zip
+.env*
+*service-account*.json
+*credentials*.json
+firebase-config.local.json
+playwright-report/

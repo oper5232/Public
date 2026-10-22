@@ -1,0 +1,9 @@
+{
+  "environment": "Chromium + service worker + local HTTP fixture",
+  "result": "PASS",
+  "checks": [
+    "189→190문항 추가",
+    "새 버전 준비 알림·사용자 적용",
+    "기존 ID 풀이 횟수·미응시 보존"
+  ]
+}

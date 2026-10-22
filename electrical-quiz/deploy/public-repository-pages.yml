@@ -1,0 +1,42 @@
+# Copy to oper5232/Public/.github/workflows/electrical-quiz-pages.yml
+# after the user approves public publication and enables Pages / GitHub Actions.
+name: Deploy electrical quiz and preserve existing Pages files
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: electrical-quiz/package-lock.json
+      - run: npm ci
+        working-directory: electrical-quiz
+      - run: npm test && npm run build
+        working-directory: electrical-quiz
+      - run: python3 electrical-quiz/deploy/stage-public-pages.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

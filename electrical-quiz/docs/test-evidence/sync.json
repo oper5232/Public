@@ -1,0 +1,14 @@
+{
+  "environment": "Firebase Auth/Firestore Emulators + Chromium independent browser contexts; 실제 Google OAuth/실서비스 아님",
+  "results": [
+    "B: 다른 기기 동일 계정 기록 수신",
+    "B: PC 풀이를 휴대전화 화면에 실시간 반영",
+    "최근 시험과 채점 상태 이어풀기",
+    "E: 오프라인 IndexedDB 큐를 재접속 시 자동 전송",
+    "A·C: 인증 유지·재접속·재전송 중복 집계 없음",
+    "계정별 학습 기록 분리",
+    "로그아웃 후 게스트 기록 분리",
+    "재로그인 시 본인 기록 복구"
+  ],
+  "errors": []
+}

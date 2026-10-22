@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function owner(uid) { return request.auth != null && request.auth.uid == uid; }
+    function nonnegative(n) { return n is int && n >= 0 && n <= 1000000000; }
+    function valid(e, id) {
+      return e.id == id && e.id is string && e.id.size() <= 180
+        && e.at is string && e.at.size() <= 32
+        && ((e.kind == 'attempt'
+          && e.keys().hasOnly(['id','kind','at','qid','sessionId','choice','correct'])
+          && e.qid is string && e.qid.size() <= 100
+          && e.sessionId is string && e.sessionId.size() <= 100
+          && e.choice is int && e.choice >= 0 && e.choice <= 3 && e.correct is bool)
+        || (e.kind == 'star'
+          && e.keys().hasOnly(['id','kind','at','qid','value'])
+          && e.qid is string && e.qid.size() <= 100 && e.value is bool)
+        || (e.kind == 'legacy'
+          && e.keys().hasOnly(['id','kind','at','qid','correct','wrong','unknown','lastAt','lastCorrect','star'])
+          && e.qid is string && e.qid.size() <= 100
+          && nonnegative(e.correct) && nonnegative(e.wrong) && nonnegative(e.unknown)
+          && e.correct + e.wrong + e.unknown <= 1000000000
+          && (e.lastAt == null || e.lastAt is string && e.lastAt.size() <= 32)
+          && (e.lastCorrect == null || e.lastCorrect is bool) && e.star is bool)
+        || (e.kind == 'session'
+          && e.keys().hasOnly(['id','kind','at','session']) && e.session is map
+          && e.session.id is string && e.session.id.size() <= 100
+          && e.session.ids is list && e.session.ids.size() > 0 && e.session.ids.size() <= 3000
+          && e.session.answers is map && e.session.orders is map
+          && e.session.pos is int && e.session.pos >= 0 && e.session.pos < e.session.ids.size()));
+    }
+    match /users/{uid}/events/{id} {
+      allow read: if owner(uid);
+      allow create: if owner(uid) && valid(request.resource.data,id);
+      // Retried uploads of the exact same immutable event are safe.
+      allow update: if owner(uid) && request.resource.data == resource.data;
+      allow delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

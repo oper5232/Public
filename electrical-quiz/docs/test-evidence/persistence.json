@@ -1,0 +1,9 @@
+{
+  "environment": "Linux Chromium persistent profile / independent tabs, 실제 스마트폰 아님",
+  "results": [
+    "A: Chromium 프로세스 종료·동일 프로필 재시작 후 10문항 기록 유지",
+    "기존 localStorage 최초 복사·원본 유지·초기화 후 자동 재복사 방지",
+    "C: 같은 기기 두 탭의 동시 채점을 한 번만 원자적으로 저장",
+    "가져오기 검증 실패 시 기존 기록 유지"
+  ]
+}

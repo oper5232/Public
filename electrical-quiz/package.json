@@ -1,0 +1,27 @@
+{
+  "name": "electrical-construction-study",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate-bank.mjs",
+    "test": "node tests/core.test.mjs",
+    "test:browser": "node tests/browser.mjs",
+    "test:rules": "firebase emulators:exec --project demo-electrical-study --only firestore 'node --test tests/rules.test.mjs'",
+    "serve": "python3 -m http.server 4173 --directory public --bind 0.0.0.0",
+    "test:update": "node tests/update.mjs",
+    "test:sync": "firebase emulators:exec --project demo-electrical-study --only auth,firestore \"node tests/sync.mjs\"",
+    "build:emulator-test": "node scripts/build-emulator-test.mjs",
+    "test:persistence": "node tests/persistence.mjs"
+  },
+  "dependencies": {
+    "firebase": "12.4.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.11",
+    "@playwright/test": "1.56.1",
+    "@firebase/rules-unit-testing": "5.0.0",
+    "firebase-tools": "14.22.0"
+  }
+}

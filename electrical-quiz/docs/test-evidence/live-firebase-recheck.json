@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-10-22T07:45:52.537320+00:00",
+  "projectId": "quiz-8e834",
+  "checks": [
+    {
+      "check": "auth-public-project-config",
+      "httpStatus": 200,
+      "projectId": "655249701194",
+      "authorizedDomains": [
+        "localhost",
+        "quiz-8e834.firebaseapp.com",
+        "quiz-8e834.web.app"
+      ],
+      "error": null
+    },
+    {
+      "check": "google-provider-oauth-start",
+      "httpStatus": 200,
+      "providerId": "google.com",
+      "oauthHost": "accounts.google.com",
+      "error": null
+    },
+    {
+      "check": "unauthenticated-firestore-read",
+      "httpStatus": 403,
+      "status": "PERMISSION_DENIED",
+      "message": "Missing or insufficient permissions."
+    },
+    {
+      "check": "unauthenticated-firestore-write",
+      "httpStatus": 403,
+      "status": "PERMISSION_DENIED",
+      "message": "Missing or insufficient permissions."
+    }
+  ]
+}

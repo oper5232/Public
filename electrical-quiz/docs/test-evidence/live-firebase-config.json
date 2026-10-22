@@ -1,0 +1,5 @@
+{
+  "check": "auth-public-project-config",
+  "httpStatus": 400,
+  "error": "CONFIGURATION_NOT_FOUND"
+}

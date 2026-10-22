@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {assertBankPreserved} from '../scripts/bank-preservation.mjs';
-import {planImport,reduceEvents,attemptEvent,validateSession,validateEvent} from '../src/core.js';
+import {planImport,reduceEvents,attemptEvent,practicalAttempt,validateSession,validateEvent} from '../src/core.js';
 const bank=JSON.parse(fs.readFileSync(new URL('../src/questions.json',import.meta.url)));
 const session=()=>({id:'test-session',ids:['q001'],orders:{q001:[2,0,3,1]},answers:{},pos:0});
 test('원본 189문항의 ID와 명시적 정정 외 모든 원본 필드 보존',()=>{
@@ -51,3 +51,20 @@ test('새 문제 추가 후 기존 ID 기록과 최근 이력 보존',()=>{
  assert.equal(extended.filter(q=>!reduceEvents([e],extended).history[q.id]?.attempts).length,189);
 });
 test('추가한 문제의 정답 인덱스가 0이 아니어도 채점',()=>{const q={...bank[0],id:'extra',correct:2};assert.equal(attemptEvent({id:'s',answers:{}},q,2).correct,true);assert.equal(attemptEvent({id:'s',answers:{}},q,0).correct,false);});
+test('실기 정오답은 별도로 집계하고 동일 판정 재전송을 중복 제외',async()=>{
+ const s={...session(),id:'practical_demo',format:'practical',drafts:{q001:['절연 변압기']},revealed:{q001:true}};
+ const p=practicalAttempt(s,bank[0],true),m=attemptEvent(session(),bank[0],1);
+ validateEvent(p);validateSession(s,new Set(bank.map(q=>q.id)));
+ assert.equal(reduceEvents([p,p,m],bank,{format:'practical'}).history.q001.attempts,1);
+ assert.equal(reduceEvents([p,p,m],bank,{format:'mcq'}).history.q001.wrong,1);
+ const plan=await planImport({format:'electrical-construction-quiz-events',version:3,events:[p,{id:'session_practical',kind:'session',at:p.at,session:s}]},bank,[p]);
+ assert.equal(plan.after,1);assert.equal(plan.events.length,1);assert.deepEqual(plan.events[0].session.drafts,s.drafts);
+ s.answers.q001=0;assert.equal(practicalAttempt(s,bank[0],true),null);
+ assert.throws(()=>practicalAttempt({...s,revealed:{}},bank[0],true));
+ assert.throws(()=>validateSession({...s,drafts:{q001:['x'.repeat(2001)]}}));
+});
+test('실기에서는 구 객관식 누적 기록을 미응시 판정에 섞지 않음',async()=>{
+ const p=await planImport({history:{q001:{attempts:8,correct:5,wrong:3}}},bank);
+ assert.equal(reduceEvents(p.events,bank,{format:'mcq'}).history.q001.attempts,8);
+ assert.equal(reduceEvents(p.events,bank,{format:'practical'}).history.q001,undefined);
+});

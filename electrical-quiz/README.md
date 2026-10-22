@@ -24,6 +24,8 @@ npm run serve
 | `backups/original.html` | 원본 그대로 보존 |
 | `src/questions.json` | 기존 ID를 유지한 확장 가능한 문제 데이터 |
 | `src/index.html`, `src/styles.css`, `src/app.js` | 기존 디자인·퀴즈 로직에 로그인·대시보드·이전 UI 추가 |
+| `src/practical.json`, `sources/practical-notes.json` | 실기 질문·답안 및 제공 노트 출처 연결 |
+| `src/practical.js` | 실기 문항·회차·모범답안 조회 |
 | `src/core.js` | 이벤트 집계·채점·호환 가져오기 |
 | `src/store.js` | 계정별 IndexedDB·원자적 채점 저장·미전송 큐 |
 | `src/cloud.js` | Google 로그인·인증 유지·Firestore 실시간 동기화 |
@@ -32,6 +34,10 @@ npm run serve
 | `public/` | 빌드한 정적 배포 파일 |
 | `.github/workflows/pages.yml` | main 검증·빌드·Pages 배포 |
 | `docs/` | 분석·테스트·설정·유지관리 안내 |
+
+## 실기 모드
+
+홈에서 **학습 모드 → 실기 · 단답 / 빈칸 채우기**를 선택합니다. 제공 노트에 연결된189문항(단답116/빈칸73)을 답안 작성 → 모범답안 확인 → 직접 정오답 판정으로 학습합니다. 객관식과 통계·미응시·오답을 구분하며 작성 답안도 저장·동기화합니다. [사용법·자료 반영 내역·새 실기 문항 추가](docs/PRACTICAL.md)를 참고하세요.
 
 ## Firebase 연결
 

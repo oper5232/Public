@@ -38,9 +38,15 @@ export function validateSession(s,known) {
     if (typeof id!=='string' || known && !known.has(id) || !Array.isArray(s.orders[id]) || [...s.orders[id]].sort().join(',')!=='0,1,2,3') throw Error('시험 문항/선택지 오류');
   }
   for (const [id,a] of Object.entries(s.answers)) if(!s.ids.includes(id) || !Number.isInteger(a)||a<0||a>3) throw Error('시험 답안 오류');
+  if(s.format!==undefined&&!['mcq','practical'].includes(s.format))throw Error('시험 유형 오류');
+  if(s.format==='practical'&&!s.id.startsWith('practical_'))throw Error('실기 시험 ID 오류');
+  for(const map of [s.drafts,s.revealed])if(map!==undefined&&(!map||typeof map!=='object'||Array.isArray(map)))throw Error('실기 답안 저장 형식 오류');
+  for(const [id,parts] of Object.entries(s.drafts||{}))if(!s.ids.includes(id)||!Array.isArray(parts)||parts.length>10||parts.some(v=>typeof v!=='string'||v.length>2000))throw Error('실기 작성 답안 오류');
+  for(const [id,value] of Object.entries(s.revealed||{}))if(!s.ids.includes(id)||value!==true)throw Error('실기 정답 확인 상태 오류');
+  if(new TextEncoder().encode(JSON.stringify(s)).length>700000)throw Error('시험 저장 용량을 초과했습니다. JSON으로 백업한 뒤 새 시험을 시작하세요.');
   return s;
 }
-export function reduceEvents(events, bank) {
+export function reduceEvents(events, bank, {format}={}) {
   const history={}, stars=new Map(), baseline={}, seen=new Set(), known=new Set(bank.map(q=>q.id));
   const sorted=[...events].sort((a,b)=>a.at.localeCompare(b.at)||a.id.localeCompare(b.id));
   let latestSession=null;
@@ -48,6 +54,7 @@ export function reduceEvents(events, bank) {
     if(seen.has(e.id))continue; seen.add(e.id);
     if(e.kind==='session'){latestSession=e.session;continue;}
     if(!known.has(e.qid))continue;
+    if(format&&((e.kind==='attempt'&&(e.sessionId.startsWith('practical_')?'practical':'mcq')!==format)||(e.kind==='legacy'&&format==='practical')))continue;
     const h=history[e.qid]??={attempts:0,correct:0,wrong:0,unknown:0,recent:[],lastAt:null,lastCorrect:null};
     if(e.kind==='legacy') {
       const b=baseline[e.qid]??={correct:0,wrong:0,unknown:0};
@@ -99,4 +106,11 @@ export function attemptEvent(session,q,choice,at=new Date().toISOString()) {
   if(session.answers[q.id]!==undefined)return null;
   if(!Number.isInteger(choice)||choice<0||choice>3)throw Error('선택지 오류');
   return {id:'attempt_'+uuid(),kind:'attempt',qid:q.id,sessionId:session.id,choice,correct:choice===q.correct,at};
+}
+export function practicalAttempt(session,q,correct,at=new Date().toISOString()){
+ if(session.format!=='practical'||!session.id.startsWith('practical_')||typeof correct!=='boolean')throw Error('실기 채점 오류');
+ if(!session.revealed?.[q.id])throw Error('모범답안을 먼저 확인하세요.');
+ // Retain the deployed immutable event schema. In practical sessions, choice is
+ // a compatibility score code, not a selected option. Written text is in session.drafts.
+ return attemptEvent(session,q,correct?q.correct:(q.correct+1)%4,at);
 }

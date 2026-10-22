@@ -1,0 +1,3584 @@
+{
+  "q001": {
+    "kind": "short",
+    "prompt": "수중조명등에 전기를 공급하기 위해 사용하는 설비는?",
+    "basisAnswer": "절연변압기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "절연변압기"
+      }
+    ],
+    "source": {
+      "id": "notes-q001",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q002": {
+    "kind": "blank",
+    "prompt": "수중조명등용 절연변압기의 사용전압을 각 빈칸에 쓰시오.",
+    "basisAnswer": "1차 400V 이하 / 2차 150V 이하",
+    "fields": [
+      {
+        "label": "1차측 사용전압",
+        "answer": "400V 이하"
+      },
+      {
+        "label": "2차측 사용전압",
+        "answer": "150V 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q001",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q003": {
+    "kind": "blank",
+    "prompt": "수중조명등용 절연변압기 2차측의 시설 기준을 채우시오.",
+    "basisAnswer": "비접지 / 금속관공사",
+    "fields": [
+      {
+        "label": "접지 여부",
+        "answer": "비접지"
+      },
+      {
+        "label": "배선 공사방법",
+        "answer": "금속관공사"
+      }
+    ],
+    "source": {
+      "id": "notes-q001",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q004": {
+    "kind": "short",
+    "prompt": "도체와 애자 부근에서 공기 절연이 부분적으로 파괴되는 현상은?",
+    "basisAnswer": "코로나 현상",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "코로나 현상"
+      }
+    ],
+    "source": {
+      "id": "notes-q004",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q005": {
+    "kind": "short",
+    "prompt": "코로나에 의한 장해 두 가지와 방지대책 두 가지를 쓰시오.",
+    "basisAnswer": "코로나 손실·부식 / 굵은 도체·복도체",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "코로나 손실·부식 / 굵은 도체·복도체"
+      }
+    ],
+    "source": {
+      "id": "notes-q004",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q006": {
+    "kind": "short",
+    "prompt": "비선형 부하 고조파에 대한 변압기의 열적 대응 능력을 나타내는 지표는?",
+    "basisAnswer": "K-Factor",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "K-Factor"
+      }
+    ],
+    "source": {
+      "id": "notes-q006",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q007": {
+    "kind": "short",
+    "prompt": "스포트 네트워크 수전방식의 장점 세 가지를 쓰시오.",
+    "basisAnswer": "무정전 공급 가능·기기 이용률 향상·전압변동률 감소",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "무정전 공급 가능·기기 이용률 향상·전압변동률 감소"
+      }
+    ],
+    "source": {
+      "id": "notes-q007",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q008": {
+    "kind": "short",
+    "prompt": "1련 내장 애자장치(역조형)의 부품 조립 순서를 쓰시오.",
+    "basisAnswer": "점퍼터미널→앵커쇄클→볼크레비스→현수애자→소켓아이",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "점퍼터미널→앵커쇄클→볼크레비스→현수애자→소켓아이"
+      }
+    ],
+    "source": {
+      "id": "notes-q008",
+      "kind": "user-notes",
+      "exam": "2026-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q009": {
+    "kind": "short",
+    "prompt": "전력용 콘덴서 보호용 과전압·저전압 계전기의 역할은?",
+    "basisAnswer": "이상전압 발생 시 차단기를 개방해 콘덴서 보호",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "이상전압 발생 시 차단기를 개방해 콘덴서 보호"
+      }
+    ],
+    "source": {
+      "id": "notes-q009",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q010": {
+    "kind": "short",
+    "prompt": "케이블 지중전선로의 시설방법 세 가지를 쓰시오.",
+    "basisAnswer": "관로식·암거식·직접매설식",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "관로식·암거식·직접매설식"
+      }
+    ],
+    "source": {
+      "id": "notes-q010",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q011": {
+    "kind": "blank",
+    "prompt": "단상변압기 3대의 Δ-Δ 운전 중 1대 고장으로 V-V 운전할 때, 남은 2대의 합산정격을 기준으로 이용률은 (　)이다.",
+    "basisAnswer": "86.6%",
+    "fields": [
+      {
+        "label": "이용률",
+        "answer": "86.6%"
+      }
+    ],
+    "source": {
+      "id": "notes-q011",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q012": {
+    "kind": "blank",
+    "prompt": "Δ-Δ 운전 중 1대 고장 후 V-V 운전할 때, 원래 3대 출력을 기준으로 출력비는 (　)이다.",
+    "basisAnswer": "57.74%",
+    "fields": [
+      {
+        "label": "출력비",
+        "answer": "57.74%"
+      }
+    ],
+    "source": {
+      "id": "notes-q011",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q013": {
+    "kind": "short",
+    "prompt": "V-V 결선의 장점을 쓰시오.",
+    "basisAnswer": "단상변압기 1대 고장 시에도 남은 2대로 3상 부하 공급 가능",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "단상변압기 1대 고장 시에도 남은 2대로 3상 부하 공급 가능"
+      }
+    ],
+    "source": {
+      "id": "notes-q011",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q014": {
+    "kind": "blank",
+    "prompt": "시가지 170kV 미만 특고압 가공전선로에서 A종 철주·A종 철근콘크리트주의 경간 상한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "75m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "75m"
+      }
+    ],
+    "source": {
+      "id": "notes-q014",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q015": {
+    "kind": "blank",
+    "prompt": "시가지 170kV 미만 특고압 가공전선로에서 B종 철주·B종 철근콘크리트주의 경간 상한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "150m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "150m"
+      }
+    ],
+    "source": {
+      "id": "notes-q014",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q016": {
+    "kind": "blank",
+    "prompt": "시가지 170kV 미만 특고압 가공전선로의 철탑 일반 경간 상한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "400m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "400m"
+      }
+    ],
+    "source": {
+      "id": "notes-q014",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q017": {
+    "kind": "blank",
+    "prompt": "시가지 170kV 미만 특고압 가공전선로에서 철탑이 단주인 경우 경간 상한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "300m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "300m"
+      }
+    ],
+    "source": {
+      "id": "notes-q014",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q018": {
+    "kind": "blank",
+    "prompt": "시가지 철탑 전선이 수평으로 2 이상 있고 상호간격 4m 미만인 원문 조건의 경간 상한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "250m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "250m"
+      }
+    ],
+    "source": {
+      "id": "notes-q014",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q019": {
+    "kind": "blank",
+    "prompt": "원본의 지상층 할증표에서 2~5층 건물 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "1%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "1%"
+      }
+    ],
+    "source": {
+      "id": "notes-q019",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q020": {
+    "kind": "blank",
+    "prompt": "원본의 지상층 할증표에서 15층 이하 건물 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "4%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "4%"
+      }
+    ],
+    "source": {
+      "id": "notes-q019",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q021": {
+    "kind": "short",
+    "prompt": "0.6/1kV VV의 명칭은?",
+    "basisAnswer": "비닐절연 비닐시스 케이블",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "비닐절연 비닐시스 케이블"
+      }
+    ],
+    "source": {
+      "id": "notes-q021",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q022": {
+    "kind": "short",
+    "prompt": "22.9kV FR CNCO-W 케이블의 명칭을 쓰시오.",
+    "basisAnswer": "동심중성선 수밀형 저독성 난연 전력케이블",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "동심중성선 수밀형 저독성 난연 전력케이블"
+      }
+    ],
+    "source": {
+      "id": "notes-q021",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q023": {
+    "kind": "blank",
+    "prompt": "UPS의 각 구성요소 기능을 채우시오.",
+    "basisAnswer": "DC 필터: 리플전압 제거 / 인버터: DC→AC",
+    "fields": [
+      {
+        "label": "DC 필터의 기능",
+        "answer": "리플전압 제거"
+      },
+      {
+        "label": "인버터의 변환 방향",
+        "answer": "DC → AC"
+      }
+    ],
+    "source": {
+      "id": "notes-q023",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q024": {
+    "kind": "short",
+    "prompt": "철탑 부재 중 부재를 접합하는 판재의 명칭은?",
+    "basisAnswer": "거싯 플레이트",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "거싯 플레이트"
+      }
+    ],
+    "source": {
+      "id": "notes-q024",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "철탑 그림은 제공되지 않아 기존 문항의 부품 설명에 대한 명칭 쓰기로 출제합니다."
+    ]
+  },
+  "q025": {
+    "kind": "short",
+    "prompt": "철탑 각 부 명칭에서 기초 정착부와 관련 있는 부품은?",
+    "basisAnswer": "앵커블록",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "앵커블록"
+      }
+    ],
+    "source": {
+      "id": "notes-q024",
+      "kind": "user-notes",
+      "exam": "2026-2회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "철탑 그림은 제공되지 않아 기존 문항의 부품 설명에 대한 명칭 쓰기로 출제합니다."
+    ]
+  },
+  "q026": {
+    "kind": "short",
+    "prompt": "상시 사람이 통행하는 터널 내 배선방법으로 원본에 열거된 세 가지는?",
+    "basisAnswer": "애자공사·금속관공사·합성수지관공사",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "애자공사·금속관공사·합성수지관공사"
+      }
+    ],
+    "source": {
+      "id": "notes-q026",
+      "kind": "user-notes",
+      "exam": "2025-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q027": {
+    "kind": "blank",
+    "prompt": "전기재료 물량 산출 시 옥내전선의 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "10%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "10%"
+      }
+    ],
+    "source": {
+      "id": "notes-q027",
+      "kind": "user-notes",
+      "exam": "2025-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q028": {
+    "kind": "short",
+    "prompt": "발·변전소 모선 보호계전방식의 세 가지는?",
+    "basisAnswer": "전류(비율)차동·전압차동·위상비교",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전류(비율)차동·전압차동·위상비교"
+      }
+    ],
+    "source": {
+      "id": "notes-q028",
+      "kind": "user-notes",
+      "exam": "2025-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q029": {
+    "kind": "short",
+    "prompt": "공사계획 신고서 첨부서류 중 전기안전공사에서 받는 것은?",
+    "basisAnswer": "사전기술검토서",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "사전기술검토서"
+      }
+    ],
+    "source": {
+      "id": "notes-q029",
+      "kind": "user-notes",
+      "exam": "2025-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q030": {
+    "kind": "short",
+    "prompt": "자가용 전기설비(1,500kW)를 신규 설치하여 공사계획 신고서를 제출하려 한다. 첨부서류 다섯 가지를 쓰시오.",
+    "basisAnswer": "공사계획서·설계도서·공사공정표·기술시방서·사전기술검토서",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "공사계획서 · 설계도서 · 공사공정표 · 기술시방서 · 전기안전공사 사전기술검토서"
+      }
+    ],
+    "source": {
+      "id": "notes-q029",
+      "kind": "user-notes",
+      "exam": "2025-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q031": {
+    "kind": "short",
+    "prompt": "전력케이블 고장지점 탐색방법 다섯 가지를 쓰시오.",
+    "basisAnswer": "브레이크다운 전압시험",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "머레이 루프법 · 정전용량법 · 펄스법 · 음향법 · 수색코일법"
+      }
+    ],
+    "answerSource": "기존 해설에서 긍정형 단답 문제로 변환",
+    "source": {
+      "id": "notes-q031",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q032": {
+    "kind": "short",
+    "prompt": "원본에서 단선 고장지점 탐색과 관련해 학습한 방법은?",
+    "basisAnswer": "정전용량법",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "정전용량법"
+      }
+    ],
+    "source": {
+      "id": "notes-q031",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q033": {
+    "kind": "short",
+    "prompt": "전기품셈에서 원본에 위험할증률 30%가 붙는 작업으로 적힌 것은?",
+    "basisAnswer": "활선 근접작업",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "활선 근접작업"
+      }
+    ],
+    "source": {
+      "id": "notes-q033",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q034": {
+    "kind": "short",
+    "prompt": "철탑 기초공사 방식으로 원본에 열거된 것은?",
+    "basisAnswer": "직접기초·말뚝기초",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "직접기초·말뚝기초"
+      }
+    ],
+    "source": {
+      "id": "notes-q034",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q035": {
+    "kind": "short",
+    "prompt": "감리업무 착수신고서의 첨부서류 네 가지를 쓰시오.",
+    "basisAnswer": "감리업무 수행계획서·감리비 산출내역서·감리원 배치계획서·경력확인서",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "감리업무 수행계획서·감리비 산출내역서·감리원 배치계획서·경력확인서"
+      }
+    ],
+    "source": {
+      "id": "notes-q035",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q036": {
+    "kind": "short",
+    "prompt": "송전선로에서 경동연선보다 ACSR을 많이 사용하는 이유 두 가지를 쓰시오.",
+    "basisAnswer": "무게 대비 기계적 강도가 크고 외경이 커 코로나 방지에 유리",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "경동연선에 비해 기계적 강도가 크고 가볍다. 같은 저항값에서 바깥지름이 커 코로나 발생 방지에 효과적이다."
+      }
+    ],
+    "source": {
+      "id": "notes-q036",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q037": {
+    "kind": "short",
+    "prompt": "0.6/1kV VCT의 명칭은?",
+    "basisAnswer": "비닐절연 비닐캡타이어 케이블",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "비닐절연 비닐캡타이어 케이블"
+      }
+    ],
+    "source": {
+      "id": "notes-q037",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q038": {
+    "kind": "short",
+    "prompt": "DV 3R의 명칭은?",
+    "basisAnswer": "인입용 비닐절연전선 3개 꼬임",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "인입용 비닐절연전선 3개 꼬임"
+      }
+    ],
+    "source": {
+      "id": "notes-q037",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q039": {
+    "kind": "short",
+    "prompt": "450/750V HFIO의 명칭은?",
+    "basisAnswer": "저독성 난연 폴리올레핀 절연전선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "저독성 난연 폴리올레핀 절연전선(70℃)"
+      }
+    ],
+    "source": {
+      "id": "notes-q037",
+      "kind": "user-notes",
+      "exam": "2025-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q040": {
+    "kind": "short",
+    "prompt": "고압 가공전선로 가공지선의 원본 기준은?",
+    "basisAnswer": "인장강도 5.26kN 이상 또는 지름 4mm 이상 나경동선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "인장강도 5.26kN 이상 또는 지름 4mm 이상 나경동선"
+      }
+    ],
+    "source": {
+      "id": "notes-q040",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q041": {
+    "kind": "blank",
+    "prompt": "고압 가공전선로 지지물로 사용하는 목주의 풍압하중 안전율 기준은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "1.3 이상",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "1.3 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q040",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q042": {
+    "kind": "blank",
+    "prompt": "고압 목주의 위쪽 끝 지름 최소값은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "0.12m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "0.12m"
+      }
+    ],
+    "source": {
+      "id": "notes-q040",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q043": {
+    "kind": "short",
+    "prompt": "가연성 가스 위험장소 금속관 접속의 나사 조임 수는?",
+    "basisAnswer": "5산 이상",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "5산 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q043",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q044": {
+    "kind": "short",
+    "prompt": "가연성 가스 위험장소에서 전동기 접속부가 유연해야 할 때 사용하는 것은?",
+    "basisAnswer": "내압 폭발방지형 또는 유입 폭발방지구조의 유연성 부속",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "내압 폭발방지형 또는 유입 폭발방지구조의 유연성 부속"
+      }
+    ],
+    "source": {
+      "id": "notes-q043",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q045": {
+    "kind": "short",
+    "prompt": "제공 자료에 열거된 매입형 건축화 조명방식 다섯 가지를 쓰시오.",
+    "basisAnswer": "다운라이트·핀홀라이트·코퍼라이트·라인라이트",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "매입형광등 · 다운라이트 · 핀홀라이트 · 코퍼라이트 · 라인라이트"
+      }
+    ],
+    "source": {
+      "id": "notes-q045",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q046": {
+    "kind": "short",
+    "prompt": "GPT 오픈델타 결선의 R 명칭은?",
+    "basisAnswer": "한류저항기(CLR)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "한류저항기(CLR)"
+      }
+    ],
+    "source": {
+      "id": "notes-q046",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q047": {
+    "kind": "short",
+    "prompt": "GPT 오픈델타 한류저항기(CLR)의 목적은?",
+    "basisAnswer": "SGR 동작용 유효전류 형성·제3고조파 전압·이상진동 억제",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "SGR 동작용 유효전류 형성·제3고조파 전압·이상진동 억제"
+      }
+    ],
+    "source": {
+      "id": "notes-q046",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q048": {
+    "kind": "short",
+    "prompt": "사용 목적에 따른 표준형 철탑 분류로 원본에 나열된 것은?",
+    "basisAnswer": "직선철탑·각도철탑·잡아당김철탑·내장철탑",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "직선철탑·각도철탑·잡아당김철탑·내장철탑"
+      }
+    ],
+    "source": {
+      "id": "notes-q048",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q049": {
+    "kind": "short",
+    "prompt": "변전설비 시공 및 보수를 담당하는 전기부문 표준품셈 직종은?",
+    "basisAnswer": "변전전공",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "변전전공"
+      }
+    ],
+    "source": {
+      "id": "notes-q049",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q050": {
+    "kind": "blank",
+    "prompt": "전기재료 물량 산출 시 옥외전선의 철거손실률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "2.5%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "2.5%"
+      }
+    ],
+    "source": {
+      "id": "notes-q049",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q051": {
+    "kind": "blank",
+    "prompt": "전기재료 철거손실률을 각각 채우시오.",
+    "basisAnswer": "케이블 1.5% / 조가선 4%",
+    "fields": [
+      {
+        "label": "옥외 케이블",
+        "answer": "1.5%"
+      },
+      {
+        "label": "조가선(철·강)",
+        "answer": "4%"
+      }
+    ],
+    "source": {
+      "id": "notes-q049",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q052": {
+    "kind": "short",
+    "prompt": "변압기 절연내력 시험 세 가지는?",
+    "basisAnswer": "가압시험·유도시험·충격전압시험",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "가압시험·유도시험·충격전압시험"
+      }
+    ],
+    "source": {
+      "id": "notes-q052",
+      "kind": "user-notes",
+      "exam": "2025-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q053": {
+    "kind": "short",
+    "prompt": "진상콘덴서 용량을 2군 이상으로 분할할 수 있다고 정리된 총 용량 구간은?",
+    "basisAnswer": "300kVA 초과~600kVA 이하",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "300kVA 초과~600kVA 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q053",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "제공 노트의 kVA 단위를 보존했습니다. 공식 자료의 단위 확인이 필요합니다."
+    ]
+  },
+  "q054": {
+    "kind": "short",
+    "prompt": "원본에서 100kVA 이하 콘덴서의 CB 대신 가능한 개폐기는?",
+    "basisAnswer": "OS(유입개폐기)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "OS(유입개폐기)"
+      }
+    ],
+    "source": {
+      "id": "notes-q053",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "제공 노트의 kVA 단위를 보존했습니다. 공식 자료의 단위 확인이 필요합니다."
+    ]
+  },
+  "q055": {
+    "kind": "short",
+    "prompt": "원본에서 50kVA 이하 콘덴서의 CB 대신 가능한 개폐기는?",
+    "basisAnswer": "COS(직결)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "COS(직결)"
+      }
+    ],
+    "source": {
+      "id": "notes-q053",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "제공 노트의 kVA 단위를 보존했습니다. 공식 자료의 단위 확인이 필요합니다."
+    ]
+  },
+  "q056": {
+    "kind": "short",
+    "prompt": "전기설비의 접지 목적 세 가지를 쓰시오.",
+    "basisAnswer": "감전 방지·이상전압 억제·보호계전기 동작 확보",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "감전 방지 · 이상전압 억제 · 보호계전기 동작 확보"
+      }
+    ],
+    "source": {
+      "id": "notes-q056",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "제공 노트의 “보호계전기 동작 보호”는 기존 해설의 “동작 확보”로 정리했습니다."
+    ]
+  },
+  "q057": {
+    "kind": "blank",
+    "prompt": "순공사원가 2억원, 일반관리비율 6%일 때 일반관리비는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "1,200만원",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "1,200만원"
+      }
+    ],
+    "source": {
+      "id": "notes-q057",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q058": {
+    "kind": "blank",
+    "prompt": "SPD 연결도체 길이의 원본 제한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "0.5m 이하",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "0.5m 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q058",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "제공 노트에 생략된 단위는 기존 문항 기준(m·mm²)으로 표시했습니다."
+    ]
+  },
+  "q059": {
+    "kind": "blank",
+    "prompt": "제공 자료의 SPD 등급별 구리 연결도체 최소 굵기를 채우시오.",
+    "basisAnswer": "I: 16mm² / II: 6mm²",
+    "fields": [
+      {
+        "label": "I등급",
+        "answer": "16mm²"
+      },
+      {
+        "label": "II등급",
+        "answer": "6mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q058",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "제공 노트에 생략된 단위는 기존 문항 기준(m·mm²)으로 표시했습니다."
+    ]
+  },
+  "q060": {
+    "kind": "short",
+    "prompt": "제공 자료의 변압기 보호장치 네 가지를 쓰시오.",
+    "basisAnswer": "비율차동·부흐홀츠·방압안전장치·충격압력계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "비율차동·부흐홀츠·방압안전장치·충격압력계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q060",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q061": {
+    "kind": "blank",
+    "prompt": "피뢰기의 구비조건이다. 이상전압 침입 시 신속하게 (①)해야 하며, 이상전류 통전 시 단자전압인 (②)은 일정 전압 이하로 억제되어야 한다.",
+    "basisAnswer": "신속한 방전과 낮은 제한전압",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "방전"
+      },
+      {
+        "label": "②",
+        "answer": "제한전압"
+      }
+    ],
+    "source": {
+      "id": "notes-q061",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q062": {
+    "kind": "blank",
+    "prompt": "저압·고압 가공전선이 교류 전차선 위로 교차할 때 목주·A종 지지물의 최대 경간은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "60m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "60m"
+      }
+    ],
+    "source": {
+      "id": "notes-q062",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q063": {
+    "kind": "blank",
+    "prompt": "저압·고압 가공전선이 교류 전차선 위로 교차할 때 B종 지지물의 최대 경간은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "120m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "120m"
+      }
+    ],
+    "source": {
+      "id": "notes-q062",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q064": {
+    "kind": "blank",
+    "prompt": "오실로스코프에 B-H 곡선을 표시할 때 입력에 비례하는 물리량을 채우시오.",
+    "basisAnswer": "X: H(자계의 세기) / Y: B(자속밀도)",
+    "fields": [
+      {
+        "label": "수평(X) 입력",
+        "answer": "H(자계의 세기)"
+      },
+      {
+        "label": "수직(Y) 입력",
+        "answer": "B(자속밀도)"
+      }
+    ],
+    "source": {
+      "id": "notes-q064",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q065": {
+    "kind": "short",
+    "prompt": "경완철에 현수애자를 설치할 때의 부품 조립 순서를 쓰시오.",
+    "basisAnswer": "경완철→볼쇄클→현수애자→소켓아이→데드엔드클램프→전선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "경완철→볼쇄클→현수애자→소켓아이→데드엔드클램프→전선"
+      }
+    ],
+    "source": {
+      "id": "notes-q065",
+      "kind": "user-notes",
+      "exam": "2024-3회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q066": {
+    "kind": "short",
+    "prompt": "방전 상태로 장기간 방치된 축전지의 황산납이 굳어 성능이 저하되는 현상은?",
+    "basisAnswer": "설페이션(Sulfation)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "설페이션(Sulfation)"
+      }
+    ],
+    "source": {
+      "id": "notes-q066",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q067": {
+    "kind": "short",
+    "prompt": "축전지의 부동충전방식을 설명하시오.",
+    "basisAnswer": "충전기가 상용부하·자기방전을 담당하고 일시적 대전류는 축전지가 지원",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "충전기가 상용부하·자기방전을 담당하고 일시적 대전류는 축전지가 지원"
+      }
+    ],
+    "source": {
+      "id": "notes-q066",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q068": {
+    "kind": "short",
+    "prompt": "분산형전원설비가 계통 연계된 경우, 자동으로 전력계통에서 분리해야 하는 상황 세 가지를 쓰시오.",
+    "basisAnswer": "전원설비 이상·연계 계통 이상·단독운전 상태",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "분산형전원설비의 이상 또는 고장 · 연계한 전력계통의 이상 또는 고장 · 단독운전 상태"
+      }
+    ],
+    "source": {
+      "id": "notes-q068",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q069": {
+    "kind": "short",
+    "prompt": "건축물 종류별 원본 표준부하에서 공장·극장은?",
+    "basisAnswer": "10VA/m²",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "10VA/m²"
+      }
+    ],
+    "source": {
+      "id": "notes-q069",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q070": {
+    "kind": "short",
+    "prompt": "건축물 종류별 원본 표준부하에서 병원·학교는?",
+    "basisAnswer": "20VA/m²",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "20VA/m²"
+      }
+    ],
+    "source": {
+      "id": "notes-q069",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q071": {
+    "kind": "short",
+    "prompt": "건축물 종류별 원본 표준부하에서 사무실·은행은?",
+    "basisAnswer": "30VA/m²",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "30VA/m²"
+      }
+    ],
+    "source": {
+      "id": "notes-q069",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q072": {
+    "kind": "short",
+    "prompt": "건축물 종류별 원본 표준부하에서 주택·아파트는?",
+    "basisAnswer": "40VA/m²",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "40VA/m²"
+      }
+    ],
+    "source": {
+      "id": "notes-q069",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q073": {
+    "kind": "short",
+    "prompt": "제공 자료의 유입·송유식 변압기 냉각방식 다섯 가지를 쓰시오.",
+    "basisAnswer": "유입자냉·유입풍냉·유입수냉·송유풍냉·송유수냉",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "유입자냉·유입풍냉·유입수냉·송유풍냉·송유수냉"
+      }
+    ],
+    "source": {
+      "id": "notes-q073",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q074": {
+    "kind": "short",
+    "prompt": "제공 자료에 열거된 고압·특고압 전로의 피뢰기 시설 장소 네 가지를 쓰시오.",
+    "basisAnswer": "가공전선로와 지중전선로의 접속점",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "발전소·변전소 등의 가공 인입구 및 인출구; 특고압 가공전선로에 접속하는 배전용 변압기의 고압측·특고압측; 고압·특고압 가공전선로에서 공급받는 수용장소 인입구; 가공전선로와 지중전선로의 접속점"
+      }
+    ],
+    "source": {
+      "id": "notes-q074",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q075": {
+    "kind": "blank",
+    "prompt": "신설 전기재료 물량 산출 시 전선의 할증률을 채우시오.",
+    "basisAnswer": "옥외 5% / 옥내 10%",
+    "fields": [
+      {
+        "label": "옥외전선",
+        "answer": "5%"
+      },
+      {
+        "label": "옥내전선",
+        "answer": "10%"
+      }
+    ],
+    "source": {
+      "id": "notes-q075",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q076": {
+    "kind": "blank",
+    "prompt": "신설 재료 물량 산출 시 케이블의 할증률을 채우시오.",
+    "basisAnswer": "옥외 3% / 옥내 5%",
+    "fields": [
+      {
+        "label": "옥외 케이블",
+        "answer": "3%"
+      },
+      {
+        "label": "옥내 케이블",
+        "answer": "5%"
+      }
+    ],
+    "source": {
+      "id": "notes-q075",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q077": {
+    "kind": "blank",
+    "prompt": "제공 자료의 병렬 전선 도체 최소 단면적을 채우시오.",
+    "basisAnswer": "동선 50mm² 이상 / 알루미늄선 70mm² 이상",
+    "fields": [
+      {
+        "label": "동선",
+        "answer": "50mm² 이상"
+      },
+      {
+        "label": "알루미늄선",
+        "answer": "70mm² 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q077",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q078": {
+    "kind": "short",
+    "prompt": "동일극 병렬 전선의 터미널러그 접속 방법과 리벳·나사의 개수 기준을 쓰시오.",
+    "basisAnswer": "동일 터미널러그에 접속하고 리벳·나사는 2개 이상",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "동일 터미널러그에 접속하고 리벳·나사는 2개 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q077",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q079": {
+    "kind": "short",
+    "prompt": "병렬 전선에 퓨즈를 설치할 때의 금지 사항을 쓰시오.",
+    "basisAnswer": "병렬 사용하는 각 전선마다 퓨즈를 설치하지 않는다",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "병렬 사용하는 각 전선마다 퓨즈를 설치하지 않는다"
+      }
+    ],
+    "source": {
+      "id": "notes-q077",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q080": {
+    "kind": "short",
+    "prompt": "고압·특고압 접지계통과 저압 접지계통을 함께 접지하는 방식은?",
+    "basisAnswer": "공통접지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "공통접지"
+      }
+    ],
+    "source": {
+      "id": "notes-q080",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q081": {
+    "kind": "blank",
+    "prompt": "통합접지의 동시 접촉 가능 범위를 설명하는 원본 거리값은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "2.5m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "2.5m"
+      }
+    ],
+    "source": {
+      "id": "notes-q080",
+      "kind": "user-notes",
+      "exam": "2024-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q082": {
+    "kind": "short",
+    "prompt": "폭연성 분진 등이 존재하는 위험장소의 저압 옥내배선으로 원본에 제시된 것은?",
+    "basisAnswer": "금속관공사 또는 케이블공사(캡타이어케이블 제외)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "금속관공사 또는 케이블공사(캡타이어케이블 제외)"
+      }
+    ],
+    "source": {
+      "id": "notes-q082",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q083": {
+    "kind": "short",
+    "prompt": "강심알루미늄연선의 약호와, 제공 자료의 60mm² 이하 공칭단면적 세 가지를 쓰시오.",
+    "basisAnswer": "ACSR",
+    "fields": [
+      {
+        "label": "약호",
+        "answer": "ACSR"
+      },
+      {
+        "label": "공칭단면적",
+        "answer": "19mm² · 32mm² · 58mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q083",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q084": {
+    "kind": "short",
+    "prompt": "단상변압기의 병렬운전 조건 네 가지를 쓰시오.",
+    "basisAnswer": "극성·권수비·%임피던스·R/X 비가 일치해야 한다",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "극성·권수비·%임피던스·R/X 비가 일치해야 한다"
+      }
+    ],
+    "source": {
+      "id": "notes-q084",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q085": {
+    "kind": "short",
+    "prompt": "순공사원가의 구성 항목 세 가지를 쓰시오.",
+    "basisAnswer": "재료비+노무비+경비",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "재료비+노무비+경비"
+      }
+    ],
+    "source": {
+      "id": "notes-q085",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q086": {
+    "kind": "blank",
+    "prompt": "같은 구리 재질에서 선도체 S=25mm²일 때 표 기준 보호도체 단면적은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "16mm²",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "16mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q086",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q087": {
+    "kind": "blank",
+    "prompt": "같은 구리 재질에서 선도체 S=50mm²일 때 표 기준 보호도체 단면적은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "25mm²",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "25mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q086",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q088": {
+    "kind": "blank",
+    "prompt": "원본 2024-1회의 지상층 30층 이하 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "7%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "7%"
+      }
+    ],
+    "source": {
+      "id": "notes-q088",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q089": {
+    "kind": "short",
+    "prompt": "가공배전선로에서 분기고리와 기기 리드선을 접속하는 기구는?",
+    "basisAnswer": "활선클램프",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "활선클램프"
+      }
+    ],
+    "source": {
+      "id": "notes-q089",
+      "kind": "user-notes",
+      "exam": "2024-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q090": {
+    "kind": "short",
+    "prompt": "제공 자료에 열거된 가스차단기(GCB)의 특징 다섯 가지를 쓰시오.",
+    "basisAnswer": "높은 아크 소호 성능·소형화 가능·소음 적음",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "밀폐구조로 소음이 적다; 소형화·경량화할 수 있다; 가혹한 재기전압에서도 성능이 우수하다; 불활성·난연성으로 화재 우려가 적다; 아크 소호능력이 우수하고 이상전압 발생이 적다"
+      }
+    ],
+    "source": {
+      "id": "notes-q090",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q091": {
+    "kind": "short",
+    "prompt": "전선 OC의 명칭은?",
+    "basisAnswer": "옥외용 가교폴리에틸렌 절연전선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "옥외용 가교폴리에틸렌 절연전선"
+      }
+    ],
+    "source": {
+      "id": "notes-q091",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q092": {
+    "kind": "short",
+    "prompt": "2련 내장 애자장치(역조형)의 원본 조립 순서는?",
+    "basisAnswer": "앵커쇄클→체인링크→삼각요크→볼크레비스→현수애자→소켓크레비스→압축형 인류클램프",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "앵커쇄클→체인링크→삼각요크→볼크레비스→현수애자→소켓크레비스→압축형 인류클램프"
+      }
+    ],
+    "source": {
+      "id": "notes-q092",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q093": {
+    "kind": "short",
+    "prompt": "파형 데크 플레이트 홈을 막아 이용하는 배선공사 방식은?",
+    "basisAnswer": "셀룰러덕트 공사",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "셀룰러덕트 공사"
+      }
+    ],
+    "source": {
+      "id": "notes-q093",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q094": {
+    "kind": "blank",
+    "prompt": "보조 보호등전위본딩 도체의 원본 최소값(기계적 보호된 구리)은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "2.5mm²",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "2.5mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q094",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q095": {
+    "kind": "blank",
+    "prompt": "보조 보호등전위본딩 도체의 원본 최소값(기계적 보호 없는 구리)은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "4mm²",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "4mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q094",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q096": {
+    "kind": "blank",
+    "prompt": "보조 보호등전위본딩 도체의 원본 알루미늄 최소값은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "16mm²",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "16mm²"
+      }
+    ],
+    "source": {
+      "id": "notes-q094",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q097": {
+    "kind": "blank",
+    "prompt": "제공 자료의 피뢰시스템 등급별 인하도선 간격을 채우시오.",
+    "basisAnswer": "10m·10m·15m·20m",
+    "fields": [
+      {
+        "label": "I등급",
+        "answer": "10m"
+      },
+      {
+        "label": "II등급",
+        "answer": "10m"
+      },
+      {
+        "label": "III등급",
+        "answer": "15m"
+      },
+      {
+        "label": "IV등급",
+        "answer": "20m"
+      }
+    ],
+    "source": {
+      "id": "notes-q097",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q098": {
+    "kind": "short",
+    "prompt": "지지선의 시설 목적 세 가지를 쓰시오.",
+    "basisAnswer": "도체의 고조파 제거",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "지지물의 강도 보강 · 전선로의 안전성 증대 · 불평형 하중에 대한 평형"
+      }
+    ],
+    "answerSource": "기존 해설에서 긍정형 단답 문제로 변환",
+    "source": {
+      "id": "notes-q098",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q099": {
+    "kind": "short",
+    "prompt": "금속제 케이블 트레이의 원본 유형 세 가지는?",
+    "basisAnswer": "사다리형·펀칭형·그물망형",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "사다리형·펀칭형·그물망형"
+      }
+    ],
+    "source": {
+      "id": "notes-q099",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q100": {
+    "kind": "blank",
+    "prompt": "SPD 보호장치 시설 기준의 빈칸을 채우시오. (①) SPD용 보호장치의 정격은 대용량으로 시설하며, SPD를 RCD 부하측에 설치할 때에는 (②) 누전차단기를 설치한다.",
+    "basisAnswer": "임펄스부동작형",
+    "fields": [
+      {
+        "label": "① SPD 등급",
+        "answer": "I등급"
+      },
+      {
+        "label": "② 누전차단기 특성",
+        "answer": "임펄스부동작형"
+      }
+    ],
+    "source": {
+      "id": "notes-q100",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q101": {
+    "kind": "short",
+    "prompt": "전류가 커질수록 계전기 동작시간이 짧아지는 특성은?",
+    "basisAnswer": "반한시 계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "반한시 계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q101",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q102": {
+    "kind": "short",
+    "prompt": "입력이 동작 최소값을 넘으면 일정 시간 후 동작하는 방식은?",
+    "basisAnswer": "정한시 계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "정한시 계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q101",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q103": {
+    "kind": "blank",
+    "prompt": "제공 자료의 계전기 동작시간을 채우시오.",
+    "basisAnswer": "순한시 0.2초 이내 / 고속도 0.05초 이하",
+    "fields": [
+      {
+        "label": "순한시",
+        "answer": "0.2초 이내"
+      },
+      {
+        "label": "고속도",
+        "answer": "0.05초 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q101",
+      "kind": "user-notes",
+      "exam": "2023-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q104": {
+    "kind": "blank",
+    "prompt": "변전소의 주요 변압기에 시설하는 계측장치는 (①) 및 (②) 또는 (③)을 계측한다.",
+    "basisAnswer": "전압 및 전류 또는 전력",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "전압"
+      },
+      {
+        "label": "②",
+        "answer": "전류"
+      },
+      {
+        "label": "③",
+        "answer": "전력"
+      }
+    ],
+    "source": {
+      "id": "notes-q104",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q105": {
+    "kind": "short",
+    "prompt": "특고압용 변압기에 설치하는 계측장치의 추가 측정항목은?",
+    "basisAnswer": "온도",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "온도"
+      }
+    ],
+    "source": {
+      "id": "notes-q104",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q106": {
+    "kind": "short",
+    "prompt": "송전선로 공사의 단위 작업 순서는?",
+    "basisAnswer": "굴착→각입→타설→조립→연선→긴선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "굴착→각입→타설→조립→연선→긴선"
+      }
+    ],
+    "source": {
+      "id": "notes-q106",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q107": {
+    "kind": "short",
+    "prompt": "원본의 KS C 4621 주택용 누전차단기 정격감도전류 3종은?",
+    "basisAnswer": "30mA·50mA·100mA",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "30mA·50mA·100mA"
+      }
+    ],
+    "source": {
+      "id": "notes-q107",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q108": {
+    "kind": "blank",
+    "prompt": "조가선 두 개를 시설할 때 원본 이격거리 기준은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "0.3m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "0.3m"
+      }
+    ],
+    "source": {
+      "id": "notes-q108",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q109": {
+    "kind": "blank",
+    "prompt": "조가선의 시설 기준의 빈칸을 채우시오. 저압주에서는 (①)과 같은 방향으로 시설하고, 불가피한 경우 +자형 교차는 제한적으로 가능하나 (②)자형 공중교차는 금지한다.",
+    "basisAnswer": "T자형 공중교차는 시설하지 않는다",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "저압선"
+      },
+      {
+        "label": "②",
+        "answer": "T"
+      }
+    ],
+    "source": {
+      "id": "notes-q108",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q110": {
+    "kind": "short",
+    "prompt": "태양전지 모듈 동일 직렬군의 모듈에 요구되는 전류 특성은?",
+    "basisAnswer": "동일한 단락전류",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "동일한 단락전류"
+      }
+    ],
+    "source": {
+      "id": "notes-q110",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q111": {
+    "kind": "blank",
+    "prompt": "하나의 인버터(또는 MPPT 제어기)에 연결된 모듈 직렬군이 몇 병렬 이상이면 전압·전류 동일 배열 조건이 적혀 있는가? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "2병렬 이상",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "2병렬 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q110",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q112": {
+    "kind": "blank",
+    "prompt": "일반 공구 및 시험용 계측기구류의 공구손료는 원본상 직접 노무비의 최대 몇 %인가? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "3%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "3%"
+      }
+    ],
+    "source": {
+      "id": "notes-q112",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q113": {
+    "kind": "blank",
+    "prompt": "상시 통행하는 터널 내 애자공사의 시설 기준을 채우시오.",
+    "basisAnswer": "2.5mm² 이상 / 노면 2.5m 이상",
+    "fields": [
+      {
+        "label": "전선 최소 단면적",
+        "answer": "2.5mm² 이상"
+      },
+      {
+        "label": "노면 기준 설치높이",
+        "answer": "2.5m 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q113",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q114": {
+    "kind": "blank",
+    "prompt": "상시 통행하는 터널 안의 전로에는 터널 입구에 가까운 곳에 전용 (　)를 시설한다.",
+    "basisAnswer": "터널 입구에 가까운 곳",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "개폐기"
+      }
+    ],
+    "source": {
+      "id": "notes-q113",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q115": {
+    "kind": "short",
+    "prompt": "사용 목적별 철탑 분류에서 선로 수평각이 3°를 초과하는 곳에 쓰는 것은?",
+    "basisAnswer": "각도철탑",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "각도철탑"
+      }
+    ],
+    "source": {
+      "id": "notes-q115",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q116": {
+    "kind": "short",
+    "prompt": "양쪽 경간의 차가 큰 곳에 사용하는 표준형 철탑은?",
+    "basisAnswer": "내장형",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "내장형"
+      }
+    ],
+    "source": {
+      "id": "notes-q115",
+      "kind": "user-notes",
+      "exam": "2023-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q117": {
+    "kind": "short",
+    "prompt": "충전된 활선을 이동하거나 작업권 밖으로 밀 때 사용하는 절연봉은?",
+    "basisAnswer": "와이어 통",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "와이어 통"
+      }
+    ],
+    "source": {
+      "id": "notes-q117",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q118": {
+    "kind": "short",
+    "prompt": "서지흡수기(SA)의 주요 목적은?",
+    "basisAnswer": "개폐서지·순간 과도전압이 후단 기기에 미치는 영향을 억제",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "개폐서지·순간 과도전압이 후단 기기에 미치는 영향을 억제"
+      }
+    ],
+    "source": {
+      "id": "notes-q118",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q119": {
+    "kind": "short",
+    "prompt": "서지흡수기의 설치 위치를 쓰시오.",
+    "basisAnswer": "차단기 후단과 보호대상 기기 사이",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "차단기 후단과 보호대상 기기 사이"
+      }
+    ],
+    "source": {
+      "id": "notes-q118",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q120": {
+    "kind": "short",
+    "prompt": "변압기 병렬운전에서 극성이 일치하지 않으면 발생할 수 있는 결과는?",
+    "basisAnswer": "큰 순환전류로 권선 소손",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "큰 순환전류로 권선 소손"
+      }
+    ],
+    "source": {
+      "id": "notes-q120",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q121": {
+    "kind": "short",
+    "prompt": "변압기 병렬운전에서 권수비가 다르면 어떤 문제가 발생하는가?",
+    "basisAnswer": "순환전류로 권선이 가열",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "순환전류로 권선이 가열"
+      }
+    ],
+    "source": {
+      "id": "notes-q120",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q122": {
+    "kind": "short",
+    "prompt": "변압기 병렬운전에서 %임피던스가 다르면 어떤 문제가 발생하는가?",
+    "basisAnswer": "용량비대로 균등하게 부하 분담하지 못함",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "용량비대로 균등하게 부하 분담하지 못함"
+      }
+    ],
+    "source": {
+      "id": "notes-q120",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q123": {
+    "kind": "short",
+    "prompt": "변압기 병렬운전에서 내부저항/누설리액턴스 비가 다르면?",
+    "basisAnswer": "전류 위상차로 동손이 증가할 수 있음",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전류 위상차로 동손이 증가할 수 있음"
+      }
+    ],
+    "source": {
+      "id": "notes-q120",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q124": {
+    "kind": "short",
+    "prompt": "계전기 기구번호 87T의 명칭은?",
+    "basisAnswer": "주변압기 차동계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "주변압기 차동계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q124",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q125": {
+    "kind": "blank",
+    "prompt": "금속관공사에서 연선 사용 원칙의 원본 예외로 적힌 구리 도체 단면적은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "10mm² 이하",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "10mm² 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q125",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q126": {
+    "kind": "blank",
+    "prompt": "금속관을 콘크리트에 매설할 때 원본 최소 두께는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "1.2mm",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "1.2mm"
+      }
+    ],
+    "source": {
+      "id": "notes-q125",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q127": {
+    "kind": "blank",
+    "prompt": "금속관을 콘크리트에 매설하지 않는 경우 원본 일반 최소 두께는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "1.0mm",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "1.0mm"
+      }
+    ],
+    "source": {
+      "id": "notes-q125",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q128": {
+    "kind": "short",
+    "prompt": "345kV 철탑 송전선로에서 롤링 스팬(Ruling Span)의 원본 설명은?",
+    "basisAnswer": "기하학적 등가경간장",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "기하학적 등가경간장"
+      }
+    ],
+    "source": {
+      "id": "notes-q128",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q129": {
+    "kind": "short",
+    "prompt": "제공 자료에 열거된 건축물 조명의 눈부심 방지대책 중 세 가지를 쓰시오.",
+    "basisAnswer": "프리즘·충분한 보호각 반사갓·간접조명 활용",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "다음 중 세 가지: 프리즘·충분한 보호각 반사갓; 아크릴루비 또는 젖빛 유리구; 광도가 낮은 배광기구; 글레어존 회피; 간접·반간접 조명; 건축화 조명"
+      }
+    ],
+    "source": {
+      "id": "notes-q129",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "원문 “아크릴루비” 및 글레어존 각도 표기는 오기 가능성이 있어 원자료 확인이 필요합니다. 각도값은 출제하지 않았습니다."
+    ]
+  },
+  "q130": {
+    "kind": "blank",
+    "prompt": "눈부심 방지용 반사갓의 원본 보호각 값은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "15~25°",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "15~25°"
+      }
+    ],
+    "source": {
+      "id": "notes-q129",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q131": {
+    "kind": "blank",
+    "prompt": "피뢰기의 저항성 누설전류를 직접 측정할 때 양단전압은 용량성 (①)로, 전류는 방전계수기 내의 (②)로 측정한다.",
+    "basisAnswer": "용량성 분압기(전압) / 영상변류기(전류)",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "분압기(변성기·전압분배기)"
+      },
+      {
+        "label": "②",
+        "answer": "영상변류기"
+      }
+    ],
+    "source": {
+      "id": "notes-q131",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q132": {
+    "kind": "short",
+    "prompt": "피뢰기 저항성 누설전류 측정방법 두 가지를 쓰시오.",
+    "basisAnswer": "저항성 전류 직접측정법·누설전류 고조파측정법",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "저항성 전류 직접측정법·누설전류 고조파측정법"
+      }
+    ],
+    "source": {
+      "id": "notes-q131",
+      "kind": "user-notes",
+      "exam": "2023-1회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q133": {
+    "kind": "blank",
+    "prompt": "피뢰시스템 등급별 인하도선 사이 권장 간격을 채우시오.",
+    "basisAnswer": "10m / 10m / 15m / 20m",
+    "fields": [
+      {
+        "label": "I등급",
+        "answer": "10m"
+      },
+      {
+        "label": "II등급",
+        "answer": "10m"
+      },
+      {
+        "label": "III등급",
+        "answer": "15m"
+      },
+      {
+        "label": "IV등급",
+        "answer": "20m"
+      }
+    ],
+    "source": {
+      "id": "notes-q133",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q134": {
+    "kind": "blank",
+    "prompt": "취급자 이외의 사람이 출입할 수 있는 곳에서 버스덕트를 조영재에 붙일 때 지지점 간 최대거리는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "3m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "3m"
+      }
+    ],
+    "source": {
+      "id": "notes-q134",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q135": {
+    "kind": "blank",
+    "prompt": "라이팅덕트 공사의 지지점 간 최대거리는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "2m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "2m"
+      }
+    ],
+    "source": {
+      "id": "notes-q134",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q136": {
+    "kind": "blank",
+    "prompt": "특고압을 직접 저압으로 변성하는 변압기의 허용 예외: 전기로 등 (　)가 큰 전기를 소비하기 위한 변압기.",
+    "basisAnswer": "전기로 등 큰 전류를 소비하기 위한 변압기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전류"
+      }
+    ],
+    "source": {
+      "id": "notes-q136",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q137": {
+    "kind": "blank",
+    "prompt": "발전소·변전소·개폐소 등에 설치하는 (　) 변압기는 특고압을 직접 저압으로 변성하는 시설의 예외에 해당한다.",
+    "basisAnswer": "발전소·변전소·개폐소 등에 설치하는 소내용 변압기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "소내용"
+      }
+    ],
+    "source": {
+      "id": "notes-q136",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q138": {
+    "kind": "blank",
+    "prompt": "특고압을 직접 저압으로 변성하는 변압기에서 자동 차단장치를 설치하는 경우 원본이 제시한 사용전압 상한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "35kV 이하",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "35kV 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q136",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q139": {
+    "kind": "short",
+    "prompt": "철거손실률의 의미를 설명하시오.",
+    "basisAnswer": "철거 폐자재 환입 시 파손·손실·망실·부식 등에 따른 손실률",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "철거 폐자재 환입 시 파손·손실·망실·부식 등에 따른 손실률"
+      }
+    ],
+    "source": {
+      "id": "notes-q139",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q140": {
+    "kind": "blank",
+    "prompt": "2022년 4회 자료의 신설 전선 물량 할증률을 채우시오.",
+    "basisAnswer": "옥외 5% / 옥내 10%",
+    "fields": [
+      {
+        "label": "옥외전선",
+        "answer": "5%"
+      },
+      {
+        "label": "옥내전선",
+        "answer": "10%"
+      }
+    ],
+    "source": {
+      "id": "notes-q140",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q141": {
+    "kind": "blank",
+    "prompt": "전선관 물량 산출 시 할증률을 채우시오.",
+    "basisAnswer": "옥외 5% / 옥내 10%",
+    "fields": [
+      {
+        "label": "옥외 전선관",
+        "answer": "5%"
+      },
+      {
+        "label": "옥내 전선관",
+        "answer": "10%"
+      }
+    ],
+    "source": {
+      "id": "notes-q140",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q142": {
+    "kind": "blank",
+    "prompt": "2022년 4회 자료의 Trolley선 물량 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "1%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "1%"
+      }
+    ],
+    "source": {
+      "id": "notes-q140",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q143": {
+    "kind": "blank",
+    "prompt": "가공전선로 지지선은 몇 가닥 이상의 소선으로 된 연선을 사용하는가? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "3가닥 이상",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "3가닥 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q143",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q144": {
+    "kind": "short",
+    "prompt": "가공지지선의 지중부분 및 지표상 어디까지 부식방지 재료가 요구되는가?",
+    "basisAnswer": "지표상 0.3m까지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "지표상 0.3m까지"
+      }
+    ],
+    "source": {
+      "id": "notes-q143",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q145": {
+    "kind": "blank",
+    "prompt": "도로를 횡단하는 지지선의 원칙적인 지표상 높이는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "5m 이상",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "5m 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q143",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q146": {
+    "kind": "blank",
+    "prompt": "지지선 횡단 높이의 예외 기준을 채우시오.",
+    "basisAnswer": "일반도로 4.5m 이상 / 보도 2.5m 이상",
+    "fields": [
+      {
+        "label": "일반도로",
+        "answer": "4.5m 이상"
+      },
+      {
+        "label": "보도",
+        "answer": "2.5m 이상"
+      }
+    ],
+    "source": {
+      "id": "notes-q143",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q147": {
+    "kind": "short",
+    "prompt": "GPT 오픈델타 결선에 연결하는 저항 R의 명칭은?",
+    "basisAnswer": "한류저항기(CLR)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "한류저항기(CLR)"
+      }
+    ],
+    "source": {
+      "id": "notes-q147",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q148": {
+    "kind": "short",
+    "prompt": "비접지 계통의 GPT 오픈델타에 한류저항기를 두는 목적은?",
+    "basisAnswer": "선택지락계전기 동작용 유효전류 형성 및 제3고조파 전압 억제",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "선택지락계전기 동작용 유효전류 형성 및 제3고조파 전압 억제"
+      }
+    ],
+    "source": {
+      "id": "notes-q147",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q149": {
+    "kind": "blank",
+    "prompt": "옥내 직류전기설비에서 원본이 제시한 접지 예외 사용전압은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "60V 이하",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "60V 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q149",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q150": {
+    "kind": "blank",
+    "prompt": "옥내 직류 2선식 전로의 접지 예외와 관련하여, 절연감시장치 또는 절연고장점검출장치를 설치하고 관리자가 확인할 수 있도록 (　)를 시설한다.",
+    "basisAnswer": "절연감시장치 또는 절연고장점검출장치 + 관리자가 확인할 경보장치",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "경보장치"
+      }
+    ],
+    "source": {
+      "id": "notes-q149",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q151": {
+    "kind": "short",
+    "prompt": "지지선 밴드를 사용하는 현수애자 장치의 올바른 시공 순서는?",
+    "basisAnswer": "지지선 밴드 → 볼 아이 → 현수애자 → 소켓 아이 → 데드앤드 클램프",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "지지선 밴드 → 볼 아이 → 현수애자 → 소켓 아이 → 데드앤드 클램프"
+      }
+    ],
+    "source": {
+      "id": "notes-q151",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q152": {
+    "kind": "short",
+    "prompt": "건축구조물을 관통한 배선설비 개구부의 밀폐 수준은?",
+    "basisAnswer": "해당 건축구조부재에 규정된 내화등급에 따라 밀폐",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "해당 건축구조부재에 규정된 내화등급에 따라 밀폐"
+      }
+    ],
+    "source": {
+      "id": "notes-q152",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q153": {
+    "kind": "short",
+    "prompt": "내화구조부재를 관통하는 배선설비는 외부 밀폐 외에 원칙적으로 무엇을 해야 하는가?",
+    "basisAnswer": "내부도 해당 구조부재의 내화등급이 되도록 밀폐",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "내부도 해당 구조부재의 내화등급이 되도록 밀폐"
+      }
+    ],
+    "source": {
+      "id": "notes-q152",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q154": {
+    "kind": "blank",
+    "prompt": "일정 조건에서 내부 밀폐 생략이 가능한 자소성 전선관·덕팅 등의 최대 내부단면적은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "710mm² 이하",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "710mm² 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q152",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q155": {
+    "kind": "short",
+    "prompt": "배선설비 관통부 내부 밀폐 생략 요건과 관련된 보호등급은?",
+    "basisAnswer": "IP33",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "IP33"
+      }
+    ],
+    "source": {
+      "id": "notes-q152",
+      "kind": "user-notes",
+      "exam": "2022-4회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q156": {
+    "kind": "short",
+    "prompt": "KS C 8000에 따른 등급 0 조명기구의 특징은?",
+    "basisAnswer": "접지단자·접지도체가 없고 기초절연만으로 보호",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "접지단자·접지도체가 없고 기초절연만으로 보호"
+      }
+    ],
+    "source": {
+      "id": "notes-q156",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q157": {
+    "kind": "short",
+    "prompt": "자료에서 정의한 등급 III 조명기구의 정격 교류전압 조건은?",
+    "basisAnswer": "AC 30V 이하",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "AC 30V 이하"
+      }
+    ],
+    "source": {
+      "id": "notes-q156",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q158": {
+    "kind": "short",
+    "prompt": "계전기 기구번호 27의 명칭은?",
+    "basisAnswer": "부족전압계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "부족전압계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q158",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q159": {
+    "kind": "short",
+    "prompt": "계전기 기구번호 37D의 명칭은?",
+    "basisAnswer": "직류 부족전류계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "직류 부족전류계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q158",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q160": {
+    "kind": "short",
+    "prompt": "계전기 기구번호 51G의 명칭은?",
+    "basisAnswer": "지락 과전류계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "지락 과전류계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-q158",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q161": {
+    "kind": "blank",
+    "prompt": "전기부문 표준품셈의 소운반에 포함되는 수평거리는? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "20m 이내",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "20m 이내"
+      }
+    ],
+    "source": {
+      "id": "notes-q161",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q162": {
+    "kind": "blank",
+    "prompt": "소운반 거리 산정 시 수직 높이 1m는 수평거리 몇 m로 환산하는가? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "6m",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "6m"
+      }
+    ],
+    "source": {
+      "id": "notes-q161",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q163": {
+    "kind": "blank",
+    "prompt": "비계틀 없이 지상 5m 이상 10m 미만의 고소작업 위험 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "20%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "20%"
+      }
+    ],
+    "source": {
+      "id": "notes-q163",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q164": {
+    "kind": "blank",
+    "prompt": "비계틀 없이 지상 15m 이상 20m 미만의 고소작업 위험 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "40%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "40%"
+      }
+    ],
+    "source": {
+      "id": "notes-q163",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q165": {
+    "kind": "blank",
+    "prompt": "비계틀 사용 시 지상 10m 이상 20m 미만 고소작업 위험 할증률은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "basisAnswer": "10%",
+    "fields": [
+      {
+        "label": "빈칸에 들어갈 값 (단위·조건 포함)",
+        "answer": "10%"
+      }
+    ],
+    "source": {
+      "id": "notes-q163",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q166": {
+    "kind": "short",
+    "prompt": "제공 자료에서 과전류차단기를 시설해서는 안 되는 접지공사의 도체를 쓰시오.",
+    "basisAnswer": "접지공사의 접지도체",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "접지공사의 접지도체"
+      }
+    ],
+    "source": {
+      "id": "notes-q166",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q167": {
+    "kind": "short",
+    "prompt": "제공 자료에서 과전류차단기 설치가 금지된 다선식 전로의 전선을 쓰시오.",
+    "basisAnswer": "다선식 전로의 중성선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "다선식 전로의 중성선"
+      }
+    ],
+    "source": {
+      "id": "notes-q166",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q168": {
+    "kind": "blank",
+    "prompt": "옥외등에 노출하여 사용하는 소켓 등은 선이 부착된 (①) 또는 (②) 리셉터클을 사용하여 하향 시설한다.",
+    "basisAnswer": "방수소켓 또는 방수형 리셉터클을 사용하여 하향 시설",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "방수소켓"
+      },
+      {
+        "label": "②",
+        "answer": "방수형"
+      }
+    ],
+    "source": {
+      "id": "notes-q168",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q169": {
+    "kind": "blank",
+    "prompt": "파이프펜던트 등을 상향 부착할 때 방수형이 아니라면, 홀더 최하부에 지름 (①) 이상인 물 빼는 구멍을 (②) 이상 만들어야 한다.",
+    "basisAnswer": "지름 3mm 이상 2개소 이상(또는 방수형)",
+    "fields": [
+      {
+        "label": "① 지름",
+        "answer": "3mm"
+      },
+      {
+        "label": "② 개수",
+        "answer": "2개소"
+      }
+    ],
+    "source": {
+      "id": "notes-q168",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q170": {
+    "kind": "short",
+    "prompt": "소호각의 역할 세 가지를 쓰시오.",
+    "basisAnswer": "섬락 시 애자련 보호·전압분포 균일화·애자 파손 방지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "섬락 시 애자련 보호·전압분포 균일화·애자 파손 방지"
+      }
+    ],
+    "source": {
+      "id": "notes-q170",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q171": {
+    "kind": "short",
+    "prompt": "ACSR 송전선에 댐퍼를 설치하는 주목적은?",
+    "basisAnswer": "전선의 진동 억제",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전선의 진동 억제"
+      }
+    ],
+    "source": {
+      "id": "notes-q170",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q172": {
+    "kind": "short",
+    "prompt": "주상변압기의 저압측에 설치하는 보호장치는?",
+    "basisAnswer": "캐치홀더",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "캐치홀더"
+      }
+    ],
+    "source": {
+      "id": "notes-q170",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q173": {
+    "kind": "short",
+    "prompt": "3상 수직배치 선로에서 오프셋을 주는 이유는?",
+    "basisAnswer": "전선 도약 시 상·하선 혼촉 방지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전선 도약 시 상·하선 혼촉 방지"
+      }
+    ],
+    "source": {
+      "id": "notes-q170",
+      "kind": "user-notes",
+      "exam": "2022-2회",
+      "received": "2026-10-22"
+    },
+    "notes": []
+  },
+  "q174": {
+    "kind": "short",
+    "prompt": "제공한 2022년 1회 자료의 1련 내장애자 장치(역조형) 부품 연결 순서를 쓰시오.",
+    "basisAnswer": "앵커쇄클 → 소켓아이 → 현수애자 → 볼크레비스 → 점퍼터미널",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "앵커쇄클 → 소켓아이 → 현수애자 → 볼크레비스 → 점퍼터미널"
+      }
+    ],
+    "source": {
+      "id": "notes-q174",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q175": {
+    "kind": "short",
+    "prompt": "전선 약호 0.6/1kV PN의 명칭은?",
+    "basisAnswer": "0.6/1kV 고무절연 클로로프렌시스 케이블",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "0.6/1kV 고무절연 클로로프렌시스 케이블"
+      }
+    ],
+    "source": {
+      "id": "notes-q175",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q176": {
+    "kind": "short",
+    "prompt": "전선 약호 DV 2F의 명칭은?",
+    "basisAnswer": "인입용 비닐절연전선 2심 평형",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "인입용 비닐절연전선 2심 평형"
+      }
+    ],
+    "source": {
+      "id": "notes-q175",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q177": {
+    "kind": "short",
+    "prompt": "450/750V HFIO의 명칭은?",
+    "basisAnswer": "저독성 난연 폴리올레핀 절연전선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "저독성 난연 폴리올레핀 절연전선"
+      }
+    ],
+    "source": {
+      "id": "notes-q175",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q178": {
+    "kind": "short",
+    "prompt": "전력용 콘덴서 설비의 과전압계전기 주요 역할은?",
+    "basisAnswer": "콘덴서 단자전압이 과도하게 상승하면 차단기를 개방해 보호",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "콘덴서 단자전압이 과도하게 상승하면 차단기를 개방해 보호"
+      }
+    ],
+    "source": {
+      "id": "notes-q178",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다.",
+      "제공 노트에 설명필요 표시가 있습니다. 기본 보호동작은 기존 해설로 보완했으며 공식 회로도 검증 전입니다."
+    ]
+  },
+  "q179": {
+    "kind": "short",
+    "prompt": "전력용 콘덴서 설비의 부족전압계전기 주요 역할은?",
+    "basisAnswer": "정전·전압저하 시 분리하여 전압회복 직후 콘덴서만 투입되는 것을 방지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "정전·전압저하 시 분리하여 전압회복 직후 콘덴서만 투입되는 것을 방지"
+      }
+    ],
+    "source": {
+      "id": "notes-q178",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다.",
+      "제공 노트에 설명필요 표시가 있습니다. 기본 보호동작은 기존 해설로 보완했으며 공식 회로도 검증 전입니다."
+    ]
+  },
+  "q180": {
+    "kind": "short",
+    "prompt": "HID Lamp의 정확한 명칭은?",
+    "basisAnswer": "고휘도 방전램프",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "고휘도 방전램프"
+      }
+    ],
+    "source": {
+      "id": "notes-q180",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q181": {
+    "kind": "short",
+    "prompt": "HID Lamp의 대표적인 종류 세 가지를 쓰시오.",
+    "basisAnswer": "고압 수은등·고압 나트륨등·메탈할라이드등",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "고압 수은등·고압 나트륨등·메탈할라이드등"
+      }
+    ],
+    "source": {
+      "id": "notes-q180",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q182": {
+    "kind": "short",
+    "prompt": "변압기의 절연저항 측정에 쓰는 대표적인 계측기는?",
+    "basisAnswer": "메거(절연저항계)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "메거(절연저항계)"
+      }
+    ],
+    "source": {
+      "id": "notes-q182",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q183": {
+    "kind": "short",
+    "prompt": "전해액 저항 측정에 적합한 브리지는?",
+    "basisAnswer": "콜라우시 브리지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "콜라우시 브리지"
+      }
+    ],
+    "source": {
+      "id": "notes-q182",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q184": {
+    "kind": "short",
+    "prompt": "백열전구 필라멘트의 백열 상태 저항을 측정할 때 사용하는 방법은?",
+    "basisAnswer": "전압강하법",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전압강하법"
+      }
+    ],
+    "source": {
+      "id": "notes-q182",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q185": {
+    "kind": "short",
+    "prompt": "검류계 내부저항의 측정방법으로 원본이 제시한 것은?",
+    "basisAnswer": "휘트스톤 브리지",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "휘트스톤 브리지"
+      }
+    ],
+    "source": {
+      "id": "notes-q182",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q186": {
+    "kind": "short",
+    "prompt": "전기저장장치 축전지 출력단자에서 계측해야 하는 전기량 세 가지와 상태 한 가지를 쓰시오.",
+    "basisAnswer": "전압·전류·전력·충방전 상태",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전압 · 전류 · 전력 · 충방전 상태"
+      }
+    ],
+    "source": {
+      "id": "notes-q186",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q187": {
+    "kind": "short",
+    "prompt": "전기저장장치가 시설된 곳의 주요 변압기에서 계측해야 하는 전기량 세 가지를 쓰시오.",
+    "basisAnswer": "전압·전류·전력",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "전압 · 전류 · 전력"
+      }
+    ],
+    "source": {
+      "id": "notes-q186",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다."
+    ]
+  },
+  "q188": {
+    "kind": "blank",
+    "prompt": "전기부문 표준품셈에서 옥외전선의 비율을 채우시오.",
+    "basisAnswer": "할증 5% / 철거손실 2.5%",
+    "fields": [
+      {
+        "label": "신설 재료 할증률",
+        "answer": "5%"
+      },
+      {
+        "label": "철거손실률",
+        "answer": "2.5%"
+      }
+    ],
+    "source": {
+      "id": "notes-q188",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다.",
+      "노트 마지막 표보다 앞선 명시적 정정 요청을 우선 적용했습니다."
+    ]
+  },
+  "q189": {
+    "kind": "blank",
+    "prompt": "전기부문 표준품셈에서 옥외 케이블의 비율을 채우시오.",
+    "basisAnswer": "할증 3% / 철거손실 1.5%",
+    "fields": [
+      {
+        "label": "신설 재료 할증률",
+        "answer": "3%"
+      },
+      {
+        "label": "철거손실률",
+        "answer": "1.5%"
+      }
+    ],
+    "source": {
+      "id": "notes-q188",
+      "kind": "user-notes",
+      "exam": "2022-1회",
+      "received": "2026-10-22"
+    },
+    "notes": [
+      "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다.",
+      "노트 마지막 표보다 앞선 명시적 정정 요청을 우선 적용했습니다."
+    ]
+  }
+}

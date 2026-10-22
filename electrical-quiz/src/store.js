@@ -30,7 +30,7 @@ export class StudyStore {
     if(owner===this.owner)await this.reload();this.channel?.postMessage({owner});for(const fn of this.listeners)fn();
   }
   async markSynced(id,owner){const rows=await this.readAll('events');const e=rows.find(x=>x.owner===owner&&x.id===id);if(!e)return;const {owner:o,synced:s,...event}=e;await this.add([event],{owner,synced:true});}
-  async saveSession(value){const owner=this.owner;await new Promise((resolve,reject)=>{const tx=this.db.transaction('sessions','readwrite');tx.objectStore('sessions').put({owner,value});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});if(owner===this.owner)this.session=value;}
+  async saveSession(value){if(value)validateSession(value,new Set(this.bank.map(q=>q.id)));const owner=this.owner;await new Promise((resolve,reject)=>{const tx=this.db.transaction('sessions','readwrite');tx.objectStore('sessions').put({owner,value});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);});if(owner===this.owner)this.session=value;}
   async checkpoint(session){await this.saveSession(session);await this.add([{id:'session_'+uuid(),kind:'session',at:new Date().toISOString(),session:JSON.parse(JSON.stringify(session))}]);}
   async commitAnswer(session,event){
     const owner=this.owner;let result;

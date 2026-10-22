@@ -3,6 +3,7 @@ import path from 'node:path';
 import http from 'node:http';
 import {createHash} from 'node:crypto';
 import {chromium,expect} from '@playwright/test';
+const BANK_SIZE=JSON.parse(await fs.readFile(new URL('../src/questions.json',import.meta.url),'utf8')).length;
 
 // Model GitHub Pages' ten-minute HTTP cache while replacing an installed PWA.
 const publicRoot=path.resolve('public');let version=1;
@@ -23,7 +24,7 @@ const server=http.createServer(async(req,res)=>{
 });await new Promise(r=>server.listen(4182,'127.0.0.1',r));
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});const context=await browser.newContext();const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
- await page.goto('http://127.0.0.1:4182/');await expect(page.locator('#totalCount')).toHaveText('189');await page.evaluate(()=>navigator.serviceWorker.ready);await page.reload();
+ await page.goto('http://127.0.0.1:4182/');await expect(page.locator('#totalCount')).toHaveText(String(BANK_SIZE));await page.evaluate(()=>navigator.serviceWorker.ready);await page.reload();
  await page.locator('#start10').click();await page.locator('#qOptions button').first().click();await expect(page.locator('#qExplanation')).not.toBeEmpty();await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('1');
  version=2;await page.evaluate(async()=>{await(await navigator.serviceWorker.getRegistration()).update();});await expect(page.locator('#updateApp')).toBeVisible({timeout:15000});
  const reload=page.waitForEvent('load');await page.locator('#updateApp').click();await reload;

@@ -1,6 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import {examAppearances} from '../src/question-exams.js';
 import {assertBankPreserved} from '../scripts/bank-preservation.mjs';
 import {planImport,reduceEvents,attemptEvent,practicalAttempt,validateSession,validateEvent} from '../src/core.js';
 const bank=JSON.parse(fs.readFileSync(new URL('../src/questions.json',import.meta.url)));
@@ -17,7 +18,7 @@ test('서로 다른 기기의 이벤트를 순서에 관계없이 합산',()=>{
  assert.deepEqual(reduceEvents([a,b],bank),reduceEvents([b,a,b],bank));assert.equal(reduceEvents([a,b],bank).history.q001.lastCorrect,false);
 });
 test('미응시는 한 번도 채점하지 않은 문항만',()=>{
- const events=bank.slice(0,10).map(q=>attemptEvent({id:'s',answers:{}},q,0));const view=reduceEvents(events,bank);assert.equal(bank.filter(q=>!view.history[q.id]?.attempts).length,179);
+ const events=bank.slice(0,10).map(q=>attemptEvent({id:'s',answers:{}},q,0));const view=reduceEvents(events,bank);assert.equal(bank.filter(q=>!view.history[q.id]?.attempts).length,bank.length-10);
 });
 test('구버전 누적 기록과 미분류 풀이·별표 유지, 재가져오기 멱등성',async()=>{
  const raw={version:2,history:{q001:{attempts:10,correct:6,wrong:3,lastAt:'2026-09-01T00:00:00.000Z',lastCorrect:false},old:{attempts:1}},stars:['q001']};
@@ -48,7 +49,7 @@ test('관심 문제 해제는 이전 백업의 별표로 부활하지 않음',as
 test('새 문제 추가 후 기존 ID 기록과 최근 이력 보존',()=>{
  const e=attemptEvent(session(),bank[0],0),extended=[...bank,{...bank[0],id:'new-2021-1-01'}];
  assert.deepEqual(reduceEvents([e],bank).history,reduceEvents([e],extended).history);
- assert.equal(extended.filter(q=>!reduceEvents([e],extended).history[q.id]?.attempts).length,189);
+ assert.equal(extended.filter(q=>!reduceEvents([e],extended).history[q.id]?.attempts).length,bank.length);
 });
 test('추가한 문제의 정답 인덱스가 0이 아니어도 채점',()=>{const q={...bank[0],id:'extra',correct:2};assert.equal(attemptEvent({id:'s',answers:{}},q,2).correct,true);assert.equal(attemptEvent({id:'s',answers:{}},q,0).correct,false);});
 test('실기 정오답은 별도로 집계하고 동일 판정 재전송을 중복 제외',async()=>{
@@ -67,4 +68,11 @@ test('실기에서는 구 객관식 누적 기록을 미응시 판정에 섞지 
  const p=await planImport({history:{q001:{attempts:8,correct:5,wrong:3}}},bank);
  assert.equal(reduceEvents(p.events,bank,{format:'mcq'}).history.q001.attempts,8);
  assert.equal(reduceEvents(p.events,bank,{format:'practical'}).history.q001,undefined);
+});
+
+test('동일 문제의 여러 출처 회차는 ID를 복제하지 않고 같은 기록을 사용',()=>{
+ const q=bank.find(q=>q.id==='q001');assert(examAppearances(q).includes('2021-4회'));assert(examAppearances(q).includes(q.year));
+ const e=attemptEvent({id:'exam-alias',answers:{}},q,q.correct),v=reduceEvents([e],bank);assert.equal(v.history.q001.attempts,1);
+ const subset=bank.filter(q=>examAppearances(q).includes('2021-4회'));assert.equal(new Set(subset.map(q=>q.id)).size,subset.length);
+ assert.equal(subset.filter(q=>v.history[q.id]?.attempts).length,1);
 });

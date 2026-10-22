@@ -25,7 +25,14 @@
     "verification": {
       "status": "unverified",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-underwater",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q002",
@@ -53,7 +60,14 @@
     "verification": {
       "status": "unverified",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-underwater",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q003",
@@ -391,7 +405,15 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-spans",
+        "file": "sources/2021-user-notes.md",
+        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+      }
+    ]
   },
   {
     "id": "q015",
@@ -419,7 +441,15 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-spans",
+        "file": "sources/2021-user-notes.md",
+        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+      }
+    ]
   },
   {
     "id": "q016",
@@ -447,7 +477,15 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-spans",
+        "file": "sources/2021-user-notes.md",
+        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+      }
+    ]
   },
   {
     "id": "q017",
@@ -475,7 +513,15 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-spans",
+        "file": "sources/2021-user-notes.md",
+        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+      }
+    ]
   },
   {
     "id": "q018",
@@ -503,7 +549,15 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-spans",
+        "file": "sources/2021-user-notes.md",
+        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+      }
+    ]
   },
   {
     "id": "q019",
@@ -811,7 +865,14 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-2회",
+        "sourceId": "notes-2021-2-filing",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q030",
@@ -839,7 +900,14 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-2회",
+        "sourceId": "notes-2021-2-filing",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q031",
@@ -951,7 +1019,14 @@
     "verification": {
       "status": "unverified",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-1회",
+        "sourceId": "notes-2021-1-tower-foundation",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q035",
@@ -1035,7 +1110,14 @@
     "verification": {
       "status": "unverified",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-wire-symbols",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q038",
@@ -1205,7 +1287,14 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-1회",
+        "sourceId": "notes-2021-1-gas-conduit",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q044",
@@ -1233,7 +1322,14 @@
     "verification": {
       "status": "needs-review",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-1회",
+        "sourceId": "notes-2021-1-gas-conduit",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q045",
@@ -2753,7 +2849,14 @@
     "verification": {
       "status": "unverified",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-2회",
+        "sourceId": "notes-2021-2-guy-purpose",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "id": "q099",
@@ -4939,7 +5042,14 @@
     "verification": {
       "status": "unverified",
       "notes": []
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2021-4회",
+        "sourceId": "notes-2021-4-wire-symbols",
+        "file": "sources/2021-user-notes.md"
+      }
+    ]
   },
   {
     "year": "2022-2회",
@@ -5308,6 +5418,906 @@
       "status": "user-corrected",
       "notes": [
         "2026-10-22 사용자 정정: 옥외 케이블: 할증률 3%, 철거손실률 1.5%"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-001",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "설비·배선",
+    "originalQuestion": "절연전선 및 케이블 기호\n- 인입용 비닐절연전선 2개 꼬임 : DV 2R\n- 인입용 비닐절연전선 2개 평형 : DV 2F\n- 옥외용 비닐절연전선 : OW\n- 0.6/1kV 비닐절연 비닐캡타이어 케이블 : VCT\n- 450/750V 저독성 난연 가교폴리올레핀 절연전선 : HFIX",
+    "question": "인입용 비닐절연전선 2개 꼬임의 약호는?",
+    "options": [
+      "DV 2R",
+      "DV 2F",
+      "OW",
+      "HFIX"
+    ],
+    "correct": 0,
+    "explain": "DV 2R은 2개 꼬임, DV 2F는 2개 평형으로 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-002",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "설비·배선",
+    "originalQuestion": "절연전선 및 케이블 기호\n- 인입용 비닐절연전선 2개 꼬임 : DV 2R\n- 인입용 비닐절연전선 2개 평형 : DV 2F\n- 옥외용 비닐절연전선 : OW\n- 0.6/1kV 비닐절연 비닐캡타이어 케이블 : VCT\n- 450/750V 저독성 난연 가교폴리올레핀 절연전선 : HFIX",
+    "question": "옥외용 비닐절연전선의 약호는?",
+    "options": [
+      "OW",
+      "OC",
+      "DV 2R",
+      "VCT"
+    ],
+    "correct": 0,
+    "explain": "제공 자료에서 옥외용 비닐절연전선은 OW입니다. OC와 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-003",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "설비·배선",
+    "originalQuestion": "절연전선 및 케이블 기호\n- 인입용 비닐절연전선 2개 꼬임 : DV 2R\n- 인입용 비닐절연전선 2개 평형 : DV 2F\n- 옥외용 비닐절연전선 : OW\n- 0.6/1kV 비닐절연 비닐캡타이어 케이블 : VCT\n- 450/750V 저독성 난연 가교폴리올레핀 절연전선 : HFIX",
+    "question": "450/750V 저독성 난연 가교폴리올레핀 절연전선의 약호는?",
+    "options": [
+      "HFIX",
+      "HFIO",
+      "VCT",
+      "VV"
+    ],
+    "correct": 0,
+    "explain": "가교폴리올레핀 절연전선 HFIX와 기존 HFIO 명칭을 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-004",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "보호·계전",
+    "originalQuestion": "부흐홀츠계전기 작동원리와 설치위치\n- 작동원리 : 변압기 내부 고장 시 발생하는 가스의 부력과 절연유의 유속을 이용하여 변압기 내부 고장을 검출하는 계전기\n- 설치위치 : 변압기와 콘서베이터를 연결하는 파이프 도중",
+    "question": "부흐홀츠계전기가 변압기 내부 고장을 검출하는 작동원리는?",
+    "options": [
+      "고장 가스의 부력과 절연유의 유속 이용",
+      "외부 전압의 위상차만 측정",
+      "부하전류의 고조파만 비교",
+      "철탑의 기계적 진동만 검출"
+    ],
+    "correct": 0,
+    "explain": "변압기 내부 고장으로 발생하는 가스의 부력과 절연유 유동을 이용합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-005",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "보호·계전",
+    "originalQuestion": "부흐홀츠계전기 작동원리와 설치위치\n- 작동원리 : 변압기 내부 고장 시 발생하는 가스의 부력과 절연유의 유속을 이용하여 변압기 내부 고장을 검출하는 계전기\n- 설치위치 : 변압기와 콘서베이터를 연결하는 파이프 도중",
+    "question": "부흐홀츠계전기의 설치 위치는?",
+    "options": [
+      "변압기와 콘서베이터를 연결하는 파이프 도중",
+      "변압기 저압측 배전반 모선",
+      "변압기 외부 접지극 사이",
+      "피뢰기와 대지 사이"
+    ],
+    "correct": 0,
+    "explain": "변압기 본체와 콘서베이터를 연결하는 관에 설치합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-006",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "공사적산",
+    "originalQuestion": "전기부문 표준품셈 - 활선 근접작업\n- 활선근접작업이란 나도체(22.9kV ACSR-OC 절연전선 포함) 상태에서 이격거리 이내에 근접하여 작업함을 말하며, AC (60)V 이상 (1000)V 미만, DC (60)V이상 (1500)V미만을 절연물로 피복된 경우 나도체된 부분으로부터 이격거리 내에서ㅏ 작업할 때를 말한다.",
+    "question": "제공 자료의 피복된 저압 전선 활선근접작업 적용 전압 범위는?",
+    "options": [
+      "AC 60V 이상 1000V 미만 / DC 60V 이상 1500V 미만",
+      "AC 60V 이상 1500V 미만 / DC 60V 이상 1000V 미만",
+      "AC 100V 이상 1000V 이하 / DC 100V 이상 1500V 이하",
+      "AC 60V 이하 / DC 60V 이하"
+    ],
+    "correct": 0,
+    "explain": "나도체 상태의 이격거리 내 근접작업을 말합니다. 해당 전압 범위에서 절연 피복이 있으면 피복이 제거된 나도체 부분으로부터의 이격거리를 적용한다는 제공 자료입니다. 이격거리 수치표는 제공되지 않았습니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-007",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "송배전",
+    "originalQuestion": "철탑 조립공사에 적용되고 있는 조립공법\n- 조립봉 공법\n- 이동식 크레인 공법\n- 철탑 크레인 공법",
+    "question": "제공 자료의 철탑 조립공법 세 가지가 모두 포함된 것은?",
+    "options": [
+      "조립봉·이동식 크레인·철탑 크레인 공법",
+      "직접기초·말뚝기초·관로식",
+      "관로식·암거식·직접매설식",
+      "굴착·각입·타설"
+    ],
+    "correct": 0,
+    "explain": "철탑 조립공법과 기초공사·지중전선로 시설방법을 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-008",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "접지·보호",
+    "originalQuestion": "1. 보호등전위본딩\n- 건축물 · 구조물의 외부에서 내부로 들어오는 각종 금속제 배관은 다음과 같이 하여야 한다.\n  - 1개소에 집중하여 인입하고, 인입구 부근에서 서로 접속하여 등전위본딩 바에 접속하여야 한다.\n  - 대형건축물 등으로 1개소에 집중하여 인입하기 어려운 경우에는 본딩도체를 (1)개의 본딩바에 연결한다.\n- 수도관 · 가스관의 경우 내부로 인입된 최초의 밸브 (후단)에서 등전위본딩을 하여야 한다.",
+    "question": "대형건축물 금속배관의 보호등전위본딩에서 본딩바 수와 수도·가스관의 본딩 위치 조합은?",
+    "options": [
+      "1개의 본딩바 / 인입 후 최초 밸브 후단",
+      "2개의 본딩바 / 최초 밸브 전단",
+      "1개의 본딩바 / 건물 외부 임의 위치",
+      "3개의 본딩바 / 배관 끝단"
+    ],
+    "correct": 0,
+    "explain": "집중 인입이 어려워도 본딩도체는 1개의 본딩바에 연결하고, 수도·가스관은 최초 밸브 후단에서 본딩한다는 제공 자료입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-009",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "접지·보호",
+    "originalQuestion": "2. 비접지 국부등전위본딩\n- 절연성 바닥으로 된 비접지 장소에서 다음의 경우 국부등전위본딩을 하여야 한다.\n  - 전기설비 상호 간이 (2.5)m이내인 경우\n  - 전기설비와 이를 지지하는 금속체 사이",
+    "question": "비접지 국부등전위본딩에서 절연성 바닥의 비접지 장소에 있는 전기설비 상호 간 거리 기준은?",
+    "options": [
+      "2.5m 이내",
+      "5m 이내",
+      "0.5m 이내",
+      "10m 이내"
+    ],
+    "correct": 0,
+    "explain": "전기설비 상호 간이 2.5m 이내인 경우와 전기설비·지지 금속체 사이의 국부등전위본딩을 구분해 학습합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-010",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "보호·계전",
+    "originalQuestion": "절연구조에 따른 변류기의 종류\n- 건식\n- 유입형\n- 몰드형",
+    "question": "절연구조에 따른 변류기의 종류 세 가지는?",
+    "options": [
+      "건식·유입형·몰드형",
+      "직선형·각도형·내장형",
+      "정한시·반한시·순한시",
+      "직접기초·말뚝기초·블록기초"
+    ],
+    "correct": 0,
+    "explain": "제공 자료에서 절연구조별 변류기는 건식, 유입형, 몰드형입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-011",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "조명",
+    "originalQuestion": "EL램프의 특징 5가지\n- 얇은 산화물 피막으로 전기저항이 낮다\n- 기계적으로 강하다\n- 빛의 투과율이 높다\n- 램프 충전 시 제1피크, 램프 방전 시 제2피크가 나타나는 일종의 콘덴서와 비슷하다\n- 정현파 전압을 높이면 광속발산도가 급격히 증가한다.",
+    "question": "제공 자료에서 EL램프의 전기적 특성으로 옳은 것은?",
+    "options": [
+      "콘덴서와 유사하며 충전·방전 시 각각 피크가 나타난다",
+      "유도전동기와 동일하여 회전자 속도로 광속이 정해진다",
+      "정현파 전압을 높이면 광속발산도가 항상 감소한다",
+      "빛의 투과율이 낮고 기계적으로 약한 것이 필수 특성이다"
+    ],
+    "correct": 0,
+    "explain": "제공한 EL램프 특징 5항목을 학습노트 기준으로 수록했습니다. 공식 제조사 자료·최신 교재 대조는 완료하지 않았습니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전",
+        "EL램프 특징은 제공 노트의 표현을 보존했습니다. 공식 자료와의 대조 전입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-012",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "송배전",
+    "originalQuestion": "지형의 상황 등으로 보통지지선을 시설할 수 없을 경우 적용하며 전주와 전주 간 또는 전주와 지지선주 간에 시설하는 지지선의 종류\n- 수평지지선",
+    "question": "지형 등으로 보통지지선을 시설할 수 없어 전주와 전주 또는 지지선주 사이에 시설하는 지지선은?",
+    "options": [
+      "수평지지선",
+      "보통지지선",
+      "조가선",
+      "가공지선"
+    ],
+    "correct": 0,
+    "explain": "전주와 전주 간 또는 전주와 지지선주 간에 시설하는 수평지지선입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-4-013",
+    "year": "2021-4회",
+    "examYear": 2021,
+    "round": 4,
+    "category": "공사적산",
+    "originalQuestion": "전기부문 표준품셈 - PERT/CPM 공정계획에 의한 공기산출 결과 정상작업(정상공기)으로는 불가능하여 야간작업을 할 경우나 성질상 부득이 야간작업을 해야 할 경우에는 (25)%까지 품을 가산할 수 있다.",
+    "question": "PERT/CPM 공기산출 결과 정상공기로 불가능하거나 성질상 부득이한 야간작업의 품 가산 상한은?",
+    "options": [
+      "25%",
+      "10%",
+      "20%",
+      "50%"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 조건에 해당하는 야간작업은 25%까지 품을 가산할 수 있습니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-4회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-001",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "차단·개폐",
+    "originalQuestion": "한국전기설비규정 - 저압 전기설비에서 과전류 차단기로 저압전로에 사용되는 주택용 배선 차단기의 특성\n- 정격전류의 구분 /시간/졍격전류의 배수-[부동작전류/동작전류]\n- 63A 이하/60분/1.13배/1.45배\n- 63A 초과/120분/1.13배/1.45배",
+    "question": "주택용 배선차단기의 정격전류별 규약시간으로 옳은 것은?",
+    "options": [
+      "63A 이하 60분 / 63A 초과 120분",
+      "63A 이하 120분 / 63A 초과 60분",
+      "63A 이하 30분 / 63A 초과 60분",
+      "63A 이하 60분 / 63A 초과 60분"
+    ],
+    "correct": 0,
+    "explain": "정격전류 63A 이하는 60분, 63A 초과는 120분으로 제시된 자료입니다. 63A 경계를 포함·초과로 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-002",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "차단·개폐",
+    "originalQuestion": "한국전기설비규정 - 저압 전기설비에서 과전류 차단기로 저압전로에 사용되는 주택용 배선 차단기의 특성\n- 정격전류의 구분 /시간/졍격전류의 배수-[부동작전류/동작전류]\n- 63A 이하/60분/1.13배/1.45배\n- 63A 초과/120분/1.13배/1.45배",
+    "question": "주택용 배선차단기 특성표에서 정격전류에 대한 부동작전류·동작전류 배수는?",
+    "options": [
+      "부동작 1.13배 / 동작 1.45배",
+      "부동작 1.45배 / 동작 1.13배",
+      "부동작 1.05배 / 동작 1.30배",
+      "부동작 1.00배 / 동작 2.00배"
+    ],
+    "correct": 0,
+    "explain": "정격전류 63A 이하·초과 구분 모두 부동작 1.13배, 동작 1.45배로 제공되었습니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-003",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "송배전",
+    "originalQuestion": "22.9kV-Y 3상4선식 선로의 전선을 수평으로 배치하기 위한 완금의 표준규격(길이)\n- 2400mm",
+    "question": "22.9kV-Y 3상4선식 선로의 전선을 수평 배치하는 완금의 표준 길이는?",
+    "options": [
+      "2400mm",
+      "1800mm",
+      "3000mm",
+      "1200mm"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 완금 표준 길이는 2400mm입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-004",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "송배전",
+    "originalQuestion": "전주의 지지선과 지하에 매설되는 지지선 전주버팀대와의 연결용으로 사용하는 기자재의 명칭\n- 지지선 로드",
+    "question": "전주의 지지선과 지하에 매설되는 지지선 전주버팀대를 연결하는 기자재는?",
+    "options": [
+      "지지선 로드",
+      "앵커쇄클",
+      "거싯 플레이트",
+      "활선클램프"
+    ],
+    "correct": 0,
+    "explain": "제공 자료에서 연결용 기자재의 명칭은 지지선 로드입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-005",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "차단·개폐",
+    "originalQuestion": "ASS(자동고장구분 개폐기)의 기능 3가지\n- 과부하 시 또는 고장 전류 발생 시 전기사업자 측 공급선로의 타보호기기와 협조하여 고장구간을 자동개방하여 파급사고 방지\n- 전부하상태에서 자동 또는 수동 투입 및 개방 가능\n- 과부하 보호 기능",
+    "question": "ASS(자동고장구분 개폐기)의 기능으로 옳은 것은?",
+    "options": [
+      "다른 보호기기와 협조해 고장구간 자동 개방·파급사고 방지",
+      "축전지의 자기방전을 보충하는 충전 전용 장치",
+      "주파수를 직류로 바꾸는 정류 전용 장치",
+      "평상시 항상 개방되어 부하를 공급하지 않는 장치"
+    ],
+    "correct": 0,
+    "explain": "ASS는 고장구간 자동 개방, 전부하에서 자동·수동 투입 및 개방, 과부하 보호 기능으로 정리됩니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-006",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "조명",
+    "originalQuestion": "한국전기설비규정에 따른 점멸기 시설기준\n- 다음의 경우에는 센서등(타임스위치 포함)을 시설하여야 한다.\n  - 관광 진흥법과 공중위생관리법에 의한 관광숙박업 또는 숙박업(여인숙은 제외한다)에 이용되는 객실의 입구등은 (1)분 이내에 소등되는 것\n  - 일반주택 및 아파트 각 호실의 현관등 (3)분 이내에 소등되는 것",
+    "question": "제공 자료의 센서등 소등시간 기준으로 옳은 것은?",
+    "options": [
+      "숙박업 객실 입구등 1분 이내 / 주택·아파트 현관등 3분 이내",
+      "숙박업 객실 입구등 3분 이내 / 주택·아파트 현관등 1분 이내",
+      "두 경우 모두 5분 이내",
+      "두 경우 모두 10분 이내"
+    ],
+    "correct": 0,
+    "explain": "관광숙박업·숙박업 객실 입구등은 1분 이내(여인숙 제외), 일반주택·아파트 각 호실 현관등은 3분 이내라는 제공 자료입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-007",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "송배전",
+    "originalQuestion": "철탑 기초공사에서 각입이란?\n- 철탑 기초재와 주각재, 앵커재를 조립 후 소정의 콘크리트 블록 위에 설치",
+    "question": "철탑 기초공사에서 각입의 의미는?",
+    "options": [
+      "기초재·주각재·앵커재를 조립해 소정의 콘크리트 블록 위에 설치",
+      "전선을 인류점까지 긴장하여 고정하는 작업",
+      "철탑 완성 후 도장을 벗기는 작업",
+      "케이블을 관로 속으로 인입하는 작업"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 각입은 철탑 기초재·주각재·앵커재를 조립한 뒤 정해진 콘크리트 블록 위에 설치하는 작업입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-2-008",
+    "year": "2021-2회",
+    "examYear": 2021,
+    "round": 2,
+    "category": "수변전",
+    "originalQuestion": "진상용(전력용) 콘덴서를 설치할 적합한 장소의 선정방법은 수용가의 구내계통, 부하 조건에 따라 설치 효과, 보수, 점검, 경제성 등을 검토하여야 한다. 진상용 콘덴서를 설치하는 방법 3가지\n- 고압측(고압모선)에 설치하는 방법\n- 고압측(고압모선)과 부하에 분산하여 설치하는 방법\n- 부하말단(저압측 전동기 등)에 분산 설치하는 방법",
+    "question": "진상용 콘덴서의 설치방법 세 가지가 모두 포함된 것은?",
+    "options": [
+      "고압모선 집중 / 고압모선과 부하에 분산 / 부하말단 분산",
+      "관로식 / 암거식 / 직접매설식",
+      "건식 / 유입형 / 몰드형",
+      "직선형 / 각도형 / 내장형"
+    ],
+    "correct": 0,
+    "explain": "구내계통·부하조건에 따라 효과·보수·점검·경제성 등을 검토해 고압모선, 고압모선과 부하 분산, 부하말단 분산 중 설치방법을 선정합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-2회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-001",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "설비·배선",
+    "originalQuestion": "한국전기설비규정(KEC)에 의할 때 버스덕트공사에서 취급자 이외의 자가 출입할 수 없도록 설비한 장소에서 조영재에 수직으로 설치하는 경우 몇 m이하의 간격으로 지지하여야 하는가?\n- 6m",
+    "question": "취급자 이외 출입할 수 없는 장소에서 조영재에 수직으로 설치한 버스덕트의 최대 지지 간격은?",
+    "options": [
+      "6m",
+      "3m",
+      "2m",
+      "1.5m"
+    ],
+    "correct": 0,
+    "explain": "출입 제한 장소·수직 설치의 6m입니다. 기존의 출입 가능한 장소에서 조영재에 붙인 버스덕트 3m와 설치 조건이 다릅니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-002",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "송배전",
+    "originalQuestion": "장간형 현수애자 조립방법\n- 앵카쇄클 - 볼크레비스 - 장간형 현수애자 - 소켓아이 - 데드 앤드 클램프",
+    "question": "장간형 현수애자 장치의 부품 조립 순서로 옳은 것은?",
+    "options": [
+      "앵커쇄클 → 볼크레비스 → 장간형 현수애자 → 소켓아이 → 데드앤드클램프",
+      "앵커쇄클 → 소켓아이 → 장간형 현수애자 → 볼크레비스 → 데드앤드클램프",
+      "데드앤드클램프 → 볼크레비스 → 소켓아이 → 앵커쇄클 → 장간형 현수애자",
+      "볼크레비스 → 앵커쇄클 → 소켓아이 → 장간형 현수애자 → 데드앤드클램프"
+    ],
+    "correct": 0,
+    "explain": "장간형 현수애자 구성입니다. 기존 1련·2련 역조형 내장애자 문제와 장치 종류를 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-003",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "수변전",
+    "originalQuestion": "정전이나 전원에 이상 상태가 발생하였을 때 정상적으로 전력을 부하 측에 즉시 공급하는 설비의 명칭\n- 무정전 전원 공급 장치(UPS)",
+    "question": "정전이나 전원 이상 발생 시 부하에 정상 전력을 즉시 공급하는 설비는?",
+    "options": [
+      "무정전 전원 공급 장치(UPS)",
+      "자동고장구분 개폐기(ASS)",
+      "용량성 분압기",
+      "수평지지선"
+    ],
+    "correct": 0,
+    "explain": "설비 명칭은 무정전 전원 공급 장치(UPS)입니다. 기존 UPS 필터·인버터 기능 문제와 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-004",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "송배전",
+    "originalQuestion": "장주의 종류\n- 수평배열 : 보통장주, 창출장주, 편출장주\n- 수직배열 : 래크장주",
+    "question": "장주 중 수평배열에 속하는 종류 세 가지는?",
+    "options": [
+      "보통장주·창출장주·편출장주",
+      "래크장주·직선철탑·각도철탑",
+      "직접기초·말뚝기초·블록기초",
+      "현수애자·핀애자·지지애자"
+    ],
+    "correct": 0,
+    "explain": "수평배열은 보통장주, 창출장주, 편출장주이며 수직배열은 래크장주로 정리됩니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-005",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "송배전",
+    "originalQuestion": "장주의 종류\n- 수평배열 : 보통장주, 창출장주, 편출장주\n- 수직배열 : 래크장주",
+    "question": "전선의 수직배열에 사용하는 장주의 종류는?",
+    "options": [
+      "래크장주",
+      "보통장주",
+      "창출장주",
+      "편출장주"
+    ],
+    "correct": 0,
+    "explain": "제공 자료에서 수직배열은 래크장주입니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-006",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "보호·계전",
+    "originalQuestion": "변압기 내부 고장 검출 기기\n- 96B : 부흐홀츠계전기\n- 96P : 충격압력계전기\n- 33Q : 유면검출장치",
+    "question": "변압기 내부 고장 검출기기의 기구번호 96B는?",
+    "options": [
+      "부흐홀츠계전기",
+      "충격압력계전기",
+      "유면검출장치",
+      "주변압기 차동계전기"
+    ],
+    "correct": 0,
+    "explain": "96B는 부흐홀츠계전기입니다. 96P·33Q와 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-007",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "보호·계전",
+    "originalQuestion": "변압기 내부 고장 검출 기기\n- 96B : 부흐홀츠계전기\n- 96P : 충격압력계전기\n- 33Q : 유면검출장치",
+    "question": "변압기 내부 고장 검출기기의 기구번호 96P는?",
+    "options": [
+      "충격압력계전기",
+      "부흐홀츠계전기",
+      "유면검출장치",
+      "부족전압계전기"
+    ],
+    "correct": 0,
+    "explain": "96P는 충격압력계전기입니다. 96B·33Q와 구분합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2021-1-008",
+    "year": "2021-1회",
+    "examYear": 2021,
+    "round": 1,
+    "category": "보호·계전",
+    "originalQuestion": "변압기 내부 고장 검출 기기\n- 96B : 부흐홀츠계전기\n- 96P : 충격압력계전기\n- 33Q : 유면검출장치",
+    "question": "변압기 내부 고장 검출기기의 기구번호 33Q는?",
+    "options": [
+      "유면검출장치",
+      "부흐홀츠계전기",
+      "충격압력계전기",
+      "지락 과전류계전기"
+    ],
+    "correct": 0,
+    "explain": "33Q는 유면검출장치입니다. 제공 자료의 기구번호 명칭을 그대로 반영합니다.",
+    "diagram": null,
+    "caution": true,
+    "source": {
+      "file": "sources/2021-user-notes.md",
+      "exam": "2021-1회",
+      "originalTextAvailable": true,
+      "kind": "user-study-notes"
+    },
+    "verification": {
+      "status": "needs-review",
+      "notes": [
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
       ]
     }
   }

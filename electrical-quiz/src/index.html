@@ -4,8 +4,8 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b1530">
 <link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icons/icon-192.png"><meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="description" content="2022~2026 전기공사기사 실기 단답형 원본 기반 4지선다 HTML 오프라인 문제은행">
-<title>전기공사기사 | 2022–2026 기출 객관식·실기 · 풀이 기록·미응시</title>
+<meta name="description" content="2021~2026 전기공사기사 실기 단답형 원본 기반 4지선다 HTML 오프라인 문제은행">
+<title>전기공사기사 | 2021–2026 기출 객관식·실기 · 풀이 기록·미응시</title>
 <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -23,7 +23,7 @@
 </div>
 <div id="studySections">
 <section id="home">
- <div class="hero"><p class="eyebrow">2022–2026 · 객관식 / 실기 · 풀이 횟수 자동 기록</p><h1>기출 문제은행 · 2022–2026</h1><p class="sub">회차별·영역별 문제 풀이와 오답 복습. 계정 연결 후 여러 기기에서 기록을 이어갑니다.</p></div>
+ <div class="hero"><p class="eyebrow">2021–2026 · 객관식 / 실기 · 풀이 횟수 자동 기록</p><h1>기출 문제은행 · 2021–2026</h1><p class="sub">회차별·영역별 문제 풀이와 오답 복습. 계정 연결 후 여러 기기에서 기록을 이어갑니다.</p></div>
  <div class="panel mode-panel"><h2>학습 모드</h2><div class="control"><label for="studyFormat">문제 유형 선택</label><select id="studyFormat"><option value="mcq">객관식 · 4지선다</option><option value="practical">실기 · 단답 / 빈칸 채우기</option></select></div><p id="modeDescription" class="tiny" aria-live="polite"></p><div id="practicalFilter" class="control hidden"><label for="practicalType">실기 출제 유형</label><select id="practicalType"><option value="all">단답 + 빈칸 모두</option><option value="short">단답형만</option><option value="blank">빈칸 채우기만</option></select></div><p class="tiny">아래 학습 현황과 미응시·오답은 선택한 모드 기준입니다. 관심 문제는 두 모드에서 공유합니다. 실기는 제공 노트 기반 단답·빈칸 연습이며, 모범답안을 보고 직접 판정합니다.</p></div>
  <div class="grid home-stats"><div class="stat"><b id="totalCount">—</b><span>전체 문제</span></div><div class="stat"><b id="attemptedCount">0</b><span>풀어 본 문제</span></div><div class="stat"><b id="unseenCount">0</b><span>미응시 문제</span></div><div class="stat"><b id="overallAttempts">0</b><span>누적 풀이 횟수</span></div><div class="stat"><b id="weakCount">0</b><span>복습 필요 문제</span></div><div class="stat"><b id="overallRate">—</b><span>누적 정답률</span></div></div>
  <div class="panel"><h2>학습 대시보드</h2><p class="tiny">최근 학습: <span id="lastStudy">—</span></p><details><summary>연도·회차별 학습 진행률</summary><div id="yearProgress"></div></details><details><summary>분야별 정답률</summary><div id="categoryRates"></div></details></div>
@@ -31,13 +31,13 @@
   <h2>시험 구성</h2><div class="controls"><div class="control"><label for="yearSelect">출제 연도·회차</label><select id="yearSelect"><option value="all">전체 회차</option></select></div><div class="control"><label for="topicSelect">학습 영역</label><select id="topicSelect"><option value="all">전체 영역</option></select></div></div>
   <div class="control" style="margin-top:12px"><label for="reviewOrder">오답 복습 우선순위</label><select id="reviewOrder"><option value="recent">최근 틀린 문제 우선</option><option value="accuracy">정답률 낮은 문제 우선</option></select></div><label class="cb"><input id="randomOrder" type="checkbox" checked> 문제 순서 무작위</label><hr class="hr">
   <div class="big-actions"><button id="start10" class="btn primary">10문제 시작</button><button id="start20" class="btn">20문제 시작</button><button id="startAll" class="btn">선택 범위 전체</button></div>
-  <p id="available" class="tiny" aria-live="polite"></p>
+  <p id="available" class="tiny" aria-live="polite"></p><p class="tiny">동일 문항의 다른 출처 회차도 필터에 포함됩니다. 한 회차에서 풀면 같은 ID를 공유하는 다른 회차에도 학습 기록이 반영됩니다.</p>
   <div class="action-subgroup"><button class="btn primary" id="startUnseen10">미응시 10문제</button><button class="btn" id="startUnseenAll">미응시 전체 풀기</button></div>
   <p id="unseenAvailable" class="tiny" aria-live="polite"></p>
   <div class="row" style="margin-top:15px"><button class="btn" id="startMissed">최근 오답 재시험</button><button class="btn" id="startStars">★ 표시 문제</button><button class="btn" id="resume" style="display:none">진행 중 시험 이어풀기</button></div>
  </div>
- <div class="panel"><h2>실기 자료 반영 안내</h2><p class="tiny">기존 189개 ID에 제공한 노트를 연결했습니다. 실기: 단답 116개 / 빈칸 73개. 마지막 묶음은 이번 자료의 2022-1회로 표시하며, 객관식의 기존 2022-2회 분류와 학습 기록은 유지합니다.</p><details><summary>추가 자료가 필요한 항목</summary><p class="tiny">2025-2회 절연물 종류별 최고허용온도는 정답표가 없어 출제하지 않았습니다. 2025-1회 및 2024-1회 그림기호는 실제 그림이 없어 식별 문제로 만들지 않았습니다. 제공 노트는 공식 시험지·최신 규정 대조를 마친 자료로 표시하지 않습니다.</p></details></div>
- <div class="panel"><h2>자료 범위와 유의사항</h2><p class="sub">제공한 <strong>「공사기사 기출문제 단답형.txt」</strong> 및 추가로 보내준 2022년 2·4회 자료에 기록된 2022-2회·4회 및 2023-1회~2026-2회 내용을 토대로 객관식으로 변환했습니다. 선택지는 학습을 위해 작성한 오답 보기입니다.</p><p class="note"><strong>옥외 케이블: 할증률 3% · 철거손실률 1.5%. 옥외전선: 할증률 5% · 철거손실률 2.5%.</strong> 사용자 정정 요청을 반영하여 관련 문항과 해설을 통일했습니다.</p><p class="note">법령·KEC·표준품셈 수치는 원본의 암기값을 기준으로 하며 최신 개정 여부를 검증하지 않았습니다. 법규 문제에는 '기준 확인' 표시가 붙습니다. 텍스트에 실제 도면이나 기호 모양이 없는 항목은 임의의 정식 기호를 복원하지 않았습니다. 삽화는 이해를 돕는 개념도입니다.</p><div class="row" style="margin-top:14px"><button id="exportHistory" class="btn">학습 기록 CSV</button><button id="exportJSON" class="btn">기록 백업(JSON)</button><button id="importJSON" class="btn">기록 복원(JSON)</button><input id="importFile" class="hidden" type="file" accept=".json,application/json"><button id="clearHistory" class="btn warn">게스트 기록 초기화</button></div></div>
+ <div class="panel"><h2>실기 자료 반영 안내</h2><p class="tiny"><span id="practicalSummary"></span> 기존 189개 ID와 기록은 유지했습니다. 앞서 제공한 마지막 묶음은 실기에서 2022-1회로 표시하며, 객관식의 기존 2022-2회 분류는 유지합니다.</p><details><summary>추가 자료가 필요한 항목</summary><p class="tiny">2025-2회 절연물 종류별 최고허용온도는 정답표가 없어 출제하지 않았습니다. 2025-1회 및 2024-1회 그림기호는 실제 그림이 없어 식별 문제로 만들지 않았습니다. 제공 노트는 공식 시험지·최신 규정 대조를 마친 자료로 표시하지 않습니다.</p></details></div>
+ <div class="panel"><h2>자료 범위와 유의사항</h2><p class="sub">제공한 <strong>「공사기사 기출문제 단답형.txt」</strong> 및 추가로 제공한 2021년 1·2·4회와 2022년 자료에 기록된 2022-2회·4회 및 2023-1회~2026-2회 내용을 토대로 객관식으로 변환했습니다. 선택지는 학습을 위해 작성한 오답 보기입니다.</p><p class="note"><strong>옥외 케이블: 할증률 3% · 철거손실률 1.5%. 옥외전선: 할증률 5% · 철거손실률 2.5%.</strong> 사용자 정정 요청을 반영하여 관련 문항과 해설을 통일했습니다.</p><p class="note">법령·KEC·표준품셈 수치는 원본의 암기값을 기준으로 하며 최신 개정 여부를 검증하지 않았습니다. 법규 문제에는 '기준 확인' 표시가 붙습니다. 텍스트에 실제 도면이나 기호 모양이 없는 항목은 임의의 정식 기호를 복원하지 않았습니다. 삽화는 이해를 돕는 개념도입니다.</p><div class="row" style="margin-top:14px"><button id="exportHistory" class="btn">학습 기록 CSV</button><button id="exportJSON" class="btn">기록 백업(JSON)</button><button id="importJSON" class="btn">기록 복원(JSON)</button><input id="importFile" class="hidden" type="file" accept=".json,application/json"><button id="clearHistory" class="btn warn">게스트 기록 초기화</button></div></div>
  <div class="panel"><h2>홈 화면에서 학습하기</h2><button id="installApp" class="btn hidden">홈 화면에 설치</button><p id="installHelp" class="tiny">Android Chrome: 메뉴 → 홈 화면에 추가 또는 앱 설치. 삼성 인터넷: 메뉴 → 현재 페이지 추가 → 홈 화면. iPhone/iPad Safari: 공유 → 홈 화면에 추가. PC Chrome/Edge: 주소창의 설치 아이콘을 누르세요. 최초 온라인 접속 후 캐시가 준비되면 오프라인 학습이 가능합니다.</p></div>
  <p class="footer-note">로컬 기록은 IndexedDB에 저장됩니다. 브라우저 데이터 삭제·시크릿 모드 종료 시 로컬 기록이 지워질 수 있으므로 JSON 백업과 클라우드 동기화를 사용하세요. 기존 파일의 학습 기록은 기존 HTML에서 JSON으로 내보낸 뒤 이 앱에서 가져오세요.</p>
 </section>

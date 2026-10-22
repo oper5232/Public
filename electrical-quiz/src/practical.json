@@ -3580,5 +3580,557 @@
       "기존 객관식 분류는 2022-2회, 이번 제공 노트는 2022-1회입니다. 실기에서는 제공 노트 회차를 표시하며 ID는 유지합니다.",
       "노트 마지막 표보다 앞선 명시적 정정 요청을 우선 적용했습니다."
     ]
+  },
+  "ec-2021-4-001": {
+    "kind": "short",
+    "prompt": "인입용 비닐절연전선 2개 꼬임의 약호는?",
+    "basisAnswer": "DV 2R",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "DV 2R"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-001",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-002": {
+    "kind": "short",
+    "prompt": "옥외용 비닐절연전선의 약호는?",
+    "basisAnswer": "OW",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "OW"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-002",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-003": {
+    "kind": "short",
+    "prompt": "450/750V 저독성 난연 가교폴리올레핀 절연전선의 약호는?",
+    "basisAnswer": "HFIX",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "HFIX"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-003",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-004": {
+    "kind": "short",
+    "prompt": "부흐홀츠계전기의 작동원리를 쓰시오.",
+    "basisAnswer": "고장 가스의 부력과 절연유의 유속 이용",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "고장 가스의 부력과 절연유의 유속 이용"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-004",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-005": {
+    "kind": "short",
+    "prompt": "부흐홀츠계전기의 설치 위치는?",
+    "basisAnswer": "변압기와 콘서베이터를 연결하는 파이프 도중",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "변압기와 콘서베이터를 연결하는 파이프 도중"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-005",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-006": {
+    "kind": "blank",
+    "prompt": "피복된 저압 전선에서 나도체 부분으로부터 이격거리를 적용하는 활선근접작업의 전압 범위를 채우시오. AC: (①)~(②), DC: (③)~(④).",
+    "basisAnswer": "AC 60V 이상 1000V 미만 / DC 60V 이상 1500V 미만",
+    "fields": [
+      {
+        "label": "① AC 하한",
+        "answer": "60V 이상"
+      },
+      {
+        "label": "② AC 상한",
+        "answer": "1000V 미만"
+      },
+      {
+        "label": "③ DC 하한",
+        "answer": "60V 이상"
+      },
+      {
+        "label": "④ DC 상한",
+        "answer": "1500V 미만"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-006",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-007": {
+    "kind": "short",
+    "prompt": "철탑 조립공사에 적용되는 조립공법 세 가지를 쓰시오.",
+    "basisAnswer": "조립봉·이동식 크레인·철탑 크레인 공법",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "조립봉·이동식 크레인·철탑 크레인 공법"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-007",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-008": {
+    "kind": "blank",
+    "prompt": "대형건축물 등 금속배관을 한 곳에 집중 인입하기 어려우면 본딩도체를 (①)의 본딩바에 연결한다. 수도·가스관은 내부 인입 후 최초 밸브의 (②)에서 등전위본딩한다.",
+    "basisAnswer": "1개의 본딩바 / 인입 후 최초 밸브 후단",
+    "fields": [
+      {
+        "label": "① 본딩바 수",
+        "answer": "1개"
+      },
+      {
+        "label": "② 최초 밸브 기준 위치",
+        "answer": "후단"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-008",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-009": {
+    "kind": "blank",
+    "prompt": "비접지 국부등전위본딩에서 절연성 바닥의 비접지 장소에 있는 전기설비 상호 간 거리 기준은?",
+    "basisAnswer": "2.5m 이내",
+    "fields": [
+      {
+        "label": "거리",
+        "answer": "2.5m 이내"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-009",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-010": {
+    "kind": "short",
+    "prompt": "절연구조에 따른 변류기의 종류 세 가지를 쓰시오.",
+    "basisAnswer": "건식·유입형·몰드형",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "건식·유입형·몰드형"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-010",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-011": {
+    "kind": "short",
+    "prompt": "제공 자료에 열거된 EL램프의 특징 다섯 가지를 쓰시오.",
+    "basisAnswer": "콘덴서와 유사하며 충전·방전 시 각각 피크가 나타난다",
+    "fields": [
+      {
+        "label": "특징 다섯 가지",
+        "answer": "얇은 산화물 피막으로 전기저항이 낮다; 기계적으로 강하다; 빛의 투과율이 높다; 충전 시 제1피크·방전 시 제2피크가 나타나 콘덴서와 비슷하다; 정현파 전압을 높이면 광속발산도가 급격히 증가한다"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-011",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": [
+      "EL램프 특징은 제공 노트의 표현을 보존했습니다. 공식 자료와의 대조 전입니다."
+    ]
+  },
+  "ec-2021-4-012": {
+    "kind": "short",
+    "prompt": "지형 등으로 보통지지선을 시설할 수 없어 전주와 전주 또는 지지선주 사이에 시설하는 지지선은?",
+    "basisAnswer": "수평지지선",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "수평지지선"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-012",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-4-013": {
+    "kind": "blank",
+    "prompt": "PERT/CPM 공기산출 결과 정상공기로 불가능하거나 성질상 부득이한 야간작업의 품 가산 상한은?",
+    "basisAnswer": "25%",
+    "fields": [
+      {
+        "label": "품 가산 상한",
+        "answer": "25%"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-4-013",
+      "kind": "user-notes",
+      "exam": "2021-4회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-001": {
+    "kind": "blank",
+    "prompt": "주택용 배선차단기에서 부동작·동작 전류 특성표의 정격전류별 시간을 채우시오.",
+    "basisAnswer": "63A 이하 60분 / 63A 초과 120분",
+    "fields": [
+      {
+        "label": "63A 이하",
+        "answer": "60분"
+      },
+      {
+        "label": "63A 초과",
+        "answer": "120분"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-001",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-002": {
+    "kind": "blank",
+    "prompt": "주택용 배선차단기 특성표의 정격전류 대비 부동작전류와 동작전류 배수를 각각 채우시오.",
+    "basisAnswer": "부동작 1.13배 / 동작 1.45배",
+    "fields": [
+      {
+        "label": "부동작전류 배수",
+        "answer": "1.13배"
+      },
+      {
+        "label": "동작전류 배수",
+        "answer": "1.45배"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-002",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-003": {
+    "kind": "blank",
+    "prompt": "22.9kV-Y 3상4선식 선로의 전선을 수평 배치하는 완금의 표준 길이는?",
+    "basisAnswer": "2400mm",
+    "fields": [
+      {
+        "label": "완금 길이",
+        "answer": "2400mm"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-003",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-004": {
+    "kind": "short",
+    "prompt": "전주의 지지선과 지하에 매설되는 지지선 전주버팀대를 연결하는 기자재는?",
+    "basisAnswer": "지지선 로드",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "지지선 로드"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-004",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-005": {
+    "kind": "short",
+    "prompt": "ASS(자동고장구분 개폐기)의 기능 세 가지를 쓰시오.",
+    "basisAnswer": "다른 보호기기와 협조해 고장구간 자동 개방·파급사고 방지",
+    "fields": [
+      {
+        "label": "기능 세 가지",
+        "answer": "다른 보호기기와 협조하여 고장구간을 자동 개방해 파급사고 방지; 전부하 상태에서 자동 또는 수동 투입·개방 가능; 과부하 보호"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-005",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-006": {
+    "kind": "blank",
+    "prompt": "센서등(타임스위치 포함)의 소등시간을 각각 채우시오.",
+    "basisAnswer": "숙박업 객실 입구등 1분 이내 / 주택·아파트 현관등 3분 이내",
+    "fields": [
+      {
+        "label": "숙박업 객실 입구등(여인숙 제외)",
+        "answer": "1분 이내"
+      },
+      {
+        "label": "일반주택·아파트 현관등",
+        "answer": "3분 이내"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-006",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-007": {
+    "kind": "short",
+    "prompt": "철탑 기초공사에서 각입의 의미를 설명하시오.",
+    "basisAnswer": "기초재·주각재·앵커재를 조립해 소정의 콘크리트 블록 위에 설치",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "기초재·주각재·앵커재를 조립해 소정의 콘크리트 블록 위에 설치"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-007",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-2-008": {
+    "kind": "short",
+    "prompt": "진상용(전력용) 콘덴서의 설치방법 세 가지를 쓰시오.",
+    "basisAnswer": "고압모선 집중 / 고압모선과 부하에 분산 / 부하말단 분산",
+    "fields": [
+      {
+        "label": "설치방법 세 가지",
+        "answer": "고압측(고압모선)에 설치; 고압측(고압모선)과 부하에 분산 설치; 부하말단(저압측 전동기 등)에 분산 설치"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-2-008",
+      "kind": "user-notes",
+      "exam": "2021-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-001": {
+    "kind": "blank",
+    "prompt": "취급자 이외 출입할 수 없는 장소에서 조영재에 수직으로 설치한 버스덕트의 최대 지지 간격은?",
+    "basisAnswer": "6m",
+    "fields": [
+      {
+        "label": "최대 지지 간격",
+        "answer": "6m"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-001",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-002": {
+    "kind": "short",
+    "prompt": "장간형 현수애자 장치의 부품 조립 순서를 쓰시오.",
+    "basisAnswer": "앵커쇄클 → 볼크레비스 → 장간형 현수애자 → 소켓아이 → 데드앤드클램프",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "앵커쇄클 → 볼크레비스 → 장간형 현수애자 → 소켓아이 → 데드앤드클램프"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-002",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-003": {
+    "kind": "short",
+    "prompt": "정전이나 전원 이상 발생 시 부하에 정상 전력을 즉시 공급하는 설비는?",
+    "basisAnswer": "무정전 전원 공급 장치(UPS)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "무정전 전원 공급 장치(UPS)"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-003",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-004": {
+    "kind": "short",
+    "prompt": "전선 수평배열에 사용하는 장주의 종류 세 가지를 쓰시오.",
+    "basisAnswer": "보통장주·창출장주·편출장주",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "보통장주·창출장주·편출장주"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-004",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-005": {
+    "kind": "short",
+    "prompt": "전선의 수직배열에 사용하는 장주의 종류는?",
+    "basisAnswer": "래크장주",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "래크장주"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-005",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-006": {
+    "kind": "short",
+    "prompt": "변압기 내부 고장 검출기기의 기구번호 96B는?",
+    "basisAnswer": "부흐홀츠계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "부흐홀츠계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-006",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-007": {
+    "kind": "short",
+    "prompt": "변압기 내부 고장 검출기기의 기구번호 96P는?",
+    "basisAnswer": "충격압력계전기",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "충격압력계전기"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-007",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2021-1-008": {
+    "kind": "short",
+    "prompt": "변압기 내부 고장 검출기기의 기구번호 33Q는?",
+    "basisAnswer": "유면검출장치",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "유면검출장치"
+      }
+    ],
+    "source": {
+      "id": "notes-ec-2021-1-008",
+      "kind": "user-notes",
+      "exam": "2021-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
   }
 }

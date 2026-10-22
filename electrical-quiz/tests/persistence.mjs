@@ -1,5 +1,6 @@
 import {chromium,expect} from '@playwright/test';
 import fs from 'node:fs/promises';
+const BANK_SIZE=JSON.parse(await fs.readFile(new URL('../src/questions.json',import.meta.url),'utf8')).length;
 const url=process.env.TEST_URL||'http://127.0.0.1:4173/';const opts={executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',headless:true,args:['--no-sandbox']};
 await fs.mkdir('test-results',{recursive:true});
 const profile='test-results/restart-profile';await fs.rm(profile,{recursive:true,force:true});
@@ -8,7 +9,7 @@ try{
  await page.goto(url);await page.locator('#start10').click();
  for(let i=0;i<10;i++){await page.locator('#qOptions button').first().click();await expect(page.locator('#qExplanation')).not.toBeEmpty();await page.locator('#qNext').click();}
  await page.locator('#finishHome').click();await expect(page.locator('#overallAttempts')).toHaveText('10');await context.close();
- context=await chromium.launchPersistentContext(profile,opts);page=await context.newPage();await page.goto(url);await expect(page.locator('#overallAttempts')).toHaveText('10');await expect(page.locator('#unseenCount')).toHaveText('179');results.push('A: Chromium 프로세스 종료·동일 프로필 재시작 후 10문항 기록 유지');
+ context=await chromium.launchPersistentContext(profile,opts);page=await context.newPage();await page.goto(url);await expect(page.locator('#overallAttempts')).toHaveText('10');await expect(page.locator('#unseenCount')).toHaveText(String(BANK_SIZE-10));results.push('A: Chromium 프로세스 종료·동일 프로필 재시작 후 10문항 기록 유지');
 }finally{await context.close();}
 const browser=await chromium.launch(opts);const c=await browser.newContext();
 try{

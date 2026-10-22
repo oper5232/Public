@@ -9,6 +9,13 @@ const app=fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8');
 const diagramKeys=new Set([...app.matchAll(/^\s*(\w+):\s*`<svg/gm)].map(m=>m[1]));
 for(const q of bank){assert.match(q.id,/^[a-zA-Z0-9_-]+$/);assert(!ids.has(q.id),`중복 ID ${q.id}`);ids.add(q.id);assert.equal(q.options.length,4,q.id);assert.equal(new Set(q.options).size,4,q.id);assert(Number.isInteger(q.correct)&&q.correct>=0&&q.correct<4,q.id);for(const k of ['question','explain','year','category'])assert.equal(typeof q[k],'string');assert(q.question&&q.explain);assert(q.source&&q.verification);assert(Number.isInteger(q.examYear)&&Number.isInteger(q.round),`${q.id} 연도/회차 오류`);assert(q.originalQuestion===null||typeof q.originalQuestion==='string');assert(q.diagram===null||diagramKeys.has(q.diagram),`${q.id} 없는 도면 키 ${q.diagram}`);}
 const original=assertBankPreserved(bank);
+for(const q of bank){
+ const refs=new Set();for(const a of q.appearances||[]){
+  assert(/^\d{4}-\d+회$/.test(a.exam),`${q.id} 출처 회차 오류`);
+  assert(!refs.has(a.exam),`${q.id} 중복 출처 회차`);refs.add(a.exam);
+  assert(sources.sections.some(s=>s.id===a.sourceId&&s.exam===a.exam&&s.questionIds.includes(q.id)),`${q.id} 추가 회차 출처 누락`);
+ }
+}
 for(const [id,p] of Object.entries(practical)){
  const q=bank.find(q=>q.id===id);assert(q,`실기 연결 ID 없음 ${id}`);
  assert(['short','blank'].includes(p.kind)&&p.prompt,`${id} 실기 유형/질문 오류`);

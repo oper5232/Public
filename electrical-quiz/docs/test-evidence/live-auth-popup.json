@@ -1,0 +1,9 @@
+{
+  "url": "https://oper5232.github.io/Public/electrical-quiz/",
+  "authenticated": false,
+  "result": "GOOGLE_SIGN_IN_PAGE_REACHED",
+  "popupOrigin": "https://accounts.google.com",
+  "popupPath": "/v3/signin/identifier",
+  "popupTitle": "Sign in - Google Accounts",
+  "note": "실제 Google 계정 정보 입력·동의·로그인은 수행하지 않았습니다."
+}

@@ -1,0 +1,55 @@
+{
+  "checkedAt": "2026-10-22T08:18:41.714193+00:00",
+  "url": "https://oper5232.github.io/Public/electrical-quiz/",
+  "files": [
+    {
+      "path": "index.html",
+      "httpStatus": 200,
+      "bytes": 126715,
+      "sha256": "6ed18f31a8dfafb00ebd96fa29c2b65f789b335ac4a74f66c665f44f31a07479",
+      "matchesLocal": true
+    },
+    {
+      "path": "app.js",
+      "httpStatus": 200,
+      "bytes": 459318,
+      "sha256": "5cb54fbd62b91e4266ac49dc3d56c7a8adb743d8ae304913c3ce6c284a5e4b41",
+      "matchesLocal": true
+    },
+    {
+      "path": "styles.css",
+      "httpStatus": 200,
+      "bytes": 9993,
+      "sha256": "4137a9cd3008ef2c37e40c56572ae8600b4a18833ebef83afec079981a27ec06",
+      "matchesLocal": true
+    },
+    {
+      "path": "sw.js",
+      "httpStatus": 200,
+      "bytes": 1134,
+      "sha256": "d8cb3d470ef46e8c8eaa451836eb00fb04e89196fe1eb58f763cfc98cef77c79",
+      "matchesLocal": true
+    },
+    {
+      "path": "manifest.webmanifest",
+      "httpStatus": 200,
+      "bytes": 404,
+      "sha256": "1b19c0465cd8ac091ac3aea824009e0d9102267f1e9acc27b11d8eab3a30f4a1",
+      "matchesLocal": true
+    },
+    {
+      "path": "icons/icon-192.png",
+      "httpStatus": 200,
+      "bytes": 1277,
+      "sha256": "f43e73b95d499d0a87d5f59899be8177599570e2e6759cdcb0e171a45b09aacc",
+      "matchesLocal": true
+    },
+    {
+      "path": "icons/icon-512.png",
+      "httpStatus": 200,
+      "bytes": 3704,
+      "sha256": "6f5a2d41cdd824863ae3573851f7c79db3d75f12690221b09694fea0af3d61c8",
+      "matchesLocal": true
+    }
+  ]
+}

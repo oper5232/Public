@@ -1,0 +1,18 @@
+{
+  "repository": "oper5232/Public",
+  "commit": "49b29b33b4d2575330c729df92e98708a3f1ce63",
+  "workflowRun": "https://github.com/oper5232/Public/actions/runs/39745699201",
+  "sourceUrl": "https://github.com/oper5232/Public/tree/main/electrical-quiz",
+  "targetUrl": "https://oper5232.github.io/Public/electrical-quiz/",
+  "existingFilesPreserved": 31,
+  "newFilesVerified": 50,
+  "localSubpathBrowserScenariosPassed": 9,
+  "githubBuildAndArtifactUpload": "success",
+  "pagesAdministration": "enabled: Source = GitHub Actions",
+  "googleAuthorizedDomain": "oper5232.github.io confirmed",
+  "githubDeployment": "success",
+  "workflowAttempt": 2,
+  "publicHttpStatus": 200,
+  "deployedFilesVerified": 7,
+  "liveBrowserScenariosPassed": 9
+}

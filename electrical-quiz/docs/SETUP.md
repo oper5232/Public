@@ -1,6 +1,6 @@
 # 무료 Firebase 및 GitHub Pages 설정
 
-실서비스 Firebase 프로젝트는 사용자 제공 웹 설정의 `quiz-8e834`로 지정했습니다. 사용자 설정 완료 후 Authentication·Google 공급자 응답 및 비로그인 Firestore 읽기·쓰기 차단을 확인했습니다. GitHub Pages 호스트 `oper5232.github.io`가 승인 도메인에 추가된 것을 확인했습니다. 이 설정은 `src/firebase-config.json`과 빌드 결과에 반영됩니다. Google Analytics는 초기화하지 않습니다. 공개 배포 승인을 받았으며 Firebase 프로젝트 관리 권한은 없으므로, 아래 관리 설정 및 실제 배포가 완료되었다는 뜻은 아닙니다.
+실서비스 Firebase 프로젝트는 사용자 제공 웹 설정의 `quiz-8e834`로 지정했습니다. 사용자 설정 완료 후 Authentication·Google 공급자 응답 및 비로그인 Firestore 읽기·쓰기 차단을 확인했습니다. GitHub Pages 호스트 `oper5232.github.io`가 승인 도메인에 추가된 것을 확인했습니다. 이 설정은 `src/firebase-config.json`과 빌드 결과에 반영됩니다. Google Analytics는 초기화하지 않습니다. 공개 배포를 완료했으며 실제 주소는 https://oper5232.github.io/Public/electrical-quiz/ 입니다. 아래 내용은 신규 설치·유지관리 절차입니다. Firebase 관리자 권한으로 게시된 규칙 원문 전체를 조회하는 검증과 실제 사용자 로그인은 별도로 구분합니다.
 
 ## Firebase (사용자 계정 접근 필요)
 
@@ -30,7 +30,7 @@
 
 ## GitHub Pages
 
-공개 범위는 사용자 확인 후 결정합니다. 현재 연결되어 읽을 수 있었던 저장소는 `oper5232/Public`, `oper5232/MR-OLTC-Trainer`이며 이 작업에서는 어느 저장소도 수정하지 않았습니다.
+사용자 공개 승인을 받아 `oper5232/Public`의 `electrical-quiz/` 경로에 소스를 올리고 Pages로 배포했습니다. 다른 저장소는 수정하지 않았습니다.
 
 이 프로젝트 전용 저장소를 사용할 경우:
 
@@ -41,7 +41,7 @@
 5. 워크플로가 출력한 실제 Pages URL로 접속합니다. 서브경로에서도 상대경로·manifest scope·서비스워커가 동작하도록 구성했습니다.
 6. 해당 URL의 호스트를 Firebase 승인 도메인에 넣습니다.
 
-기존 `Public` 저장소 아래 `electrical-quiz/` 폴더로 추가한다면 기존 워크플로·사이트 배포 구조를 먼저 확인하고, 작업 디렉터리와 업로드 경로를 조정해야 합니다. 이 프로젝트의 루트 워크플로로 기존 사이트를 덮어쓰면 안 됩니다. 현재 Pages 설정 변경·사이트 공개는 수행하지 않았습니다.
+기존 `Public` 저장소 아래 `electrical-quiz/` 폴더로 추가한다면 기존 워크플로·사이트 배포 구조를 먼저 확인하고, 작업 디렉터리와 업로드 경로를 조정해야 합니다. 이 프로젝트의 루트 워크플로로 기존 사이트를 덮어쓰면 안 됩니다. 현재 배포는 기존 Public 저장소용 별도 워크플로로 완료했으며 `DEPLOYMENT.md`에 결과가 있습니다.
 
 ## 비용 및 유지관리
 
@@ -60,6 +60,6 @@
 
 - 워크플로 템플릿: `deploy/public-repository-pages.yml`.
 - 스테이징: `deploy/stage-public-pages.py`. 기존 저장소의 추적 파일 경로를 보존하고 앱의 빌드 결과만 `_site/electrical-quiz/`에 추가합니다. 새 앱의 소스·백업·테스트 디렉터리를 사이트 파일로 복사하지 않습니다.
-- 소스와 문제 데이터 자체는 사용자 승인 후 공개 GitHub 저장소에 올라갑니다. 개인 학습 기록은 업로드하지 않습니다.
+- 소스와 문제 데이터 자체는 사용자 승인 후 공개 GitHub 저장소에 올라갑니다. 개인 학습 기록은 업로드하지 않습니다. 현재 Pages 설정과 공개 사이트 검증은 완료했습니다.
 - GitHub Settings → Pages → Source를 GitHub Actions로 설정해야 합니다. 현재 도구에는 이 관리 설정을 변경하는 기능이 없으며, 배포 진행 상황은 `DEPLOYMENT.md`를 참조하세요.
 - 기존 워크플로 `.github/workflows/pages.yml`은 전용 저장소 루트 배포용입니다. Public 저장소에는 위의 별도 워크플로를 사용해야 `/Public/electrical-quiz/` 경로를 유지합니다.

@@ -1,0 +1,45 @@
+{
+  "environment": "Linux Chromium / Pixel 7 viewport; 실제 휴대전화 아님",
+  "results": [
+    {
+      "name": "189문항 로딩·모바일 가로 넘침 없음",
+      "result": "PASS"
+    },
+    {
+      "name": "문제 10개 채점·도면 표시·관심 문제",
+      "result": "PASS"
+    },
+    {
+      "name": "A·C: 탭 종료 후 재접속·새로고침·재열람 시 집계 유지",
+      "result": "PASS"
+    },
+    {
+      "name": "D: 미응시 출제에서 채점한 10문항 제외",
+      "result": "PASS"
+    },
+    {
+      "name": "오답 우선순위·관심 문제 재시험",
+      "result": "PASS"
+    },
+    {
+      "name": "v2 가져오기 미리보기·취소·병합·중복 가져오기 방지",
+      "result": "PASS"
+    },
+    {
+      "name": "E 로컬: PWA 오프라인 재로딩·채점·재연결",
+      "result": "PASS"
+    },
+    {
+      "name": "JSON 내보내기 및 밝은 테마·모바일 화면",
+      "result": "PASS"
+    },
+    {
+      "name": "미응시 0개 처리",
+      "result": "PASS"
+    }
+  ],
+  "errors": [],
+  "url": "https://oper5232.github.io/Public/electrical-quiz/",
+  "scope": "공개 HTTPS 사이트의 게스트 학습 검사",
+  "tlsVerification": "작업환경의 공식 프록시 CA를 브라우저 신뢰 저장소에 등록; TLS 검증 유지"
+}

@@ -23,7 +23,7 @@ function refreshLedger(){
 }
 store.onchange=refreshLedger;
 function toast(t){$('toast').textContent=t;$('toast').classList.add('show');clearTimeout(window._toastId);window._toastId=setTimeout(()=>$('toast').classList.remove('show'),2400)}
-function show(page){['home','quiz','results'].forEach(id=>$(id).classList.toggle('hidden',id!==page));window.scrollTo({top:0,behavior:'instant'});if(page==='home')renderHome();if(page==='quiz')renderQuiz();if(page==='results')renderResults()}
+function show(page){$('homeTools').classList.toggle('hidden',page!=='home');['home','quiz','results'].forEach(id=>$(id).classList.toggle('hidden',id!==page));window.scrollTo({top:0,behavior:'instant'});if(page==='home')renderHome();if(page==='quiz')renderQuiz();if(page==='results')renderResults()}
 function fisher(a){let x=[...a];for(let i=x.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[x[i],x[j]]=[x[j],x[i]]}return x}
 function pool(){let y=$('yearSelect').value,t=$('topicSelect').value;return BANK.filter(q=>(y==='all'||q.year===y)&&(t==='all'||q.category===t))}
 function neverAttempted(q){return !(Number(state.history[q.id]?.attempts)>0)}

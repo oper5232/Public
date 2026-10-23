@@ -30,7 +30,7 @@ try{
   await expect(page.locator('#qOptions button:disabled')).toHaveCount(4);await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('10');
  });
  await record('D: 미응시 출제에서 채점한 10문항 제외',async()=>{
-  await page.locator('#randomOrder').uncheck();await page.locator('#startUnseen10').click();await expect(page.locator('#qText')).toContainText('Δ-Δ');await expect(page.locator('#qAttempts')).toContainText('0회');await page.locator('#topHome').click();
+  await page.locator('#randomOrder').uncheck();await page.locator('#unseenOnly').check();await page.locator('#start10').click();await expect(page.locator('#qText')).toContainText('Δ-Δ');await expect(page.locator('#qAttempts')).toContainText('0회');await page.locator('#topHome').click();
  });
  await record('오답 우선순위·관심 문제 재시험',async()=>{
   await page.locator('#reviewOrder').selectOption('accuracy');await page.locator('#startMissed').click();await expect(page.locator('#qPosition')).toContainText('/ 5');await page.locator('#topHome').click();await page.locator('#startStars').click();await expect(page.locator('#qPosition')).toContainText('/ 1');await page.locator('#topHome').click();
@@ -44,7 +44,7 @@ try{
  });
  await record('E 로컬: PWA 오프라인 재로딩·채점·재연결',async()=>{
   await page.evaluate(async()=>{await navigator.serviceWorker.ready;});await page.reload();
-  await context.setOffline(true);await page.reload();await expect(page.locator('#totalCount')).toHaveText(String(BANK_SIZE));await page.locator('#startUnseen10').click();await page.locator('#qOptions button').first().click();await expect(page.locator('#qExplanation')).not.toBeEmpty();await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('18');await context.setOffline(false);await page.reload();await expect(page.locator('#overallAttempts')).toHaveText('18');
+  await context.setOffline(true);await page.reload();await expect(page.locator('#totalCount')).toHaveText(String(BANK_SIZE));await page.locator('#unseenOnly').check();await page.locator('#start10').click();await page.locator('#qOptions button').first().click();await expect(page.locator('#qExplanation')).not.toBeEmpty();await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('18');await context.setOffline(false);await page.reload();await expect(page.locator('#overallAttempts')).toHaveText('18');
  });
  await record('JSON 내보내기 및 밝은 테마·모바일 화면',async()=>{
   const download=page.waitForEvent('download');await page.locator('#exportJSON').click();const d=await download;await d.saveAs('test-results/export-v3.json');const raw=JSON.parse(await fs.readFile('test-results/export-v3.json'));expect(raw.version).toBe(3);expect(raw.events.length).toBeGreaterThan(10);
@@ -52,7 +52,7 @@ try{
  });
  await record('미응시 0개 처리',async()=>{
   const bank=await page.locator('#questionData').textContent();const history=Object.fromEntries(JSON.parse(bank).map(q=>[q.id,{attempts:1,correct:1,wrong:0}]));
-  await page.locator('#importFile').setInputFiles({name:'complete.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({history}))});await page.locator('#confirmImport').click();await expect(page.locator('#unseenCount')).toHaveText('0');await expect(page.locator('#startUnseenAll')).toBeDisabled();
+  await page.locator('#importFile').setInputFiles({name:'complete.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({history}))});await page.locator('#confirmImport').click();await expect(page.locator('#unseenCount')).toHaveText('0');await page.locator('#unseenOnly').check();await expect(page.locator('#startAll')).toBeDisabled();await page.locator('#unseenOnly').uncheck();await expect(page.locator('#startAll')).toBeEnabled();
  });
  expect(errors).toEqual([]);
  const desktop=await browser.newContext({viewport:{width:1440,height:1000}}),dp=await desktop.newPage();await dp.goto(url);await expect(dp.locator('#totalCount')).toHaveText(String(BANK_SIZE));await dp.screenshot({path:'test-results/desktop.png',fullPage:true});await desktop.close();

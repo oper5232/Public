@@ -12,10 +12,11 @@ try{
  const history=Object.fromEntries(old.map(q=>[q.id,{attempts:1,correct:1,wrong:0}]));
  await page.locator('#importFile').setInputFiles({name:'previous-189.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:2,history}))});await page.locator('#confirmImport').click();
  await expect(page.locator('#overallAttempts')).toHaveText('189');await expect(page.locator('#unseenCount')).toHaveText('29');
- await page.locator('#randomOrder').uncheck();await page.locator('#startUnseenAll').click();await expect(page.locator('#qGrid button')).toHaveCount(29);
+ await page.locator('#randomOrder').uncheck();await page.locator('#unseenOnly').check();await page.locator('#startAll').click();await expect(page.locator('#qGrid button')).toHaveCount(29);
  for(let i=0;i<29;i++){await expect(page.locator('#qAttempts')).toContainText('0회');await page.locator('#qOptions button[data-index="0"]').click();await expect(page.locator('#qExplanation')).toContainText('✓ 정답');await page.locator('#qNext').click();}
  await expect(page.locator('#resultCorrect')).toHaveText('29');await page.locator('#finishHome').click();await expect(page.locator('#overallAttempts')).toHaveText(String(bank.length));await expect(page.locator('#unseenCount')).toHaveText('0');
  await page.reload();await expect(page.locator('#overallAttempts')).toHaveText(String(bank.length));
+ await page.locator('#unseenOnly').uncheck();
  for(const mode of ['mcq','practical']){
   await page.locator('#studyFormat').selectOption(mode);await page.locator('#randomOrder').uncheck();
   for(const [year,count] of [['2021-4회',22],['2021-2회',11],['2021-1회',11]]){

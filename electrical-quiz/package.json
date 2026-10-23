@@ -20,7 +20,8 @@
     "test:persistence": "node tests/persistence.mjs",
     "test:update-cache": "node tests/update-cache.mjs",
     "test:insulation": "node tests/insulation.mjs",
-    "test:photos": "node tests/photo-questions.mjs"
+    "test:photos": "node tests/photo-questions.mjs",
+    "test:cap-luminaires": "node tests/capacitor-luminaires.mjs"
   },
   "dependencies": {
     "firebase": "12.4.0"

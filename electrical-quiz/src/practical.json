@@ -2931,40 +2931,42 @@
   },
   "q156": {
     "kind": "short",
-    "prompt": "KS C 8000에 따른 등급 0 조명기구의 특징은?",
+    "prompt": "제공 교재의 조명기구 통칙(KS C8000)에 따른 등급0 기구의 정의를 쓰시오.",
     "basisAnswer": "접지단자·접지도체가 없고 기초절연만으로 보호",
     "fields": [
       {
-        "label": "답안",
-        "answer": "접지단자·접지도체가 없고 기초절연만으로 보호"
+        "label": "기구의 정의",
+        "answer": "접지단자 또는 접지도체를 갖지 않고, 기초절연만으로 전체가 보호된 기구"
       }
     ],
     "source": {
-      "id": "notes-q156",
-      "kind": "user-notes",
+      "id": "photo-2022-2-luminaires",
+      "kind": "user-question-photo",
       "exam": "2022-2회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
-    "notes": []
+    "notes": [
+      "제공 사진의 문제·인쇄 답안을 반영했습니다."
+    ]
   },
   "q157": {
     "kind": "short",
-    "prompt": "자료에서 정의한 등급 III 조명기구의 정격 교류전압 조건은?",
+    "prompt": "제공 교재의 조명기구 통칙(KS C8000)에 따른 등급III 기구의 정의를 쓰시오.",
     "basisAnswer": "AC 30V 이하",
     "fields": [
       {
-        "label": "답안",
-        "answer": "AC 30V 이하"
+        "label": "기구의 정의",
+        "answer": "정격전압이 교류30V 이하인 전압의 전원에 접속하여 사용하는 기구"
       }
     ],
     "source": {
-      "id": "notes-q156",
-      "kind": "user-notes",
+      "id": "photo-2022-2-luminaires",
+      "kind": "user-question-photo",
       "exam": "2022-2회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "등급 III 조명기구의 전압 정의는 KS C 8000 적용 판본·원문 확인 필요."
+      "제공 사진의 문제·인쇄 답안을 반영했습니다."
     ]
   },
   "q158": {
@@ -3339,42 +3341,42 @@
   },
   "q178": {
     "kind": "short",
-    "prompt": "전력용 콘덴서 설비의 과전압계전기 주요 역할은?",
+    "prompt": "그림의 ① 기기의 명칭과 전력용 콘덴서 보호에서 담당하는 역할을 쓰시오.",
     "basisAnswer": "콘덴서 단자전압이 과도하게 상승하면 차단기를 개방해 보호",
     "fields": [
       {
-        "label": "답안",
-        "answer": "콘덴서 단자전압이 과도하게 상승하면 차단기를 개방해 보호"
+        "label": "①의 명칭과 역할",
+        "answer": "과전압계전기\n콘덴서에 직렬리액터가 설치되었을 때의 콘덴서 단자전압 상승과 경부하 시 변압기 리액턴스부의 전위 상승에 대한 보호를 위해 과전압을 검출하여 차단 동작을 지시한다."
       }
     ],
     "source": {
-      "id": "notes-q178",
-      "kind": "user-notes",
+      "id": "photo-2022-1-cap-protection",
+      "kind": "user-question-photo",
       "exam": "2022-1회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트에 설명필요 표시가 있습니다. 기본 보호동작은 기존 해설로 보완했으며 공식 회로도 검증 전입니다."
+      "제공 사진의 문제·인쇄 답안을 반영했습니다."
     ]
   },
   "q179": {
     "kind": "short",
-    "prompt": "전력용 콘덴서 설비의 부족전압계전기 주요 역할은?",
+    "prompt": "그림의 ② 기기의 명칭과 전력용 콘덴서 보호에서 담당하는 역할을 쓰시오.",
     "basisAnswer": "정전·전압저하 시 분리하여 전압회복 직후 콘덴서만 투입되는 것을 방지",
     "fields": [
       {
-        "label": "답안",
-        "answer": "정전·전압저하 시 분리하여 전압회복 직후 콘덴서만 투입되는 것을 방지"
+        "label": "②의 명칭과 역할",
+        "answer": "부족전압계전기\n계통 정전 후 전압이 회복되었을 때 무부하 상태에서 콘덴서만 투입되는 것을 방지한다."
       }
     ],
     "source": {
-      "id": "notes-q178",
-      "kind": "user-notes",
+      "id": "photo-2022-1-cap-protection",
+      "kind": "user-question-photo",
       "exam": "2022-1회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트에 설명필요 표시가 있습니다. 기본 보호동작은 기존 해설로 보완했으며 공식 회로도 검증 전입니다."
+      "제공 사진의 문제·인쇄 답안을 반영했습니다."
     ]
   },
   "q180": {
@@ -4326,6 +4328,78 @@
       "id": "photo-2024-1-symbols",
       "kind": "user-question-photo",
       "exam": "2024-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2022-2-symbol-001": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호(KS C0301)의 명칭을 쓰시오.",
+    "basisAnswer": "라이팅덕트",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "라이팅덕트"
+      }
+    ],
+    "source": {
+      "id": "photo-2022-2-duct-symbols",
+      "kind": "user-question-photo",
+      "exam": "2022-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2022-2-symbol-002": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호(KS C0301)의 명칭을 쓰시오.",
+    "basisAnswer": "금속덕트",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "금속덕트"
+      }
+    ],
+    "source": {
+      "id": "photo-2022-2-duct-symbols",
+      "kind": "user-question-photo",
+      "exam": "2022-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2022-2-symbol-003": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호(KS C0301)의 명칭을 쓰시오.",
+    "basisAnswer": "정션박스",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "정션박스"
+      }
+    ],
+    "source": {
+      "id": "photo-2022-2-duct-symbols",
+      "kind": "user-question-photo",
+      "exam": "2022-2회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2022-2-symbol-004": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호(KS C0301)의 명칭을 쓰시오.",
+    "basisAnswer": "플로어덕트",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "플로어덕트"
+      }
+    ],
+    "source": {
+      "id": "photo-2022-2-duct-symbols",
+      "kind": "user-question-photo",
+      "exam": "2022-2회",
       "received": "2026-10-23"
     },
     "notes": []

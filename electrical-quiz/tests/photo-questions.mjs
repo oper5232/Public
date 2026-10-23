@@ -5,9 +5,9 @@ const browser=await chromium.launch({executablePath:'/usr/bin/chromium',args:['-
 const context=await browser.newContext({...devices['Pixel 7']}),page=await context.newPage(),errors=[];page.on('pageerror',e=>errors.push(e.message));
 try{
  await page.goto(process.env.TEST_URL||'http://127.0.0.1:4194/');
- const bank=JSON.parse(await page.locator('#questionData').textContent()),newIds=new Set(prior.newIds),old=bank.filter(q=>!newIds.has(q.id));expect(old.length).toBe(219);expect(newIds.size).toBe(10);
+ const bank=JSON.parse(await page.locator('#questionData').textContent()),newIds=new Set(prior.newIds),old=bank.filter(q=>!newIds.has(q.id));expect(prior.beforeCount).toBe(219);expect(old.length).toBeGreaterThanOrEqual(219);expect(newIds.size).toBe(10);
  await page.locator('#importFile').setInputFiles({name:'previous-219.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:2,history:Object.fromEntries(old.map(q=>[q.id,{attempts:1,correct:1,wrong:0}]))}))});await page.locator('#confirmImport').click();
- await expect(page.locator('#overallAttempts')).toHaveText('219');await expect(page.locator('#unseenCount')).toHaveText('10');await page.locator('#randomOrder').uncheck();await page.locator('#unseenOnly').check();await page.locator('#startAll').click();await expect(page.locator('#qGrid button')).toHaveCount(10);
+ await expect(page.locator('#overallAttempts')).toHaveText(String(old.length));await expect(page.locator('#unseenCount')).toHaveText('10');await page.locator('#randomOrder').uncheck();await page.locator('#unseenOnly').check();await page.locator('#startAll').click();await expect(page.locator('#qGrid button')).toHaveCount(10);
  for(let i=0;i<10;i++){
   await expect(page.locator('#qDiagram .source-figure svg')).toHaveCount(1);await page.locator('#qOptions button[data-index="0"]').click();await expect(page.locator('#qAttempts')).toContainText('1회');await page.locator('#qNext').click();
  }
@@ -33,5 +33,5 @@ try{
  await open('q129');await expect(page.locator('#qText')).toContainText('여섯');await page.locator('#revealWritten').click();for(const word of ['아크릴 루버','상하30°','6. 건축화'])await expect(page.locator('.written-reference')).toContainText(word);expect(await page.locator('.written-reference > p').first().textContent()).not.toContain('아크릴루비');await page.locator('#topHome').click();
  // Question figures are embedded in the cached app bundle and remain usable offline.
  await page.evaluate(()=>navigator.serviceWorker.ready);await page.reload();await context.setOffline(true);await page.reload();await open('ec-2024-1-symbol-002');await expect(page.locator('#qDiagram [data-figure="symbolPanelHalf"] svg')).toHaveCount(1);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:'test-results/photos-symbol-offline-mobile.png',fullPage:true});await context.setOffline(false);
- expect(errors).toEqual([]);console.log('PASS:219 prior records;10 visual MCQs; shared panel ID; symbols and numbered diagrams visible before reveal; corrected numbered answers/50kVA/a+b/SPD sections/glare6; written reload idempotent; offline diagrams; no runtime errors or mobile overflow');
+ expect(errors).toEqual([]);console.log('PASS:all non-target records retained;10 visual MCQs; shared panel ID; symbols and numbered diagrams visible before reveal; corrected numbered answers/50kVA/a+b/SPD sections/glare6; written reload idempotent; offline diagrams; no runtime errors or mobile overflow');
 }finally{await browser.close()}

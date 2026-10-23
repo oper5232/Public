@@ -4577,21 +4577,29 @@
       "보호접지와 강화절연을 모두 갖춘 기구"
     ],
     "correct": 0,
-    "explain": "등급 0은 기초절연만 있고 보호접지 접속 수단이 없다는 점이 핵심입니다.",
+    "explain": "제공한 두 교재 사진의 인쇄 답안에서 확인한 정의입니다. 접지단자 또는 접지도체를 갖지 않고, 기초절연만으로 전체가 보호된 기구입니다. 제공 교재 문구를 확인한 것이며 현행 KS·IEC 전체 정의를 확인한 결과로 표시하지 않습니다.",
     "diagram": null,
     "caution": true,
     "id": "q156",
     "examYear": 2022,
     "round": 2,
-    "originalQuestion": null,
+    "originalQuestion": "조명기구 통칙(KS C8000)에 따른 용어의 정의로 등급0과 등급III 기구에 대하여 쓰시오.\n등급0:접지단자 또는 접지도체를 갖지 않고 기초절연만으로 전체가 보호된 기구.\n등급III:정격전압이 교류30V 이하인 전압의 전원에 접속하여 사용하는 기구.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2022-2회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-capacitor-luminaires.md",
+      "photos": [
+        "36814.jpg",
+        "36813.jpg"
+      ]
     },
     "verification": {
-      "status": "needs-review",
-      "notes": []
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 교재 사진의 문제·인쇄 답안을 대조했습니다. 시험 당시·현행 표준 전문 전체를 검증한 것은 아닙니다."
+      ]
     }
   },
   {
@@ -4605,22 +4613,28 @@
       "AC 220V 이하"
     ],
     "correct": 0,
-    "explain": "2022-2 원본의 KS C 8000 설명은 교류 30V 이하로 제시되어 있습니다. 최신 제품규격은 별도 확인 대상입니다.",
+    "explain": "제공한 두 교재 사진의 인쇄 답안에서 확인한 정의입니다. 정격전압이 교류30V 이하인 전압의 전원에 접속하여 사용하는 기구입니다. 제공 교재 문구를 확인한 것이며 현행 KS·IEC 전체 정의를 확인한 결과로 표시하지 않습니다.",
     "diagram": null,
     "caution": true,
     "id": "q157",
     "examYear": 2022,
     "round": 2,
-    "originalQuestion": null,
+    "originalQuestion": "조명기구 통칙(KS C8000)에 따른 용어의 정의로 등급0과 등급III 기구에 대하여 쓰시오.\n등급0:접지단자 또는 접지도체를 갖지 않고 기초절연만으로 전체가 보호된 기구.\n등급III:정격전압이 교류30V 이하인 전압의 전원에 접속하여 사용하는 기구.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2022-2회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-capacitor-luminaires.md",
+      "photos": [
+        "36814.jpg",
+        "36813.jpg"
+      ]
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "등급 III 조명기구의 전압 정의는 KS C 8000 적용 판본·원문 확인 필요."
+        "제공 교재 사진의 문제·인쇄 답안을 대조했습니다. 시험 당시·현행 표준 전문 전체를 검증한 것은 아닙니다."
       ]
     }
   },
@@ -5221,7 +5235,7 @@
   {
     "year": "2022-1회",
     "category": "보호계전",
-    "question": "전력용 콘덴서 설비의 과전압계전기 주요 역할은?",
+    "question": "제공된 전력용 콘덴서 보호 계통도에서 ① 기기의 주요 역할은?",
     "options": [
       "콘덴서 단자전압이 과도하게 상승하면 차단기를 개방해 보호",
       "계통 정전 시 전압을 강제로 높여 콘덴서를 투입",
@@ -5229,32 +5243,39 @@
       "정전용량을 0으로 자동 조정"
     ],
     "correct": 0,
-    "explain": "원본: 직렬리액터 설치나 경부하 시 단자·계통전압 상승 등을 검출해 콘덴서 설비를 차단합니다. [이해 보충] 리액터 때문에 기본파 기준 콘덴서 단자전압이 상승할 수 있습니다.",
-    "diagram": "capacitor",
+    "explain": "사진의 ①는 과전압계전기입니다. 콘덴서에 직렬리액터가 설치되었을 때의 콘덴서 단자전압 상승과 경부하 시 변압기 리액턴스부의 전위 상승에 대한 보호를 위해 과전압을 검출하여 차단 동작을 지시한다. [이해 보충] 직렬리액터가 있으면 콘덴서에 걸리는 전압이 커질 수 있고 경부하에서도 전압이 높아질 수 있습니다. 계전기는 이를 검출해 차단하도록 하며, 리액터 자체의 전압 상승을 없애는 장치는 아닙니다.",
+    "diagram": "capacitorProtectionNumbered",
     "caution": false,
     "id": "q178",
     "examYear": 2022,
     "round": 1,
-    "originalQuestion": null,
+    "originalQuestion": "전력용 콘덴서 설비를 보호하기 위한 계통도이다. 그림을 보고 답하시오.\n(1) 그림 중①,②의 적합한 기기의 명칭을 적으시오.\n(2)①,②가 담당하는 역할에 대해 서술하시오.\n답안:①과전압계전기,②부족전압계전기.\n①:콘덴서에 직렬리액터가 설치되면 콘덴서 단자전압이 상승하며 또한 경부하 시 변압기 리액턴스부의 전위 상승 발생을 차단한다.\n②:계통 정전 후 전압이 회복되었을 때 무부하 상태에서 콘덴서만 투입되는 것을 방지한다.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2022-1회",
-      "originalTextAvailable": false,
+      "originalTextAvailable": true,
       "classificationCorrection": {
         "date": "2026-10-23",
         "previousExam": "2022-2회",
         "authority": "사용자가 22-1회가 맞다고 확인"
-      }
+      },
+      "photoSource": "sources/2026-10-23-capacitor-luminaires.md",
+      "photos": [
+        "36815.jpg"
+      ]
     },
     "verification": {
-      "status": "unverified",
-      "notes": []
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 교재 사진의 문제·인쇄 답안을 대조했습니다. 시험 당시·현행 표준 전문 전체를 검증한 것은 아닙니다."
+      ]
     }
   },
   {
     "year": "2022-1회",
     "category": "보호계전",
-    "question": "전력용 콘덴서 설비의 부족전압계전기 주요 역할은?",
+    "question": "제공된 전력용 콘덴서 보호 계통도에서 ② 기기의 주요 역할은?",
     "options": [
       "정전·전압저하 시 분리하여 전압회복 직후 콘덴서만 투입되는 것을 방지",
       "고조파 전류를 완전히 없애는 것",
@@ -5262,26 +5283,33 @@
       "대지 절연저항을 측정하는 것"
     ],
     "correct": 0,
-    "explain": "원본: 계통 정전 후 전압 회복 시 무부하 상태에서 콘덴서만 재투입되는 문제를 막습니다. [이해 보충] 부족전압에서 미리 개방하여 불필요한 투입과 과전압을 예방합니다.",
-    "diagram": "capacitor",
+    "explain": "사진의 ②는 부족전압계전기입니다. 계통 정전 후 전압이 회복되었을 때 무부하 상태에서 콘덴서만 투입되는 것을 방지한다. [이해 보충] 정전·전압 저하를 검출해 콘덴서를 분리함으로써 복전 때 콘덴서만 무부하로 투입되는 것을 방지하는 보호 기능입니다. 사진에는 트립·재투입 접점 회로가 없으므로 상세 시퀀스나 시간 정정값을 임의로 추가하지 않습니다.",
+    "diagram": "capacitorProtectionNumbered",
     "caution": false,
     "id": "q179",
     "examYear": 2022,
     "round": 1,
-    "originalQuestion": null,
+    "originalQuestion": "전력용 콘덴서 설비를 보호하기 위한 계통도이다. 그림을 보고 답하시오.\n(1) 그림 중①,②의 적합한 기기의 명칭을 적으시오.\n(2)①,②가 담당하는 역할에 대해 서술하시오.\n답안:①과전압계전기,②부족전압계전기.\n①:콘덴서에 직렬리액터가 설치되면 콘덴서 단자전압이 상승하며 또한 경부하 시 변압기 리액턴스부의 전위 상승 발생을 차단한다.\n②:계통 정전 후 전압이 회복되었을 때 무부하 상태에서 콘덴서만 투입되는 것을 방지한다.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2022-1회",
-      "originalTextAvailable": false,
+      "originalTextAvailable": true,
       "classificationCorrection": {
         "date": "2026-10-23",
         "previousExam": "2022-2회",
         "authority": "사용자가 22-1회가 맞다고 확인"
-      }
+      },
+      "photoSource": "sources/2026-10-23-capacitor-luminaires.md",
+      "photos": [
+        "36815.jpg"
+      ]
     },
     "verification": {
-      "status": "unverified",
-      "notes": []
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 교재 사진의 문제·인쇄 답안을 대조했습니다. 시험 당시·현행 표준 전문 전체를 검증한 것은 아닙니다."
+      ]
     }
   },
   {
@@ -6910,6 +6938,142 @@
       "checkedAt": "2026-10-23",
       "notes": [
         "문제 그림은 두 번째 사진, 답안은 앞서 제공한2024-1회 학습노트의 번호별 명칭과 대조했습니다. 두 번째 사진에는 답안표가 없습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2022-2-symbol-001",
+    "year": "2022-2회",
+    "examYear": 2022,
+    "round": 2,
+    "category": "조명·기호",
+    "originalQuestion": "옥내배선용 그림기호(KS C0301)의 명칭을 쓰시오. 표의1번 기호.",
+    "question": "2022년 2회 제공 자료의 옥내 배선용 그림기호 표에서 1번 기호의 명칭은?",
+    "options": [
+      "라이팅덕트",
+      "금속덕트",
+      "플로어덕트",
+      "정션박스"
+    ],
+    "correct": 0,
+    "explain": "제공 사진의 인쇄 답안은 라이팅덕트입니다. LD가 적힌 파선과 시작점의 사각형을 함께 확인합니다.",
+    "diagram": "symbolLightingDuct",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-capacitor-luminaires.md",
+      "exam": "2022-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photo": "36813.jpg",
+      "classificationBasis": "사용자가2022년2회라고확인"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 사진의 기호와 인쇄 답안을 대조했습니다. 회차는 사용자가2022년2회라고 확인했습니다. 현행 KS 전문 전체 검증은 아닙니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2022-2-symbol-002",
+    "year": "2022-2회",
+    "examYear": 2022,
+    "round": 2,
+    "category": "조명·기호",
+    "originalQuestion": "옥내배선용 그림기호(KS C0301)의 명칭을 쓰시오. 표의2번 기호.",
+    "question": "2022년 2회 제공 자료의 옥내 배선용 그림기호 표에서 2번 기호의 명칭은?",
+    "options": [
+      "금속덕트",
+      "라이팅덕트",
+      "플로어덕트",
+      "정션박스"
+    ],
+    "correct": 0,
+    "explain": "제공 사진의 인쇄 답안은 금속덕트입니다. 직사각형 내부 MD 표기를 확인합니다.",
+    "diagram": "symbolMetalDuct",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-capacitor-luminaires.md",
+      "exam": "2022-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photo": "36813.jpg",
+      "classificationBasis": "사용자가2022년2회라고확인"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 사진의 기호와 인쇄 답안을 대조했습니다. 회차는 사용자가2022년2회라고 확인했습니다. 현행 KS 전문 전체 검증은 아닙니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2022-2-symbol-003",
+    "year": "2022-2회",
+    "examYear": 2022,
+    "round": 2,
+    "category": "조명·기호",
+    "originalQuestion": "옥내배선용 그림기호(KS C0301)의 명칭을 쓰시오. 표의3번 기호.",
+    "question": "2022년 2회 제공 자료의 옥내 배선용 그림기호 표에서 3번 기호의 명칭은?",
+    "options": [
+      "정션박스",
+      "금속덕트",
+      "풀박스",
+      "플로어덕트"
+    ],
+    "correct": 0,
+    "explain": "제공 사진의 인쇄 답안은 정션박스입니다. 파선에 표시된 이중 원 형태를 확인합니다.",
+    "diagram": "symbolJunctionBox",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-capacitor-luminaires.md",
+      "exam": "2022-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photo": "36813.jpg",
+      "classificationBasis": "사용자가2022년2회라고확인"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 사진의 기호와 인쇄 답안을 대조했습니다. 회차는 사용자가2022년2회라고 확인했습니다. 현행 KS 전문 전체 검증은 아닙니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2022-2-symbol-004",
+    "year": "2022-2회",
+    "examYear": 2022,
+    "round": 2,
+    "category": "조명·기호",
+    "originalQuestion": "옥내배선용 그림기호(KS C0301)의 명칭을 쓰시오. 표의4번 기호.",
+    "question": "2022년 2회 제공 자료의 옥내 배선용 그림기호 표에서 4번 기호의 명칭은?",
+    "options": [
+      "플로어덕트",
+      "라이팅덕트",
+      "금속덕트",
+      "정션박스"
+    ],
+    "correct": 0,
+    "explain": "제공 사진의 인쇄 답안은 플로어덕트입니다. 파선 아래(F7) 표기를 확인합니다. F와 숫자는 도면의 표시를 보존했습니다.",
+    "diagram": "symbolFloorDuct",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-capacitor-luminaires.md",
+      "exam": "2022-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photo": "36813.jpg",
+      "classificationBasis": "사용자가2022년2회라고확인"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 사진의 기호와 인쇄 답안을 대조했습니다. 회차는 사용자가2022년2회라고 확인했습니다. 현행 KS 전문 전체 검증은 아닙니다."
       ]
     }
   }

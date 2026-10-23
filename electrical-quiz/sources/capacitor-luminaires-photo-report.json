@@ -1,0 +1,43 @@
+{
+  "received": "2026-10-23",
+  "questionIds": [
+    "q156",
+    "q157",
+    "q178",
+    "q179"
+  ],
+  "beforeCount": 229,
+  "afterCount": 233,
+  "newIds": [
+    "ec-2022-2-symbol-001",
+    "ec-2022-2-symbol-002",
+    "ec-2022-2-symbol-003",
+    "ec-2022-2-symbol-004"
+  ],
+  "files": [
+    {
+      "file": "1-36815.jpg",
+      "sha256": "bcac90ef05a7885599dc232442d0abfeab404b12846987312b2bca986a7e1c60"
+    },
+    {
+      "file": "2-36814.jpg",
+      "sha256": "c257e211ea5edae5c4c12e3da2a67a12cc37745e88c55984867b8527205fd90f"
+    },
+    {
+      "file": "3-36813.jpg",
+      "sha256": "aca1fc870209dc3b744ba9e2871437ae98e9defede2f864ac6b4832f5ae6dcce"
+    }
+  ],
+  "confirmedPhoto3Symbols": {
+    "status": "confirmed-and-added",
+    "exam": "2022-2회",
+    "authority": "사용자확인",
+    "names": [
+      "라이팅덕트",
+      "금속덕트",
+      "정션박스",
+      "플로어덕트"
+    ],
+    "photo": "36813.jpg"
+  }
+}

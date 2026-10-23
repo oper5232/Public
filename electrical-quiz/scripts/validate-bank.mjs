@@ -1,12 +1,13 @@
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
 import {assertBankPreserved} from './bank-preservation.mjs';
+import {questionFigures} from '../src/question-figures.js';
 const bank=JSON.parse(fs.readFileSync(new URL('../src/questions.json',import.meta.url)));
 const practical=JSON.parse(fs.readFileSync(new URL('../src/practical.json',import.meta.url)));
 const sources=JSON.parse(fs.readFileSync(new URL('../sources/practical-notes.json',import.meta.url)));
 const ids=new Set();
 const app=fs.readFileSync(new URL('../src/app.js',import.meta.url),'utf8');
-const diagramKeys=new Set([...app.matchAll(/^\s*(\w+):\s*`<svg/gm)].map(m=>m[1]));
+const diagramKeys=new Set([...Object.keys(questionFigures),...[...app.matchAll(/^\s*(\w+):\s*`<svg/gm)].map(m=>m[1])]);
 for(const q of bank){assert.match(q.id,/^[a-zA-Z0-9_-]+$/);assert(!ids.has(q.id),`중복 ID ${q.id}`);ids.add(q.id);assert.equal(q.options.length,4,q.id);assert.equal(new Set(q.options).size,4,q.id);assert(Number.isInteger(q.correct)&&q.correct>=0&&q.correct<4,q.id);for(const k of ['question','explain','year','category'])assert.equal(typeof q[k],'string');assert(q.question&&q.explain);assert(q.source&&q.verification);assert(Number.isInteger(q.examYear)&&Number.isInteger(q.round),`${q.id} 연도/회차 오류`);assert(q.originalQuestion===null||typeof q.originalQuestion==='string');assert(q.diagram===null||diagramKeys.has(q.diagram),`${q.id} 없는 도면 키 ${q.diagram}`);}
 const original=assertBankPreserved(bank);
 for(const q of bank){assert.equal(q.year,`${q.examYear}-${q.round}회`,`${q.id} 회차 필드 불일치`);assert.equal(q.source.exam,q.year,`${q.id} 출처 회차 불일치`);}

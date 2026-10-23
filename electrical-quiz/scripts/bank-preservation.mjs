@@ -11,7 +11,8 @@ export function assertBankPreserved(bank){
   assert(old,`정정 대상 원본 없음 ${id}`);
   assert(entry.date&&entry.authority&&entry.reason,`정정 근거 없음 ${id}`);
   for(const [key,change] of Object.entries(entry.changes)){
-   assert(['year','question','options','explain'].includes(key),`허용되지 않은 정정 필드 ${id}.${key}`);
+   assert(['year','question','options','explain','diagram'].includes(key),`허용되지 않은 정정 필드 ${id}.${key}`);
+   if(key==='diagram')assert(change.after===null||typeof change.after==='string',`도면 정정 형식 오류 ${id}`);
    if(key==='year')assert.match(change.after,/^\d{4}-\d+회$/,`회차 정정 형식 오류 ${id}`);
    assert.deepEqual(change.before,old[key],`정정 전 원본 불일치 ${id}.${key}`);
   }

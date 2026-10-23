@@ -213,30 +213,32 @@
     "id": "q008",
     "year": "2026-1회",
     "category": "시공·감리",
-    "question": "1련 내장 애자장치(역조형)의 부품 조립 순서로 옳은 것은?",
+    "question": "1련 내장애자 장치(역조형) 그림의 번호 ①~⑤에 해당하는 명칭을 순서대로 고르면?",
     "options": [
-      "점퍼터미널→앵커쇄클→볼크레비스→현수애자→소켓아이",
-      "점퍼터미널→소켓아이→현수애자→볼크레비스→앵커쇄클",
-      "앵커쇄클→점퍼터미널→소켓아이→현수애자→볼크레비스",
-      "현수애자→점퍼터미널→앵커쇄클→소켓아이→볼크레비스"
+      "① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널",
+      "① 점퍼터미널 / ② 앵커쇄클 / ③ 볼크레비스 / ④ 현수애자 / ⑤ 소켓아이",
+      "① 앵커쇄클 / ② 볼크레비스 / ③ 현수애자 / ④ 소켓아이 / ⑤ 점퍼터미널",
+      "① 소켓아이 / ② 앵커쇄클 / ③ 볼크레비스 / ④ 현수애자 / ⑤ 점퍼터미널"
     ],
     "correct": 0,
-    "explain": "원문 2026-1회의 1련 역조형 내장애자 부품 순서입니다.",
-    "diagram": null,
+    "explain": "사진 답안의 번호별 명칭은 ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널입니다. ①~⑤는 그림의 지시 번호이므로 부품을 실제로 조립하는 방향이나 순서와 혼동하지 않습니다. 기존 q008의 “조립 순서” 해석을 정정했습니다. 기존 ID와 누적 기록은 유지하며 과거 기록을 소급 재채점하지 않습니다.",
+    "diagram": "insulatorNumbered",
     "caution": false,
     "examYear": 2026,
     "round": 1,
-    "originalQuestion": null,
+    "originalQuestion": "그림에 표시된 번호의 명칭을 정확히 기입하시오. 단, 그림은 1련 내장애자 장치(역조형)이다.\n제공 답안: ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널\n상단 출제년도: 기사22·26.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2026-1회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 5
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "동일 장치명 연결 순서 차이: 원본 도면의 방향과 구성 확인 필요",
-        "동일한 역조형 1련 내장애자 명칭의 q174와 연결 순서가 다릅니다. 원본 도면·배치 방향 대조 필요."
+        "제공 사진의 번호표를 대조했습니다. 번호 순서와 물리적 조립 방향을 구분하도록 문항을 정정했습니다. 상단에는 기사22·26으로 표기되어 있습니다."
       ]
     }
   },
@@ -1645,7 +1647,7 @@
     "id": "q053",
     "year": "2024-3회",
     "category": "수전·보호",
-    "question": "진상콘덴서 용량을 2군 이상으로 분할할 수 있다고 정리된 총 용량 구간은?",
+    "question": "제공된 진상콘덴서 접속뱅크 결선도에서 2군으로 나누어 시설해야 하는 콘덴서 총 용량 구간은?",
     "options": [
       "300kVA 초과~600kVA 이하",
       "100kVA 초과~300kVA 이하",
@@ -1653,22 +1655,24 @@
       "600kVA 초과~1,000kVA 이하"
     ],
     "correct": 0,
-    "explain": "첨부 자료의 콘덴서 용량 구간을 그대로 문제화했습니다.",
-    "diagram": null,
+    "explain": "제공 사진의 용량 단위는 kVA이며, 답안은300kVA 초과·600kVA 이하입니다. 원문 표기를 유지합니다. 별도의 현행 설계 기준이나 kvar 단위로 임의 치환하지 않습니다.",
+    "diagram": "capacitorBankQuestion",
     "caution": true,
     "examYear": 2024,
     "round": 3,
-    "originalQuestion": null,
+    "originalQuestion": "고압 및 특고압 수전설비 진상콘덴서 접속뱅크 결선도.\n(1) 콘덴서 용량이 몇[kVA] 초과 몇[kVA] 이하일 때 2군으로 나누어서 시설하여야 하는가?\n(2) 콘덴서 용량이100[kVA] 이하인 경우 CB 대신 사용할 수 있는 개폐기의 명칭은?\n(3) 콘덴서 용량이50[kVA] 미만인 경우 사용할 수 있는 개폐기의 명칭은?\n답안: (1)300[kVA] 초과,600[kVA] 이하 (2)OS(유입개폐기) (3)COS(직결로 한다).",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2024-3회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 4
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "콘덴서 용량 단위 kVA 표기를 원자료 및 공식 기준과 대조 필요",
-        "콘덴서 용량 단위가 제공 노트의 kVA인지 kvar인지 공식 원문·정답표 확인 필요."
+        "제공 사진의 문항·답안 대조. 현행 규정 전체 검증 또는 공식 채점표 인증을 뜻하지 않습니다."
       ]
     }
   },
@@ -1684,22 +1688,24 @@
       "ACB"
     ],
     "correct": 0,
-    "explain": "100kVA 이하 OS, 50kVA 이하 COS를 구분합니다.",
-    "diagram": null,
+    "explain": "제공 사진에서100kVA 이하의 콘덴서는 CB 대신 OS(유입개폐기)를 사용할 수 있다고 제시합니다. 별도 소문항의50kVA 조건은 “미만”입니다.",
+    "diagram": "capacitorBankQuestion",
     "caution": true,
     "examYear": 2024,
     "round": 3,
-    "originalQuestion": null,
+    "originalQuestion": "고압 및 특고압 수전설비 진상콘덴서 접속뱅크 결선도.\n(1) 콘덴서 용량이 몇[kVA] 초과 몇[kVA] 이하일 때 2군으로 나누어서 시설하여야 하는가?\n(2) 콘덴서 용량이100[kVA] 이하인 경우 CB 대신 사용할 수 있는 개폐기의 명칭은?\n(3) 콘덴서 용량이50[kVA] 미만인 경우 사용할 수 있는 개폐기의 명칭은?\n답안: (1)300[kVA] 초과,600[kVA] 이하 (2)OS(유입개폐기) (3)COS(직결로 한다).",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2024-3회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 4
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "콘덴서 용량 단위 kVA 표기를 원자료 및 공식 기준과 대조 필요",
-        "콘덴서 개폐기 적용 용량의 단위와 접속뱅크 결선도 확인 필요."
+        "제공 사진의 문항·답안 대조. 현행 규정 전체 검증 또는 공식 채점표 인증을 뜻하지 않습니다."
       ]
     }
   },
@@ -1707,7 +1713,7 @@
     "id": "q055",
     "year": "2024-3회",
     "category": "수전·보호",
-    "question": "원본에서 50kVA 이하 콘덴서의 CB 대신 가능한 개폐기는?",
+    "question": "제공된 진상콘덴서 접속뱅크 문제에서 50kVA 미만인 경우 사용할 수 있는 개폐기는?",
     "options": [
       "COS(직결)",
       "OS만 가능",
@@ -1715,22 +1721,24 @@
       "OCR"
     ],
     "correct": 0,
-    "explain": "원본은 50kVA 이하에 COS(직결)를 제시합니다.",
-    "diagram": null,
+    "explain": "제공 사진의 조건은50kVA “미만”이며, 답안은 COS(직결로 한다)입니다. 기존 “50kVA 이하” 표기를 “50kVA 미만”으로 정정했습니다. 따라서 정확히50kVA인 경우를 이 문항의 COS 조건에 포함하지 않습니다.",
+    "diagram": "capacitorBankQuestion",
     "caution": true,
     "examYear": 2024,
     "round": 3,
-    "originalQuestion": null,
+    "originalQuestion": "고압 및 특고압 수전설비 진상콘덴서 접속뱅크 결선도.\n(1) 콘덴서 용량이 몇[kVA] 초과 몇[kVA] 이하일 때 2군으로 나누어서 시설하여야 하는가?\n(2) 콘덴서 용량이100[kVA] 이하인 경우 CB 대신 사용할 수 있는 개폐기의 명칭은?\n(3) 콘덴서 용량이50[kVA] 미만인 경우 사용할 수 있는 개폐기의 명칭은?\n답안: (1)300[kVA] 초과,600[kVA] 이하 (2)OS(유입개폐기) (3)COS(직결로 한다).",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2024-3회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 4
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "콘덴서 용량 단위 kVA 표기를 원자료 및 공식 기준과 대조 필요",
-        "콘덴서 개폐기 적용 용량의 단위와 접속뱅크 결선도 확인 필요."
+        "제공 사진의 문항·답안 대조. 현행 규정 전체 검증 또는 공식 채점표 인증을 뜻하지 않습니다."
       ]
     }
   },
@@ -1794,7 +1802,7 @@
     "id": "q058",
     "year": "2024-3회",
     "category": "접지·서지",
-    "question": "SPD 연결도체 길이의 원본 제한은?",
+    "question": "제공된 SPD 연결도에서 a+b의 최대 길이는?",
     "options": [
       "0.5m 이하",
       "1m 이하",
@@ -1802,31 +1810,24 @@
       "2m 이하"
     ],
     "correct": 0,
-    "explain": "SPD 연결도체 길이가 길면 보호 성능에 불리하므로 최소화합니다.",
-    "diagram": "spd",
+    "explain": "제공 사진의 답안은 a+b의 합계가0.5m 이하입니다. a와 b 각각을0.5m 이하로 해석하지 않습니다.",
+    "diagram": "spdQuestion",
     "caution": true,
     "examYear": 2024,
     "round": 3,
-    "originalQuestion": null,
+    "originalQuestion": "통합접지공사 시 과전압으로부터 전기설비를 보호하기 위하여 서지보호장치(SPD)를 설치한다.\n(1) 위 그림에서 a+b 최대 길이는 몇[m] 이하이어야 하는가?\n(2) SPD I등급, II등급의 최소 구리 굵기[mm²]를 작성하시오.\n답안:(1)0.5[m] (2)SPD I등급16[mm²], SPD II등급6[mm²].\n그림의 b는 SPD와 주접지단자 또는 보호선 바 사이의 구간이다.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2024-3회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 3
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "협회 회신은 KS C IEC 60364-5-53 534.4.10 및 접속 구간 구분을 안내합니다. 길이는 연결도체 전체의 합산 구간을 확인하며, 접지 측 도체와 전원 측 도체 굵기를 혼동하지 않도록 적용 판본·접속도 확인이 필요합니다."
-      ],
-      "references": [
-        {
-          "title": "대한전기협회 SPD 설치방법 회신(2024-05-27)",
-          "url": "https://kec.kea.kr/sub_coun/qna.php?mode=view&number=9809"
-        },
-        {
-          "title": "Schneider Electric 연결도체 길이 가이드",
-          "url": "https://www.electrical-installation.org/enwiki/Connection_of_Surge_Protection_Device"
-        }
+        "제공 사진의 문항·답안 대조. 현행 규정 전체 검증 또는 공식 채점표 인증을 뜻하지 않습니다."
       ]
     }
   },
@@ -1834,7 +1835,7 @@
     "id": "q059",
     "year": "2024-3회",
     "category": "접지·서지",
-    "question": "SPD I등급 및 II등급의 원본 구리 연결도체 최소 굵기는?",
+    "question": "제공된 SPD 연결도에서 주접지단자 또는 보호선 바와 SPD 사이 구리 도체의 I등급·II등급 최소 굵기는?",
     "options": [
       "I: 16mm² / II: 6mm²",
       "I: 6mm² / II: 16mm²",
@@ -1842,31 +1843,24 @@
       "I: 25mm² / II: 25mm²"
     ],
     "correct": 0,
-    "explain": "원본 2024-3회의 주접지단자·보호도체와 SPD 사이 구리 도체 기준입니다.",
-    "diagram": "spd",
+    "explain": "제공 사진 답안은 I등급16mm², II등급6mm²입니다. 이 문제는 SPD와 주접지단자 또는 보호선 바 사이 구리 도체의 조건입니다. 전원 측 도체나 다른 규격 판본의 수치를 같은 조건으로 혼동하지 않습니다.",
+    "diagram": "spdQuestion",
     "caution": true,
     "examYear": 2024,
     "round": 3,
-    "originalQuestion": null,
+    "originalQuestion": "통합접지공사 시 과전압으로부터 전기설비를 보호하기 위하여 서지보호장치(SPD)를 설치한다.\n(1) 위 그림에서 a+b 최대 길이는 몇[m] 이하이어야 하는가?\n(2) SPD I등급, II등급의 최소 구리 굵기[mm²]를 작성하시오.\n답안:(1)0.5[m] (2)SPD I등급16[mm²], SPD II등급6[mm²].\n그림의 b는 SPD와 주접지단자 또는 보호선 바 사이의 구간이다.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2024-3회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 3
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "협회 회신은 KS C IEC 60364-5-53 534.4.10 및 접속 구간 구분을 안내합니다. 길이는 연결도체 전체의 합산 구간을 확인하며, 접지 측 도체와 전원 측 도체 굵기를 혼동하지 않도록 적용 판본·접속도 확인이 필요합니다."
-      ],
-      "references": [
-        {
-          "title": "대한전기협회 SPD 설치방법 회신(2024-05-27)",
-          "url": "https://kec.kea.kr/sub_coun/qna.php?mode=view&number=9809"
-        },
-        {
-          "title": "Schneider Electric 연결도체 길이 가이드",
-          "url": "https://www.electrical-installation.org/enwiki/Connection_of_Surge_Protection_Device"
-        }
+        "제공 사진의 문항·답안 대조. 현행 규정 전체 검증 또는 공식 채점표 인증을 뜻하지 않습니다."
       ]
     }
   },
@@ -3823,21 +3817,24 @@
       "반사갓을 제거하고 광원을 정면 노출"
     ],
     "correct": 0,
-    "explain": "원본은 프리즘/반사갓, 젖빛 유리, 간접·반간접 조명 등을 제시합니다.",
+    "explain": "제공 사진의 방지대책은 다음 여섯 가지입니다. 1)프리즘 또는 보호각이 충분한 반사갓 등을 부착한다. 2)아크릴 루버 또는 젖빛 유리구를 사용한다. 3)광도가 낮은 배광기구를 사용한다. 4)글레어존(시선을 중심으로 상하30°의 범위)을 피한다. 5)간접 조명방식·반간접 조명방식을 채택한다. 6)건축화 조명방식을 채택한다. 노트의 “아크릴루비”와 불명확한 각도 표기를 사진에 따라 정정했습니다.",
     "diagram": null,
     "caution": false,
     "examYear": 2023,
     "round": 1,
-    "originalQuestion": null,
+    "originalQuestion": "건축물의 조명을 설계할 때 눈부심(glare)의 방지대책 6가지를 쓰시오.\n1. 프리즘 또는 보호각이 충분한 반사갓 등을 부착한다.\n2. 아크릴 루버 또는 젖빛 유리구를 사용한다.\n3. 광도가 낮은 배광기구를 사용한다.\n4. 글레어존(시선을 중심으로 상하30°의 범위)을 피한다.\n5. 간접 조명방식·반간접 조명방식을 채택한다.\n6. 건축화 조명방식을 채택한다.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2023-1회",
-      "originalTextAvailable": false
+      "originalTextAvailable": true,
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 6
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "제공 노트의 아크릴루비·글레어존 각도 표기는 원문 오기 여부 확인 필요."
+        "제공 사진의 문항·답안 대조. 현행 규정 전체 검증 또는 공식 채점표 인증을 뜻하지 않습니다."
       ]
     }
   },
@@ -5078,7 +5075,7 @@
   {
     "year": "2022-1회",
     "category": "전기공사",
-    "question": "2022년 1회 역조형 1련 내장애자 장치의 연결 순서는?",
+    "question": "2022년 1회 자료의 1련 내장애자 장치(역조형) 그림의 번호 ①~⑤에 해당하는 명칭을 순서대로 고르면?",
     "options": [
       "앵커쇄클 → 소켓아이 → 현수애자 → 볼크레비스 → 점퍼터미널",
       "앵커쇄클 → 볼크레비스 → 현수애자 → 소켓아이 → 점퍼터미널",
@@ -5086,28 +5083,30 @@
       "앵커쇄클 → 현수애자 → 점퍼터미널 → 볼크레비스 → 소켓아이"
     ],
     "correct": 0,
-    "explain": "2022-1 자료에 제시된 연결 순서입니다. 2026-1 자료와 순서가 달라 원본 도면의 방향·부품 구성을 대조해야 합니다.",
-    "diagram": "insulator",
+    "explain": "사진 답안의 번호별 명칭은 ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널입니다. ①~⑤는 그림의 지시 번호이므로 부품을 실제로 조립하는 방향이나 순서와 혼동하지 않습니다. 기존 q008의 “조립 순서” 해석을 정정했습니다. 기존 ID와 누적 기록은 유지하며 과거 기록을 소급 재채점하지 않습니다.",
+    "diagram": "insulatorNumbered",
     "caution": false,
     "id": "q174",
     "examYear": 2022,
     "round": 1,
-    "originalQuestion": null,
+    "originalQuestion": "그림에 표시된 번호의 명칭을 정확히 기입하시오. 단, 그림은 1련 내장애자 장치(역조형)이다.\n제공 답안: ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널\n상단 출제년도: 기사22·26.",
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2022-1회",
-      "originalTextAvailable": false,
+      "originalTextAvailable": true,
       "classificationCorrection": {
         "date": "2026-10-23",
         "previousExam": "2022-2회",
         "authority": "사용자가 22-1회가 맞다고 확인"
-      }
+      },
+      "photoSource": "sources/2026-10-23-six-photos.md",
+      "photoIndex": 5
     },
     "verification": {
-      "status": "needs-review",
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "동일 장치명 연결 순서 차이: 원본 도면의 방향과 구성 확인 필요",
-        "동일한 역조형 1련 내장애자 명칭의 q008과 연결 순서가 다릅니다. 원본 도면·배치 방향 대조 필요."
+        "제공 사진의 번호표를 대조했습니다. 번호 순서와 물리적 조립 방향을 구분하도록 문항을 정정했습니다. 상단에는 기사22·26으로 표기되어 있습니다."
       ]
     }
   },
@@ -6573,6 +6572,344 @@
           "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
           "clause": "232.5.1 표 232.5-1"
         }
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-symbol-001",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (1)",
+    "question": "제공된 경보설비 자료의 (1) 그림기호 명칭은?",
+    "options": [
+      "누전경보기",
+      "경보수신반",
+      "누름버튼",
+      "연기감지기"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (1) 기호 명칭은 누전경보기입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolAlarmG",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 1
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "사용자 지정2025-1회로 분류. 사진 상단에는 출제년도 기사26으로 표기되어 있어 회차 출처는 추가 확인 대상입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-symbol-002",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (2)",
+    "question": "아래 직사각형 안에 X가 있는 옥내 배선용 그림기호의 명칭은?",
+    "options": [
+      "배전반",
+      "분전반",
+      "제어반",
+      "경보수신반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (2) 기호 명칭은 배전반입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolPanelX",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 1
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "사용자 지정2025-1회로 분류. 사진 상단에는 출제년도 기사26으로 표기되어 있어 회차 출처는 추가 확인 대상입니다."
+      ]
+    },
+    "appearances": [
+      {
+        "exam": "2024-1회",
+        "sourceId": "photo-2024-1-symbols",
+        "file": "sources/2026-10-23-six-photos.md",
+        "note": "2025 자료(2)와2024 자료(1)는 동일한 기호이므로 ID와 기록을 공유합니다."
+      }
+    ]
+  },
+  {
+    "id": "ec-2025-1-symbol-003",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (3)",
+    "question": "제공된 경보설비 자료의 (3) 그림기호 명칭은?",
+    "options": [
+      "경보수신반",
+      "배전반",
+      "분전반",
+      "제어반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (3) 기호 명칭은 경보수신반입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolAlarmCheck",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 1
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "사용자 지정2025-1회로 분류. 사진 상단에는 출제년도 기사26으로 표기되어 있어 회차 출처는 추가 확인 대상입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-symbol-004",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (4)",
+    "question": "제공된 경보설비 자료의 (4) 그림기호 명칭은?",
+    "options": [
+      "누름버튼",
+      "누전경보기",
+      "연기감지기",
+      "경보수신반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (4) 기호 명칭은 누름버튼입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolPushDot",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 1
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "사용자 지정2025-1회로 분류. 사진 상단에는 출제년도 기사26으로 표기되어 있어 회차 출처는 추가 확인 대상입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-symbol-005",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (5)",
+    "question": "제공된 소방·경보설비 자료의 (5) 그림기호 명칭은?",
+    "options": [
+      "연기감지기",
+      "누름버튼",
+      "누전경보기",
+      "경보수신반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (5) 기호 명칭은 연기감지기입니다. 소방·경보설비 자료의 S와 옥내 배선용 자료의 S는 도면 문맥을 구분합니다.",
+    "diagram": "symbolSmokeS",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 1
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "사용자 지정2025-1회로 분류. 사진 상단에는 출제년도 기사26으로 표기되어 있어 회차 출처는 추가 확인 대상입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-symbol-002",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (2)",
+    "question": "제공된 옥내 배선용 자료의 (2) 그림기호 명칭은?",
+    "options": [
+      "분전반",
+      "배전반",
+      "제어반",
+      "경보수신반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (2) 기호 명칭은 분전반입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolPanelHalf",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 2
+    },
+    "verification": {
+      "status": "source-notes-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "문제 그림은 두 번째 사진, 답안은 앞서 제공한2024-1회 학습노트의 번호별 명칭과 대조했습니다. 두 번째 사진에는 답안표가 없습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-symbol-003",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (3)",
+    "question": "제공된 옥내 배선용 자료의 (3) 그림기호 명칭은?",
+    "options": [
+      "제어반",
+      "배전반",
+      "분전반",
+      "경보수신반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (3) 기호 명칭은 제어반입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolPanelControl",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 2
+    },
+    "verification": {
+      "status": "source-notes-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "문제 그림은 두 번째 사진, 답안은 앞서 제공한2024-1회 학습노트의 번호별 명칭과 대조했습니다. 두 번째 사진에는 답안표가 없습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-symbol-004",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (4)",
+    "question": "제공된 KS C 0301 옥내 배선용 자료의 (4) S 그림기호 명칭은?",
+    "options": [
+      "개폐기",
+      "배선용차단기",
+      "누전차단기",
+      "누름버튼"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (4) 기호 명칭은 개폐기입니다. 소방·경보설비 자료의 S와 옥내 배선용 자료의 S는 도면 문맥을 구분합니다.",
+    "diagram": "symbolSwitchS",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 2
+    },
+    "verification": {
+      "status": "source-notes-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "문제 그림은 두 번째 사진, 답안은 앞서 제공한2024-1회 학습노트의 번호별 명칭과 대조했습니다. 두 번째 사진에는 답안표가 없습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-symbol-005",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (5)",
+    "question": "제공된 KS C 0301 옥내 배선용 자료의 (5) B 그림기호 명칭은?",
+    "options": [
+      "배선용차단기",
+      "개폐기",
+      "누전차단기",
+      "분전반"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (5) 기호 명칭은 배선용차단기입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolBreakerB",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 2
+    },
+    "verification": {
+      "status": "source-notes-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "문제 그림은 두 번째 사진, 답안은 앞서 제공한2024-1회 학습노트의 번호별 명칭과 대조했습니다. 두 번째 사진에는 답안표가 없습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-symbol-006",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "originalQuestion": "다음 그림기호의 명칭을 쓰시오. (6)",
+    "question": "제공된 KS C 0301 옥내 배선용 자료의 (6) E 그림기호 명칭은?",
+    "options": [
+      "누전차단기",
+      "개폐기",
+      "배선용차단기",
+      "누전경보기"
+    ],
+    "correct": 0,
+    "explain": "제공 자료의 (6) 기호 명칭은 누전차단기입니다. 제공 그림의 내부 선과 검은색 영역을 구분해 확인하세요.",
+    "diagram": "symbolEarthBreakerE",
+    "caution": false,
+    "source": {
+      "file": "sources/2026-10-23-six-photos.md",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photoIndex": 2
+    },
+    "verification": {
+      "status": "source-notes-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "문제 그림은 두 번째 사진, 답안은 앞서 제공한2024-1회 학습노트의 번호별 명칭과 대조했습니다. 두 번째 사진에는 답안표가 없습니다."
       ]
     }
   }

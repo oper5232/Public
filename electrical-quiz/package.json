@@ -19,7 +19,8 @@
     "build:emulator-test": "node scripts/build-emulator-test.mjs",
     "test:persistence": "node tests/persistence.mjs",
     "test:update-cache": "node tests/update-cache.mjs",
-    "test:insulation": "node tests/insulation.mjs"
+    "test:insulation": "node tests/insulation.mjs",
+    "test:photos": "node tests/photo-questions.mjs"
   },
   "dependencies": {
     "firebase": "12.4.0"

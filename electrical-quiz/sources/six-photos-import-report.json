@@ -1,0 +1,36 @@
+{
+  "received": "2026-10-23",
+  "beforeCount": 219,
+  "afterCount": 229,
+  "newIds": [
+    "ec-2025-1-symbol-001",
+    "ec-2025-1-symbol-002",
+    "ec-2025-1-symbol-003",
+    "ec-2025-1-symbol-004",
+    "ec-2025-1-symbol-005",
+    "ec-2024-1-symbol-002",
+    "ec-2024-1-symbol-003",
+    "ec-2024-1-symbol-004",
+    "ec-2024-1-symbol-005",
+    "ec-2024-1-symbol-006"
+  ],
+  "modifiedIds": [
+    "q008",
+    "q053",
+    "q054",
+    "q055",
+    "q058",
+    "q059",
+    "q129",
+    "q174"
+  ],
+  "sharedIds": {
+    "ec-2025-1-symbol-002": [
+      "2025-1회",
+      "2024-1회"
+    ]
+  },
+  "source": "sources/2026-10-23-six-photos.md",
+  "classificationCaution": "사용자25-1분류와사진1상단기사26표기의차이는출처메모에유지",
+  "answerCaution": "사진2답안표없음.기존2024-1사용자노트의6명칭과대조"
+}

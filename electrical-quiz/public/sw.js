@@ -1,4 +1,4 @@
-const CACHE='electrical-study-b775235f84718d3b';
+const CACHE='electrical-study-eb46484a4fa4a242';
 const FILES=['./','./index.html','./app.js','./styles.css','./manifest.webmanifest','./icons/icon-192.png','./icons/icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES.map(url=>new Request(url,{cache:'reload'}))))));
 self.addEventListener('message',e=>{if(e.data==='ACTIVATE_UPDATE')self.skipWaiting();});

@@ -135,22 +135,22 @@
   },
   "q008": {
     "kind": "short",
-    "prompt": "1련 내장 애자장치(역조형)의 부품 조립 순서를 쓰시오.",
-    "basisAnswer": "점퍼터미널→앵커쇄클→볼크레비스→현수애자→소켓아이",
+    "prompt": "1련 내장애자 장치(역조형)의 그림에 표시된 ①~⑤의 명칭을 번호별로 쓰시오.",
+    "basisAnswer": "① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널",
     "fields": [
       {
-        "label": "답안",
-        "answer": "점퍼터미널→앵커쇄클→볼크레비스→현수애자→소켓아이"
+        "label": "①~⑤의 명칭",
+        "answer": "① 앵커쇄클\n② 소켓아이\n③ 현수애자\n④ 볼크레비스\n⑤ 점퍼터미널"
       }
     ],
     "source": {
-      "id": "notes-q008",
-      "kind": "user-notes",
+      "id": "photo-2026-1-insulator",
+      "kind": "user-question-photo",
       "exam": "2026-1회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "동일한 역조형 1련 내장애자 명칭의 q174와 연결 순서가 다릅니다. 원본 도면·배치 방향 대조 필요."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q009": {
@@ -970,7 +970,7 @@
   },
   "q053": {
     "kind": "short",
-    "prompt": "진상콘덴서 용량을 2군 이상으로 분할할 수 있다고 정리된 총 용량 구간은?",
+    "prompt": "그림의 진상콘덴서 총 용량이 몇[kVA] 초과, 몇[kVA] 이하일 때 2군으로 나누어 시설해야 하는지 쓰시오.",
     "basisAnswer": "300kVA 초과~600kVA 이하",
     "fields": [
       {
@@ -979,19 +979,18 @@
       }
     ],
     "source": {
-      "id": "notes-q053",
-      "kind": "user-notes",
+      "id": "photo-2024-3-capacitor",
+      "kind": "user-question-photo",
       "exam": "2024-3회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트의 kVA 단위를 보존했습니다. 공식 자료의 단위 확인이 필요합니다.",
-      "콘덴서 용량 단위가 제공 노트의 kVA인지 kvar인지 공식 원문·정답표 확인 필요."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q054": {
     "kind": "short",
-    "prompt": "원본에서 100kVA 이하 콘덴서의 CB 대신 가능한 개폐기는?",
+    "prompt": "그림의 콘덴서 용량이100[kVA] 이하인 경우 CB 대신 사용할 수 있는 개폐기의 명칭을 쓰시오.",
     "basisAnswer": "OS(유입개폐기)",
     "fields": [
       {
@@ -1000,35 +999,33 @@
       }
     ],
     "source": {
-      "id": "notes-q053",
-      "kind": "user-notes",
+      "id": "photo-2024-3-capacitor",
+      "kind": "user-question-photo",
       "exam": "2024-3회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트의 kVA 단위를 보존했습니다. 공식 자료의 단위 확인이 필요합니다.",
-      "콘덴서 개폐기 적용 용량의 단위와 접속뱅크 결선도 확인 필요."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q055": {
     "kind": "short",
-    "prompt": "원본에서 50kVA 이하 콘덴서의 CB 대신 가능한 개폐기는?",
+    "prompt": "그림의 콘덴서 용량이50[kVA] 미만인 경우 사용할 수 있는 개폐기의 명칭과 접속 조건을 쓰시오.",
     "basisAnswer": "COS(직결)",
     "fields": [
       {
-        "label": "답안",
-        "answer": "COS(직결)"
+        "label": "명칭과 접속 조건",
+        "answer": "COS(직결로 한다)"
       }
     ],
     "source": {
-      "id": "notes-q053",
-      "kind": "user-notes",
+      "id": "photo-2024-3-capacitor",
+      "kind": "user-question-photo",
       "exam": "2024-3회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트의 kVA 단위를 보존했습니다. 공식 자료의 단위 확인이 필요합니다.",
-      "콘덴서 개폐기 적용 용량의 단위와 접속뱅크 결선도 확인 필요."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q056": {
@@ -1071,7 +1068,7 @@
   },
   "q058": {
     "kind": "blank",
-    "prompt": "SPD 연결도체 길이의 원본 제한은? 빈칸에 해당하는 값을 단위와 함께 쓰시오.",
+    "prompt": "제공된 SPD 연결도에서 a+b의 최대 길이는? 단위와 함께 쓰시오.",
     "basisAnswer": "0.5m 이하",
     "fields": [
       {
@@ -1080,19 +1077,18 @@
       }
     ],
     "source": {
-      "id": "notes-q058",
-      "kind": "user-notes",
+      "id": "photo-2024-3-spd",
+      "kind": "user-question-photo",
       "exam": "2024-3회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트에 생략된 단위는 기존 문항 기준(m·mm²)으로 표시했습니다.",
-      "협회 회신은 KS C IEC 60364-5-53 534.4.10 및 접속 구간 구분을 안내합니다. 0.5m는 연결도체 전체 길이 기준이며, 접지 측 도체와 전원 측 도체 굵기를 혼동하지 않도록 적용 판본·접속도 확인이 필요합니다."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q059": {
     "kind": "blank",
-    "prompt": "제공 자료의 SPD 등급별 구리 연결도체 최소 굵기를 채우시오.",
+    "prompt": "제공된 SPD 연결도에서 주접지단자 또는 보호선 바와 SPD 사이 구리 도체의 I등급·II등급 최소 굵기는? 단위와 함께 쓰시오.",
     "basisAnswer": "I: 16mm² / II: 6mm²",
     "fields": [
       {
@@ -1105,14 +1101,13 @@
       }
     ],
     "source": {
-      "id": "notes-q058",
-      "kind": "user-notes",
+      "id": "photo-2024-3-spd",
+      "kind": "user-question-photo",
       "exam": "2024-3회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "제공 노트에 생략된 단위는 기존 문항 기준(m·mm²)으로 표시했습니다.",
-      "협회 회신은 KS C IEC 60364-5-53 534.4.10 및 접속 구간 구분을 안내합니다. 0.5m는 연결도체 전체 길이 기준이며, 접지 측 도체와 전원 측 도체 굵기를 혼동하지 않도록 적용 판본·접속도 확인이 필요합니다."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q060": {
@@ -2420,23 +2415,22 @@
   },
   "q129": {
     "kind": "short",
-    "prompt": "제공 자료에 열거된 건축물 조명의 눈부심 방지대책 중 세 가지를 쓰시오.",
+    "prompt": "건축물의 조명을 설계할 때 눈부심(glare)의 방지대책 여섯 가지를 쓰시오.",
     "basisAnswer": "프리즘·충분한 보호각 반사갓·간접조명 활용",
     "fields": [
       {
-        "label": "답안",
-        "answer": "다음 중 세 가지: 프리즘·충분한 보호각 반사갓; 아크릴루비 또는 젖빛 유리구; 광도가 낮은 배광기구; 글레어존 회피; 간접·반간접 조명; 건축화 조명"
+        "label": "방지대책 여섯 가지",
+        "answer": "1. 프리즘 또는 보호각이 충분한 반사갓 등을 부착한다.\n2. 아크릴 루버 또는 젖빛 유리구를 사용한다.\n3. 광도가 낮은 배광기구를 사용한다.\n4. 글레어존(시선을 중심으로 상하30°의 범위)을 피한다.\n5. 간접 조명방식·반간접 조명방식을 채택한다.\n6. 건축화 조명방식을 채택한다."
       }
     ],
     "source": {
-      "id": "notes-q129",
-      "kind": "user-notes",
+      "id": "photo-2023-1-glare",
+      "kind": "user-question-photo",
       "exam": "2023-1회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "원문 “아크릴루비” 및 글레어존 각도 표기는 오기 가능성이 있어 원자료 확인이 필요합니다. 각도값은 출제하지 않았습니다.",
-      "제공 노트의 아크릴루비·글레어존 각도 표기는 원문 오기 여부 확인 필요."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q130": {
@@ -3271,22 +3265,22 @@
   },
   "q174": {
     "kind": "short",
-    "prompt": "제공한 2022년 1회 자료의 1련 내장애자 장치(역조형) 부품 연결 순서를 쓰시오.",
+    "prompt": "1련 내장애자 장치(역조형)의 그림에 표시된 ①~⑤의 명칭을 번호별로 쓰시오.",
     "basisAnswer": "앵커쇄클 → 소켓아이 → 현수애자 → 볼크레비스 → 점퍼터미널",
     "fields": [
       {
-        "label": "답안",
-        "answer": "앵커쇄클 → 소켓아이 → 현수애자 → 볼크레비스 → 점퍼터미널"
+        "label": "①~⑤의 명칭",
+        "answer": "① 앵커쇄클\n② 소켓아이\n③ 현수애자\n④ 볼크레비스\n⑤ 점퍼터미널"
       }
     ],
     "source": {
-      "id": "notes-q174",
-      "kind": "user-notes",
+      "id": "photo-2022-1-insulator",
+      "kind": "user-question-photo",
       "exam": "2022-1회",
-      "received": "2026-10-22"
+      "received": "2026-10-23"
     },
     "notes": [
-      "동일한 역조형 1련 내장애자 명칭의 q008과 연결 순서가 다릅니다. 원본 도면·배치 방향 대조 필요."
+      "제공한 문제 그림·답안을 반영했습니다. 번호·단위·경계 조건을 확인하세요."
     ]
   },
   "q175": {
@@ -4155,5 +4149,185 @@
       "사진의 마지막 행 105℃(시스)는 이미 제시된 값이므로 입력 칸으로 만들지 않았습니다.",
       "앞의 두 칸은 도체, 세 번째 칸은 시스의 온도입니다. KEC 232.5.1 표 232.5-1 대조 완료."
     ]
+  },
+  "ec-2025-1-symbol-001": {
+    "kind": "short",
+    "prompt": "그림에 제시된 소방·경보설비 기호의 명칭을 쓰시오.",
+    "basisAnswer": "누전경보기",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "누전경보기"
+      }
+    ],
+    "source": {
+      "id": "photo-2025-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2025-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2025-1-symbol-002": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호의 명칭을 쓰시오.",
+    "basisAnswer": "배전반",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "배전반"
+      }
+    ],
+    "source": {
+      "id": "photo-2025-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2025-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2025-1-symbol-003": {
+    "kind": "short",
+    "prompt": "그림에 제시된 소방·경보설비 기호의 명칭을 쓰시오.",
+    "basisAnswer": "경보수신반",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "경보수신반"
+      }
+    ],
+    "source": {
+      "id": "photo-2025-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2025-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2025-1-symbol-004": {
+    "kind": "short",
+    "prompt": "그림에 제시된 소방·경보설비 기호의 명칭을 쓰시오.",
+    "basisAnswer": "누름버튼",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "누름버튼"
+      }
+    ],
+    "source": {
+      "id": "photo-2025-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2025-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2025-1-symbol-005": {
+    "kind": "short",
+    "prompt": "그림에 제시된 소방·경보설비 기호의 명칭을 쓰시오.",
+    "basisAnswer": "연기감지기",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "연기감지기"
+      }
+    ],
+    "source": {
+      "id": "photo-2025-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2025-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2024-1-symbol-002": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호의 명칭을 쓰시오.",
+    "basisAnswer": "분전반",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "분전반"
+      }
+    ],
+    "source": {
+      "id": "photo-2024-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2024-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2024-1-symbol-003": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호의 명칭을 쓰시오.",
+    "basisAnswer": "제어반",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "제어반"
+      }
+    ],
+    "source": {
+      "id": "photo-2024-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2024-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2024-1-symbol-004": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호의 명칭을 쓰시오.",
+    "basisAnswer": "개폐기",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "개폐기"
+      }
+    ],
+    "source": {
+      "id": "photo-2024-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2024-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2024-1-symbol-005": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호의 명칭을 쓰시오.",
+    "basisAnswer": "배선용차단기",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "배선용차단기"
+      }
+    ],
+    "source": {
+      "id": "photo-2024-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2024-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
+  },
+  "ec-2024-1-symbol-006": {
+    "kind": "short",
+    "prompt": "그림에 제시된 옥내 배선용 기호의 명칭을 쓰시오.",
+    "basisAnswer": "누전차단기",
+    "fields": [
+      {
+        "label": "기호 명칭",
+        "answer": "누전차단기"
+      }
+    ],
+    "source": {
+      "id": "photo-2024-1-symbols",
+      "kind": "user-question-photo",
+      "exam": "2024-1회",
+      "received": "2026-10-23"
+    },
+    "notes": []
   }
 }

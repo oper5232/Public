@@ -28,7 +28,7 @@ try{
  for(const [pos,first,second] of [[14,'5%','2.5%'],[15,'3%','1.5%']]){
   await page.locator(`#qGrid button[data-pos="${pos}"]`).click();await expect(page.locator('.written-reference')).toHaveCount(0);await expect(page.locator('#qDiagram svg')).toHaveCount(0);await page.locator('#revealWritten').click();const answers=page.locator('.written-reference > p');await expect(answers.nth(0)).toContainText(first);await expect(answers.nth(1)).toContainText(second);
  }
- await page.locator('#topHome').click();await page.locator('#studyFormat').selectOption('mcq');expect(await page.locator('#yearSelect option').allTextContents()).not.toContain('2022-1회');await expect(page.locator('#overallAttempts')).toHaveText('0');
+ await page.locator('#topHome').click();await page.locator('#studyFormat').selectOption('mcq');expect(await page.locator('#yearSelect option').allTextContents()).toContain('2022-1회');await expect(page.locator('#overallAttempts')).toHaveText('0');
  await page.locator('#studyFormat').selectOption('practical');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);expect(errors).toEqual([]);
  await fs.mkdir('test-results',{recursive:true});await page.screenshot({path:'test-results/practical-draft.png',fullPage:true});

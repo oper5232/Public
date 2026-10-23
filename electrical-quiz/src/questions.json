@@ -384,7 +384,7 @@
     "id": "q014",
     "year": "2026-2회",
     "category": "송배전",
-    "question": "시가지 170kV 미만 특고압 가공전선로에서 A종 철주·A종 철근콘크리트주의 경간 상한은?",
+    "question": "시가지 170kV 이하 특고압 가공전선로에서 A종 철주·A종 철근콘크리트주의 경간 상한은?",
     "options": [
       "75m",
       "60m",
@@ -392,7 +392,7 @@
       "150m"
     ],
     "correct": 0,
-    "explain": "이 항목의 75m는 교류 전차선 위 교차의 60m와 다른 조건입니다.",
+    "explain": "이 항목의 75m는 교류 전차선 위 교차의 60m와 다른 조건입니다. KEC 333.1 표 333.1-1의 적용 전압은 170kV 이하입니다.",
     "diagram": "span",
     "caution": true,
     "examYear": 2026,
@@ -404,15 +404,32 @@
       "originalTextAvailable": false
     },
     "verification": {
-      "status": "needs-review",
-      "notes": []
+      "status": "reference-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
+      ],
+      "references": [
+        {
+          "title": "KEC 제2025-052호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=158125635",
+          "printedPage": 391,
+          "pdfPage": 421,
+          "clause": "333.1 표 333.1-1"
+        },
+        {
+          "title": "KEC 제2025-227호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
+          "clause": "333.1 표 333.1-1"
+        }
+      ]
     },
     "appearances": [
       {
         "exam": "2021-4회",
         "sourceId": "notes-2021-4-spans",
         "file": "sources/2021-user-notes.md",
-        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+        "note": "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
       }
     ]
   },
@@ -420,7 +437,7 @@
     "id": "q015",
     "year": "2026-2회",
     "category": "송배전",
-    "question": "시가지 170kV 미만 특고압 가공전선로에서 B종 철주·B종 철근콘크리트주의 경간 상한은?",
+    "question": "시가지 170kV 이하 특고압 가공전선로에서 B종 철주·B종 철근콘크리트주의 경간 상한은?",
     "options": [
       "150m",
       "120m",
@@ -428,7 +445,7 @@
       "400m"
     ],
     "correct": 0,
-    "explain": "시가지 특고압 경간: A종 75m, B종 150m입니다.",
+    "explain": "시가지 특고압 경간: A종 75m, B종 150m입니다. KEC 333.1 표 333.1-1의 적용 전압은 170kV 이하입니다.",
     "diagram": "span",
     "caution": true,
     "examYear": 2026,
@@ -440,15 +457,32 @@
       "originalTextAvailable": false
     },
     "verification": {
-      "status": "needs-review",
-      "notes": []
+      "status": "reference-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
+      ],
+      "references": [
+        {
+          "title": "KEC 제2025-052호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=158125635",
+          "printedPage": 391,
+          "pdfPage": 421,
+          "clause": "333.1 표 333.1-1"
+        },
+        {
+          "title": "KEC 제2025-227호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
+          "clause": "333.1 표 333.1-1"
+        }
+      ]
     },
     "appearances": [
       {
         "exam": "2021-4회",
         "sourceId": "notes-2021-4-spans",
         "file": "sources/2021-user-notes.md",
-        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+        "note": "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
       }
     ]
   },
@@ -456,7 +490,7 @@
     "id": "q016",
     "year": "2026-2회",
     "category": "송배전",
-    "question": "시가지 170kV 미만 특고압 가공전선로의 철탑 일반 경간 상한은?",
+    "question": "시가지 170kV 이하 특고압 가공전선로의 철탑 일반 경간 상한은?",
     "options": [
       "400m",
       "300m",
@@ -464,7 +498,7 @@
       "150m"
     ],
     "correct": 0,
-    "explain": "원문 철탑 일반 400m, 단주 300m, 특수 수평배열 조건 250m를 각각 구별합니다.",
+    "explain": "원문 철탑 일반 400m, 단주 300m, 특수 수평배열 조건 250m를 각각 구별합니다. KEC 333.1 표 333.1-1의 적용 전압은 170kV 이하입니다.",
     "diagram": "span",
     "caution": true,
     "examYear": 2026,
@@ -476,15 +510,32 @@
       "originalTextAvailable": false
     },
     "verification": {
-      "status": "needs-review",
-      "notes": []
+      "status": "reference-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
+      ],
+      "references": [
+        {
+          "title": "KEC 제2025-052호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=158125635",
+          "printedPage": 391,
+          "pdfPage": 421,
+          "clause": "333.1 표 333.1-1"
+        },
+        {
+          "title": "KEC 제2025-227호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
+          "clause": "333.1 표 333.1-1"
+        }
+      ]
     },
     "appearances": [
       {
         "exam": "2021-4회",
         "sourceId": "notes-2021-4-spans",
         "file": "sources/2021-user-notes.md",
-        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+        "note": "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
       }
     ]
   },
@@ -492,7 +543,7 @@
     "id": "q017",
     "year": "2026-2회",
     "category": "송배전",
-    "question": "시가지 170kV 미만 특고압 가공전선로에서 철탑이 단주인 경우 경간 상한은?",
+    "question": "시가지 170kV 이하 특고압 가공전선로에서 철탑이 단주인 경우 경간 상한은?",
     "options": [
       "300m",
       "400m",
@@ -500,7 +551,7 @@
       "150m"
     ],
     "correct": 0,
-    "explain": "제시된 자료에서 단주 철탑 예외는 300m입니다.",
+    "explain": "제시된 자료에서 단주 철탑 예외는 300m입니다. KEC 333.1 표 333.1-1의 적용 전압은 170kV 이하입니다.",
     "diagram": null,
     "caution": true,
     "examYear": 2026,
@@ -512,15 +563,32 @@
       "originalTextAvailable": false
     },
     "verification": {
-      "status": "needs-review",
-      "notes": []
+      "status": "reference-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
+      ],
+      "references": [
+        {
+          "title": "KEC 제2025-052호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=158125635",
+          "printedPage": 391,
+          "pdfPage": 421,
+          "clause": "333.1 표 333.1-1"
+        },
+        {
+          "title": "KEC 제2025-227호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
+          "clause": "333.1 표 333.1-1"
+        }
+      ]
     },
     "appearances": [
       {
         "exam": "2021-4회",
         "sourceId": "notes-2021-4-spans",
         "file": "sources/2021-user-notes.md",
-        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+        "note": "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
       }
     ]
   },
@@ -528,7 +596,7 @@
     "id": "q018",
     "year": "2026-2회",
     "category": "송배전",
-    "question": "시가지 철탑 전선이 수평으로 2 이상 있고 상호간격 4m 미만인 원문 조건의 경간 상한은?",
+    "question": "시가지 170kV 이하 특고압 가공전선로에서 철탑 전선이 수평으로 2 이상 있고 상호간격 4m 미만인 원문 조건의 경간 상한은?",
     "options": [
       "250m",
       "300m",
@@ -536,7 +604,7 @@
       "150m"
     ],
     "correct": 0,
-    "explain": "원본에 따로 적힌 수평 배열 예외 250m입니다.",
+    "explain": "원본에 따로 적힌 수평 배열 예외 250m입니다. KEC 333.1 표 333.1-1의 적용 전압은 170kV 이하입니다.",
     "diagram": null,
     "caution": true,
     "examYear": 2026,
@@ -548,15 +616,32 @@
       "originalTextAvailable": false
     },
     "verification": {
-      "status": "needs-review",
-      "notes": []
+      "status": "reference-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
+      ],
+      "references": [
+        {
+          "title": "KEC 제2025-052호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=158125635",
+          "printedPage": 391,
+          "pdfPage": 421,
+          "clause": "333.1 표 333.1-1"
+        },
+        {
+          "title": "KEC 제2025-227호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
+          "clause": "333.1 표 333.1-1"
+        }
+      ]
     },
     "appearances": [
       {
         "exam": "2021-4회",
         "sourceId": "notes-2021-4-spans",
         "file": "sources/2021-user-notes.md",
-        "note": "이번 노트는 “170kV 이하”, 기존 질문은 “170kV 미만”으로 경계 표현이 다릅니다. 기존 질문 조건을 유지하며 공식 기준 확인이 필요합니다."
+        "note": "KEC 333.1 표 333.1-1(2025-052호·2025-227호 전문) 대조: 적용 전압 조건은 170kV 이하. 기존 앱의 “미만”을 정정했으며 경간 정답과 ID는 유지."
       }
     ]
   },
@@ -1730,7 +1815,19 @@
     },
     "verification": {
       "status": "needs-review",
-      "notes": []
+      "notes": [
+        "협회 회신은 KS C IEC 60364-5-53 534.4.10 및 접속 구간 구분을 안내합니다. 길이는 연결도체 전체의 합산 구간을 확인하며, 접지 측 도체와 전원 측 도체 굵기를 혼동하지 않도록 적용 판본·접속도 확인이 필요합니다."
+      ],
+      "references": [
+        {
+          "title": "대한전기협회 SPD 설치방법 회신(2024-05-27)",
+          "url": "https://kec.kea.kr/sub_coun/qna.php?mode=view&number=9809"
+        },
+        {
+          "title": "Schneider Electric 연결도체 길이 가이드",
+          "url": "https://www.electrical-installation.org/enwiki/Connection_of_Surge_Protection_Device"
+        }
+      ]
     }
   },
   {
@@ -1758,7 +1855,19 @@
     },
     "verification": {
       "status": "needs-review",
-      "notes": []
+      "notes": [
+        "협회 회신은 KS C IEC 60364-5-53 534.4.10 및 접속 구간 구분을 안내합니다. 길이는 연결도체 전체의 합산 구간을 확인하며, 접지 측 도체와 전원 측 도체 굵기를 혼동하지 않도록 적용 판본·접속도 확인이 필요합니다."
+      ],
+      "references": [
+        {
+          "title": "대한전기협회 SPD 설치방법 회신(2024-05-27)",
+          "url": "https://kec.kea.kr/sub_coun/qna.php?mode=view&number=9809"
+        },
+        {
+          "title": "Schneider Electric 연결도체 길이 가이드",
+          "url": "https://www.electrical-installation.org/enwiki/Connection_of_Surge_Protection_Device"
+        }
+      ]
     }
   },
   {
@@ -5835,7 +5944,7 @@
       "빛의 투과율이 낮고 기계적으로 약한 것이 필수 특성이다"
     ],
     "correct": 0,
-    "explain": "제공한 EL램프 특징 5항목을 학습노트 기준으로 수록했습니다. 공식 제조사 자료·최신 교재 대조는 완료하지 않았습니다.",
+    "explain": "제공한 EL램프 특징 5항목을 유지합니다. 다산에듀 공개 교재 질의응답에서 산화물 피막·강도·투과율을 포함한 답안 문맥과 충전·방전 피크 설명을 확인했습니다. 교재 해설 대조이며 2021-4회 공식 채점표 검증은 아닙니다.",
     "diagram": null,
     "caution": true,
     "source": {
@@ -5845,11 +5954,20 @@
       "kind": "user-study-notes"
     },
     "verification": {
-      "status": "needs-review",
+      "status": "teaching-reference-checked",
+      "checkedAt": "2026-10-23",
       "notes": [
-        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전",
-        "EL램프 특징은 제공 노트의 표현을 보존했습니다. 공식 자료와의 대조 전입니다.",
-        "산화물 피막 등의 설명이 램프 전체 특성인지 전극의 특성인지 원문 문제·공식 자료 확인 필요."
+        "공개 교재 해설에서 EL램프 특징 및 충방전 피크 설명을 확인. 오류로 단정할 근거가 없어 답안 유지. 해당 회차 공식 채점표는 미확인."
+      ],
+      "references": [
+        {
+          "title": "다산에듀 교재 담당교수 답변(2020-04-23)",
+          "url": "https://www.e-dasan.net/boardView?id=explain&idx=106254"
+        },
+        {
+          "title": "다산에듀 운영교수 EL 충방전 피크 설명(2019-10-24)",
+          "url": "https://www.e-dasan.net/boardView?id=explain&idx=100387"
+        }
       ]
     }
   },
@@ -6408,6 +6526,53 @@
       "status": "needs-review",
       "notes": [
         "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-001",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "설비·배선",
+    "originalQuestion": "한국전기설비규정에 따라 절연물의 종류에 대한 최고허용온도를 ( ) 안에 작성하시오.\n열가소성 물질(PVC): (①)℃ (도체)\n열경화성 물질(가교폴리에틸렌(XLPE) 또는 에틸렌프로필렌고무(EPR) 혼합물): (②)℃ (도체)\n무기물(열가소성 물질 피복 또는 나도체로 사람이 접촉할 우려가 있는 것): (③)℃ (시스)\n무기물(사람의 접촉에 노출되지 않고, 가연성 물질과 접촉할 우려가 없는 나도체): 105℃ (시스)",
+    "question": "KEC 절연물 종류별 최고허용온도에서 PVC(도체), XLPE·EPR(도체), 사람이 접촉할 우려가 있는 무기물 절연(시스)의 온도를 순서대로 고르면?",
+    "options": [
+      "70℃ / 90℃ / 70℃",
+      "70℃ / 90℃ / 105℃",
+      "90℃ / 70℃ / 70℃",
+      "70℃ / 105℃ / 90℃"
+    ],
+    "correct": 0,
+    "explain": "KEC 232.5.1 표 232.5-1: PVC 70℃(도체), XLPE·EPR 90℃(도체), 사람이 접촉할 우려가 있는 무기물 절연 70℃(시스)입니다. 접촉에 노출되지 않고 가연성 물질과 접촉 우려가 없는 무기물 절연 나도체는 표에서 105℃(시스)로 주어집니다. 도체와 시스를 구분하세요. 정상 사용의 최대연속운전온도 표이며 단락 허용온도·절연 열등급 표가 아닙니다. 적용 시 인증된 제조자 규격 및 표의 주석도 함께 확인합니다.",
+    "diagram": null,
+    "caution": false,
+    "source": {
+      "file": "sources/2025-2-insulation.md",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photo": "36766.jpg"
+    },
+    "verification": {
+      "status": "reference-checked",
+      "checkedAt": "2026-10-23",
+      "notes": [
+        "제공 사진의 표를 KEC 232.5.1 표 232.5-1(2025-052호·2025-227호 전문)과 대조. 공식 회차·채점표 인증을 의미하지 않음."
+      ],
+      "references": [
+        {
+          "title": "한국전기설비규정 제2025-052호 전문",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=158125635",
+          "printedPage": 229,
+          "pdfPage": 259,
+          "clause": "232.5.1 표 232.5-1"
+        },
+        {
+          "title": "한국전기설비규정 제2025-227호 (2026.1.5 시행)",
+          "url": "https://www.law.go.kr/flDownload.do?flSeq=160132559",
+          "clause": "232.5.1 표 232.5-1"
+        }
       ]
     }
   }

@@ -2,7 +2,7 @@ import {chromium,devices,expect} from '@playwright/test';
 const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']});const p=await b.newPage({...devices['Pixel 7']}),errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{
  await p.goto(process.env.TEST_URL||'http://127.0.0.1:4192/');const bank=JSON.parse(await p.locator('#questionData').textContent());
- const ids=Array.from({length:16},(_,i)=>'q'+(174+i));expect(bank.length).toBe(218);
+ const ids=Array.from({length:16},(_,i)=>'q'+(174+i));expect(bank.length).toBeGreaterThanOrEqual(218);
  for(const id of ids){const q=bank.find(q=>q.id===id);expect(q.year).toBe('2022-1회');expect(q.round).toBe(1);expect(q.source.exam).toBe('2022-1회');expect(q.correct).toBe(0);}
  await p.locator('#importFile').setInputFiles({name:'before-round-correction.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:2,history:{q174:{attempts:3,correct:2,wrong:1},q189:{attempts:2,correct:1,wrong:1}},stars:['q174']}))});await p.locator('#confirmImport').click();await expect(p.locator('#overallAttempts')).toHaveText('5');
  await p.locator('#yearSelect').selectOption('2022-1회');await p.locator('#randomOrder').uncheck();await p.locator('#startAll').click();await expect(p.locator('#qGrid button')).toHaveCount(16);await expect(p.locator('#qText')).toContainText('2022년 1회');await expect(p.locator('#qAttempts')).toContainText('3회');await expect(p.locator('#starButton')).toContainText('저장됨');

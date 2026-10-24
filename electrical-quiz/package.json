@@ -22,7 +22,8 @@
     "test:insulation": "node tests/insulation.mjs",
     "test:photos": "node tests/photo-questions.mjs",
     "test:cap-luminaires": "node tests/capacitor-luminaires.mjs",
-    "test:result-unseen": "node tests/result-unseen.mjs"
+    "test:result-unseen": "node tests/result-unseen.mjs",
+    "test:insulator-reference": "node tests/insulator-reference.mjs"
   },
   "dependencies": {
     "firebase": "12.4.0"

@@ -221,7 +221,7 @@
       "① 소켓아이 / ② 앵커쇄클 / ③ 볼크레비스 / ④ 현수애자 / ⑤ 점퍼터미널"
     ],
     "correct": 0,
-    "explain": "사진 답안의 번호별 명칭은 ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널입니다. ①~⑤는 그림의 지시 번호이므로 부품을 실제로 조립하는 방향이나 순서와 혼동하지 않습니다. 기존 q008의 “조립 순서” 해석을 정정했습니다. 기존 ID와 누적 기록은 유지하며 과거 기록을 소급 재채점하지 않습니다.",
+    "explain": "사진 답안의 번호별 명칭은 ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널입니다. ①~⑤는 그림의 지시 번호이므로 부품을 실제로 조립하는 방향이나 순서와 혼동하지 않습니다. 기존 q008의 “조립 순서” 해석을 정정했습니다. 기존 ID와 누적 기록은 유지하며 과거 기록을 소급 재채점하지 않습니다. [추가 이론 자료 대조] 이번 이론 자료는⑤를 압축형 인류클램프로 표기하며 앞서 제공한 기출 답안 사진의⑤ 점퍼터미널과 다릅니다. 두 명칭을 임의로 통일하지 않고 이 문항은 기존 기출 사진의 번호표와 답안을 유지합니다.",
     "diagram": "insulatorNumbered",
     "caution": false,
     "examYear": 2026,
@@ -232,13 +232,23 @@
       "exam": "2026-1회",
       "originalTextAvailable": true,
       "photoSource": "sources/2026-10-23-six-photos.md",
-      "photoIndex": 5
+      "photoIndex": 5,
+      "theoryReference": "sources/insulator-reference-comparison.md",
+      "theoryReferenceType": "single-strain"
     },
     "verification": {
       "status": "source-photo-checked",
       "checkedAt": "2026-10-23",
       "notes": [
-        "제공 사진의 번호표를 대조했습니다. 번호 순서와 물리적 조립 방향을 구분하도록 문항을 정정했습니다. 상단에는 기사22·26으로 표기되어 있습니다."
+        "제공 사진의 번호표를 대조했습니다. 번호 순서와 물리적 조립 방향을 구분하도록 문항을 정정했습니다. 상단에는 기사22·26으로 표기되어 있습니다.",
+        "후속 현수애자 이론 참고자료와 비교했습니다. 비교표는 모범답안·해설에서 확인할 수 있습니다."
+      ],
+      "references": [
+        {
+          "title": "사용자 제공 현수애자 이론 참고자료3장",
+          "file": "sources/insulator-reference-comparison.md",
+          "type": "single-strain"
+        }
       ]
     }
   },
@@ -2016,7 +2026,7 @@
       "소켓아이→데드엔드클램프→경완철→전선→현수애자→볼쇄클"
     ],
     "correct": 0,
-    "explain": "원문에 적힌 부품 결합 순서입니다.",
+    "explain": "원문에 적힌 부품 결합 순서입니다. [추가 이론 자료 대조] 새 참고도의 번호는①경완철·②소켓아이·③볼쇄클·④현수애자·⑤데드엔드클램프·⑥전선입니다. 연결 순서는①→③→④→②→⑤→⑥이므로 번호순과 연결순을 구분합니다.",
     "diagram": null,
     "caution": false,
     "examYear": 2024,
@@ -2025,11 +2035,22 @@
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2024-3회",
-      "originalTextAvailable": false
+      "originalTextAvailable": false,
+      "theoryReference": "sources/insulator-reference-comparison.md",
+      "theoryReferenceType": "light-crossarm"
     },
     "verification": {
       "status": "unverified",
-      "notes": []
+      "notes": [
+        "후속 현수애자 이론 참고자료와 비교했습니다. 비교표는 모범답안·해설에서 확인할 수 있습니다."
+      ],
+      "references": [
+        {
+          "title": "사용자 제공 현수애자 이론 참고자료3장",
+          "file": "sources/insulator-reference-comparison.md",
+          "type": "light-crossarm"
+        }
+      ]
     }
   },
   {
@@ -2774,7 +2795,7 @@
       "볼쇄클→현수애자→소켓아이→데드엔드클램프→경완철"
     ],
     "correct": 0,
-    "explain": "2026-1회 1련 순서와 2023-4회 2련 순서를 혼동하지 않도록 합니다.",
+    "explain": "2026-1회 1련 순서와 2023-4회 2련 순서를 혼동하지 않도록 합니다. [추가 이론 자료 대조] 이번2련 내장애자 이론 자료에 같은 일곱 구성 부품이 제시되어 있습니다. 참고도 제목은2련 내장애자 장치이며 기존 기출 자료의 역조형 표기를 새 자료의 제목으로 단정하지 않습니다.",
     "diagram": null,
     "caution": false,
     "examYear": 2023,
@@ -2783,11 +2804,22 @@
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2023-4회",
-      "originalTextAvailable": false
+      "originalTextAvailable": false,
+      "theoryReference": "sources/insulator-reference-comparison.md",
+      "theoryReferenceType": "double-strain"
     },
     "verification": {
       "status": "unverified",
-      "notes": []
+      "notes": [
+        "후속 현수애자 이론 참고자료와 비교했습니다. 비교표는 모범답안·해설에서 확인할 수 있습니다."
+      ],
+      "references": [
+        {
+          "title": "사용자 제공 현수애자 이론 참고자료3장",
+          "file": "sources/insulator-reference-comparison.md",
+          "type": "double-strain"
+        }
+      ]
     }
   },
   {
@@ -4437,7 +4469,7 @@
       "현수애자 → 볼 아이 → 지지선 밴드 → 소켓 아이 → 데드앤드 클램프"
     ],
     "correct": 0,
-    "explain": "원본 2022-4의 구성 순서를 그대로 묻는 문제입니다.",
+    "explain": "원본 2022-4의 구성 순서를 그대로 묻는 문제입니다. [추가 이론 자료 대조] 이번 밴드식 참고도의 지선밴드·볼아이·현수애자·소켓아이·데드엔드클램프 구성은 기존 답안과 일치합니다. 지선밴드/지지선밴드와 데드엔드/데드앤드는 자료의 표기 차이로 함께 확인합니다.",
     "diagram": "insulator",
     "caution": false,
     "id": "q151",
@@ -4447,11 +4479,22 @@
     "source": {
       "file": "downloadfile-1.html",
       "exam": "2022-4회",
-      "originalTextAvailable": false
+      "originalTextAvailable": false,
+      "theoryReference": "sources/insulator-reference-comparison.md",
+      "theoryReferenceType": "band"
     },
     "verification": {
       "status": "unverified",
-      "notes": []
+      "notes": [
+        "후속 현수애자 이론 참고자료와 비교했습니다. 비교표는 모범답안·해설에서 확인할 수 있습니다."
+      ],
+      "references": [
+        {
+          "title": "사용자 제공 현수애자 이론 참고자료3장",
+          "file": "sources/insulator-reference-comparison.md",
+          "type": "band"
+        }
+      ]
     }
   },
   {
@@ -5097,7 +5140,7 @@
       "앵커쇄클 → 현수애자 → 점퍼터미널 → 볼크레비스 → 소켓아이"
     ],
     "correct": 0,
-    "explain": "사진 답안의 번호별 명칭은 ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널입니다. ①~⑤는 그림의 지시 번호이므로 부품을 실제로 조립하는 방향이나 순서와 혼동하지 않습니다. 기존 q008의 “조립 순서” 해석을 정정했습니다. 기존 ID와 누적 기록은 유지하며 과거 기록을 소급 재채점하지 않습니다.",
+    "explain": "사진 답안의 번호별 명칭은 ① 앵커쇄클 / ② 소켓아이 / ③ 현수애자 / ④ 볼크레비스 / ⑤ 점퍼터미널입니다. ①~⑤는 그림의 지시 번호이므로 부품을 실제로 조립하는 방향이나 순서와 혼동하지 않습니다. 기존 q008의 “조립 순서” 해석을 정정했습니다. 기존 ID와 누적 기록은 유지하며 과거 기록을 소급 재채점하지 않습니다. [추가 이론 자료 대조] 이번 이론 자료는⑤를 압축형 인류클램프로 표기하며 앞서 제공한 기출 답안 사진의⑤ 점퍼터미널과 다릅니다. 두 명칭을 임의로 통일하지 않고 이 문항은 기존 기출 사진의 번호표와 답안을 유지합니다.",
     "diagram": "insulatorNumbered",
     "caution": false,
     "id": "q174",
@@ -5114,13 +5157,23 @@
         "authority": "사용자가 22-1회가 맞다고 확인"
       },
       "photoSource": "sources/2026-10-23-six-photos.md",
-      "photoIndex": 5
+      "photoIndex": 5,
+      "theoryReference": "sources/insulator-reference-comparison.md",
+      "theoryReferenceType": "single-strain"
     },
     "verification": {
       "status": "source-photo-checked",
       "checkedAt": "2026-10-23",
       "notes": [
-        "제공 사진의 번호표를 대조했습니다. 번호 순서와 물리적 조립 방향을 구분하도록 문항을 정정했습니다. 상단에는 기사22·26으로 표기되어 있습니다."
+        "제공 사진의 번호표를 대조했습니다. 번호 순서와 물리적 조립 방향을 구분하도록 문항을 정정했습니다. 상단에는 기사22·26으로 표기되어 있습니다.",
+        "후속 현수애자 이론 참고자료와 비교했습니다. 비교표는 모범답안·해설에서 확인할 수 있습니다."
+      ],
+      "references": [
+        {
+          "title": "사용자 제공 현수애자 이론 참고자료3장",
+          "file": "sources/insulator-reference-comparison.md",
+          "type": "single-strain"
+        }
       ]
     }
   },
@@ -6354,19 +6407,29 @@
       "볼크레비스 → 앵커쇄클 → 소켓아이 → 장간형 현수애자 → 데드앤드클램프"
     ],
     "correct": 0,
-    "explain": "장간형 현수애자 구성입니다. 기존 1련·2련 역조형 내장애자 문제와 장치 종류를 구분합니다.",
+    "explain": "장간형 현수애자 구성입니다. 기존 1련·2련 역조형 내장애자 문제와 장치 종류를 구분합니다. [추가 이론 자료 대조] 이번 장간형 참고도의 앵커쇄클·볼크레비스·현수애자·소켓아이·데드엔드클램프 구성은 기존 문항의 연결과 일치합니다.",
     "diagram": null,
     "caution": true,
     "source": {
       "file": "sources/2021-user-notes.md",
       "exam": "2021-1회",
       "originalTextAvailable": true,
-      "kind": "user-study-notes"
+      "kind": "user-study-notes",
+      "theoryReference": "sources/insulator-reference-comparison.md",
+      "theoryReferenceType": "long-rod"
     },
     "verification": {
       "status": "needs-review",
       "notes": [
-        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전"
+        "2026-10-23 제공 학습노트 반영 · 공식 최신 기준 대조 전",
+        "후속 현수애자 이론 참고자료와 비교했습니다. 비교표는 모범답안·해설에서 확인할 수 있습니다."
+      ],
+      "references": [
+        {
+          "title": "사용자 제공 현수애자 이론 참고자료3장",
+          "file": "sources/insulator-reference-comparison.md",
+          "type": "long-rod"
+        }
       ]
     }
   },

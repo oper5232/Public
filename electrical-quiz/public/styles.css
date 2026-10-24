@@ -16,3 +16,5 @@ h1{font-size:clamp(25px,5vw,38px);line-height:1.24;letter-spacing:-.035em;margin
 
 .source-figure{background:#fff}.source-figure svg{max-height:370px}.source-figure figcaption{color:#4d5e70}.source-figure[data-figure="insulatorNumbered"] svg{max-height:340px}
 #results .action-subgroup > .big-actions{width:100%;margin-top:0}
+
+.insulator-reference{margin-top:18px;border-top:1px solid var(--border);padding-top:12px}.insulator-reference details{margin:12px 0}.insulator-reference summary{cursor:pointer;font-weight:700;line-height:1.6}.insulator-reference ol{padding-left:25px;line-height:1.9}.insulator-reference p{font-size:13px;line-height:1.8;overflow-wrap:anywhere}

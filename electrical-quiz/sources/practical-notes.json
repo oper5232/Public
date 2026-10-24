@@ -1401,6 +1401,72 @@
       "photos": [
         "36813.jpg"
       ]
+    },
+    {
+      "id": "insulator-theory-q008",
+      "exam": "2026-1회",
+      "questionIds": [
+        "q008"
+      ],
+      "file": "sources/insulator-reference-comparison.md",
+      "kind": "user-theory-reference",
+      "excerpt": "1련 내장애자 장치(역조형) — 이번 이론 자료\n1. 앵커쇄클(앵커쉐클)\n2. 소켓아이\n3. 현수애자\n4. 볼크레비스\n5. 압축형 인류클램프\n이번 이론 자료의⑤ 명칭은 압축형 인류클램프입니다. 앞서 제공한2022·2026 기출 답안 사진의⑤ 점퍼터미널과 표기가 다릅니다. 같은 부품의 동의어라고 단정하지 않으며 각 문항에 연결된 출처와 지시 번호를 따릅니다.",
+      "examAttribution": "기존 문항에 참고 연결. 이미지 자체에 연도·회차가 표시된 것은 아님."
+    },
+    {
+      "id": "insulator-theory-q065",
+      "exam": "2024-3회",
+      "questionIds": [
+        "q065"
+      ],
+      "file": "sources/insulator-reference-comparison.md",
+      "kind": "user-theory-reference",
+      "excerpt": "경완철에서 현수애자 설치\n1. 경완철\n2. 소켓아이\n3. 볼쇄클\n4. 현수애자\n5. 데드엔드클램프\n6. 전선\n번호 순서와 연결 순서가 다릅니다. 그림의 왼쪽에서 오른쪽 연결은①→③→④→②→⑤→⑥이며, 기존 경완철 문제의 부품 연결과 일치합니다.",
+      "examAttribution": "기존 문항에 참고 연결. 이미지 자체에 연도·회차가 표시된 것은 아님."
+    },
+    {
+      "id": "insulator-theory-q092",
+      "exam": "2023-4회",
+      "questionIds": [
+        "q092"
+      ],
+      "file": "sources/insulator-reference-comparison.md",
+      "kind": "user-theory-reference",
+      "excerpt": "2련 내장애자 장치\n1. 앵커쇄클(앵커쉐클)\n2. 체인링크\n3. 삼각요크\n4. 볼크레비스\n5. 현수애자\n6. 소켓크레비스\n7. 압축형 인류클램프\n",
+      "examAttribution": "기존 문항에 참고 연결. 이미지 자체에 연도·회차가 표시된 것은 아님."
+    },
+    {
+      "id": "insulator-theory-q151",
+      "exam": "2022-4회",
+      "questionIds": [
+        "q151"
+      ],
+      "file": "sources/insulator-reference-comparison.md",
+      "kind": "user-theory-reference",
+      "excerpt": "밴드를 이용한 애자 설치\n1. 지선밴드(지지선밴드)\n2. 볼아이\n3. 현수애자\n4. 소켓아이\n5. 데드엔드클램프\n",
+      "examAttribution": "기존 문항에 참고 연결. 이미지 자체에 연도·회차가 표시된 것은 아님."
+    },
+    {
+      "id": "insulator-theory-q174",
+      "exam": "2022-1회",
+      "questionIds": [
+        "q174"
+      ],
+      "file": "sources/insulator-reference-comparison.md",
+      "kind": "user-theory-reference",
+      "excerpt": "1련 내장애자 장치(역조형) — 이번 이론 자료\n1. 앵커쇄클(앵커쉐클)\n2. 소켓아이\n3. 현수애자\n4. 볼크레비스\n5. 압축형 인류클램프\n이번 이론 자료의⑤ 명칭은 압축형 인류클램프입니다. 앞서 제공한2022·2026 기출 답안 사진의⑤ 점퍼터미널과 표기가 다릅니다. 같은 부품의 동의어라고 단정하지 않으며 각 문항에 연결된 출처와 지시 번호를 따릅니다.",
+      "examAttribution": "기존 문항에 참고 연결. 이미지 자체에 연도·회차가 표시된 것은 아님."
+    },
+    {
+      "id": "insulator-theory-ec-2021-1-002",
+      "exam": "2021-1회",
+      "questionIds": [
+        "ec-2021-1-002"
+      ],
+      "file": "sources/insulator-reference-comparison.md",
+      "kind": "user-theory-reference",
+      "excerpt": "장간형 현수애자 장치 — 제공 참고도\n1. 앵커쇄클(앵커쉐클)\n2. 볼크레비스\n3. 현수애자\n4. 소켓아이\n5. 데드엔드클램프\n",
+      "examAttribution": "기존 문항에 참고 연결. 이미지 자체에 연도·회차가 표시된 것은 아님."
     }
   ],
   "pending": [],
@@ -1434,6 +1500,18 @@
       "date": "2026-10-23",
       "file": "sources/2026-10-23-capacitor-luminaires.md",
       "topic": "콘덴서 보호 및 KS C8000 정의 교재 사진 대조"
+    },
+    {
+      "file": "sources/insulator-reference-comparison.md",
+      "topic": "현수애자 장치6종 참고표와 출처 간 차이",
+      "questionIds": [
+        "q008",
+        "q174",
+        "q065",
+        "q092",
+        "q151",
+        "ec-2021-1-002"
+      ]
     }
   ]
 }

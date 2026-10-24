@@ -1,0 +1,29 @@
+{
+  "questionCount": 233,
+  "relatedIds": [
+    "q008",
+    "q174",
+    "q065",
+    "q092",
+    "q151",
+    "ec-2021-1-002"
+  ],
+  "files": [
+    {
+      "name": "1-36825.png",
+      "sha256": "6ca459459eca09052a7d2b7f4107ab1f27f28abe851c0d87bf65fbb804bed042"
+    },
+    {
+      "name": "2-36826.png",
+      "sha256": "53e8fd5f2f6dffd4172de462ad89908103f0e83deaf204a06a567bfbaf2c8883"
+    },
+    {
+      "name": "3-36827.png",
+      "sha256": "64f4a7c7d83bf43d16b74972bcabdfd1175f686b28430a98375c93e490ef003b"
+    }
+  ],
+  "newQuestionIds": [],
+  "unresolvedDifference": "1련 역조형 참고⑤압축형인류클램프 / 기존기출⑤점퍼터미널. 기존문항정답유지.",
+  "referenceOnly": "154kV 장치는 회차 미지정 이론 비교표에만 보관.",
+  "otherContent": "연효율·바인드법·완금길이는이번부품비교표범위밖이며원본파일에보존."
+}

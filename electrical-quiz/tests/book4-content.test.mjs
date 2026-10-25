@@ -29,7 +29,9 @@ test('Eight decoder equations actually agree with every truth-table input',()=>{
 test('Reverse-V preserves primary phase orientation from the printed answer',()=>{
  const p=practical[id('2025-2',1)];assert.match(p.prompt,/역V결선/);
  assert.equal(p.fields[0].answer,'T1.U–a, T1.V–N, T2.U–b, T2.V–N');
+ assert.match(p.fields[1].answer,/N–T1.v–T2.u–L2/);
  assert.match(book4Figures.book4VAnswer.svg,/M445 220V85M535 220V115/);
+ assert.match(book4Figures.book4VAnswer.svg,/M105 115V355H165Q175 342 185 355H355/);
  // Both primary V terminals go to N; reversing only the second primary would
  // make unequal secondary line voltages for the provided V secondary.
  const va={x:1,y:0},vb={x:Math.cos(-2*Math.PI/3),y:Math.sin(-2*Math.PI/3)};

@@ -25,7 +25,7 @@ function vCircuit(answer){
  for(const [y,s] of [[385,'L1'],[415,'L2'],[445,'L3']])b+=line(`M75 ${y}H670`)+text(680,y+6,s);
  if(answer){
   b+=line('M175 220V55M265 220V115M445 220V85M535 220V115M175 315V385M265 315V355H445V315M355 355V415M535 315V445')+
-    [dot(175,55),dot(265,115),dot(445,85),dot(535,115),dot(175,385),dot(355,355),dot(355,415),dot(535,445)].join('')+ground(355,355);
+    [dot(175,55),dot(265,115),dot(445,85),dot(535,115),dot(175,385),dot(355,355),dot(355,415),dot(535,445),dot(105,115),dot(75,115)].join('')+line('M105 115V355H165Q175 342 185 355H355')+ground(75,115);
  }
  return b;
 }
@@ -155,8 +155,8 @@ function spot(){
  return b+text(45,500,'NWT: 네트워크 변압기 / CB: 프로텍터 차단기',18)+text(45,530,'CB 아래 직사각형: 프로텍터 퓨즈',18);
 }
 export const book4Figures={
- book4VBlank:entry(vCircuit(false),490,740,'역V결선 미완성 도면'),
- book4VAnswer:entry(vCircuit(true),490,740,'역V결선 모범 연결'),
+ book4VBlank:entry(vCircuit(false),490,740,'역V결선 미완성 도면',caption+' 단자 연결을 위한 도면으로 원문의 퓨즈 등 보조 기호는 생략했습니다.'),
+ book4VAnswer:entry(vCircuit(true),490,740,'역V결선 모범 연결',caption+' 원문의 공통 중성선N 연결을 표시했습니다. 단자 연결을 위한 도면으로 퓨즈 등 보조 기호는 생략했습니다.'),
  book4CableEnd:entry(cableEnd(),560,740,'케이블 단말처리 번호①~⑤'),
  book4LogicBlank:entry(logicDiagram(false),650,740,'진리표 논리회로의 빈 입력단'),
  book4LogicAnswer:entry(logicDiagram(true),650,740,'진리표 논리회로 모범 연결'),

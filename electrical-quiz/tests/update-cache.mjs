@@ -3,7 +3,8 @@ import path from 'node:path';
 import http from 'node:http';
 import {createHash} from 'node:crypto';
 import {chromium,expect} from '@playwright/test';
-const BANK_SIZE=JSON.parse(await fs.readFile(new URL('../src/questions.json',import.meta.url),'utf8')).length;
+const retired=new Set(JSON.parse(await fs.readFile(new URL('../src/retired-questions.json',import.meta.url),'utf8')).map(q=>q.id));
+const BANK_SIZE=JSON.parse(await fs.readFile(new URL('../src/questions.json',import.meta.url),'utf8')).filter(q=>!retired.has(q.id)).length;
 
 // Model GitHub Pages' ten-minute HTTP cache while replacing an installed PWA.
 const publicRoot=path.resolve('public');let version=1;

@@ -14,12 +14,12 @@ try{
  await page.reload();await page.locator('#resume').click();await expect(page.locator('textarea')).toHaveValue('絶縁変圧器 · 절연변압기 1234 <b>');
  await page.locator('#revealWritten').click();await expect(page.locator('.written-reference')).toContainText('절연변압기');
  await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('0');await expect(page.locator('#unseenCount')).toHaveText(String(BANK_SIZE));
- await page.locator('#resume').click();await page.locator('#writtenCorrect').click();await expect(page.locator('#qAttempts')).toContainText('1회');
+ await page.locator('#resume').click();await page.locator('#writtenCorrect').click();await expect(page.locator('#qAttempts .counter')).toHaveText('1회');
  await page.locator('#qNext').click();await expect(page.locator('input[data-part]')).toHaveCount(2);
  await page.locator('input[data-part="0"]').fill('400 V 이하');await page.locator('input[data-part="1"]').fill('150 V 이하');
  await page.locator('#qPrev').click();await page.locator('#qNext').click();await expect(page.locator('input[data-part="1"]')).toHaveValue('150 V 이하');
  await page.locator('#revealWritten').click();await page.locator('#writtenWrong').click();await expect(page.locator('#qAttempts')).toContainText('오답 1회');
- await page.reload();await page.locator('#resume').click();await expect(page.locator('#writtenWrong')).toHaveCount(0);await expect(page.locator('#qAttempts')).toContainText('1회');
+ await page.reload();await page.locator('#resume').click();await expect(page.locator('#writtenWrong')).toHaveCount(0);await expect(page.locator('#qAttempts .counter')).toHaveText('1회');
  await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('2');await expect(page.locator('#unseenCount')).toHaveText(String(BANK_SIZE-2));
  await page.locator('#studyFormat').selectOption('mcq');await expect(page.locator('#overallAttempts')).toHaveText('0');await expect(page.locator('#unseenCount')).toHaveText(String(BANK_SIZE));
  await page.locator('#studyFormat').selectOption('practical');await page.locator('#startMissed').click();await expect(page.locator('input[data-part]')).toHaveCount(2);

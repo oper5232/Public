@@ -26,11 +26,11 @@ try{
  await page.locator('#finishHome').click();await expect(page.locator('#overallAttempts')).toHaveText('10');await expect(page.locator('#unseenCount')).toHaveText(String(BANK_SIZE-10));
  await record('A·C: 탭 종료 후 재접속·새로고침·재열람 시 집계 유지',async()=>{
   await page.close();page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));await page.goto(url);await expect(page.locator('#overallAttempts')).toHaveText('10');
-  await page.locator('#resume').click();await page.reload();await page.locator('#resume').click();await expect(page.locator('#qAttempts')).toContainText('1회');
+  await page.locator('#resume').click();await page.reload();await page.locator('#resume').click();await expect(page.locator('#qAttempts .counter')).toHaveText('1회');
   await expect(page.locator('#qOptions button:disabled')).toHaveCount(4);await page.locator('#topHome').click();await expect(page.locator('#overallAttempts')).toHaveText('10');
  });
  await record('D: 미응시 출제에서 채점한 10문항 제외',async()=>{
-  await page.locator('#randomOrder').uncheck();await page.locator('#unseenOnly').check();await page.locator('#start10').click();await expect(page.locator('#qText')).toContainText('Δ-Δ');await expect(page.locator('#qAttempts')).toContainText('0회');await page.locator('#topHome').click();
+  await page.locator('#randomOrder').uncheck();await page.locator('#unseenOnly').check();await page.locator('#start10').click();await expect(page.locator('#qText')).toContainText('Δ-Δ');await expect(page.locator('#qAttempts .counter')).toHaveText('0회');await page.locator('#topHome').click();
  });
  await record('오답 우선순위·관심 문제 재시험',async()=>{
   await page.locator('#reviewOrder').selectOption('accuracy');await page.locator('#startMissed').click();await expect(page.locator('#qPosition')).toContainText('/ 5');await page.locator('#topHome').click();await page.locator('#startStars').click();await expect(page.locator('#qPosition')).toContainText('/ 1');await page.locator('#topHome').click();

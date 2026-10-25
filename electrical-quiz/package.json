@@ -24,7 +24,8 @@
     "test:cap-luminaires": "node tests/capacitor-luminaires.mjs",
     "test:result-unseen": "node tests/result-unseen.mjs",
     "test:insulator-reference": "node tests/insulator-reference.mjs",
-    "test:book4": "node --test tests/book4-content.test.mjs && node tests/book4.mjs"
+    "test:book4": "node --test tests/book4-content.test.mjs && node tests/book4.mjs",
+    "test:rounds": "node --test tests/study-rounds.test.mjs && node tests/study-rounds.mjs"
   },
   "dependencies": {
     "firebase": "12.4.0"

@@ -39,6 +39,7 @@ export function validateSession(s,known) {
   }
   for (const [id,a] of Object.entries(s.answers)) if(!s.ids.includes(id) || !Number.isInteger(a)||a<0||a>3) throw Error('시험 답안 오류');
   if(s.format!==undefined&&!['mcq','practical'].includes(s.format))throw Error('시험 유형 오류');
+  if(s.studyRound!==undefined&&(!Number.isSafeInteger(s.studyRound)||s.studyRound<1||s.studyRound>1000000000))throw Error('학습 회독 오류');
   if(s.format==='practical'&&!s.id.startsWith('practical_'))throw Error('실기 시험 ID 오류');
   for(const map of [s.drafts,s.revealed])if(map!==undefined&&(!map||typeof map!=='object'||Array.isArray(map)))throw Error('실기 답안 저장 형식 오류');
   for(const [id,parts] of Object.entries(s.drafts||{}))if(!s.ids.includes(id)||!Array.isArray(parts)||parts.length>10||parts.some(v=>typeof v!=='string'||v.length>2000))throw Error('실기 작성 답안 오류');

@@ -18,3 +18,24 @@ h1{font-size:clamp(25px,5vw,38px);line-height:1.24;letter-spacing:-.035em;margin
 #results .action-subgroup > .big-actions{width:100%;margin-top:0}
 
 .insulator-reference{margin-top:18px;border-top:1px solid var(--border);padding-top:12px}.insulator-reference details{margin:12px 0}.insulator-reference summary{cursor:pointer;font-weight:700;line-height:1.6}.insulator-reference ol{padding-left:25px;line-height:1.9}.insulator-reference p{font-size:13px;line-height:1.8;overflow-wrap:anywhere}
+/* Given data tables stay readable on small screens without widening the page. */
+.source-tables{display:grid;gap:16px;margin:18px 0}
+.source-table-scroll{max-width:100%;overflow-x:auto;border:1px solid var(--border,#aab8c6);border-radius:10px}
+.source-table-scroll table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.6;text-align:left}
+.source-table-scroll caption{text-align:left;padding:12px;font-weight:700;white-space:normal;caption-side:top}
+.source-table-scroll th,.source-table-scroll td{border-top:1px solid var(--border,#aab8c6);padding:9px 12px;vertical-align:top;min-width:85px}
+.source-table-scroll th{font-weight:700}
+.book4-answer{margin-top:20px}
+.diagram.source-figure svg{display:block;width:100%;height:auto;max-height:none}
+.figure-zoom{margin:10px 0 0;min-height:44px}
+#figureViewer{box-sizing:border-box;width:min(1100px,96vw);max-width:96vw;max-height:94vh;border:1px solid #71849a;border-radius:14px;padding:14px;background:var(--panel,#fff);color:var(--txt,#15202b);overflow:auto}
+#figureViewer::backdrop{background:rgba(0,0,0,.7)}
+#figureViewer:not([open]){display:none}
+#figureViewer.figure-fallback[open]{position:fixed;inset:3vh 2vw auto;z-index:100;margin:auto;box-shadow:0 0 0 100vmax #0009;display:block}
+.figure-toolbar{display:flex;gap:10px;align-items:center;position:sticky;top:0;background:inherit;z-index:1;padding-bottom:8px}
+.figure-toolbar button{min-height:44px;min-width:44px;border:1px solid #8e9caf;border-radius:9px;background:var(--panel2,#e8f1f8);color:inherit;font-size:18px;padding:8px 12px;cursor:pointer}
+.figure-toolbar [data-figure-close]{margin-left:auto}
+.figure-toolbar output{min-width:56px;text-align:center}
+.figure-viewport{width:100%;max-height:70vh;overflow:auto;background:white;border:1px solid #aab8c6;touch-action:pan-x pan-y pinch-zoom}
+.figure-canvas{min-width:100%;max-width:none}
+.figure-canvas svg{display:block;width:100%;height:auto;max-height:none}

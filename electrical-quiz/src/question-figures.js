@@ -1,9 +1,11 @@
+import {book4Figures} from './book4-figures.js';
 // Learning redraws based on the six screenshots supplied on 2026-10-23.
 // The labels contain only information visible in the question, never its answer key.
 const svg=(body,viewBox='0 0 280 160',label='제공 자료의 문제 그림')=>`<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}" role="img" aria-label="${label}"><rect width="100%" height="100%" fill="white"/><g stroke="#161c22" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`;
 const letter=(v)=>svg(`<rect x="122" y="60" width="36" height="40"/><text x="140" y="91" text-anchor="middle" font-family="serif" font-size="34" fill="#161c22" stroke="none">${v}</text>`);
 const caption='제공 사진의 기호·번호를 바탕으로 다시 그린 학습용 그림입니다.';
 export const questionFigures={
+ ...book4Figures,
  symbolLightingDuct:{svg:svg('<rect x="65" y="60" width="32" height="32"/><path d="M97 76H218" stroke-dasharray="14 10"/><text x="151" y="108" fill="#161c22" stroke="none" font-family="serif" font-size="23">LD</text>'),caption},
  symbolMetalDuct:{svg:svg('<rect x="110" y="62" width="60" height="36"/><text x="140" y="90" text-anchor="middle" fill="#161c22" stroke="none" font-family="serif" font-size="29">MD</text>'),caption},
  symbolJunctionBox:{svg:svg('<path d="M65 80H117M163 80H220" stroke-dasharray="14 10"/><circle cx="140" cy="80" r="18"/><circle cx="140" cy="80" r="13"/>'),caption},

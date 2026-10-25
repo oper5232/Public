@@ -7070,7 +7070,15 @@
       "notes": [
         "제공 사진의 기호와 인쇄 답안을 대조했습니다. 회차는 사용자가2022년2회라고 확인했습니다. 현행 KS 전문 전체 검증은 아닙니다."
       ]
-    }
+    },
+    "appearances": [
+      {
+        "exam": "2024-1회",
+        "sourceId": "book4-shared-metal-duct",
+        "file": "Book 4.xlsx",
+        "note": "사진20의 인쇄 MD·금속덕트 기호. 회차는 엑셀24-1 구간에 따름."
+      }
+    ]
   },
   {
     "id": "ec-2022-2-symbol-003",
@@ -7137,6 +7145,1377 @@
       "checkedAt": "2026-10-23",
       "notes": [
         "제공 사진의 기호와 인쇄 답안을 대조했습니다. 회차는 사용자가2022년2회라고 확인했습니다. 현행 KS 전문 전체 검증은 아닙니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-001",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "회로·결선",
+    "question": "그림의 단상변압기 T1·T2를 역V결선할 때 2차측 공통점으로 연결하는 단자쌍은?",
+    "options": [
+      "T1.v와 T2.u",
+      "T1.u와 T2.u",
+      "T1.v와 T2.v",
+      "T1.U와 T2.u"
+    ],
+    "correct": 0,
+    "explain": "인쇄 정답의 단자 표기를 따라 1차측은 T1.U–a, T1.V–N, T2.U–b, T2.V–N로 연결합니다. 2차측은 T1.u–L1, T1.v–T2.u–L2, T2.v–L3입니다. 대문자 U/V는 1차측, 소문자 u/v는 2차측이며 T1/T2는 기기를 구별하기 위해 붙인 이름입니다. 공통 2차점의 접지도 인쇄 정답과 함께 확인합니다.",
+    "diagram": "book4VBlank",
+    "caution": true,
+    "originalQuestion": "다음 그림은3상4선식 배전선로에서 단상변압기2대가 있는 미완성 회로도이다. 이것을 역V결선하여2차에3상 전원방식으로 결선하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image1.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "원문 결선 작성 문제를 단자쌍 작성으로 바꾸었습니다. 손풀이가 아닌 인쇄 정답을 기준으로 도면을 다시 구성했습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-002",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "전기공사",
+    "question": "6,600V CV 3×38mm² 케이블 단말처리도의 ①에서 도체와 단자를 접속하는 공법은?",
+    "options": [
+      "압축접속공법",
+      "납땜만 하는 공법",
+      "전선 꼬임만 하는 공법",
+      "단자를 접속하지 않는 공법"
+    ],
+    "correct": 0,
+    "explain": "제공 인쇄 답안: ① 압축접속공법, ② 점착성 폴리에틸렌 절연테이프, ③ 하부에서 상부로 감기, ④ 상 식별. 번호는 그림에서 가리키는 위치로 확인합니다.",
+    "diagram": "book4CableEnd",
+    "caution": true,
+    "originalQuestion": "6,600V CV 3×38mm² 케이블 단말처리도에서 ① 도체와 단자의 접속 공법, ② 절연테이프 명칭, ③ 테이프를 감는 방향, ④ 테이프의 용도를 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image2.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-003",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "품셈·계산",
+    "question": "제시된 154kV ACSR 240mm², 10km·2회선 가선 조건에서 전기공사기사의 노무비는?",
+    "options": [
+      "1,418,526원",
+      "788,070원",
+      "2,837,052원",
+      "141,852원"
+    ],
+    "correct": 0,
+    "explain": "(1.37+1.04)×10×1.8×32,700=1,418,526원. 연선·긴선 품은 1회선(3선)·km 기준이므로 선 수 3이나 회선 수 2를 다시 곱하지 않습니다. 2회선 동시가선 계수 1.8을 한 번 적용합니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "154kV ACSR 240mm² 송전선로 10km, 2회선을 가선한다. 연선+긴선 품을 적용하고 2회선 동시가선은 180%로 한다. 수직배열·평탄지 기준이며 장비비·기타 할증은 고려하지 않는다. 일 노임은 전기공사기사 32,700원, 송전전공 62,700원, 특별인부 22,000원이다. 전기공사기사의 노무비를 계산하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image3.png",
+        "image4.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-004",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "품셈·계산",
+    "question": "제시된 154kV ACSR 240mm², 10km·2회선 가선 조건에서 송전전공의 노무비는?",
+    "options": [
+      "40,742,460원",
+      "22,634,700원",
+      "81,484,920원",
+      "4,074,246원"
+    ],
+    "correct": 0,
+    "explain": "(20.4+15.7)×10×1.8×62,700=40,742,460원. 연선·긴선 품은 1회선(3선)·km 기준이므로 선 수 3이나 회선 수 2를 다시 곱하지 않습니다. 2회선 동시가선 계수 1.8을 한 번 적용합니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "154kV ACSR 240mm² 송전선로 10km, 2회선을 가선한다. 연선+긴선 품을 적용하고 2회선 동시가선은 180%로 한다. 수직배열·평탄지 기준이며 장비비·기타 할증은 고려하지 않는다. 일 노임은 전기공사기사 32,700원, 송전전공 62,700원, 특별인부 22,000원이다. 송전전공의 노무비를 계산하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image3.png",
+        "image4.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-005",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "품셈·계산",
+    "question": "제시된 154kV ACSR 240mm², 10km·2회선 가선 조건에서 특별인부의 노무비는?",
+    "options": [
+      "20,988,000원",
+      "11,660,000원",
+      "41,976,000원",
+      "2,098,800원"
+    ],
+    "correct": 0,
+    "explain": "(30.5+22.5)×10×1.8×22,000=20,988,000원. 연선·긴선 품은 1회선(3선)·km 기준이므로 선 수 3이나 회선 수 2를 다시 곱하지 않습니다. 2회선 동시가선 계수 1.8을 한 번 적용합니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "154kV ACSR 240mm² 송전선로 10km, 2회선을 가선한다. 연선+긴선 품을 적용하고 2회선 동시가선은 180%로 한다. 수직배열·평탄지 기준이며 장비비·기타 할증은 고려하지 않는다. 일 노임은 전기공사기사 32,700원, 송전전공 62,700원, 특별인부 22,000원이다. 특별인부의 노무비를 계산하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image3.png",
+        "image4.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-006",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "전력·계산",
+    "question": "전압·역률·저항이 일정할 때 선로 전력손실을 기존의 1.5배까지 허용하면 송전전력 증가율은?",
+    "options": [
+      "약 22.47%",
+      "약 50%",
+      "약 18.35%",
+      "약 122.47%"
+    ],
+    "correct": 0,
+    "explain": "전력손실 Ploss∝I², 송전전력 P∝I이므로 P2/P1=√1.5. 증가율=(√1.5−1)×100≈22.47%입니다. 122.47%는 기존 대비 전력의 비율로, 증가율과 다릅니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "전압 V, 역률 cosθ 및 선로저항 R은 일정하다. 기존 전력손실의 1.5배가 되도록 송전전력을 늘릴 때 기존 송전전력에 대한 증가율을 계산하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image4.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진 하단의 답안이 일부 잘렸지만, 원문 조건에서 독립 계산하여 증가율을 확인했습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-007",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "기준·계산",
+    "question": "제공 표에 따라 345kV 송전선로가 철도를 횡단할 때 전선의 레일면상 최소 높이는?",
+    "options": [
+      "8.78m",
+      "8.72m",
+      "8.28m",
+      "6.50m"
+    ],
+    "correct": 0,
+    "explain": "단수=⌈(345−160)/10⌉=19. 레일면상 높이=6.5+19×0.12=8.78m. 사진은 지표상 높이라고 묻지만, 철도 횡단의 기준면은 교재 표의 레일면으로 명확히 표시했습니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "345kV 송전선로를 철도를 횡단하여 시설한다. 제시된 기준표를 적용하여 전선의 레일면상 최소 높이를 계산하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image5.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "기출 교재에 제시된 표로 계산합니다. 0.12m를 곱하기 전에 전압 단수를 올림합니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-2-book4-008",
+    "year": "2025-2회",
+    "examYear": 2025,
+    "round": 2,
+    "category": "배선·계산",
+    "question": "2.5mm² 3본과 10mm² 3본을 넣을 후강전선관을 제시된 표와 32% 조건으로 선정하면 최소 호칭은?",
+    "options": [
+      "36호",
+      "28호",
+      "22호",
+      "42호"
+    ],
+    "correct": 0,
+    "explain": "피복절연물 포함 단면적에 보정계수를 적용:13×3×2.0+35×3×1.2=204mm². 관 내단면적 32% 값이 204mm² 이상이어야 하므로 28호의 201은 부족하고, 36호의 342를 선택합니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "일반용 단심 비닐절연전선 2.5mm² 3본과 10mm² 3본을 넣는다. 주어진 표와 관 내단면적 32% 조건으로 후강전선관의 최소 호칭을 계산·선정하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image6.png",
+        "image7.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-book4-001",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "회로·시퀀스",
+    "question": "제시된 진리표에서 출력 L6의 논리식은? (¬는 NOT)",
+    "options": [
+      "X1·¬X2·X3",
+      "X1·¬X2·¬X3",
+      "¬X1·X2·X3",
+      "X1·X2·X3"
+    ],
+    "correct": 0,
+    "explain": "진리표의 각 출력은 대응하는 한 입력 조합에서만 1입니다. L6는 101이므로 X1·¬X2·X3입니다. 모범 회로의 각 AND 입력은 해당 조합의 참/반전 신호를 연결합니다.",
+    "diagram": "book4LogicBlank",
+    "caution": true,
+    "originalQuestion": "진리표를 이용하여 무접점 시퀀스를 완성하시오. L1~L8 각각의 AND 입력 논리식을 쓰시오. ¬X 또는 X̅는 반전 입력을 뜻한다.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image8.png",
+        "image9.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "원문의 도면 완성 문제를 출력별 논리식 작성으로 변환했습니다. 원문의 일부 완성된 연결은 연습을 위해 빈 입력단으로 표시합니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-book4-002",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "회로·시퀀스",
+    "question": "제시된 3입력·8출력 진리표를 공통 분기로 구성한 유접점 회로의 최소 접점 수는?",
+    "options": [
+      "14개",
+      "24개",
+      "8개",
+      "16개"
+    ],
+    "correct": 0,
+    "explain": "인쇄 정답 회로는 X1의 a/b접점 2개를 공통으로 두고, 그 아래 X2의 a/b접점 4개, 마지막 X3의 a/b접점 8개로 분기합니다. 합계 2+4+8=14개입니다. 출력 코일은 접점 수에 포함하지 않습니다.",
+    "diagram": "book4LadderBlank",
+    "caution": true,
+    "originalQuestion": "진리표를 이용하여 최소 접점으로 유접점 회로를 완성하시오. X1·X2·X3의 공통 분기 구조, a/b접점 및 각 끝단의 출력 L을 기술하시오. 모범 도면과 비교하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image8.png",
+        "image9.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "원문은 최소 접점수의 도면 완성을 요구합니다. 14개는 인쇄된 공유 분기 회로의 접점을 세어 계산했습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-book4-003",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "회로·결선",
+    "question": "제시된 22.9kV-Y·1,000kVA 이하 특고압 간이수전설비의 주회로에서 인입구 다음 기기 순서로 옳은 것은?",
+    "options": [
+      "자동고장구분개폐기 → PF → MOF → 수전용 변압기",
+      "MOF → 자동고장구분개폐기 → 변압기 → PF",
+      "변압기 → MOF → PF → 자동고장구분개폐기",
+      "PF → 변압기 → MOF → 자동고장구분개폐기"
+    ],
+    "correct": 0,
+    "explain": "인쇄 정답은 주회로를 인입구→자동고장구분개폐기→PF(차단용량10kA 이상)→MOF→수전용 변압기→부하로 표시합니다. 피뢰기는 PF 상단에서 DS를 거쳐 LA·접지로 분기하고, 전력량계는 MOF에 연결합니다. LA를 부하 주회로에 직렬로 넣지 않습니다.",
+    "diagram": "book4ReceptionBlank",
+    "caution": true,
+    "originalQuestion": "접지를 포함한 개폐기·DS·LA·PF·MOF·수전용 변압기·전력량계를 사용하여 22.9kV-Y·1,000kVA 이하 특고압 간이수전설비 표준결선을 작성하시오. 주회로 순서, LA 분기와 전력량계 연결을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image10.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "원문 도면 작성 문제를 연결 순서와 분기 기술로 변환했습니다. 교재의 해당 용량·계통 조건을 유지합니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-1-book4-004",
+    "year": "2025-1회",
+    "examYear": 2025,
+    "round": 1,
+    "category": "설비·배선",
+    "question": "제공 교재에서 22.9kV-Y 계통 지중인입선에 사용하는 케이블 약호 두 가지는?",
+    "options": [
+      "CNCV-W, TR CNCV-W",
+      "VCT, DV 2F",
+      "OW, DV 2R",
+      "VV, HFIO"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은 CNCV-W 또는 TR CNCV-W입니다. 다른 회차에 등장하는 FR CNCO-W와 원문 약호를 임의로 바꾸지 않습니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "22.9kV-Y 계통의 지중인입선에 사용하는 케이블의 영문 약호 두 가지를 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image10.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-001",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "접지·서지",
+    "question": "접지시스템 구성도에서 주접지단자 B와 접지극 T를 잇는 ③ 도체는?",
+    "options": [
+      "접지도체",
+      "보호도체",
+      "보호등전위본딩용 도체",
+      "보조 보호등전위본딩용 도체"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안:①보호도체(PE),②보호등전위본딩용 도체,③접지도체,④보조 보호등전위본딩용 도체. 주접지단자와 접지극 사이인③을 구별합니다.",
+    "diagram": "book4Earthing",
+    "caution": true,
+    "originalQuestion": "그림의 접지시스템 구성요소 ①~④의 명칭을 쓰시오. B는 주접지단자, M은 노출도전부, P는 외부에서 들어오는 금속부, C는 건물 내 계통외도전부, T는 접지극이다.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image12.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-002",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "설비·배선",
+    "question": "적절한 전류분배를 할 수 없거나 4가닥 이상의 도체를 병렬 접속할 경우 사용을 고려하는 시스템은?",
+    "options": [
+      "버스바트렁킹시스템",
+      "라이팅덕트시스템",
+      "셀룰러덕트공사",
+      "합성수지몰드공사"
+    ],
+    "correct": 0,
+    "explain": "교재의 KEC232.3.2 해설은 적절한 전류분배가 어렵거나 4가닥 이상 도체 병렬 접속 시 버스바트렁킹시스템의 사용을 고려하도록 설명합니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "배선설비의 병렬접속에서 적절한 전류분배를 할 수 없거나 4가닥 이상의 도체를 병렬로 접속하는 경우 무엇의 사용을 고려하는가?",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image13.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-003",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "회로·결선",
+    "question": "그림에서 금속관 내 교류 전선을 시설하는 바른 방법은?",
+    "options": [
+      "①",
+      "②",
+      "③",
+      "세 방법 모두 동일하다"
+    ],
+    "correct": 0,
+    "explain": "인쇄 정답은①입니다. 같은 회로의 서로 다른 극·상의 전선을 같은 금속관에 배치하여 전자적 불평형을 피합니다. 동일 상만을 별도 금속관에 모은②·③과 구별합니다.",
+    "diagram": "book4ParallelPipes",
+    "caution": true,
+    "originalQuestion": "그림의 금속관 내 전선 시설 방법①~③ 중 바른 것을 고르고 그 이유를 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image13.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-004",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "회로·결선",
+    "question": "3상 3선식 2회선 병렬 단심케이블을 트레이에 수평 배치할 때, 인쇄 답안의 왼쪽부터 상 배열은?",
+    "options": [
+      "L1·L2·L3·L3·L2·L1",
+      "L1·L1·L2·L2·L3·L3",
+      "L1·L2·L3·L1·L2·L3",
+      "L3·L3·L2·L2·L1·L1"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은 L1,L2,L3,L3,L2,L1의 대칭 배열입니다. 주어진 3상3선식·2회선·단심케이블 수평배치 조건의 답안입니다.",
+    "diagram": "book4Tray",
+    "caution": true,
+    "originalQuestion": "3상3선식 2회선 병렬 단심케이블을 트레이에 수평 배치한다. 그림의 여섯 케이블을 왼쪽부터 L1·L2·L3로 표시하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image13.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-005",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "송배전",
+    "question": "그림의 지지선①·②·③의 명칭을 순서대로 바르게 나열한 것은?",
+    "options": [
+      "공동지지선·수평지지선·Y지지선",
+      "보통지지선·Y지지선·공동지지선",
+      "수평지지선·보통지지선·공동지지선",
+      "Y지지선·공동지지선·수평지지선"
+    ],
+    "correct": 0,
+    "explain": "인쇄 정답은①공동지지선,②수평지지선,③Y지지선입니다. 각 그림의 연결 위치와 지지선 형상을 대조합니다.",
+    "diagram": "book4Guys",
+    "caution": true,
+    "originalQuestion": "그림의 지지선①~③ 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image14.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-006",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "전기공사",
+    "question": "그림의 장주 애자 설치에서 전주를 둘러 고정하는 ③ 부품의 명칭은?",
+    "options": [
+      "ㄱ형 완금",
+      "볼아이",
+      "소켓아이",
+      "현수애자"
+    ],
+    "correct": 0,
+    "explain": "제공 인쇄 답안:①현수애자,②볼아이,③ㄱ형 완금,④소켓아이. 번호는 이 장주 그림에만 적용하며 다른 현수애자 구성도의 번호와 혼용하지 않습니다.",
+    "diagram": "book4PoleInsulator",
+    "caution": true,
+    "originalQuestion": "그림의 장주 애자 설치에서①~④의 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image15.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-3-book4-007",
+    "year": "2024-3회",
+    "examYear": 2024,
+    "round": 3,
+    "category": "기준·계산",
+    "question": "제시된 교재 계산법에서 사용전압415V, 최대공급전류500A인 3상3선식 전로의 선과 대지 사이 최소 절연저항은?",
+    "options": [
+      "1,660Ω",
+      "958Ω",
+      "830Ω",
+      "415Ω"
+    ],
+    "correct": 0,
+    "explain": "제공 교재의 계산법은 허용 누설전류=최대공급전류/2,000=500/2,000=0.25A, R=415/0.25=1,660Ω입니다. 교재에 주어진 계산 방식의 학습 문항이며, 현행 KEC 절연저항 시험 합격값이나 실제 점검기준으로 일반화하지 않습니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "제공 교재의 계산법(누설전류=최대공급전류의1/2,000)을 적용한다. 사용전압415V·최대공급전류500A인 3상3선식 전로의 선과 대지 사이에 필요한 최소 절연저항을 계산하시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image15.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "현행 KEC 절연저항 시험 기준과 구별해야 하는 교재의 계산식 문제입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-2-book4-001",
+    "year": "2024-2회",
+    "examYear": 2024,
+    "round": 2,
+    "category": "전기공사",
+    "question": "가공배전선로 전선 접속작업 흐름도의 빈칸①·②·③에 들어갈 말은?",
+    "options": [
+      "연선(전선 펴기)·전선처짐 조정 및 고정·직선 접속",
+      "직선 접속·연선·충전부 절연 처리",
+      "애자 설치·완료·연선",
+      "전선처짐 조정·작업장 정리·애자 설치"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은①연선(전선 펴기),②전선처짐 조정 및 고정,③직선 접속입니다. 조건 ‘전선펴기길이 ＜ 전선조장’이 성립하지 않는 N분기에서는③직선 접속 후 다시 확인합니다.",
+    "diagram": "book4Workflow",
+    "caution": true,
+    "originalQuestion": "가공배전선로 전선 접속작업 흐름도에서①~③에 들어갈 용어를 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image16.png",
+        "image17.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-2-book4-002",
+    "year": "2024-2회",
+    "examYear": 2024,
+    "round": 2,
+    "category": "전동기",
+    "question": "3상 유도전동기의 슬립 측정 방법 세 가지를 모두 나열한 것은?",
+    "options": [
+      "직류밀리볼트계법·수화기법·스트로보스코프법",
+      "메거법·접지저항계법·전압강하법",
+      "머레이루프법·펄스법·음향법",
+      "휘스톤브리지법·콜라우시브리지법·정전용량법"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은 직류밀리볼트계법, 수화기법, 스트로보스코프법입니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "3상 유도전동기의 슬립 측정 방법 세 가지를 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image17.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-book4-001",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "송배전",
+    "question": "그림의 철탑①~⑤ 중 ③의 형태 명칭은?",
+    "options": [
+      "문형 철탑",
+      "사각 철탑",
+      "방형 철탑",
+      "회전형 철탑"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은①사각 철탑,②방형 철탑,③문형 철탑,④우두형 철탑,⑤회전형 철탑입니다. 직선형·각도형 등 사용 목적에 따른 분류와 구별합니다.",
+    "diagram": "book4Towers",
+    "caution": true,
+    "originalQuestion": "그림의 철탑①~⑤의 형태에 따른 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image18.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "엑셀에서는24-2 구간이지만 사진 제목의2024년1회로 분류했습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-book4-002",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "기준·계산",
+    "question": "345kV 옥외 변전소에서 울타리 높이와 울타리에서 충전부분까지 거리의 합계는 제시된 표에 따라 최소 얼마인가?",
+    "options": [
+      "8.28m",
+      "8.78m",
+      "8.22m",
+      "6.00m"
+    ],
+    "correct": 0,
+    "explain": "160kV 초과분의 단수=⌈(345−160)/10⌉=19. 합계=6+19×0.12=8.28m. 철도 횡단 전선 높이의 기본값6.5m와 혼동하지 않습니다.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "345kV 옥외 변전소에서 울타리 높이와 울타리로부터 충전부분까지 거리의 합계를 계산하시오. 기본값6m에160kV 초과10kV 또는 그 단수마다0.12m를 더한다.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image19.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진 하단에2024년1회 기출문제가 인쇄되어 있습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-book4-003",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "question": "2024년1회 제공 사진의 옥내배선 그림기호 중 1번 기호의 명칭은?",
+    "options": [
+      "플러그인 버스덕트",
+      "익스팬션 버스덕트",
+      "금속덕트",
+      "라이팅덕트"
+    ],
+    "correct": 0,
+    "explain": "사진의 인쇄 답안 1번은 플러그인 버스덕트입니다. 기호의 표시·형상을 확인합니다.",
+    "diagram": "book4PBD",
+    "caution": true,
+    "originalQuestion": "제공된 옥내배선 그림기호(KS C0301)의 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image20.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 엑셀24-1 구간에 따릅니다. 별도 인쇄 회차는 이 사진에서 확인되지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-book4-004",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "question": "2024년1회 제공 사진의 옥내배선 그림기호 중 2번 기호의 명칭은?",
+    "options": [
+      "익스팬션 버스덕트",
+      "플러그인 버스덕트",
+      "플로어덕트",
+      "셀룰러덕트"
+    ],
+    "correct": 0,
+    "explain": "사진의 인쇄 답안 2번은 익스팬션 버스덕트입니다. 기호의 표시·형상을 확인합니다.",
+    "diagram": "book4Expansion",
+    "caution": true,
+    "originalQuestion": "제공된 옥내배선 그림기호(KS C0301)의 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image20.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 엑셀24-1 구간에 따릅니다. 별도 인쇄 회차는 이 사진에서 확인되지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-book4-005",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "question": "2024년1회 제공 사진의 옥내배선 그림기호 중 4번 기호의 명칭은?",
+    "options": [
+      "벨",
+      "누름버튼",
+      "개폐기",
+      "분전반"
+    ],
+    "correct": 0,
+    "explain": "사진의 인쇄 답안 4번은 벨입니다. 기호의 표시·형상을 확인합니다.",
+    "diagram": "book4Bell",
+    "caution": true,
+    "originalQuestion": "제공된 옥내배선 그림기호(KS C0301)의 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image20.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 엑셀24-1 구간에 따릅니다. 별도 인쇄 회차는 이 사진에서 확인되지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2024-1-book4-006",
+    "year": "2024-1회",
+    "examYear": 2024,
+    "round": 1,
+    "category": "조명·기호",
+    "question": "2024년1회 제공 사진의 옥내배선 그림기호 중 5번 기호의 명칭은?",
+    "options": [
+      "비상콘센트",
+      "일반 조명등",
+      "배전반",
+      "누전경보기"
+    ],
+    "correct": 0,
+    "explain": "사진의 인쇄 답안 5번은 비상콘센트입니다. 기호의 표시·형상을 확인합니다.",
+    "diagram": "book4Emergency",
+    "caution": true,
+    "originalQuestion": "제공된 옥내배선 그림기호(KS C0301)의 명칭을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2024-1회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image20.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 엑셀24-1 구간에 따릅니다. 별도 인쇄 회차는 이 사진에서 확인되지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2023-4-book4-001",
+    "year": "2023-4회",
+    "examYear": 2023,
+    "round": 4,
+    "category": "회로·시퀀스",
+    "question": "그림의 유접점 회로를 무접점 논리식으로 나타낼 때 F 출력의 올바른 식은? PB1=1은 정지 버튼 누름이며 ¬는 NOT이다.",
+    "options": [
+      "F=(PB2∨F)∧¬PB1∧¬R",
+      "F=(PB2∧F)∨PB1∨R",
+      "F=PB2∨PB1∨R",
+      "F=(PB3∨R)∧PB1∧F"
+    ],
+    "correct": 0,
+    "explain": "PB2와 F의 a접점은 병렬(자기유지), 공통 정지 PB1은 b접점, 반대 출력 R의 b접점은 인터록입니다. F=(PB2∨F)∧¬PB1∧¬R, R=(PB3∨R)∧¬PB1∧¬F. 원문 인쇄 답안과 같이2입력 AND4개·OR2개·NOT3개로 구성합니다. 피드백이 있으므로 단순 조합논리의 진리표만으로 전체 동작을 판정하지 않습니다.",
+    "diagram": "book4Interlock",
+    "caution": true,
+    "originalQuestion": "유접점 회로를 무접점 회로로 변환하시오.2입력 AND4개,2입력 OR2개,NOT3개를 사용한다. PB1=1은 정지버튼 누름, PB2/PB3=1은 각 운전버튼 누름이다. F·R의 논리식과 자기유지·상호 인터록 연결을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2023-4회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image21.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진 문제 도면 위 손풀이를 배제하고 인쇄된 접점·모범 회로를 기준으로 작성했습니다. 동시 버튼·전원 투입 초기 상태의 동작은 원문이 별도로 규정하지 않아 단정하지 않습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2023-4-book4-002",
+    "year": "2023-4회",
+    "examYear": 2023,
+    "round": 4,
+    "category": "수전·보호",
+    "question": "그림과 같이 여러 배전선의 네트워크 변압기를 저압측에서 병렬로 접속하여 집중 부하에 공급하는 수전방식은?",
+    "options": [
+      "스포트 네트워크 수전방식",
+      "단일 방사상 수전방식",
+      "단순 예비선 절체방식",
+      "V-V 결선만을 이용한 수전방식"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은 스포트 네트워크 배전방식입니다. 장점은 무정전 전력공급 가능, 공급신뢰도 향상, 전압변동 감소, 부하증가에 대한 적응성입니다. 변압기 저압측 병렬과 네트워크 프로텍터를 확인합니다.",
+    "diagram": "book4Spot",
+    "caution": true,
+    "originalQuestion": "그림의 수전방식 명칭과 장점 네 가지를 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2023-4회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image24.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 엑셀23-4 구간 표기를 사용했습니다. 이 사진에는 회차의 인쇄 표기가 없어 별도 확인 가능성을 남깁니다. 기존q007의 장점 문항과 달리 회로 식별을 묻습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2023-2-book4-001",
+    "year": "2023-2회",
+    "examYear": 2023,
+    "round": 2,
+    "category": "수전·계산",
+    "question": "제시된 22.9kV·300kVA+1,500kVA 수전설비에서 전력퓨즈 PF를 변압기 정격전류의2배로 선정할 때 제시된 정격 후보 중 선택값은?",
+    "options": [
+      "100A",
+      "80A",
+      "65A",
+      "200A"
+    ],
+    "correct": 0,
+    "explain": "3상 변압기 총용량은300+1,500=1,800kVA. I=1,800/(√3×22.9)=45.38A. kVA가 주어져 역률0.95를 다시 나누지 않습니다. 계산값=45.38×2=90.76A → 후보 중100A 선정.",
+    "diagram": "book4HV",
+    "caution": true,
+    "originalQuestion": "그림 및 표의 수전설비에서 전력퓨즈 PF를 변압기 정격전류의2배로 선정할 때 제시된 정격 후보 중 선택값은? 계산 과정도 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2023-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image23.png",
+        "image22.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진23의 인쇄 하단2023년2회에 따라 엑셀23-4 표기를 정정했습니다. 사진22 상단의 이어지는OCR 계산식도 같은 문항입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2023-2-book4-002",
+    "year": "2023-2회",
+    "examYear": 2023,
+    "round": 2,
+    "category": "수전·계산",
+    "question": "제시된 22.9kV·300kVA+1,500kVA 수전설비에서 MOF 변류비의1차 정격을 부하 정격전류의150% 이상으로 선정할 때 선택값은?",
+    "options": [
+      "75/5A",
+      "40/5A",
+      "30/5A",
+      "100/5A"
+    ],
+    "correct": 0,
+    "explain": "3상 변압기 총용량은300+1,500=1,800kVA. I=1,800/(√3×22.9)=45.38A. kVA가 주어져 역률0.95를 다시 나누지 않습니다. 1차측 기준 전류=45.38×1.5=68.07A → 후보 중75/5A 선정. 2차 정격은5A.",
+    "diagram": "book4HV",
+    "caution": true,
+    "originalQuestion": "그림 및 표의 수전설비에서 MOF 변류비의1차 정격을 부하 정격전류의150% 이상으로 선정할 때 선택값은? 계산 과정도 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2023-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image23.png",
+        "image22.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진23의 인쇄 하단2023년2회에 따라 엑셀23-4 표기를 정정했습니다. 사진22 상단의 이어지는OCR 계산식도 같은 문항입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2023-2-book4-003",
+    "year": "2023-2회",
+    "examYear": 2023,
+    "round": 2,
+    "category": "수전·계산",
+    "question": "제시된 22.9kV·300kVA+1,500kVA 수전설비에서 CT비75/5에서 부하전류1.25배로 동작시키는OCR의 탭 선정값은?",
+    "options": [
+      "4A",
+      "2A",
+      "5A",
+      "6A"
+    ],
+    "correct": 0,
+    "explain": "3상 변압기 총용량은300+1,500=1,800kVA. I=1,800/(√3×22.9)=45.38A. kVA가 주어져 역률0.95를 다시 나누지 않습니다. OCR탭 계산값=45.38×(5/75)×1.25=3.78A → 후보 중4A 선정.",
+    "diagram": "book4HV",
+    "caution": true,
+    "originalQuestion": "그림 및 표의 수전설비에서 CT비75/5에서 부하전류1.25배로 동작시키는OCR의 탭 선정값은? 계산 과정도 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2023-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image23.png",
+        "image22.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진23의 인쇄 하단2023년2회에 따라 엑셀23-4 표기를 정정했습니다. 사진22 상단의 이어지는OCR 계산식도 같은 문항입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2023-2-book4-004",
+    "year": "2023-2회",
+    "examYear": 2023,
+    "round": 2,
+    "category": "접지·방식",
+    "question": "그림과 같이 직류전원의 음극을 피방식체에, 양극을 별도 양극에 연결하는 전기방식법은?",
+    "options": [
+      "외부전원법",
+      "희생양극법",
+      "전식 방치법",
+      "부동충전법"
+    ],
+    "correct": 0,
+    "explain": "인쇄 답안은 외부전원법입니다. 직류전원의 음극(−)을 피방식체, 양극(+)을 별도 양극에 연결합니다. 장거리 배관 등 필요한 방식전류를 외부 전원으로 공급하는 방식입니다.",
+    "diagram": "book4Cathodic",
+    "caution": true,
+    "originalQuestion": "그림의 전기방식법 명칭과 직류전원의 극성 연결을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2023-2회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image22.png",
+        "image23.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "사진23의 인쇄 하단2023년2회에 따라 엑셀23-4 표기를 정정했습니다. 사진22 상단의 이어지는OCR 계산식도 같은 문항입니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-3-book4-001",
+    "year": "2025-3회",
+    "examYear": 2025,
+    "round": 3,
+    "category": "품셈·계산",
+    "question": "제시된 상부1회선 ACSR 교체 조건에서 배전전공 노임는?",
+    "options": [
+      "12,892,032원",
+      "15,409,728원",
+      "25,784,064원",
+      "12,672원"
+    ],
+    "correct": 0,
+    "explain": "철거0.44×(1,000/100)×3×1.2×0.8=12.672인. 신설0.64×(1,000/100)×3×1.2=23.04인. 합계35.712인. 노임=35.712×361,000=12,892,032원.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "ACSR58mm², 경간1km·3상2회선 배전선로에서 상부에 가설된1회선(3선)만95mm²로 교체한다. 철거 전선은 재사용한다. 제시된 품·노임·조건을 적용하시오. 배전전공 노임 및 계산 과정을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image25.png",
+        "image26.png",
+        "image27.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 사진26의 인쇄 하단2025년3회로 확인했습니다. 사진27 하단의 별도 이도 문제는 사용자 요청으로 제외했습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-3-book4-002",
+    "year": "2025-3회",
+    "examYear": 2025,
+    "round": 3,
+    "category": "품셈·계산",
+    "question": "제시된 상부1회선 ACSR 교체 조건에서 보통인부 노임는?",
+    "options": [
+      "2,517,696원",
+      "2,311,459원",
+      "5,035,392원",
+      "17,856원"
+    ],
+    "correct": 0,
+    "explain": "철거0.22×(1,000/100)×3×1.2×0.8=6.336인. 신설0.32×(1,000/100)×3×1.2=11.52인. 합계17.856인. 노임=17.856×141,000=2,517,696원.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "ACSR58mm², 경간1km·3상2회선 배전선로에서 상부에 가설된1회선(3선)만95mm²로 교체한다. 철거 전선은 재사용한다. 제시된 품·노임·조건을 적용하시오. 보통인부 노임 및 계산 과정을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image25.png",
+        "image26.png",
+        "image27.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 사진26의 인쇄 하단2025년3회로 확인했습니다. 사진27 하단의 별도 이도 문제는 사용자 요청으로 제외했습니다."
+      ]
+    }
+  },
+  {
+    "id": "ec-2025-3-book4-003",
+    "year": "2025-3회",
+    "examYear": 2025,
+    "round": 3,
+    "category": "품셈·계산",
+    "question": "제시된 상부1회선 ACSR 교체 조건에서 간접 노무비는?",
+    "options": [
+      "2,311,459원",
+      "2,311,460원",
+      "15,409,728원",
+      "1,933,804원"
+    ],
+    "correct": 0,
+    "explain": "철거0.44×(1,000/100)×3×1.2×0.8=12.672인. 신설0.64×(1,000/100)×3×1.2=23.04인. 합계35.712인. 노임=35.712×361,000=12,892,032원. 철거0.22×(1,000/100)×3×1.2×0.8=6.336인. 신설0.32×(1,000/100)×3×1.2=11.52인. 합계17.856인. 노임=17.856×141,000=2,517,696원. 직접 노무비=12,892,032+2,517,696=15,409,728원. 간접 노무비=15,409,728×0.15=2,311,459.2원 → 원 미만 절사2,311,459원.",
+    "diagram": null,
+    "caution": true,
+    "originalQuestion": "ACSR58mm², 경간1km·3상2회선 배전선로에서 상부에 가설된1회선(3선)만95mm²로 교체한다. 철거 전선은 재사용한다. 제시된 품·노임·조건을 적용하시오. 간접 노무비 및 계산 과정을 쓰시오.",
+    "source": {
+      "file": "Book 4.xlsx",
+      "exam": "2025-3회",
+      "originalTextAvailable": true,
+      "kind": "user-provided-question-photo",
+      "photos": [
+        "image25.png",
+        "image26.png",
+        "image27.png"
+      ],
+      "transcription": "sources/book4-import-report.json",
+      "questionTextKind": "원문 사진을 바탕으로 구성한 학습용 문항; 원문 작성형은 단자·논리식 작성으로 변환"
+    },
+    "verification": {
+      "status": "source-photo-checked",
+      "checkedAt": "2026-10-25",
+      "notes": [
+        "사용자 제공 Book 4.xlsx의 인쇄 문제·답안 대조. 현행 KEC·KS·품셈 전체 검증을 뜻하지 않습니다.",
+        "회차는 사진26의 인쇄 하단2025년3회로 확인했습니다. 사진27 하단의 별도 이도 문제는 사용자 요청으로 제외했습니다."
       ]
     }
   }

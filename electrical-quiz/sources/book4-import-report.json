@@ -1,0 +1,462 @@
+{
+  "source": "Book 4.xlsx",
+  "received": "2026-10-25",
+  "workbookSha256": "e7a57ab8ff246d6ab1794e7e65f61a76946794208b7fc76020522e5e810a8645",
+  "images": [
+    {
+      "image": "image1.png",
+      "row": 2,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 1,
+      "sheet_exam": "2025-2",
+      "subject": "V결선 미완성 회로 및 인쇄 정답·손풀이",
+      "sha256": "4d26f333a2d9347d4a12817b39e77ee34fb53d767f07db3c48bea416ef8b7e48"
+    },
+    {
+      "image": "image2.png",
+      "row": 2,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 2,
+      "sheet_exam": "2025-2",
+      "subject": "6.6kV 케이블 단말 처리",
+      "sha256": "be455177d7427e0c6114e355198d19f3125d84278242e8e0aef0d7d9f003698d"
+    },
+    {
+      "image": "image3.png",
+      "row": 2,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 3,
+      "sheet_exam": "2025-2",
+      "subject": "ACSR 연선·긴선 노무비 문제 및 정답 일부",
+      "sha256": "cc96efccb0675e485bcc21832e4b35b98d575c48fa5ad561ca88ee2e80fcab54"
+    },
+    {
+      "image": "image4.png",
+      "row": 2,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 4,
+      "sheet_exam": "2025-2",
+      "subject": "앞 노무비 문제 정답 계속 / 전선 손실·효율",
+      "sha256": "a8b044e91f70fac7b1e121d96da05b4729190e3b934cc2285aa09171601c2730"
+    },
+    {
+      "image": "image5.png",
+      "row": 2,
+      "column": 29,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 5,
+      "sheet_exam": "2025-2",
+      "subject": "345kV 횡단 지지점 높이",
+      "sha256": "1ea9d8f2e308359bbc641c12ed8ed7e0e2812815512aa2a2e2ba30c97eec1958"
+    },
+    {
+      "image": "image6.png",
+      "row": 2,
+      "column": 36,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 6,
+      "sheet_exam": "2025-2",
+      "subject": "후강전선관 최소 호칭 계산",
+      "sha256": "5a6b616bf7d6aed927baca004e014df6b03ed4a3e90ad428d21206cb681ce328"
+    },
+    {
+      "image": "image7.png",
+      "row": 2,
+      "column": 43,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 7,
+      "sheet_exam": "2025-2",
+      "subject": "앞 전선관 문제 표 계속",
+      "sha256": "c6499f8c5e56d70a89ac902ccd19becf7df68201f136476f7d0dd9db0ea2ccee"
+    },
+    {
+      "image": "image8.png",
+      "row": 26,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 8,
+      "sheet_exam": "2025-1",
+      "subject": "진리표 기반 무접점·유접점 최소접점 회로 문제",
+      "sha256": "1ef24a635423b287708248d6a922ae9501ccf147748f0d5aedb14b38cde0252b"
+    },
+    {
+      "image": "image9.png",
+      "row": 26,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 9,
+      "sheet_exam": "2025-1",
+      "subject": "앞 진리표 문제 정답 및 논리식",
+      "sha256": "ab678848df5571a3dfc206c0effbd76141e705b1b289bb297ef99bb333cc4e5c"
+    },
+    {
+      "image": "image10.png",
+      "row": 26,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 10,
+      "sheet_exam": "2025-1",
+      "subject": "22.9kV-Y 수전설비 간선결선·케이블",
+      "sha256": "47ee85fe538100d7a047f41db8e4dcac45d05b2913c747c08bbfd8fe65570415"
+    },
+    {
+      "image": "image11.png",
+      "row": 26,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 11,
+      "sheet_exam": "2025-1",
+      "subject": "GPT 한류저항기 추가 설명",
+      "sha256": "859735306aba3a7982d30ff6791af16eb47cae6ade3da913e9a19a8cda150153"
+    },
+    {
+      "image": "image12.png",
+      "row": 50,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 12,
+      "sheet_exam": "2024-3",
+      "subject": "접지시스템 구성요소",
+      "sha256": "2e10535d40e1494afd734b59d3450913a17308d471d4f08f751c3c2f626b6ee0"
+    },
+    {
+      "image": "image13.png",
+      "row": 50,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 13,
+      "sheet_exam": "2024-3",
+      "subject": "버스웨이·상배열",
+      "sha256": "cec57d3c39410963c7b25368c6bf1eea7f435e6084f08c85868c82f6a5373844"
+    },
+    {
+      "image": "image14.png",
+      "row": 50,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 14,
+      "sheet_exam": "2024-3",
+      "subject": "과전류계전기 정답 일부 / 지지선 종류",
+      "sha256": "281e43a24b6eec81bf7bbd44389bbf0309123b0775daf94cb5d69a51afb298e5"
+    },
+    {
+      "image": "image15.png",
+      "row": 50,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 15,
+      "sheet_exam": "2024-3",
+      "subject": "장주 애자 부품 명칭 / 절연저항 계산",
+      "sha256": "0cfc90d2c325cd9aa6c7a1d1fb16fcc96798a7ab8004255ca08d078baf83ffb9"
+    },
+    {
+      "image": "image16.png",
+      "row": 74,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 16,
+      "sheet_exam": "2024-2",
+      "subject": "전선 접속작업 흐름도",
+      "sha256": "9e97ac262bf83f12a003f2b6688e6859ca4a169ca7405ffb878e25c89e3475a1"
+    },
+    {
+      "image": "image17.png",
+      "row": 74,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 17,
+      "sheet_exam": "2024-2",
+      "subject": "앞 흐름도 정답 / 유도전동기 슬립 측정",
+      "sha256": "729563eed26b1c70285e6a466bb10efa52bf238b917caa0afd911cfba16bf4fc"
+    },
+    {
+      "image": "image18.png",
+      "row": 74,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 18,
+      "sheet_exam": "2024-2",
+      "subject": "철탑 형태 명칭: 인쇄 제목은 2024년 1회",
+      "sha256": "2763f6ee4533f4cc86e7f4b8106413a48698a59aebab0403fa37ca6b61410caa",
+      "printed_exam": "2024-1"
+    },
+    {
+      "image": "image19.png",
+      "row": 98,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 19,
+      "sheet_exam": "2024-1",
+      "subject": "차단기 표 일부 / 345kV 울타리 높이",
+      "sha256": "3bc96a0d439a2b38fca556917320c2e1b90cd3a8157ef8ce5c42314012bdc374"
+    },
+    {
+      "image": "image20.png",
+      "row": 98,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 20,
+      "sheet_exam": "2024-1",
+      "subject": "피뢰등급 표 / 옥내배선 기호",
+      "sha256": "9940ac2ed87328459ff322728516d2475633308c5a99f93176d339370e48defb"
+    },
+    {
+      "image": "image21.png",
+      "row": 122,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 21,
+      "sheet_exam": "2023-4",
+      "subject": "유접점→무접점 변환 회로 및 인쇄 정답",
+      "sha256": "eb54a4671de2eb5cdd2c784364ec4aed2a48d5f589150784fef7449f1d15b2fd"
+    },
+    {
+      "image": "image22.png",
+      "row": 122,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 22,
+      "sheet_exam": "2023-4",
+      "subject": "전기방식(외부전원법)",
+      "sha256": "712b01073faaf9c52fe40c52eb43870b80ca6c02188b663107f564983ceaface"
+    },
+    {
+      "image": "image23.png",
+      "row": 122,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 23,
+      "sheet_exam": "2023-4",
+      "subject": "전력퓨즈·MOF·OCR 계산: 인쇄 하단은 2023년 2회",
+      "sha256": "bc0a8d4bc7b453dec39f16c59f599292d2e8ba22b21fae968cbd0dd0e35fba75",
+      "printed_exam": "2023-2"
+    },
+    {
+      "image": "image24.png",
+      "row": 122,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 24,
+      "sheet_exam": "2023-4",
+      "subject": "스포트 네트워크 수전방식",
+      "sha256": "a081d6a5f61f747e67ff1783a0036a7ebf561fa5906e07cbc1fe3aa21e9979d2"
+    },
+    {
+      "image": "image25.png",
+      "row": 146,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 25,
+      "sheet_exam": "2025-3",
+      "subject": "ACSR 전선 교체 노무비 문제",
+      "sha256": "8c7e6264549b4f8f4c22190fe1ae2d636a8f43680353f57690e0d2db6a29412d"
+    },
+    {
+      "image": "image26.png",
+      "row": 146,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 26,
+      "sheet_exam": "2025-3",
+      "subject": "앞 노무비 인공·노임·간접비 정답",
+      "sha256": "fbc080cc93ceee968f7acd6a0fc35b653fadb6236ee7afa719ffdd88f8864b55"
+    },
+    {
+      "image": "image27.png",
+      "row": 146,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "order": 27,
+      "sheet_exam": "2025-3",
+      "subject": "앞 노무비 해설 계속 / 이도 계산 문제(하단 잘림)",
+      "sha256": "497fc70cd3efc2cd069d9de73ab85c58a4f0df9293ecca81c771774f397160ab"
+    }
+  ],
+  "newCount": 36,
+  "newIds": [
+    "ec-2025-2-book4-001",
+    "ec-2025-2-book4-002",
+    "ec-2025-2-book4-003",
+    "ec-2025-2-book4-004",
+    "ec-2025-2-book4-005",
+    "ec-2025-2-book4-006",
+    "ec-2025-2-book4-007",
+    "ec-2025-2-book4-008",
+    "ec-2025-1-book4-001",
+    "ec-2025-1-book4-002",
+    "ec-2025-1-book4-003",
+    "ec-2025-1-book4-004",
+    "ec-2024-3-book4-001",
+    "ec-2024-3-book4-002",
+    "ec-2024-3-book4-003",
+    "ec-2024-3-book4-004",
+    "ec-2024-3-book4-005",
+    "ec-2024-3-book4-006",
+    "ec-2024-3-book4-007",
+    "ec-2024-2-book4-001",
+    "ec-2024-2-book4-002",
+    "ec-2024-1-book4-001",
+    "ec-2024-1-book4-002",
+    "ec-2024-1-book4-003",
+    "ec-2024-1-book4-004",
+    "ec-2024-1-book4-005",
+    "ec-2024-1-book4-006",
+    "ec-2023-4-book4-001",
+    "ec-2023-4-book4-002",
+    "ec-2023-2-book4-001",
+    "ec-2023-2-book4-002",
+    "ec-2023-2-book4-003",
+    "ec-2023-2-book4-004",
+    "ec-2025-3-book4-001",
+    "ec-2025-3-book4-002",
+    "ec-2025-3-book4-003"
+  ],
+  "totalCount": 269,
+  "sharedExistingId": "ec-2022-2-symbol-002",
+  "classificationCorrections": [
+    {
+      "photos": [
+        18
+      ],
+      "worksheet": "2024-2",
+      "published": "2024-1",
+      "basis": "사진 제목2024년1회"
+    },
+    {
+      "photos": [
+        23,
+        22
+      ],
+      "worksheet": "2023-4",
+      "published": "2023-2",
+      "basis": "사진23 하단2023년2회, 사진22의 연속OCR정답식"
+    }
+  ],
+  "excluded": [
+    {
+      "photo": 27,
+      "part": "이도 문제",
+      "reason": "사용자 명시 요청"
+    },
+    {
+      "photos": [
+        5,
+        7,
+        14,
+        19,
+        20,
+        22,
+        25
+      ],
+      "part": "상하단에 일부만 보이는 이웃 문제·보충 이론",
+      "reason": "원문 조건이 완전하지 않은 별도 문항은 생성하지 않음. 완전한 주 대상 문항과 정답의 연속 부분은 사용함."
+    }
+  ],
+  "supplemental": [
+    {
+      "photo": 11,
+      "ids": [
+        "q046",
+        "q047"
+      ],
+      "scope": "인쇄 답안 대조 참고; 동일 지식을 새 문제로 중복 생성하지 않음"
+    },
+    {
+      "photo": 20,
+      "scope": "위쪽 피뢰등급 간격표는 기존q097/q133과 동일하여 새 문항으로 생성하지 않음"
+    }
+  ],
+  "sourceOnlyClassifications": [
+    "2023-4 spot:엑셀 구간 표기, 별도 인쇄 회차 없음",
+    "2024-1 symbol:엑셀 구간 표기, 별도 인쇄 회차 없음"
+  ],
+  "limits": [
+    "교재 사진 대조·수식 재계산; 현행 공식 기준 전문 검증 아님",
+    "회로 작성은 텍스트 논리식·단자쌍과 SVG모범회로를 비교하는 직접 판정; 자유 손그림 자동채점 아님"
+  ]
+}

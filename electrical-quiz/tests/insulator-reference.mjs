@@ -3,7 +3,7 @@ import {chromium,devices,expect} from '@playwright/test';
 const practical=JSON.parse(await fs.readFile(new URL('../src/practical.json',import.meta.url),'utf8'));
 const b=await chromium.launch({executablePath:'/usr/bin/chromium',args:['--no-sandbox']}),c=await b.newContext({...devices['Pixel 7']}),p=await c.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
 try{
- await p.goto(process.env.TEST_URL||'http://127.0.0.1:4197/');const bank=JSON.parse(await p.locator('#questionData').textContent());expect(bank.length).toBe(233);
+ await p.goto(process.env.TEST_URL||'http://127.0.0.1:4197/');const bank=JSON.parse(await p.locator('#questionData').textContent());expect(bank.length).toBe(JSON.parse(await fs.readFile(new URL('../src/questions.json',import.meta.url),'utf8')).length);
  async function open(id,mode='practical'){
   await p.locator('#studyFormat').selectOption(mode);await p.locator('#randomOrder').uncheck();const q=bank.find(q=>q.id===id);await p.locator('#yearSelect').selectOption(q.year);await p.locator('#startAll').click();const pool=bank.filter(x=>x.year===q.year||x.appearances?.some(a=>a.exam===q.year));await expect(p.locator('#qGrid button')).toHaveCount(pool.length);await p.locator(`#qGrid button[data-pos="${pool.findIndex(x=>x.id===id)}"]`).click();await expect(p.locator('#qText')).toHaveText(mode==='practical'?practical[id].prompt:q.question);
  }
@@ -16,5 +16,5 @@ try{
   await open(id);await expect(p.locator('.insulator-reference:visible')).toHaveCount(0);await p.locator('#revealWritten').click();await p.locator('.insulator-reference:visible > summary').click();await expect(p.locator(`.insulator-reference:visible [data-insulator-type="${type}"]`)).toHaveAttribute('open','');await expect(p.locator(`.insulator-reference:visible [data-insulator-type="${type}"] li`)).toHaveCount(count);await p.locator('#topHome').click();
  }
  await p.evaluate(()=>navigator.serviceWorker.ready);await p.reload();await c.setOffline(true);await p.reload();await open('q151');await p.locator('#revealWritten').click();await p.locator('.insulator-reference:visible > summary').click();await expect(p.locator('.insulator-reference:visible [data-insulator-type="band"] li')).toHaveCount(5);expect(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await p.locator('.insulator-reference:visible').screenshot({path:'test-results/insulator-reference-mobile.png'});await c.setOffline(false);expect(errors).toEqual([]);
- console.log('PASS:233 questions; exam answers and written drafts retained; 1-string source discrepancy kept separate;6 reference types; numbered crossarm vs connection order; reveal-only references in both modes; count/reload stability; offline and mobile layout');
+ console.log('PASS:expanded bank; exam answers and written drafts retained; 1-string source discrepancy kept separate;6 reference types; numbered crossarm vs connection order; reveal-only references in both modes; count/reload stability; offline and mobile layout');
 }finally{await b.close()}

@@ -1,0 +1,454 @@
+{
+  "file": "Book 6.xlsx",
+  "date": "2026-10-25",
+  "workbookSha256": "2e8028545a95acbb5f8ac94e871b4feb4bef5c17dae64873b94fd50a8b28cdb3",
+  "images": [
+    {
+      "image": "image1.png",
+      "row": 2,
+      "column": 1,
+      "dimensions": [
+        958,
+        539
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 1,
+      "sha256": "6f4df205822b13dc434627effd45eb3c2264606fe50cc6f2b68e3df0cf6f0418",
+      "worksheetExam": "2020-4회"
+    },
+    {
+      "image": "image2.png",
+      "row": 2,
+      "column": 8,
+      "dimensions": [
+        958,
+        534
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 2,
+      "sha256": "87387d71bf79f7db08ec9520dda380af7fe3bd728d83a4d37205bdfdf2571ddf",
+      "worksheetExam": "2020-4회"
+    },
+    {
+      "image": "image3.png",
+      "row": 2,
+      "column": 15,
+      "dimensions": [
+        958,
+        446
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 3,
+      "sha256": "6f5b5c3d84dcffd066d374364d08005be3968ea34eeb18579d77d65e34d9c43c",
+      "worksheetExam": "2020-4회"
+    },
+    {
+      "image": "image4.png",
+      "row": 2,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 4,
+      "sha256": "dcda1098e239a82dee17e9fb6fce03666915e5066a93a1d7a96412995d27cea4",
+      "worksheetExam": "2020-4회"
+    },
+    {
+      "image": "image5.png",
+      "row": 2,
+      "column": 29,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 5,
+      "sha256": "53ff347957c063983117fc4439ec05e4f2d5131816545b5259c8b92912ab0dbb",
+      "worksheetExam": "2020-4회"
+    },
+    {
+      "image": "image6.png",
+      "row": 2,
+      "column": 36,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 6,
+      "sha256": "2a096daa6d8a81afb4e3acb035d665431b3eaa1a9b7787148cc49b0428be6cf4",
+      "worksheetExam": "2020-4회"
+    },
+    {
+      "image": "image7.png",
+      "row": 26,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 7,
+      "sha256": "1fb6f9c139c02220580998b601db7a510207d2220298d1cbe716ce8b852c9820",
+      "worksheetExam": "2020-3회"
+    },
+    {
+      "image": "image9.png",
+      "row": 26,
+      "column": 8,
+      "dimensions": [
+        480,
+        480
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 8,
+      "sha256": "b0b0240d57f2b919258d6e07daa04e0575cdce959e7dc3c75f41783f9329313c",
+      "worksheetExam": "2020-3회"
+    },
+    {
+      "image": "image8.png",
+      "row": 26,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 9,
+      "sha256": "830eca044064e84d7755d0b9ac33128376bb97329f6bcd44e76913ec98bb8f3c",
+      "worksheetExam": "2020-3회"
+    },
+    {
+      "image": "image10.png",
+      "row": 26,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 10,
+      "sha256": "25a54a6615d61986af288d89d49caa53af26600bc160b5ea42e1f53dd4e2d886",
+      "worksheetExam": "2020-3회"
+    },
+    {
+      "image": "image11.png",
+      "row": 26,
+      "column": 29,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 11,
+      "sha256": "59fd3809c327fd853180e3eb4d3b8a15ae26019792e0564dfbecc77291edcf8b",
+      "worksheetExam": "2020-3회"
+    },
+    {
+      "image": "image12.png",
+      "row": 50,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 12,
+      "sha256": "1089602a1ebef1c356c1e2a522194ec0cf149cc580ed93ec29e473154a25e969",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image13.png",
+      "row": 50,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 13,
+      "sha256": "8a00cca90488d6c32b8ca03da9caba555c363626dd530ca80725ce69ae8f24c1",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image14.png",
+      "row": 50,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 14,
+      "sha256": "08732bc2764138a0c95481272adaefa966f4a31859950e3ade61f61bd550577d",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image15.png",
+      "row": 50,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 15,
+      "sha256": "9dc00b37855b3893ada60e2da6f16b692da1a556bef3f1f64a8bddcf48945518",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image16.png",
+      "row": 50,
+      "column": 29,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 16,
+      "sha256": "2527046456704f886164a4a200ef260ba0755e6b6fc7ca45040315b68d9f7ecd",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image17.png",
+      "row": 50,
+      "column": 36,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 17,
+      "sha256": "f54822428ba7b14dadde5a1cb0a582c9b7a80d28d7106159bfdcdad0104c7039",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image18.png",
+      "row": 50,
+      "column": 43,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 18,
+      "sha256": "fde72b7976282ac14500a3626d027cef3d74f068badafdc0a5f0536ebe811159",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image19.png",
+      "row": 50,
+      "column": 50,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 19,
+      "sha256": "9db649e73541116f9a6cbc5233b5848a82d469868aad15f622cbf7a5517e1956",
+      "worksheetExam": "2020-2회"
+    },
+    {
+      "image": "image20.png",
+      "row": 74,
+      "column": 1,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 20,
+      "sha256": "4caca6fef06d400be794bdf2565f37fad58f0fe6502972b8b6d974d422a2d547",
+      "worksheetExam": "2020-1회"
+    },
+    {
+      "image": "image21.png",
+      "row": 74,
+      "column": 8,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 21,
+      "sha256": "f3b7a7583aeedd5ef3261623ed784c1dcca0628e42dbbbbce02bb63115d12d7a",
+      "worksheetExam": "2020-1회"
+    },
+    {
+      "image": "image22.png",
+      "row": 74,
+      "column": 15,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 22,
+      "sha256": "c7282bcd4d475a08258deb5e622e5d1fc89cd8f489b5d2e4db02c99a463f35c8",
+      "worksheetExam": "2020-1회"
+    },
+    {
+      "image": "image23.png",
+      "row": 74,
+      "column": 22,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 23,
+      "sha256": "f8d76200fbe99880c369577afeb225223f27195d87028a51e8c9f5d9a58edfb1",
+      "worksheetExam": "2020-1회"
+    },
+    {
+      "image": "image24.png",
+      "row": 74,
+      "column": 29,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 24,
+      "sha256": "86ab647e655113cdd9e95d4be553d168f593916053e3ea615ccee13030c3ebed",
+      "worksheetExam": "2020-1회"
+    },
+    {
+      "image": "image25.png",
+      "row": 74,
+      "column": 36,
+      "dimensions": [
+        944,
+        944
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 25,
+      "sha256": "707414072e47658374d692267a062d1780e1c71ef8fc5ad5a952c164e609a46b",
+      "worksheetExam": "2020-1회"
+    }
+  ],
+  "newIds": [
+    "ec-2020-4-book6-001",
+    "ec-2020-4-book6-002",
+    "ec-2020-4-book6-003",
+    "ec-2020-4-book6-004",
+    "ec-2020-4-book6-005",
+    "ec-2020-4-book6-006",
+    "ec-2020-4-book6-007",
+    "ec-2020-4-book6-008",
+    "ec-2020-4-book6-009",
+    "ec-2020-4-book6-010",
+    "ec-2020-3-book6-001",
+    "ec-2020-3-book6-002",
+    "ec-2020-3-book6-003",
+    "ec-2020-2-book6-001",
+    "ec-2020-2-book6-002",
+    "ec-2020-2-book6-003",
+    "ec-2020-2-book6-004",
+    "ec-2020-2-book6-005",
+    "ec-2020-2-book6-006",
+    "ec-2020-1-book6-001",
+    "ec-2020-1-book6-002",
+    "ec-2020-1-book6-003",
+    "ec-2020-1-book6-004",
+    "ec-2020-1-book6-005",
+    "ec-2020-1-book6-006"
+  ],
+  "newCount": 25,
+  "reusedIds": [
+    "ec-2024-1-book4-006",
+    "ec-2024-1-book4-001",
+    "q061",
+    "q075",
+    "q076",
+    "q141"
+  ],
+  "sharedCount": 6,
+  "totalKnown": 294,
+  "activeCount": 270,
+  "excluded": [
+    {
+      "photos": [
+        7
+      ],
+      "part": "하단CT 임피던스 계산",
+      "reason": "사진 하단이 잘린 인접 계산 문항;사용자 요청으로 미등록"
+    },
+    {
+      "photos": [
+        9
+      ],
+      "part": "아래쪽ACSR 문제와 위쪽변압기 해설 일부",
+      "reason": "문제/정답이 잘려 완전하지 않음"
+    },
+    {
+      "photos": [
+        10
+      ],
+      "part": "위쪽 굴착량 계산 해설",
+      "reason": "문제 조건이 없음"
+    },
+    {
+      "photos": [
+        12
+      ],
+      "part": "하단 지중전선로 시설방법 문제6",
+      "reason": "인쇄 답안이 하단에서 잘림;기존q010에2020출처를 임의로 추가하지 않음"
+    },
+    {
+      "photos": [
+        13
+      ],
+      "part": "위쪽 조명 등수·도로조명 면적 계산",
+      "reason": "문제 원문 없음"
+    },
+    {
+      "photos": [
+        17,
+        18
+      ],
+      "part": "위쪽 축전지 계산",
+      "reason": "문제 원문 없음"
+    },
+    {
+      "photos": [
+        21
+      ],
+      "part": "하단 눈부심 방지 문제4",
+      "reason": "인쇄 답안이3개 이후 잘림;기존q129에2020회차를 임의 연결하지 않음"
+    },
+    {
+      "photos": [
+        22
+      ],
+      "part": "위쪽TN 접지계통 해설",
+      "reason": "질문 원문이 없음"
+    },
+    {
+      "photos": [
+        25
+      ],
+      "part": "하단 전선 길이·이도 계산 문제12",
+      "reason": "조건·정답 일부 잘림 및 이전 이도 제외 요청"
+    }
+  ],
+  "variants": [
+    {
+      "id": "ec-2024-1-book4-001",
+      "exam": "2020-3회",
+      "reason": "③우두형·④문형·⑥MC를2020사진대로 표시;기존2024그림·정답 유지"
+    },
+    {
+      "id": "ec-2024-1-book4-006",
+      "exam": "2020-4회",
+      "reason": "2020콘센트④는 두 원에 각각점2개;기존2024기호와 별도 도면"
+    }
+  ],
+  "limits": [
+    "완전한 문제·인쇄 정답 사진만 반영;잘린 부분을 추정해 문항 생성하지 않음",
+    "현행 규정 전문이나 공식 채점표 인증 아님",
+    "이전 출제 제외24개를 다시 활성화하지 않음"
+  ]
+}

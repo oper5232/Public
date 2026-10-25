@@ -5245,5 +5245,507 @@
       "회차는 사진26의 인쇄 하단2025년3회로 확인했습니다. 사진27 하단의 별도 이도 문제는 사용자 요청으로 제외했습니다.",
       "풀이 과정·단위도 함께 작성하고 모범답안과 비교해 직접 판정하세요."
     ]
+  },
+  "ec-2020-4-book6-001": {
+    "kind": "short",
+    "prompt": "그림기호의 명칭과 숫자10이 나타내는 뜻을 쓰시오.",
+    "basisAnswer": "리모콘 릴레이·릴레이10개를 집합 설치",
+    "fields": [
+      {
+        "label": "명칭",
+        "answer": "리모콘 릴레이"
+      },
+      {
+        "label": "숫자10의 의미",
+        "answer": "리모콘 릴레이10개를 집합하여 시설"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-001",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-002": {
+    "kind": "short",
+    "prompt": "수변전설비 용량을 추정하는 수용률의 공식을 쓰시오.",
+    "basisAnswer": "최대수용전력 / 총 부하설비용량 ×100%",
+    "fields": [
+      {
+        "label": "수용률",
+        "answer": "최대수용전력 / 총 부하설비용량 ×100%"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-002",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-003": {
+    "kind": "short",
+    "prompt": "수변전설비 용량을 추정하는 부등률의 공식을 쓰시오.",
+    "basisAnswer": "개별 최대수용전력의 합 / 합성최대수용전력",
+    "fields": [
+      {
+        "label": "부등률",
+        "answer": "개별 최대수용전력의 합 / 합성최대수용전력"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-003",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-004": {
+    "kind": "short",
+    "prompt": "수변전설비 용량을 추정하는 부하율의 공식을 쓰시오.",
+    "basisAnswer": "평균수용전력 / 합성최대수용전력 ×100%",
+    "fields": [
+      {
+        "label": "부하율",
+        "answer": "평균수용전력 / 합성최대수용전력 ×100%"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-004",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-005": {
+    "kind": "short",
+    "prompt": "전력계통에서 서지현상에 의해 발생하는 과전압의 원인을 교재의 세 분류로 쓰시오.",
+    "basisAnswer": "개폐 과전압·뇌 과전압·일시 과전압",
+    "fields": [
+      {
+        "label": "세 분류",
+        "answer": "개폐 과전압, 뇌 과전압, 일시 과전압"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-005",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-006": {
+    "kind": "short",
+    "prompt": "기구번호88Q의 명칭을 쓰시오.",
+    "basisAnswer": "유압 펌프용 개폐기",
+    "fields": [
+      {
+        "label": "88Q",
+        "answer": "유압 펌프용 개폐기"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-006",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-007": {
+    "kind": "short",
+    "prompt": "건축화 조명방식의 명칭을 쓰시오.①천장면의 확산투과재 뒤에 광원을 배치하는 방식,②천장·벽 경계 구석의 등기구가 두 면을 동시에 투사하는 방식,③천장을 사각·원 등으로 오려 다양한 매입기구를 취부하는 방식.",
+    "basisAnswer": "코너 조명",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "광천장 조명"
+      },
+      {
+        "label": "②",
+        "answer": "코너 조명"
+      },
+      {
+        "label": "③",
+        "answer": "코퍼 조명"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-007",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-4-book6-008": {
+    "kind": "short",
+    "prompt": "그림의 콘센트 심벌이 나타내는 설치 위치·용도 또는 정격을 쓰시오.",
+    "basisAnswer": "바닥 부착50A 콘센트",
+    "fields": [
+      {
+        "label": "심벌의 의미",
+        "answer": "바닥 부착50A 콘센트"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-008",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": [
+      "원문은 심벌 그리기 문항이며,웹앱에서는 인쇄 답안 그림을 보고 의미를 쓰는 식별형으로 변환했습니다."
+    ]
+  },
+  "ec-2020-4-book6-009": {
+    "kind": "short",
+    "prompt": "그림의 콘센트 심벌이 나타내는 설치 위치·용도 또는 정격을 쓰시오.",
+    "basisAnswer": "벽 부착 의료용 콘센트",
+    "fields": [
+      {
+        "label": "심벌의 의미",
+        "answer": "벽 부착 의료용 콘센트"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-009",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": [
+      "원문은 심벌 그리기 문항이며,웹앱에서는 인쇄 답안 그림을 보고 의미를 쓰는 식별형으로 변환했습니다."
+    ]
+  },
+  "ec-2020-4-book6-010": {
+    "kind": "short",
+    "prompt": "그림의 콘센트 심벌이 나타내는 설치 위치·용도 또는 정격을 쓰시오.",
+    "basisAnswer": "천장 부착 접지단자 붙이 콘센트",
+    "fields": [
+      {
+        "label": "심벌의 의미",
+        "answer": "천장 부착 접지단자 붙이 콘센트"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-4-book6-010",
+      "kind": "user-question-photo",
+      "exam": "2020-4회",
+      "received": "2026-10-25"
+    },
+    "notes": [
+      "원문은 심벌 그리기 문항이며,웹앱에서는 인쇄 답안 그림을 보고 의미를 쓰는 식별형으로 변환했습니다."
+    ]
+  },
+  "ec-2020-3-book6-001": {
+    "kind": "short",
+    "prompt": "애자의 전기적 특성에서 섬락전압의 종류 두 가지를 쓰시오.",
+    "basisAnswer": "주수 섬락전압·건조 섬락전압",
+    "fields": [
+      {
+        "label": "두 종류",
+        "answer": "주수 섬락전압, 건조 섬락전압"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-3-book6-001",
+      "kind": "user-question-photo",
+      "exam": "2020-3회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-3-book6-002": {
+    "kind": "short",
+    "prompt": "방사상 계통의 단락보호에 적합하고 계전기 간 동작 시간차로 고장구간을 차단한다.주보호와 후비보호가 동시에 가능하여 경제적이나 보호시간이 길어지는 방식의 명칭을 쓰시오.",
+    "basisAnswer": "과전류 계전방식",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "과전류 계전방식"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-3-book6-002",
+      "kind": "user-question-photo",
+      "exam": "2020-3회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-3-book6-003": {
+    "kind": "short",
+    "prompt": "표의 옥내배선 그림기호①~④를 보고 내선규정의 명칭을 쓰시오.",
+    "basisAnswer": "바닥 은폐배선",
+    "fields": [
+      {
+        "label": "① 실선",
+        "answer": "천장 은폐배선"
+      },
+      {
+        "label": "② 점선",
+        "answer": "노출배선"
+      },
+      {
+        "label": "③ 파선",
+        "answer": "바닥 은폐배선"
+      },
+      {
+        "label": "④ 긴 선과 점 두 개",
+        "answer": "노출배선 중 바닥면 노출배선"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-3-book6-003",
+      "kind": "user-question-photo",
+      "exam": "2020-3회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-2-book6-001": {
+    "kind": "short",
+    "prompt": "지지선 및 전주 버팀대 공사에서 전주에 지지선을 시설할 때 사용하는 자재 다섯 가지를 쓰시오.",
+    "basisAnswer": "지지선 밴드·아연도철선·지지선 애자·지지선 커버·지지선 로드",
+    "fields": [
+      {
+        "label": "다섯 가지",
+        "answer": "지지선 밴드, 아연도철선(지지선), 지지선 애자, 지지선 커버, 지지선 로드"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-2-book6-001",
+      "kind": "user-question-photo",
+      "exam": "2020-2회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-2-book6-002": {
+    "kind": "blank",
+    "prompt": "합성수지관 상호 간 및 관과 박스의 접속에서 삽입 깊이는 관 바깥지름의(①)배 이상,접착제를 사용하는 경우에는(②)배 이상으로 한다.빈칸을 채우시오.",
+    "basisAnswer": "일반1.2배 이상·접착제 사용0.8배 이상",
+    "fields": [
+      {
+        "label": "① 일반 경우",
+        "answer": "1.2"
+      },
+      {
+        "label": "② 접착제 사용",
+        "answer": "0.8"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-2-book6-002",
+      "kind": "user-question-photo",
+      "exam": "2020-2회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-2-book6-003": {
+    "kind": "blank",
+    "prompt": "후강전선관 호칭16,(①),28,(②),42,(③),70,82의 빈칸을 채우시오.",
+    "basisAnswer": "22·36·54",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "22"
+      },
+      {
+        "label": "②",
+        "answer": "36"
+      },
+      {
+        "label": "③",
+        "answer": "54"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-2-book6-003",
+      "kind": "user-question-photo",
+      "exam": "2020-2회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-2-book6-004": {
+    "kind": "short",
+    "prompt": "구내선로에서 발생할 수 있는 개폐서지·순간 과도전압 등 이상전압이2차 기기에 악영향을 주는 것을 막기 위해 시설하는 기기의 명칭을 쓰시오.",
+    "basisAnswer": "서지흡수기(SA)",
+    "fields": [
+      {
+        "label": "답안",
+        "answer": "서지흡수기(SA)"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-2-book6-004",
+      "kind": "user-question-photo",
+      "exam": "2020-2회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-2-book6-005": {
+    "kind": "short",
+    "prompt": "COS 자체를 포함하여 COS 설치에 사용하는 자재 다섯 가지를 쓰시오.",
+    "basisAnswer": "COS·브라켓·내오손 결합애자·COS 커버·퓨즈링크",
+    "fields": [
+      {
+        "label": "다섯 가지",
+        "answer": "COS, 브라켓, 내오손 결합애자, COS 커버, 퓨즈링크"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-2-book6-005",
+      "kind": "user-question-photo",
+      "exam": "2020-2회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-2-book6-006": {
+    "kind": "short",
+    "prompt": "발전기·변압기 등 전력계통의 중성점을 접지하여 보호계전기의 고장점 판별을 돕고,1선 지락 시 건전상 전압을 선간전압의75% 이하가 되도록 하는 교재 설명의 접지계통 명칭을 쓰시오.",
+    "basisAnswer": "유효접지계",
+    "fields": [
+      {
+        "label": "명칭",
+        "answer": "유효접지계(유효접지 방식)"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-2-book6-006",
+      "kind": "user-question-photo",
+      "exam": "2020-2회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-1-book6-001": {
+    "kind": "short",
+    "prompt": "LBS(Load Breaker Switch)의 설치 목적 두 가지를 쓰시오.",
+    "basisAnswer": "부하개폐·전력퓨즈와 사용 시 결상방지",
+    "fields": [
+      {
+        "label": "목적 두 가지",
+        "answer": "부하개폐, 전력퓨즈와 사용 시 결상방지"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-1-book6-001",
+      "kind": "user-question-photo",
+      "exam": "2020-1회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-1-book6-002": {
+    "kind": "short",
+    "prompt": "전력시스템에서 이용하는 SCADA의 기능 세 가지를 쓰시오.",
+    "basisAnswer": "전력계통 자동화·변전소 무인운전·전력설비 정보 감시/계측/제공",
+    "fields": [
+      {
+        "label": "세 가지",
+        "answer": "전력계통의 자동화, 변전소 무인운전, 각종 전력설비의 정보 감시·계측 및 정보제공"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-1-book6-002",
+      "kind": "user-question-photo",
+      "exam": "2020-1회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-1-book6-003": {
+    "kind": "short",
+    "prompt": "조명기구의 배광에 따른 조명방식의 종류 세 가지를 쓰시오.",
+    "basisAnswer": "직접조명·전반확산조명·간접조명",
+    "fields": [
+      {
+        "label": "세 가지 예",
+        "answer": "직접조명, 전반확산조명, 간접조명"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-1-book6-003",
+      "kind": "user-question-photo",
+      "exam": "2020-1회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-1-book6-004": {
+    "kind": "short",
+    "prompt": "버스덕트의 종류 세 가지를 쓰시오.",
+    "basisAnswer": "셀룰러덕트",
+    "fields": [
+      {
+        "label": "세 가지(인쇄 예 중 선택)",
+        "answer": "피더 버스덕트, 플러그인 버스덕트, 트롤리 버스덕트, 익스팬션 버스덕트 중 서로 다른 세 가지"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-1-book6-004",
+      "kind": "user-question-photo",
+      "exam": "2020-1회",
+      "received": "2026-10-25"
+    },
+    "notes": [
+      "객관식은 종류 구분,실기는 원문처럼 세 가지 작성입니다.모범답안의 네 예 중 서로 다른 세 가지를 비교하세요."
+    ]
+  },
+  "ec-2020-1-book6-005": {
+    "kind": "short",
+    "prompt": "교재에서 동전선의 접속 중 직선접속의 종류 두 가지를 쓰시오.",
+    "basisAnswer": "가는 단선의 트위스트조인트·B형 직선맞대기용슬리브 압착접속",
+    "fields": [
+      {
+        "label": "두 가지",
+        "answer": "가는 단선(6mm² 이하)의 직선접속(트위스트조인트), 직선맞대기용슬리브(B형)에 의한 압착접속"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-1-book6-005",
+      "kind": "user-question-photo",
+      "exam": "2020-1회",
+      "received": "2026-10-25"
+    },
+    "notes": []
+  },
+  "ec-2020-1-book6-006": {
+    "kind": "short",
+    "prompt": "작업 구분에 맞는 직종명을 쓰시오.①발전설비 및 중공업 설비의 시공·보수②철탑 및 송전설비의 시공·보수③송전전공 중 활선작업을 하는 전공.",
+    "basisAnswer": "플랜트전공·송전전공·송전활선전공",
+    "fields": [
+      {
+        "label": "①",
+        "answer": "플랜트전공"
+      },
+      {
+        "label": "②",
+        "answer": "송전전공"
+      },
+      {
+        "label": "③",
+        "answer": "송전활선전공"
+      }
+    ],
+    "source": {
+      "id": "book6-ec-2020-1-book6-006",
+      "kind": "user-question-photo",
+      "exam": "2020-1회",
+      "received": "2026-10-25"
+    },
+    "notes": []
   }
 }

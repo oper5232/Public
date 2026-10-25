@@ -7,7 +7,7 @@ const read=p=>JSON.parse(fs.readFileSync(new URL(p,import.meta.url),'utf8'));
 const bank=read('../src/questions.json'),practical=read('../src/practical.json'),report=read('../sources/book4-import-report.json'),extra=read('../src/book4-data.json');
 const q=id=>bank.find(q=>q.id===id),id=(exam,n)=>`ec-${exam}-book4-${String(n).padStart(3,'0')}`;
 test('Book4:36 permanent IDs, 269 total, no sag, exact year corrections and shared MD',()=>{
- assert.equal(report.newIds.length,36);assert.equal(bank.length,269);
+ assert.equal(report.newIds.length,36);assert(bank.length>=269);
  for(const key of report.newIds){assert(q(key));assert(practical[key]);assert(!/이도|처짐.*최저 높이/.test(q(key).question));}
  assert.equal(q(id('2024-1',1)).source.photos[0],'image18.png');
  for(let i=1;i<=4;i++)assert.equal(q(id('2023-2',i)).year,'2023-2회');
@@ -72,6 +72,6 @@ test('All prompt/answer figure keys are present; old records survive the expande
  const localBackup='/tmp/electrical-before-book4/src/questions.json';
  if(fs.existsSync(localBackup)){
   const old=JSON.parse(fs.readFileSync(localBackup));
-  for(const item of old){const now={...q(item.id)};if(item.id==='ec-2022-2-symbol-002')delete now.appearances;const expected={...item};if(item.id==='ec-2022-2-symbol-002')delete expected.appearances;assert.deepEqual(now,expected,item.id);}
+  for(const item of old){const now={...q(item.id)};const expected={...item};if(now.appearances){now.appearances=now.appearances.filter(a=>!a.sourceId.startsWith('book6-')&&a.sourceId!=='book4-shared-metal-duct');if(!now.appearances.length)delete now.appearances;}assert.deepEqual(now,expected,item.id);}
  }
 });

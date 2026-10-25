@@ -23,8 +23,8 @@ test('두 기기의 고유 이벤트 합산·재전송 중복 제외 후 회독 
  assert.deepEqual(reduceEvents([c,a,b],pair).history,view.history);
  assert.equal(Object.keys(reduceEvents([a,b,c],pair,{format:'practical'}).history).length,0);
 });
-test('사용자가 지정한9개 원문 문제 그룹만 유지:신규12개+공유MD, 출제245',()=>{
- assert.equal(retired.length,24);assert.equal(active.length,245);assert.equal(bank.length,269);
+test('사용자가 지정한9개 원문 문제 그룹만 유지:신규12개+공유MD, 이후 자료 추가와 구분',()=>{
+ assert.equal(retired.length,24);assert.equal(active.length,bank.length-retired.length);assert(bank.length>=269);
  const activeIds=new Set(active.map(q=>q.id));
  for(const id of Object.keys(report.keptNew))assert(activeIds.has(id),id);
  for(const id of report.retiredIds)assert(!activeIds.has(id),id);

@@ -7,7 +7,7 @@ const context=await browser.newContext({...devices['Pixel 7']}),page=await conte
 const url=process.env.TEST_URL||'http://127.0.0.1:4200/';
 const retired=new Set((await read('../src/retired-questions.json')).map(q=>q.id)),keptIds=report.newIds.filter(id=>!retired.has(id));
 try{
- await page.goto(url);const bank=JSON.parse(await page.locator('#questionData').textContent());expect(bank.length).toBe(269);
+ await page.goto(url);const bank=JSON.parse(await page.locator('#questionData').textContent());expect(bank.length).toBe((await read('../src/questions.json')).length);
  async function open(id,mode='practical',year){
   await page.locator('#studyFormat').selectOption(mode);await page.locator('#randomOrder').uncheck();await page.locator('#topicSelect').selectOption('all');await page.locator('#unseenOnly').uncheck();
   const q=bank.find(q=>q.id===id);const exam=year||q.year;await page.locator('#yearSelect').selectOption(exam);await page.locator('#startAll').click();
@@ -34,7 +34,7 @@ try{
   if(id==='ec-2025-1-book4-001')await page.screenshot({path:'test-results/book4-truth-mobile.png',fullPage:true});
   await page.locator('#writtenCorrect').click();await expect(page.locator('#qAttempts .counter')).toHaveText('1회');await page.locator('#topHome').click();
  }
- await page.reload();await expect(page.locator('#overallAttempts')).toHaveText('12');await expect(page.locator('#unseenCount')).toHaveText('233');
+ await page.reload();await expect(page.locator('#overallAttempts')).toHaveText('12');await expect(page.locator('#unseenCount')).toHaveText(String(bank.filter(q=>!retired.has(q.id)).length-keptIds.length));
  // Already graded screens keep drafts and never count a second attempt.
  await page.locator('#resume').click();await expect(page.locator('#qText')).toHaveText(practical[keptIds.at(-1)].prompt);await expect(page.locator('#qAttempts .counter')).toHaveText('1회');await expect(page.locator('#practicalAnswer textarea').first()).toHaveValue('검토용 작성 답안');await expect(page.locator('#writtenCorrect')).toHaveCount(0);
  await page.reload();await page.locator('#resume').click();await expect(page.locator('#qAttempts .counter')).toHaveText('1회');await page.locator('#topHome').click();

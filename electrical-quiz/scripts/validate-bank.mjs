@@ -18,6 +18,14 @@ for(const q of bank){
   assert(/^\d{4}-\d+회$/.test(a.exam),`${q.id} 출처 회차 오류`);
   assert(!refs.has(a.exam),`${q.id} 중복 출처 회차`);refs.add(a.exam);
   assert(sources.sections.some(s=>s.id===a.sourceId&&s.exam===a.exam&&s.questionIds.includes(q.id)),`${q.id} 추가 회차 출처 누락`);
+  if(a.diagram!==undefined)assert(a.diagram===null||diagramKeys.has(a.diagram),`${q.id} 회차별 도면 오류`);
+  for(const key of ['question','explain'])if(a[key]!==undefined)assert(typeof a[key]==='string'&&a[key],`${q.id} 회차별 문구 오류`);
+  if(a.practical){
+   assert(Object.keys(a.practical).every(k=>['kind','prompt','fields','notes'].includes(k)),`${q.id} 회차별 실기에 정답 인덱스/ID 변경은 불가`);
+   assert(a.practical.kind===undefined||a.practical.kind===practical[q.id].kind,`${q.id} 회차별 실기 유형은 기본 유형과 같아야 합니다`);
+   if(a.practical.fields)assert(a.practical.fields.length>0&&a.practical.fields.length<=10&&a.practical.fields.every(f=>f.label&&f.answer),`${q.id} 회차별 실기 필드 오류`);
+  }
+  if(a.verification)assert(Array.isArray(a.verification.notes)&&a.verification.notes.every(s=>typeof s==='string'),`${q.id} 회차별 검증 메모 오류`);
  }
 }
 for(const [id,p] of Object.entries(practical)){

@@ -1338,7 +1338,16 @@
       "file": "sources/2026-10-23-six-photos.md",
       "photoIndex": 1,
       "printedYear": "26",
-      "classificationBasis": "사용자 지정2025-1회. 상단출제년도와불일치 확인필요"
+      "classificationBasis": "사용자 지정2025-1회. 상단출제년도와불일치 확인필요",
+      "supplementalSources": [
+        {
+          "kind": "user-provided-question-image",
+          "received": "2026-10-26",
+          "file": "sources/2026-10-26-symbol-confirmation.md",
+          "examConfirmed": false
+        }
+      ],
+      "editorialNote": "2026-10-26 추가 사진의5개 기호·명칭을 다시 대조했습니다. 이 사진에는 회차 표기가 없어 기존 분류를 유지하며, 연기감지기S의 사각형 상단 띠를 도면에 보완했습니다."
     },
     {
       "id": "photo-2024-1-symbols",

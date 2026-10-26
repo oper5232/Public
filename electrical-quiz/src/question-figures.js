@@ -19,7 +19,7 @@ export const questionFigures={
  symbolPanelX:{svg:svg('<rect x="96" y="62" width="88" height="36"/><path d="M96 62L184 98M96 98L184 62"/>'),caption},
  symbolAlarmCheck:{svg:svg('<path d="M140 62H184V80H140ZM96 80H140V98H96Z" fill="#161c22"/><rect x="96" y="62" width="88" height="36"/><path d="M140 62V98M96 80H184"/>'),caption},
  symbolPushDot:{svg:svg('<rect x="121" y="61" width="38" height="38"/><circle cx="140" cy="80" r="6" fill="#161c22"/>'),caption},
- symbolSmokeS:{svg:letter('S'),caption},
+ symbolSmokeS:{svg:svg('<rect x="116" y="56" width="48" height="48"/><path d="M116 62H164"/><text x="140" y="99" text-anchor="middle" font-family="serif" font-size="36" fill="#161c22" stroke="none">S</text>'),caption},
  symbolPanelHalf:{svg:svg('<path d="M96 98H184V62Z" fill="#161c22"/><rect x="96" y="62" width="88" height="36"/>'),caption},
  symbolPanelControl:{svg:svg('<path d="M96 62L140 80L96 98ZM184 62L140 80L184 98Z" fill="#161c22"/><rect x="96" y="62" width="88" height="36"/>'),caption},
  symbolSwitchS:{svg:letter('S'),caption},

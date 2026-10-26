@@ -26,7 +26,8 @@
     "test:insulator-reference": "node tests/insulator-reference.mjs",
     "test:book4": "node --test tests/book4-content.test.mjs && node tests/book4.mjs",
     "test:rounds": "node --test tests/study-rounds.test.mjs && node tests/study-rounds.mjs",
-    "test:book6": "node --test tests/book6-content.test.mjs && node tests/book6.mjs"
+    "test:book6": "node --test tests/book6-content.test.mjs && node tests/book6.mjs",
+    "test:book7": "node --test tests/book7-content.test.mjs && node tests/book7.mjs"
   },
   "dependencies": {
     "firebase": "12.4.0"

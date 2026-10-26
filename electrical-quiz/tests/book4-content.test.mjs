@@ -72,6 +72,6 @@ test('All prompt/answer figure keys are present; old records survive the expande
  const localBackup='/tmp/electrical-before-book4/src/questions.json';
  if(fs.existsSync(localBackup)){
   const old=JSON.parse(fs.readFileSync(localBackup));
-  for(const item of old){const now={...q(item.id)};const expected={...item};if(now.appearances){now.appearances=now.appearances.filter(a=>!a.sourceId.startsWith('book6-')&&a.sourceId!=='book4-shared-metal-duct');if(!now.appearances.length)delete now.appearances;}assert.deepEqual(now,expected,item.id);}
+  for(const item of old){const now={...q(item.id)};const expected={...item};if(now.appearances){now.appearances=now.appearances.filter(a=>!a.sourceId.startsWith('book6-')&&!a.sourceId.startsWith('book7-')&&a.sourceId!=='book4-shared-metal-duct');if(!now.appearances.length)delete now.appearances;}assert.deepEqual(now,expected,item.id);}
  }
 });

@@ -1,0 +1,330 @@
+{
+  "file": "Book 7.xlsx",
+  "date": "2026-10-26",
+  "workbookSha256": "ca8a2a400d17f777e8eab2cdb45827f6ddf21018ef2679e4ab5084dc81b8c353",
+  "images": [
+    {
+      "image": "image1.png",
+      "row": 2,
+      "column": 1,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 1,
+      "sha256": "84318810561631e197701dc506b00c5701643626e2177b826e679e96b19daf85",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image2.png",
+      "row": 2,
+      "column": 8,
+      "dimensions": [
+        1299,
+        621
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 2,
+      "sha256": "990522f65cf3fc93a0f21a7c90e40fc97955dff463fe229a94741eee58c95b87",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image3.png",
+      "row": 2,
+      "column": 15,
+      "dimensions": [
+        1299,
+        714
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 3,
+      "sha256": "b5ff1f61be89877b55306b50d48b8869b01e43145a448284642f31b394841f89",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image4.png",
+      "row": 2,
+      "column": 22,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 4,
+      "sha256": "b3636a1f781b5f97b4faaea29ec9a95f6439e392917e25c010d10c5f67f40d4a",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image5.png",
+      "row": 2,
+      "column": 29,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 5,
+      "sha256": "1900fd8ad291283099d94c9e4054b4831e68942072123858a17b8cb1b664214a",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image6.png",
+      "row": 2,
+      "column": 36,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 6,
+      "sha256": "2fb1c367d25ef01411c1db6c2f72d5d55aa4e1b7fba68b5fee224c2297fbf588",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image7.png",
+      "row": 2,
+      "column": 43,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 7,
+      "sha256": "c5a60e797aaea0f5a290a8d23ea2fa1ae389d239f5824c18aa57ef1d6503446a",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image8.png",
+      "row": 2,
+      "column": 50,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 8,
+      "sha256": "a045cded9fd5073bcd6cc01f27501f353de7a687d6a32fc6a93397f911166bf7",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image9.png",
+      "row": 2,
+      "column": 57,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 9,
+      "sha256": "7d636de60507ad3a10d8d108ecf8d40a17d21449fb34efe91521d7297b857504",
+      "worksheetExam": "2019-1회"
+    },
+    {
+      "image": "image10.png",
+      "row": 26,
+      "column": 1,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 10,
+      "sha256": "b06c3092b3b4e67126d71783483aad9e83afac2c0bbfd2f42e12e39575dd4116",
+      "worksheetExam": "2019-2회"
+    },
+    {
+      "image": "image11.png",
+      "row": 26,
+      "column": 8,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 11,
+      "sha256": "029e9bdf98740939672f6a28cc35cd4150f47a71c212ab1ca77879e7f4f74186",
+      "worksheetExam": "2019-2회"
+    },
+    {
+      "image": "image12.png",
+      "row": 26,
+      "column": 15,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 12,
+      "sha256": "d5beea6fc658fa978937d73b4f02e2924057c26e76527e46ebcc705edc833eff",
+      "worksheetExam": "2019-2회"
+    },
+    {
+      "image": "image13.png",
+      "row": 26,
+      "column": 22,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 13,
+      "sha256": "73288daefd32d982c485adab7ce2c32865a63aec6e727dd5a7cc673172216635",
+      "worksheetExam": "2019-2회"
+    },
+    {
+      "image": "image14.png",
+      "row": 49,
+      "column": 1,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 14,
+      "sha256": "fa974fff30b133994d20b915eeedce77ab3f205b13289f8125f3e80b35ccf08f",
+      "worksheetExam": "2019-4회"
+    },
+    {
+      "image": "image15.png",
+      "row": 50,
+      "column": 8,
+      "dimensions": [
+        1299,
+        658
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 15,
+      "sha256": "d8c2594d00a163e5d166d620197ab62986ba2a1cd377f7e250c893395e63fdaa",
+      "worksheetExam": "2019-4회"
+    },
+    {
+      "image": "image16.png",
+      "row": 50,
+      "column": 15,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 16,
+      "sha256": "1e7552a8f585120e1c5acf246284a899dd8a2804649601370c8c270444631006",
+      "worksheetExam": "2019-4회"
+    },
+    {
+      "image": "image17.png",
+      "row": 50,
+      "column": 22,
+      "dimensions": [
+        917,
+        917
+      ],
+      "drawing": "xl/drawings/drawing1.xml",
+      "order": 17,
+      "sha256": "c8437f89adc291714370817bb94cb62c777c37c32393dd7c4d1cb37c8c40578a",
+      "worksheetExam": "2019-4회"
+    }
+  ],
+  "newIds": [
+    "ec-2019-1-book7-001",
+    "ec-2019-1-book7-002",
+    "ec-2019-1-book7-003",
+    "ec-2019-1-book7-004",
+    "ec-2019-1-book7-005",
+    "ec-2019-1-book7-006",
+    "ec-2019-1-book7-007",
+    "ec-2019-1-book7-008",
+    "ec-2019-1-book7-009",
+    "ec-2019-1-book7-010",
+    "ec-2019-1-book7-011",
+    "ec-2019-2-book7-001",
+    "ec-2019-2-book7-002",
+    "ec-2019-2-book7-003",
+    "ec-2019-2-book7-004",
+    "ec-2019-2-book7-005",
+    "ec-2019-2-book7-006",
+    "ec-2019-4-book7-001",
+    "ec-2019-4-book7-002",
+    "ec-2019-4-book7-003",
+    "ec-2019-4-book7-004"
+  ],
+  "newCount": 21,
+  "reusedIds": [
+    "q124",
+    "q143",
+    "q182",
+    "q139",
+    "ec-2025-1-symbol-001",
+    "ec-2025-1-symbol-004",
+    "ec-2025-1-symbol-005",
+    "q073",
+    "q036"
+  ],
+  "sharedCount": 9,
+  "totalKnown": 315,
+  "activeCount": 291,
+  "newByExam": {
+    "2019-1회": 11,
+    "2019-2회": 6,
+    "2019-4회": 4
+  },
+  "excluded": [
+    {
+      "photos": [
+        5,
+        6,
+        9
+      ],
+      "part": "인접 면의 계산 답·상단 수식 조각",
+      "reason": "질문·조건 원문이 온전하지 않아 미등록"
+    },
+    {
+      "photos": [
+        10
+      ],
+      "part": "상단K-factor 설명 일부",
+      "reason": "문제 원문 없이 해설 일부만 보여 기존K-factor 문항에2019회차를 임의 연결하지 않음"
+    },
+    {
+      "photos": [
+        12
+      ],
+      "part": "상단 과전류계전기Tap 해설 일부",
+      "reason": "완전한 문제·조건 없이 설명 일부만 있어 미등록"
+    },
+    {
+      "photos": [
+        14
+      ],
+      "part": "상단 철탑 기초 종류 설명",
+      "reason": "질문·인쇄 답안 전체가 없어 별도 문제를 생성하지 않음"
+    },
+    {
+      "photos": [
+        15
+      ],
+      "part": "하단 다음 문제6 일부",
+      "reason": "질문·답안이 잘림"
+    },
+    {
+      "photos": [
+        16
+      ],
+      "part": "하단 진상콘덴서 접속뱅크 문제8",
+      "reason": "문제 문장 일부만 보이고 필수 결선도와 세부 질문·답안이 없어 미등록"
+    },
+    {
+      "photos": [
+        17
+      ],
+      "part": "옆 페이지의 거리 표 등",
+      "reason": "원문 질문·조건이 없어 미등록"
+    }
+  ],
+  "limits": [
+    "질문·인쇄 답안이 온전한 부분만 반영;잘린 인접 문항을 기존 지식으로 보충하지 않음",
+    "2019-1 승강기 굵기·철거손실률 및2019-4 기호 문항은 질문·답안이 온전하지만 원문 번호는 확정하지 않음",
+    "현행 규정 전문이나 공식 채점표 인증 아님",
+    "이전 출제 제외24개를 다시 활성화하지 않음"
+  ]
+}

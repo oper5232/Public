@@ -10,7 +10,7 @@ const read=p=>JSON.parse(fs.readFileSync(new URL(p,import.meta.url),'utf8'));
 const bank=read('../src/questions.json'),p=read('../src/practical.json'),report=read('../sources/book6-import-report.json'),retired=read('../src/retired-questions.json');
 const q=id=>bank.find(q=>q.id===id);
 test('Book6:25 new/6 shared;270 active/294 known; incomplete main questions omitted',()=>{
- assert.equal(report.newIds.length,25);assert.equal(report.reusedIds.length,6);assert.equal(bank.length,294);assert.equal(availableQuestions(bank,retired).length,270);assert.equal(retired.length,24);
+ assert.equal(report.newIds.length,25);assert.equal(report.reusedIds.length,6);assert(bank.length>=294);assert.equal(availableQuestions(bank,retired).length,bank.length-retired.length);assert.equal(retired.length,24);
  for(const id of report.newIds){assert.match(id,/^ec-2020-[1-4]-book6-\d{3}$/);assert(!retired.some(r=>r.id===id));}
  assert(!bank.some(q=>q.year==='2020-3회'&&q.source?.questionNumber===4));
  assert(!examAppearances(q('q129')).includes('2020-1회'));
@@ -21,7 +21,7 @@ test('The existing269 questions/answers and24 excluded IDs remain unchanged exce
  const dir='/tmp/electrical-before-book6/';
  if(!fs.existsSync(dir+'src/questions.json'))return;
  const old=JSON.parse(fs.readFileSync(dir+'src/questions.json'));
- for(const item of old){const now=structuredClone(q(item.id)),expected=structuredClone(item);
+ for(const item of old){const now=structuredClone(q(item.id)),expected=structuredClone(item);if(now.appearances){now.appearances=now.appearances.filter(a=>!a.sourceId.startsWith('book7-'));if(!now.appearances.length)delete now.appearances;}
   if(report.reusedIds.includes(item.id)){assert.deepEqual((now.appearances||[]).filter(a=>!a.sourceId.startsWith('book6-')),expected.appearances||[]);delete now.appearances;delete expected.appearances;}
   assert.deepEqual(now,expected,item.id);
  }

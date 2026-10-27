@@ -4,7 +4,8 @@ import {examAppearances,practicalForExam} from './question-exams.js';
 
 export function practicalQuestion(q,exam){
  // New IDs remain usable until an editor supplies a tailored practical variant.
- const base=data[q.id]||{kind:'short',prompt:q.originalQuestion||q.question,basisAnswer:q.options[q.correct],fields:[{label:'답안',answer:q.options[q.correct]}]};
+ // Practical-bank questions carry their own written-answer form.
+ const base=q.practical||data[q.id]||{kind:'short',prompt:q.originalQuestion||q.question,basisAnswer:q.options[q.correct],fields:[{label:'답안',answer:q.options[q.correct]}]};
  return practicalForExam(q,base,exam);
 }
 export function sessionFormat(s){return s?.format==='practical'||s?.id?.startsWith('practical_')?'practical':'mcq'}

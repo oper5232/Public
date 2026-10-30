@@ -27,13 +27,13 @@ if(!$('qMode')){const badge=document.createElement('span');badge.id='qMode';badg
 // Replace the previous quick-start controls when loading cached older markup.
 if(!$('unseenOnly')){
  const label=document.createElement('label');label.className='cb';
- label.innerHTML='<input id="unseenOnly" type="checkbox" aria-describedby="unseenAvailable"> 미응시 문제만 출제';
+ label.innerHTML='<input id="unseenOnly" type="checkbox" aria-describedby="unseenAvailable"> 미응시 문제';
  const previous=$('startUnseen10')?.closest('.action-subgroup');
  if(previous)previous.replaceWith(label);else $('start10').closest('.big-actions').before(label);
 }
 if(!$('solvedOnly')){
  const label=document.createElement('label');label.className='cb';
- label.innerHTML='<input id="solvedOnly" type="checkbox" aria-describedby="solvedAvailable"> 이미 푼 문제만 출제';
+ label.innerHTML='<input id="solvedOnly" type="checkbox" aria-describedby="solvedAvailable"> 문제 회독';
  const note=document.createElement('p');note.id='solvedAvailable';note.className='tiny';note.setAttribute('aria-live','polite');
  $('unseenAvailable').after(label,note);
 }

@@ -7873,5 +7873,847 @@
    },
    "notes": []
   }
+ },
+ {
+  "id": "pr-2017-1-001",
+  "year": "2017-1회",
+  "examYear": 2017,
+  "round": 1,
+  "category": "접지",
+  "question": "주 접지단자에 접속되는 등전위본딩선의 단면적은 다음의 재료일 때 최소 얼마 이상이어야 하는지 적으시오.\n- 동 : (①)[sq]\n- 알루미늄 : (②)[sq]\n- 철 : (③)[sq]",
+  "options": [
+   "6 / 16 / 50"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-1회",
+   "topic": "등전위본딩선 단면적"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "주 접지단자에 접속되는 등전위본딩선의 단면적은 다음의 재료일 때 최소 얼마 이상이어야 하는지 적으시오.\n- 동 : (①)[sq]\n- 알루미늄 : (②)[sq]\n- 철 : (③)[sq]",
+   "basisAnswer": "6 / 16 / 50",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "6"
+    },
+    {
+     "label": "②",
+     "answer": "16"
+    },
+    {
+     "label": "③",
+     "answer": "50"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-1-002",
+  "year": "2017-1회",
+  "examYear": 2017,
+  "round": 1,
+  "category": "변압기",
+  "question": "변압기 Y-Y 결선의 장점과 단점을 각각 2가지씩 쓰시오.",
+  "options": [
+   "장점 1: 중성점을 접지할 수 있으므로 이상전압 방지에 유리 / 장점 2: 상전압이 선간전압의 1/√3이 되므로 절연이 용이 / 단점 1: 중성점을 접지하면 제3고조파 전류가 흘러 통신선 유도장해 발생 우려 / 단점 2: 유도기전력 파형이 제3고조파를 포함한 왜형파가 된다"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-1회",
+   "topic": "Y-Y 결선 장단점"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "변압기 Y-Y 결선의 장점과 단점을 각각 2가지씩 쓰시오.",
+   "basisAnswer": "장점 1: 중성점을 접지할 수 있으므로 이상전압 방지에 유리 / 장점 2: 상전압이 선간전압의 1/√3이 되므로 절연이 용이 / 단점 1: 중성점을 접지하면 제3고조파 전류가 흘러 통신선 유도장해 발생 우려 / 단점 2: 유도기전력 파형이 제3고조파를 포함한 왜형파가 된다",
+   "fields": [
+    {
+     "label": "장점 1",
+     "answer": "중성점을 접지할 수 있으므로 이상전압 방지에 유리"
+    },
+    {
+     "label": "장점 2",
+     "answer": "상전압이 선간전압의 1/√3이 되므로 절연이 용이"
+    },
+    {
+     "label": "단점 1",
+     "answer": "중성점을 접지하면 제3고조파 전류가 흘러 통신선 유도장해 발생 우려"
+    },
+    {
+     "label": "단점 2",
+     "answer": "유도기전력 파형이 제3고조파를 포함한 왜형파가 된다"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-1-003",
+  "year": "2017-1회",
+  "examYear": 2017,
+  "round": 1,
+  "category": "설비·배선",
+  "question": "한국전기설비규정(KEC)에서 규정하고 있는 사람이 상시 통행하는 터널 내의 배선 방법 중 3가지를 쓰시오.",
+  "options": [
+   "애자공사 / 금속관공사 / 합성수지관공사"
+  ],
+  "correct": 0,
+  "explain": "금속제 가요전선관공사, 케이블공사도 해당합니다.",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-1회",
+   "topic": "사람이 상시 통행하는 터널 배선"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "한국전기설비규정(KEC)에서 규정하고 있는 사람이 상시 통행하는 터널 내의 배선 방법 중 3가지를 쓰시오.",
+   "basisAnswer": "애자공사 / 금속관공사 / 합성수지관공사",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "애자공사"
+    },
+    {
+     "label": "답 2",
+     "answer": "금속관공사"
+    },
+    {
+     "label": "답 3",
+     "answer": "합성수지관공사"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-1-004",
+  "year": "2017-1회",
+  "examYear": 2017,
+  "round": 1,
+  "category": "피뢰·SPD",
+  "question": "구내선로에서 발생할 수 있는 개폐서지, 순간과도전압 등으로 이상전압이 2차 기기에 악영향을 주는 것을 막기 위해 시설하는 것은 무엇인지 적으시오.",
+  "options": [
+   "서지흡수기(SA)"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-1회",
+   "topic": "서지흡수기"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "구내선로에서 발생할 수 있는 개폐서지, 순간과도전압 등으로 이상전압이 2차 기기에 악영향을 주는 것을 막기 위해 시설하는 것은 무엇인지 적으시오.",
+   "basisAnswer": "서지흡수기(SA)",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "서지흡수기(SA)"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-1-005",
+  "year": "2017-1회",
+  "examYear": 2017,
+  "round": 1,
+  "category": "송배전",
+  "question": "가공배전공사에서 지지선 공사에는 보통 지지선 공사와 수평지지선 공사가 있다. 수평지지선 공사 흐름도를 완성하시오.\n지지선 위치결정 → 지지선 구덩이 파기 → 지지선밴드 설치 → (①) → 지지선주 건주 → 보통지지선 설치 → 지지선밴드 설치 → (②) → 지지선 카바 설치 → 작업장 정리정돈 → 완료",
+  "options": [
+   "지지선애자 설치 / 지지선 장력 조정"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-1회",
+   "topic": "수평지지선 공사 흐름도"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "가공배전공사에서 지지선 공사에는 보통 지지선 공사와 수평지지선 공사가 있다. 수평지지선 공사 흐름도를 완성하시오.\n지지선 위치결정 → 지지선 구덩이 파기 → 지지선밴드 설치 → (①) → 지지선주 건주 → 보통지지선 설치 → 지지선밴드 설치 → (②) → 지지선 카바 설치 → 작업장 정리정돈 → 완료",
+   "basisAnswer": "지지선애자 설치 / 지지선 장력 조정",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "지지선애자 설치"
+    },
+    {
+     "label": "②",
+     "answer": "지지선 장력 조정"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-1-006",
+  "year": "2017-1회",
+  "examYear": 2017,
+  "round": 1,
+  "category": "송배전",
+  "question": "H주일 때 현장 여건상 전주별로 별도의 보통지지선 설치가 곤란하거나 1개의 지지선용 전주 버팀대로 저항력을 확보할 수 있는 경우, 1개의 지지선 로드 및 전주 버팀대로 2단의 지지선을 시설하는 지지선의 명칭을 쓰시오.",
+  "options": [
+   "Y지지선"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-1회",
+   "topic": "Y지지선"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "H주일 때 현장 여건상 전주별로 별도의 보통지지선 설치가 곤란하거나 1개의 지지선용 전주 버팀대로 저항력을 확보할 수 있는 경우, 1개의 지지선 로드 및 전주 버팀대로 2단의 지지선을 시설하는 지지선의 명칭을 쓰시오.",
+   "basisAnswer": "Y지지선",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "Y지지선"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-001",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "설비·배선",
+  "question": "가연성 먼지(소맥분·전분·유황 기타 가연성의 먼지)에 전기설비가 발화원이 되어 폭발할 우려가 있는 곳에 시설하는 저압 옥내 배선으로 적합한 공사 방법 3가지를 쓰시오.",
+  "options": [
+   "금속관공사 / 합성수지관공사 / 케이블공사"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "가연성 먼지 장소 배선"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "가연성 먼지(소맥분·전분·유황 기타 가연성의 먼지)에 전기설비가 발화원이 되어 폭발할 우려가 있는 곳에 시설하는 저압 옥내 배선으로 적합한 공사 방법 3가지를 쓰시오.",
+   "basisAnswer": "금속관공사 / 합성수지관공사 / 케이블공사",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "금속관공사"
+    },
+    {
+     "label": "답 2",
+     "answer": "합성수지관공사"
+    },
+    {
+     "label": "답 3",
+     "answer": "케이블공사"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-002",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "조명",
+  "question": "조도 계산에 필요한 요소 중 조도 계산을 하기 전에 건축도면을 입수하여 조사하여야 하는 사항 3가지를 쓰시오.",
+  "options": [
+   "방의 마감 상태(천장, 벽, 바닥 등의 반사율) / 방의 사용 목적과 작업 내용 / 방의 크기(가로, 세로, 높이)"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "조도 계산 전 조사사항"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "조도 계산에 필요한 요소 중 조도 계산을 하기 전에 건축도면을 입수하여 조사하여야 하는 사항 3가지를 쓰시오.",
+   "basisAnswer": "방의 마감 상태(천장, 벽, 바닥 등의 반사율) / 방의 사용 목적과 작업 내용 / 방의 크기(가로, 세로, 높이)",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "방의 마감 상태(천장, 벽, 바닥 등의 반사율)"
+    },
+    {
+     "label": "답 2",
+     "answer": "방의 사용 목적과 작업 내용"
+    },
+    {
+     "label": "답 3",
+     "answer": "방의 크기(가로, 세로, 높이)"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-003",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "보호·계전",
+  "question": "GPT에서 오픈 델타 결선에 연결한 한류저항기의 용도 3가지를 쓰시오.",
+  "options": [
+   "비접지 방식에서 GPT를 사용하고 선택지락계전기를 동작시키는 데 필요한 유효전류 발생 / 오픈 델타 결선의 각 상의 제3고조파 전압 발생 방지 / 중성점 이상 전위 진동 및 중성점 불안정 현상 등의 이상현상 제거"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "GPT 한류저항기 용도"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "GPT에서 오픈 델타 결선에 연결한 한류저항기의 용도 3가지를 쓰시오.",
+   "basisAnswer": "비접지 방식에서 GPT를 사용하고 선택지락계전기를 동작시키는 데 필요한 유효전류 발생 / 오픈 델타 결선의 각 상의 제3고조파 전압 발생 방지 / 중성점 이상 전위 진동 및 중성점 불안정 현상 등의 이상현상 제거",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "비접지 방식에서 GPT를 사용하고 선택지락계전기를 동작시키는 데 필요한 유효전류 발생"
+    },
+    {
+     "label": "답 2",
+     "answer": "오픈 델타 결선의 각 상의 제3고조파 전압 발생 방지"
+    },
+    {
+     "label": "답 3",
+     "answer": "중성점 이상 전위 진동 및 중성점 불안정 현상 등의 이상현상 제거"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-004",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "접지",
+  "question": "간접접촉 예방 중 전원의 자동차단에 의한 인체 보호를 위하여, 전기회로 또는 전기기기의 충전부와 노출 도전성 부분 또는 보호도체 간에 고장이 발생하여 교류 몇 [V](실효값)를 초과하는 접촉전압이 발생한 경우에 그 전원을 자동적으로 차단하여야 하는지 적으시오.",
+  "options": [
+   "50[V]"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "전원 자동차단 접촉전압"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "간접접촉 예방 중 전원의 자동차단에 의한 인체 보호를 위하여, 전기회로 또는 전기기기의 충전부와 노출 도전성 부분 또는 보호도체 간에 고장이 발생하여 교류 몇 [V](실효값)를 초과하는 접촉전압이 발생한 경우에 그 전원을 자동적으로 차단하여야 하는지 적으시오.",
+   "basisAnswer": "50[V]",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "50[V]"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-005",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "조명",
+  "question": "다음 설명에 해당하는 매입방식의 건축화 조명방식을 쓰시오.\n- 천장면에 작은 구멍을 많이 뚫어 그 속에 하면 개방형, 하면 루버형, 하면 확산형, 반사형 전구 등의 등기구를 매입하는 방식 : (①)\n- 천장면에 확산 투과재인 메탈아크릴 수지판을 붙이고 천장 내부에 광원을 배치하는 방식 : (②)\n- 천장면을 사각, 동그라미 등으로 오려내고 다양한 형태의 매입기구를 취부하여 실내의 단조로움을 피하는 방식 : (③)\n- 숨겨진 램프의 직접광이 아래쪽 벽, 커튼, 위쪽 천장면에 쪼이도록 벽면을 밝은 광원으로 조명하는 분위기 조명방식 : (④)\n- 천장과 벽면의 경계 구석에 등기구를 설치하는 방식 : (⑤)",
+  "options": [
+   "다운라이트 조명 / 광천장 조명 / 코퍼 조명 / 밸런스 조명 / 코너 조명"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "매입방식 건축화 조명"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "다음 설명에 해당하는 매입방식의 건축화 조명방식을 쓰시오.\n- 천장면에 작은 구멍을 많이 뚫어 그 속에 하면 개방형, 하면 루버형, 하면 확산형, 반사형 전구 등의 등기구를 매입하는 방식 : (①)\n- 천장면에 확산 투과재인 메탈아크릴 수지판을 붙이고 천장 내부에 광원을 배치하는 방식 : (②)\n- 천장면을 사각, 동그라미 등으로 오려내고 다양한 형태의 매입기구를 취부하여 실내의 단조로움을 피하는 방식 : (③)\n- 숨겨진 램프의 직접광이 아래쪽 벽, 커튼, 위쪽 천장면에 쪼이도록 벽면을 밝은 광원으로 조명하는 분위기 조명방식 : (④)\n- 천장과 벽면의 경계 구석에 등기구를 설치하는 방식 : (⑤)",
+   "basisAnswer": "다운라이트 조명 / 광천장 조명 / 코퍼 조명 / 밸런스 조명 / 코너 조명",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "다운라이트 조명"
+    },
+    {
+     "label": "②",
+     "answer": "광천장 조명"
+    },
+    {
+     "label": "③",
+     "answer": "코퍼 조명"
+    },
+    {
+     "label": "④",
+     "answer": "밸런스 조명"
+    },
+    {
+     "label": "⑤",
+     "answer": "코너 조명"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-006",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "보호·계전",
+  "question": "방폭·방식·방습·방온·방진 및 정전기 차폐 등의 방호 조치가 되어 있지 않은 누전경보기의 수신부를 설치할 수 없는 장소 5가지를 쓰시오.",
+  "options": [
+   "가연성의 증기, 먼지, 가스 등이나 부식성의 증기, 가스 등이 다량으로 체류하는 장소 / 화약류를 제조하거나 저장 또는 취급하는 장소 / 습도가 높은 장소 / 온도의 변화가 급격한 장소 / 대전류 회로, 고주파 발생회로 등에 따른 영향을 받을 우려가 있는 장소"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "누전경보기 수신부 설치 제외 장소"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "방폭·방식·방습·방온·방진 및 정전기 차폐 등의 방호 조치가 되어 있지 않은 누전경보기의 수신부를 설치할 수 없는 장소 5가지를 쓰시오.",
+   "basisAnswer": "가연성의 증기, 먼지, 가스 등이나 부식성의 증기, 가스 등이 다량으로 체류하는 장소 / 화약류를 제조하거나 저장 또는 취급하는 장소 / 습도가 높은 장소 / 온도의 변화가 급격한 장소 / 대전류 회로, 고주파 발생회로 등에 따른 영향을 받을 우려가 있는 장소",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "가연성의 증기, 먼지, 가스 등이나 부식성의 증기, 가스 등이 다량으로 체류하는 장소"
+    },
+    {
+     "label": "답 2",
+     "answer": "화약류를 제조하거나 저장 또는 취급하는 장소"
+    },
+    {
+     "label": "답 3",
+     "answer": "습도가 높은 장소"
+    },
+    {
+     "label": "답 4",
+     "answer": "온도의 변화가 급격한 장소"
+    },
+    {
+     "label": "답 5",
+     "answer": "대전류 회로, 고주파 발생회로 등에 따른 영향을 받을 우려가 있는 장소"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-2-007",
+  "year": "2017-2회",
+  "examYear": 2017,
+  "round": 2,
+  "category": "설비·배선",
+  "question": "폭연성 먼지가 있는 위험장소의 저압 옥내배선에 사용되는 금속관은 어떤 전선관이며, 관 상호 및 관과 박스의 접속은 몇 산 이상의 조임으로 나사를 시공하여야 하는지 적으시오.",
+  "options": [
+   "전선관: 박강전선관 / 나사 조임: 5산 이상"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-2회",
+   "topic": "폭연성 먼지 장소 금속관"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "폭연성 먼지가 있는 위험장소의 저압 옥내배선에 사용되는 금속관은 어떤 전선관이며, 관 상호 및 관과 박스의 접속은 몇 산 이상의 조임으로 나사를 시공하여야 하는지 적으시오.",
+   "basisAnswer": "전선관: 박강전선관 / 나사 조임: 5산 이상",
+   "fields": [
+    {
+     "label": "전선관",
+     "answer": "박강전선관"
+    },
+    {
+     "label": "나사 조임",
+     "answer": "5산 이상"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-4-001",
+  "year": "2017-4회",
+  "examYear": 2017,
+  "round": 4,
+  "category": "설비·배선",
+  "question": "금속덕트 및 버스덕트 시설 시 취급자 이외의 자가 출입할 수 없도록 설비한 장소에서 수직으로 설치하는 경우 최대 몇 [m] 이하의 간격으로 지지하여야 하는지 쓰시오.",
+  "options": [
+   "6[m]"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-4회",
+   "topic": "금속덕트·버스덕트 수직 지지간격"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "금속덕트 및 버스덕트 시설 시 취급자 이외의 자가 출입할 수 없도록 설비한 장소에서 수직으로 설치하는 경우 최대 몇 [m] 이하의 간격으로 지지하여야 하는지 쓰시오.",
+   "basisAnswer": "6[m]",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "6[m]"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-4-002",
+  "year": "2017-4회",
+  "examYear": 2017,
+  "round": 4,
+  "category": "송배전",
+  "question": "표준철탑에서 가공전선로의 말단에서 전력선이나 가공지선을 잡아매는 곳에 사용하는 철탑의 명칭을 쓰시오.",
+  "options": [
+   "잡아당김 철탑"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-4회",
+   "topic": "잡아당김 철탑"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "표준철탑에서 가공전선로의 말단에서 전력선이나 가공지선을 잡아매는 곳에 사용하는 철탑의 명칭을 쓰시오.",
+   "basisAnswer": "잡아당김 철탑",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "잡아당김 철탑"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-4-003",
+  "year": "2017-4회",
+  "examYear": 2017,
+  "round": 4,
+  "category": "송배전",
+  "question": "전주의 지지선과 지하에 매설되는 지지선의 전주 버팀대와의 연결용으로 사용하는 기자재의 명칭을 쓰시오.",
+  "options": [
+   "지지선로드"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-4회",
+   "topic": "지지선로드"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전주의 지지선과 지하에 매설되는 지지선의 전주 버팀대와의 연결용으로 사용하는 기자재의 명칭을 쓰시오.",
+   "basisAnswer": "지지선로드",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "지지선로드"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-4-004",
+  "year": "2017-4회",
+  "examYear": 2017,
+  "round": 4,
+  "category": "설비·배선",
+  "question": "다음 빈칸에 들어갈 내용을 쓰시오.\n직류전기설비를 시설하는 경우는 (①)에 대한 보호를 하여야 한다. 또한, 직류전기설비의 접지시설은 기준에 준용하여 (②)를 하여야 한다.",
+  "options": [
+   "감전 / 전기부식 방지"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-4회",
+   "topic": "직류전기설비 보호"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "다음 빈칸에 들어갈 내용을 쓰시오.\n직류전기설비를 시설하는 경우는 (①)에 대한 보호를 하여야 한다. 또한, 직류전기설비의 접지시설은 기준에 준용하여 (②)를 하여야 한다.",
+   "basisAnswer": "감전 / 전기부식 방지",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "감전"
+    },
+    {
+     "label": "②",
+     "answer": "전기부식 방지"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2017-4-005",
+  "year": "2017-4회",
+  "examYear": 2017,
+  "round": 4,
+  "category": "수변전",
+  "question": "가스차단기(GCB)의 특징 3가지를 쓰시오.",
+  "options": [
+   "밀폐구조이므로 소음이 적다 / 절연 거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다 / 근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2017-4회",
+   "topic": "가스차단기 특징"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "가스차단기(GCB)의 특징 3가지를 쓰시오.",
+   "basisAnswer": "밀폐구조이므로 소음이 적다 / 절연 거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다 / 근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "밀폐구조이므로 소음이 적다"
+    },
+    {
+     "label": "답 2",
+     "answer": "절연 거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다"
+    },
+    {
+     "label": "답 3",
+     "answer": "근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2017-4회"
+   },
+   "notes": []
+  }
  }
 ]

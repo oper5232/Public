@@ -8715,5 +8715,1691 @@
    },
    "notes": []
   }
+ },
+ {
+  "id": "pr-2016-1-001",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "송배전",
+  "question": "가공전선로의 애자에 대한 설명이다. 빈칸에 알맞은 내용을 쓰시오.\n- 애자련 개수의 결정은 (①)에 대하여 (②)을 일으키지 않도록 하는 것을 기준으로 하고 있다.\n- 애자의 상하 금구 사이에 전압을 인가하고 전압을 점점 높여가면 애자 주위의 공기를 통해서 아크가 발생되어 애자가 단락되게 되는 전압을 (③)이라 한다.\n- 전선 측에 붙여서 전선에 대한 정전용량을 늘리고, 선로의 섬락 시 애자가 열적으로 파괴되는 것을 막는 데 효과가 있는 것을 (④)이라 한다.",
+  "options": [
+   "이상전압 / 섬락 / 섬락전압 / 초호환(아킹링)"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "가공전선로 애자"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "가공전선로의 애자에 대한 설명이다. 빈칸에 알맞은 내용을 쓰시오.\n- 애자련 개수의 결정은 (①)에 대하여 (②)을 일으키지 않도록 하는 것을 기준으로 하고 있다.\n- 애자의 상하 금구 사이에 전압을 인가하고 전압을 점점 높여가면 애자 주위의 공기를 통해서 아크가 발생되어 애자가 단락되게 되는 전압을 (③)이라 한다.\n- 전선 측에 붙여서 전선에 대한 정전용량을 늘리고, 선로의 섬락 시 애자가 열적으로 파괴되는 것을 막는 데 효과가 있는 것을 (④)이라 한다.",
+   "basisAnswer": "이상전압 / 섬락 / 섬락전압 / 초호환(아킹링)",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "이상전압"
+    },
+    {
+     "label": "②",
+     "answer": "섬락"
+    },
+    {
+     "label": "③",
+     "answer": "섬락전압"
+    },
+    {
+     "label": "④",
+     "answer": "초호환(아킹링)"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-002",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "수변전",
+  "question": "부등률을 구하는 식을 쓰시오.",
+  "options": [
+   "부등률 = 각 개별 수용가 최대수용전력의 합 / 합성최대수용전력"
+  ],
+  "correct": 0,
+  "explain": "부등률은 항상 1 이상입니다. 각 수용가의 최대전력이 같은 시각에 생기지 않기 때문입니다.",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "부등률"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "부등률을 구하는 식을 쓰시오.",
+   "basisAnswer": "부등률 = 각 개별 수용가 최대수용전력의 합 / 합성최대수용전력",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "부등률 = 각 개별 수용가 최대수용전력의 합 / 합성최대수용전력"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-003",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "접지",
+  "question": "요구하는 접지의 목적과 접지저항값을 얻기 위해서는 대지의 구조에 따라 경제적이고 신뢰성 있는 접지공법을 채택하여야 한다. 접지공법을 대별하면 봉상접지공법, 그물망 공법, 건축 구조체 접지공법이 있다. 이 중 봉상접지공법에 대하여 간단히 설명하시오.",
+  "options": [
+   "심타공법: 접지봉을 지표에서 타입하는 방법으로 접지봉을 직렬 접속하는 방법 / 병렬접지공법: 독립 접지봉을 여러 개 묻고 각 접지봉을 병렬로 연결하는 방법"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "봉상접지공법"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "요구하는 접지의 목적과 접지저항값을 얻기 위해서는 대지의 구조에 따라 경제적이고 신뢰성 있는 접지공법을 채택하여야 한다. 접지공법을 대별하면 봉상접지공법, 그물망 공법, 건축 구조체 접지공법이 있다. 이 중 봉상접지공법에 대하여 간단히 설명하시오.",
+   "basisAnswer": "심타공법: 접지봉을 지표에서 타입하는 방법으로 접지봉을 직렬 접속하는 방법 / 병렬접지공법: 독립 접지봉을 여러 개 묻고 각 접지봉을 병렬로 연결하는 방법",
+   "fields": [
+    {
+     "label": "심타공법",
+     "answer": "접지봉을 지표에서 타입하는 방법으로 접지봉을 직렬 접속하는 방법"
+    },
+    {
+     "label": "병렬접지공법",
+     "answer": "독립 접지봉을 여러 개 묻고 각 접지봉을 병렬로 연결하는 방법"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-004",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "조명",
+  "question": "조명기구를 직선도로에 배치하는 방식 4가지를 쓰시오.",
+  "options": [
+   "중앙배열 / 한쪽배열 / 대칭배열 / 지그재그배열"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "직선도로 조명기구 배치"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "조명기구를 직선도로에 배치하는 방식 4가지를 쓰시오.",
+   "basisAnswer": "중앙배열 / 한쪽배열 / 대칭배열 / 지그재그배열",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "중앙배열"
+    },
+    {
+     "label": "답 2",
+     "answer": "한쪽배열"
+    },
+    {
+     "label": "답 3",
+     "answer": "대칭배열"
+    },
+    {
+     "label": "답 4",
+     "answer": "지그재그배열"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-005",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "수변전",
+  "question": "감전의 위험이 있는 전기시설의 부위에는 전기의 가압 여부를 식별할 수 있는 활선 표시장치 등을 각 상에 부착하도록 권장하고 있다. 이 활선 표시장치의 권장 설치장소 3곳을 쓰시오.",
+  "options": [
+   "수전점 개폐기의 전원 측 및 부하 측 각 상 / 분기회로 개폐기의 전원 측 및 부하 측 각 상 / 변압기 등의 전원 측 및 부하 측 각 상"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "활선 표시장치 설치장소"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "감전의 위험이 있는 전기시설의 부위에는 전기의 가압 여부를 식별할 수 있는 활선 표시장치 등을 각 상에 부착하도록 권장하고 있다. 이 활선 표시장치의 권장 설치장소 3곳을 쓰시오.",
+   "basisAnswer": "수전점 개폐기의 전원 측 및 부하 측 각 상 / 분기회로 개폐기의 전원 측 및 부하 측 각 상 / 변압기 등의 전원 측 및 부하 측 각 상",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "수전점 개폐기의 전원 측 및 부하 측 각 상"
+    },
+    {
+     "label": "답 2",
+     "answer": "분기회로 개폐기의 전원 측 및 부하 측 각 상"
+    },
+    {
+     "label": "답 3",
+     "answer": "변압기 등의 전원 측 및 부하 측 각 상"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-006",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "송배전",
+  "question": "가공전선로 설계 시 부하계수란 무엇인지 쓰시오.",
+  "options": [
+   "단위길이당 합성하중과 전선의 자중에 대한 비"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "부하계수 정의"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "가공전선로 설계 시 부하계수란 무엇인지 쓰시오.",
+   "basisAnswer": "단위길이당 합성하중과 전선의 자중에 대한 비",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "단위길이당 합성하중과 전선의 자중에 대한 비"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-007",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "수변전",
+  "question": "옥외 변전소 시설에 있어서 울타리·담 등의 높이와 울타리·담 등으로부터 충전부분까지의 거리의 합계의 최소값[m]을 쓰시오.\n- 35kV 이하 : (①)m\n- 35kV 초과 160kV 이하 : (②)m\n- 160kV 초과 : (③)m에 160kV를 초과하는 10kV 또는 그 단수마다 (④)m를 더한 값",
+  "options": [
+   "5 / 6 / 6 / 0.12"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "옥외 변전소 울타리 높이·거리"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "옥외 변전소 시설에 있어서 울타리·담 등의 높이와 울타리·담 등으로부터 충전부분까지의 거리의 합계의 최소값[m]을 쓰시오.\n- 35kV 이하 : (①)m\n- 35kV 초과 160kV 이하 : (②)m\n- 160kV 초과 : (③)m에 160kV를 초과하는 10kV 또는 그 단수마다 (④)m를 더한 값",
+   "basisAnswer": "5 / 6 / 6 / 0.12",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "5"
+    },
+    {
+     "label": "②",
+     "answer": "6"
+    },
+    {
+     "label": "③",
+     "answer": "6"
+    },
+    {
+     "label": "④",
+     "answer": "0.12"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-008",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "송배전",
+  "question": "직류송전방식의 장점 3가지를 쓰시오.",
+  "options": [
+   "절연계급을 낮출 수 있다 / 역률이 항상 1이므로 송전 효율이 좋다 / 선로의 리액턴스가 없으므로 안정도가 높다"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "직류송전 장점"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "직류송전방식의 장점 3가지를 쓰시오.",
+   "basisAnswer": "절연계급을 낮출 수 있다 / 역률이 항상 1이므로 송전 효율이 좋다 / 선로의 리액턴스가 없으므로 안정도가 높다",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "절연계급을 낮출 수 있다"
+    },
+    {
+     "label": "답 2",
+     "answer": "역률이 항상 1이므로 송전 효율이 좋다"
+    },
+    {
+     "label": "답 3",
+     "answer": "선로의 리액턴스가 없으므로 안정도가 높다"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-1-009",
+  "year": "2016-1회",
+  "examYear": 2016,
+  "round": 1,
+  "category": "접지",
+  "question": "전기설비에 지락 등의 고장이 발생한 경우에 해당 전기설비에 사람 등이 접촉하여 발생하는 간접접촉 예방 보호방법 5가지를 쓰시오.",
+  "options": [
+   "운전 중인 전기설비에 고장이 발생하는 즉시 고장설비의 전원을 차단 / 전기설비를 이중절연 또는 강화절연 / 비도전성 장소 / 비접지 국부등전위본딩 등의 보호방식 / 전기적 분리"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-1회",
+   "topic": "간접접촉 보호방법"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전기설비에 지락 등의 고장이 발생한 경우에 해당 전기설비에 사람 등이 접촉하여 발생하는 간접접촉 예방 보호방법 5가지를 쓰시오.",
+   "basisAnswer": "운전 중인 전기설비에 고장이 발생하는 즉시 고장설비의 전원을 차단 / 전기설비를 이중절연 또는 강화절연 / 비도전성 장소 / 비접지 국부등전위본딩 등의 보호방식 / 전기적 분리",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "운전 중인 전기설비에 고장이 발생하는 즉시 고장설비의 전원을 차단"
+    },
+    {
+     "label": "답 2",
+     "answer": "전기설비를 이중절연 또는 강화절연"
+    },
+    {
+     "label": "답 3",
+     "answer": "비도전성 장소"
+    },
+    {
+     "label": "답 4",
+     "answer": "비접지 국부등전위본딩 등의 보호방식"
+    },
+    {
+     "label": "답 5",
+     "answer": "전기적 분리"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-2-001",
+  "year": "2016-2회",
+  "examYear": 2016,
+  "round": 2,
+  "category": "공사적산",
+  "question": "가공 배전선로를 가선할 때 전선의 실 소요량을 구하는 식을 쓰시오.",
+  "options": [
+   "고저차가 없는 경우: 선로 긍장 × 전선 조수 × 1.02 / 고저차가 심한 경우: 선로 긍장 × 전선 조수 × 1.03"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-2회",
+   "topic": "가선 전선 실소요량"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "가공 배전선로를 가선할 때 전선의 실 소요량을 구하는 식을 쓰시오.",
+   "basisAnswer": "고저차가 없는 경우: 선로 긍장 × 전선 조수 × 1.02 / 고저차가 심한 경우: 선로 긍장 × 전선 조수 × 1.03",
+   "fields": [
+    {
+     "label": "고저차가 없는 경우",
+     "answer": "선로 긍장 × 전선 조수 × 1.02"
+    },
+    {
+     "label": "고저차가 심한 경우",
+     "answer": "선로 긍장 × 전선 조수 × 1.03"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-2-002",
+  "year": "2016-2회",
+  "examYear": 2016,
+  "round": 2,
+  "category": "설비·배선",
+  "question": "전기기기의 선정과 시설을 위한 배선설비의 선정과 시공 시 고려할 사항 5가지를 쓰시오.",
+  "options": [
+   "감전 예방 / 열적 영향에 대한 보호 / 과전류에 대한 보호 / 고장전류에 대한 보호 / 과전압에 대한 보호"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-2회",
+   "topic": "배선설비 선정·시공 고려사항"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전기기기의 선정과 시설을 위한 배선설비의 선정과 시공 시 고려할 사항 5가지를 쓰시오.",
+   "basisAnswer": "감전 예방 / 열적 영향에 대한 보호 / 과전류에 대한 보호 / 고장전류에 대한 보호 / 과전압에 대한 보호",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "감전 예방"
+    },
+    {
+     "label": "답 2",
+     "answer": "열적 영향에 대한 보호"
+    },
+    {
+     "label": "답 3",
+     "answer": "과전류에 대한 보호"
+    },
+    {
+     "label": "답 4",
+     "answer": "고장전류에 대한 보호"
+    },
+    {
+     "label": "답 5",
+     "answer": "과전압에 대한 보호"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-2-003",
+  "year": "2016-2회",
+  "examYear": 2016,
+  "round": 2,
+  "category": "설비·배선",
+  "question": "분기회로의 용어 정의를 쓰시오.",
+  "options": [
+   "간선에서 분기하여 분기과전류차단기를 거쳐서 부하에 이르는 사이의 배선"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-2회",
+   "topic": "분기회로 정의"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "분기회로의 용어 정의를 쓰시오.",
+   "basisAnswer": "간선에서 분기하여 분기과전류차단기를 거쳐서 부하에 이르는 사이의 배선",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "간선에서 분기하여 분기과전류차단기를 거쳐서 부하에 이르는 사이의 배선"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-2-004",
+  "year": "2016-2회",
+  "examYear": 2016,
+  "round": 2,
+  "category": "수변전",
+  "question": "차단기의 동작 책무에 의해 차단기를 재투입할 경우 전자기계력에 의한 반발력을 견디어야 하는데, 차단기의 정격 투입전류는 최대(정격)차단전류의 몇 배 이상을 선정하는지 쓰시오.",
+  "options": [
+   "2.5배"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-2회",
+   "topic": "차단기 정격투입전류"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "차단기의 동작 책무에 의해 차단기를 재투입할 경우 전자기계력에 의한 반발력을 견디어야 하는데, 차단기의 정격 투입전류는 최대(정격)차단전류의 몇 배 이상을 선정하는지 쓰시오.",
+   "basisAnswer": "2.5배",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "2.5배"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-4-001",
+  "year": "2016-4회",
+  "examYear": 2016,
+  "round": 4,
+  "category": "수변전",
+  "question": "가스차단기(GCB : Gas Circuit Breaker)의 특징 5가지를 쓰시오.",
+  "options": [
+   "밀폐구조이므로 소음이 적다 / 절연거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다 / 근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다 / 불활성·난연성이므로 화재 우려가 적다 / 아크 소호능력이 우수하며 이상전압의 발생이 적다"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-4회",
+   "topic": "가스차단기 특징 5가지"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "가스차단기(GCB : Gas Circuit Breaker)의 특징 5가지를 쓰시오.",
+   "basisAnswer": "밀폐구조이므로 소음이 적다 / 절연거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다 / 근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다 / 불활성·난연성이므로 화재 우려가 적다 / 아크 소호능력이 우수하며 이상전압의 발생이 적다",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "밀폐구조이므로 소음이 적다"
+    },
+    {
+     "label": "답 2",
+     "answer": "절연거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다"
+    },
+    {
+     "label": "답 3",
+     "answer": "근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다"
+    },
+    {
+     "label": "답 4",
+     "answer": "불활성·난연성이므로 화재 우려가 적다"
+    },
+    {
+     "label": "답 5",
+     "answer": "아크 소호능력이 우수하며 이상전압의 발생이 적다"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-4-002",
+  "year": "2016-4회",
+  "examYear": 2016,
+  "round": 4,
+  "category": "수변전",
+  "question": "전력용 콘덴서의 효과 4가지를 쓰시오.",
+  "options": [
+   "전력손실 감소 / 전기요금 절감 / 전압강하 감소 / 설비용량 여유분 증가"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-4회",
+   "topic": "전력용 콘덴서 효과"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전력용 콘덴서의 효과 4가지를 쓰시오.",
+   "basisAnswer": "전력손실 감소 / 전기요금 절감 / 전압강하 감소 / 설비용량 여유분 증가",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "전력손실 감소"
+    },
+    {
+     "label": "답 2",
+     "answer": "전기요금 절감"
+    },
+    {
+     "label": "답 3",
+     "answer": "전압강하 감소"
+    },
+    {
+     "label": "답 4",
+     "answer": "설비용량 여유분 증가"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-4-003",
+  "year": "2016-4회",
+  "examYear": 2016,
+  "round": 4,
+  "category": "송배전",
+  "question": "LP애자나 현수애자를 사용한 전기설비에서 활선 장주를 이동하여 상부로 올리거나 작업권 밖으로 밀어낼 때, 혹은 활선 장주를 다른 장소로 이동할 때 사용하는 활선 공구를 쓰시오.",
+  "options": [
+   "와이어 통"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-4회",
+   "topic": "와이어 통"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "LP애자나 현수애자를 사용한 전기설비에서 활선 장주를 이동하여 상부로 올리거나 작업권 밖으로 밀어낼 때, 혹은 활선 장주를 다른 장소로 이동할 때 사용하는 활선 공구를 쓰시오.",
+   "basisAnswer": "와이어 통",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "와이어 통"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-4-004",
+  "year": "2016-4회",
+  "examYear": 2016,
+  "round": 4,
+  "category": "송배전",
+  "question": "전력선 처짐정도(이도) 설계 시의 부하계수를 설명하고, 합성하중, 전선자중, 피빙설중량, 풍압하중 등을 이용하여 부하계수를 구하는 산술식을 쓰시오.",
+  "options": [
+   "부하계수: 단위길이당 합성하중과 전선의 자중에 대한 비 / 산술식: 부하계수 = 합성하중 / 전선자중 = √((전선자중 + 피빙설중량)² + 풍압하중²) / 전선자중"
+  ],
+  "correct": 0,
+  "explain": "합성하중은 수직하중(전선자중 + 피빙설중량)과 수평하중(풍압하중)을 벡터로 합한 값입니다.",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-4회",
+   "topic": "부하계수 산술식"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전력선 처짐정도(이도) 설계 시의 부하계수를 설명하고, 합성하중, 전선자중, 피빙설중량, 풍압하중 등을 이용하여 부하계수를 구하는 산술식을 쓰시오.",
+   "basisAnswer": "부하계수: 단위길이당 합성하중과 전선의 자중에 대한 비 / 산술식: 부하계수 = 합성하중 / 전선자중 = √((전선자중 + 피빙설중량)² + 풍압하중²) / 전선자중",
+   "fields": [
+    {
+     "label": "부하계수",
+     "answer": "단위길이당 합성하중과 전선의 자중에 대한 비"
+    },
+    {
+     "label": "산술식",
+     "answer": "부하계수 = 합성하중 / 전선자중 = √((전선자중 + 피빙설중량)² + 풍압하중²) / 전선자중"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-4-005",
+  "year": "2016-4회",
+  "examYear": 2016,
+  "round": 4,
+  "category": "송배전",
+  "question": "지지선 공사에 필요한 자재 5가지를 쓰시오.",
+  "options": [
+   "아연도 철선 / 콘크리트 전주 버팀대 / 지지선 로드 / 지지선 밴드 / 지지선 애자"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-4회",
+   "topic": "지지선 공사 자재"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "지지선 공사에 필요한 자재 5가지를 쓰시오.",
+   "basisAnswer": "아연도 철선 / 콘크리트 전주 버팀대 / 지지선 로드 / 지지선 밴드 / 지지선 애자",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "아연도 철선"
+    },
+    {
+     "label": "답 2",
+     "answer": "콘크리트 전주 버팀대"
+    },
+    {
+     "label": "답 3",
+     "answer": "지지선 로드"
+    },
+    {
+     "label": "답 4",
+     "answer": "지지선 밴드"
+    },
+    {
+     "label": "답 5",
+     "answer": "지지선 애자"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2016-4-006",
+  "year": "2016-4회",
+  "examYear": 2016,
+  "round": 4,
+  "category": "송배전",
+  "question": "빈칸에 들어갈 내용을 쓰시오.\n애자와 같은 유기절연재료가 오손되면 표면에 흐르는 누설전류 때문에 미소방전이 생긴다. 그 결과 절연물 표면에는 탄화된 도전로가 형성되는데 이것을 (①)이라 부른다. (①)이 형성된 애자를 그대로 방치하면 점차로 발전하여 섬락이 발생하게 되어 (②)를 야기시킨다.",
+  "options": [
+   "트래킹 / 절연파괴"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2016-4회",
+   "topic": "트래킹"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "빈칸에 들어갈 내용을 쓰시오.\n애자와 같은 유기절연재료가 오손되면 표면에 흐르는 누설전류 때문에 미소방전이 생긴다. 그 결과 절연물 표면에는 탄화된 도전로가 형성되는데 이것을 (①)이라 부른다. (①)이 형성된 애자를 그대로 방치하면 점차로 발전하여 섬락이 발생하게 되어 (②)를 야기시킨다.",
+   "basisAnswer": "트래킹 / 절연파괴",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "트래킹"
+    },
+    {
+     "label": "②",
+     "answer": "절연파괴"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2016-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-1-001",
+  "year": "2015-1회",
+  "examYear": 2015,
+  "round": 1,
+  "category": "수변전",
+  "question": "가스차단기의 절연에 주로 사용되는 SF6 가스의 특징 중 전기적 성질 4가지를 쓰시오.",
+  "options": [
+   "절연내력이 우수하다 / 소호 성능이 우수하다 / 아크가 안정되어 있다 / 절연 회복이 빠르다"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-1회",
+   "topic": "SF6 가스 전기적 성질"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "가스차단기의 절연에 주로 사용되는 SF6 가스의 특징 중 전기적 성질 4가지를 쓰시오.",
+   "basisAnswer": "절연내력이 우수하다 / 소호 성능이 우수하다 / 아크가 안정되어 있다 / 절연 회복이 빠르다",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "절연내력이 우수하다"
+    },
+    {
+     "label": "답 2",
+     "answer": "소호 성능이 우수하다"
+    },
+    {
+     "label": "답 3",
+     "answer": "아크가 안정되어 있다"
+    },
+    {
+     "label": "답 4",
+     "answer": "절연 회복이 빠르다"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-1-002",
+  "year": "2015-1회",
+  "examYear": 2015,
+  "round": 1,
+  "category": "송배전",
+  "question": "345kV 볼-소켓형 현수애자에 대하여 2도체 송전선로와 4도체 송전선로의 IEC 규격에서의 애자 규격을 쓰시오.",
+  "options": [
+   "2도체 송전선로: 120kN, 160kN, 254[mm] / 4도체 송전선로: 210kN, 300kN, 320[mm]"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-1회",
+   "topic": "345kV 현수애자 IEC 규격"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "345kV 볼-소켓형 현수애자에 대하여 2도체 송전선로와 4도체 송전선로의 IEC 규격에서의 애자 규격을 쓰시오.",
+   "basisAnswer": "2도체 송전선로: 120kN, 160kN, 254[mm] / 4도체 송전선로: 210kN, 300kN, 320[mm]",
+   "fields": [
+    {
+     "label": "2도체 송전선로",
+     "answer": "120kN, 160kN, 254[mm]"
+    },
+    {
+     "label": "4도체 송전선로",
+     "answer": "210kN, 300kN, 320[mm]"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-1-003",
+  "year": "2015-1회",
+  "examYear": 2015,
+  "round": 1,
+  "category": "접지",
+  "question": "피뢰기 접지도체의 굵기 산출식을 쓰시오.",
+  "options": [
+   "A = (√t / 282) × I [sq] (t: 고장 지속시간[s], I: 차단기 정격차단전류[A])"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-1회",
+   "topic": "피뢰기 접지도체 굵기 산출식"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "피뢰기 접지도체의 굵기 산출식을 쓰시오.",
+   "basisAnswer": "A = (√t / 282) × I [sq] (t: 고장 지속시간[s], I: 차단기 정격차단전류[A])",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "A = (√t / 282) × I [sq] (t: 고장 지속시간[s], I: 차단기 정격차단전류[A])"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-1-004",
+  "year": "2015-1회",
+  "examYear": 2015,
+  "round": 1,
+  "category": "보호·계전",
+  "question": "다음 계전기 고유번호의 명칭을 쓰시오.\n- 37A : (①)\n- 37D : (②)\n- 37F : (③)",
+  "options": [
+   "교류 부족전류계전기 / 직류 부족전류계전기 / 퓨즈 용단 계전기"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-1회",
+   "topic": "계전기 고유번호 37"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "다음 계전기 고유번호의 명칭을 쓰시오.\n- 37A : (①)\n- 37D : (②)\n- 37F : (③)",
+   "basisAnswer": "교류 부족전류계전기 / 직류 부족전류계전기 / 퓨즈 용단 계전기",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "교류 부족전류계전기"
+    },
+    {
+     "label": "②",
+     "answer": "직류 부족전류계전기"
+    },
+    {
+     "label": "③",
+     "answer": "퓨즈 용단 계전기"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-1-005",
+  "year": "2015-1회",
+  "examYear": 2015,
+  "round": 1,
+  "category": "송배전",
+  "question": "다음 빈칸 안에 알맞은 내용을 써 넣으시오.\n가공전선로의 경우 높이 (①)m 이상인 철탑에 대해 항공표시구를 (②)에 취부하고, (③)은 철탑 높이 및 비행구역에 따라 취부한다.",
+  "options": [
+   "60 / 가공지선 / 항공장애표시등"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-1회",
+   "topic": "항공장애표시"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "다음 빈칸 안에 알맞은 내용을 써 넣으시오.\n가공전선로의 경우 높이 (①)m 이상인 철탑에 대해 항공표시구를 (②)에 취부하고, (③)은 철탑 높이 및 비행구역에 따라 취부한다.",
+   "basisAnswer": "60 / 가공지선 / 항공장애표시등",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "60"
+    },
+    {
+     "label": "②",
+     "answer": "가공지선"
+    },
+    {
+     "label": "③",
+     "answer": "항공장애표시등"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-1-006",
+  "year": "2015-1회",
+  "examYear": 2015,
+  "round": 1,
+  "category": "피뢰·SPD",
+  "question": "전력계통에서 서지현상에 의해 발생되는 과전압을 서지 과전압이라 한다. 발생 원인 3가지를 쓰시오.",
+  "options": [
+   "개폐 과전압 / 뇌 과전압 / 일시 과전압"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-1회",
+   "topic": "서지 과전압 발생 원인"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전력계통에서 서지현상에 의해 발생되는 과전압을 서지 과전압이라 한다. 발생 원인 3가지를 쓰시오.",
+   "basisAnswer": "개폐 과전압 / 뇌 과전압 / 일시 과전압",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "개폐 과전압"
+    },
+    {
+     "label": "답 2",
+     "answer": "뇌 과전압"
+    },
+    {
+     "label": "답 3",
+     "answer": "일시 과전압"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-1회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-2-001",
+  "year": "2015-2회",
+  "examYear": 2015,
+  "round": 2,
+  "category": "송배전",
+  "question": "배전선로에서 전압을 조정하는 방법 4가지를 쓰시오.",
+  "options": [
+   "선로전압강하보상기 / 승압기 / 유도전압조정기 / 주변압기 탭 조정"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-2회",
+   "topic": "배전선로 전압조정 방법"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "배전선로에서 전압을 조정하는 방법 4가지를 쓰시오.",
+   "basisAnswer": "선로전압강하보상기 / 승압기 / 유도전압조정기 / 주변압기 탭 조정",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "선로전압강하보상기"
+    },
+    {
+     "label": "답 2",
+     "answer": "승압기"
+    },
+    {
+     "label": "답 3",
+     "answer": "유도전압조정기"
+    },
+    {
+     "label": "답 4",
+     "answer": "주변압기 탭 조정"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-2-002",
+  "year": "2015-2회",
+  "examYear": 2015,
+  "round": 2,
+  "category": "축전지·UPS",
+  "question": "UPS용 축전지의 선정과 관련하여 축전지 용량 산정에 필요한 조건 6가지를 쓰시오.",
+  "options": [
+   "부하의 크기와 성질 / 예상 정전시간 / 순시 최대 방전전류의 세기 / 제어 케이블에 의한 전압강하 / 경년에 의한 용량의 감소 / 온도 변화에 의한 용량 보정"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-2회",
+   "topic": "UPS 축전지 용량 산정 조건"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "UPS용 축전지의 선정과 관련하여 축전지 용량 산정에 필요한 조건 6가지를 쓰시오.",
+   "basisAnswer": "부하의 크기와 성질 / 예상 정전시간 / 순시 최대 방전전류의 세기 / 제어 케이블에 의한 전압강하 / 경년에 의한 용량의 감소 / 온도 변화에 의한 용량 보정",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "부하의 크기와 성질"
+    },
+    {
+     "label": "답 2",
+     "answer": "예상 정전시간"
+    },
+    {
+     "label": "답 3",
+     "answer": "순시 최대 방전전류의 세기"
+    },
+    {
+     "label": "답 4",
+     "answer": "제어 케이블에 의한 전압강하"
+    },
+    {
+     "label": "답 5",
+     "answer": "경년에 의한 용량의 감소"
+    },
+    {
+     "label": "답 6",
+     "answer": "온도 변화에 의한 용량 보정"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-2-003",
+  "year": "2015-2회",
+  "examYear": 2015,
+  "round": 2,
+  "category": "보호·계전",
+  "question": "전기설비기술기준과 한국전기설비규정에 의하여 과전류차단기를 시설하여서는 안 되는 곳 3가지를 쓰시오.",
+  "options": [
+   "접지공사의 접지도체 / 다선식 전로의 중성선 / 고압 또는 특고압과 저압전로를 결합한 변압기 전로의 일부에 접지공사를 한 저압 가공전선로의 접지 측 전선"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-2회",
+   "topic": "과전류차단기 시설 제한 장소"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "전기설비기술기준과 한국전기설비규정에 의하여 과전류차단기를 시설하여서는 안 되는 곳 3가지를 쓰시오.",
+   "basisAnswer": "접지공사의 접지도체 / 다선식 전로의 중성선 / 고압 또는 특고압과 저압전로를 결합한 변압기 전로의 일부에 접지공사를 한 저압 가공전선로의 접지 측 전선",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "접지공사의 접지도체"
+    },
+    {
+     "label": "답 2",
+     "answer": "다선식 전로의 중성선"
+    },
+    {
+     "label": "답 3",
+     "answer": "고압 또는 특고압과 저압전로를 결합한 변압기 전로의 일부에 접지공사를 한 저압 가공전선로의 접지 측 전선"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-2-004",
+  "year": "2015-2회",
+  "examYear": 2015,
+  "round": 2,
+  "category": "설비·배선",
+  "question": "금속관공사에서 사용되는 부속품에 대한 설명이다. 각 부속품의 명칭을 쓰시오.\n- 전선관 상호의 접속용으로 관이 고정되어 있을 때, 또는 관의 양측을 돌려서 접속할 수 없는 경우에 사용 : (①)\n- 노출배관공사에서 관이 직각으로 굽히는 곳에 사용 : (②)\n- 금속관으로부터 전선을 뽑아 전동기 단자 부분에 접속할 때 사용 : (③)\n- 인입구, 인출구의 관단에 접속하여 옥외의 빗물을 막는 데 사용 : (④)\n- 아웃렛 박스에 조명기구를 부착할 때 기구 중량의 장력을 보강하기 위해 사용 : (⑤)",
+  "options": [
+   "유니온 커플링 / 유니버설 엘보 / 터미널 캡 / 엔트런스 캡 / 픽스쳐 스터드와 히키"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-2회",
+   "topic": "금속관공사 부속품"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "금속관공사에서 사용되는 부속품에 대한 설명이다. 각 부속품의 명칭을 쓰시오.\n- 전선관 상호의 접속용으로 관이 고정되어 있을 때, 또는 관의 양측을 돌려서 접속할 수 없는 경우에 사용 : (①)\n- 노출배관공사에서 관이 직각으로 굽히는 곳에 사용 : (②)\n- 금속관으로부터 전선을 뽑아 전동기 단자 부분에 접속할 때 사용 : (③)\n- 인입구, 인출구의 관단에 접속하여 옥외의 빗물을 막는 데 사용 : (④)\n- 아웃렛 박스에 조명기구를 부착할 때 기구 중량의 장력을 보강하기 위해 사용 : (⑤)",
+   "basisAnswer": "유니온 커플링 / 유니버설 엘보 / 터미널 캡 / 엔트런스 캡 / 픽스쳐 스터드와 히키",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "유니온 커플링"
+    },
+    {
+     "label": "②",
+     "answer": "유니버설 엘보"
+    },
+    {
+     "label": "③",
+     "answer": "터미널 캡"
+    },
+    {
+     "label": "④",
+     "answer": "엔트런스 캡"
+    },
+    {
+     "label": "⑤",
+     "answer": "픽스쳐 스터드와 히키"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-2-005",
+  "year": "2015-2회",
+  "examYear": 2015,
+  "round": 2,
+  "category": "전선·케이블",
+  "question": "다음 기호를 보고 정확한 전선의 명칭을 쓰시오.\n- EV : (①)\n- MI : (②)",
+  "options": [
+   "폴리에틸렌 절연 비닐 시스 케이블 / 미네랄 인슐레이션 케이블"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-2회",
+   "topic": "EV·MI 케이블 명칭"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "다음 기호를 보고 정확한 전선의 명칭을 쓰시오.\n- EV : (①)\n- MI : (②)",
+   "basisAnswer": "폴리에틸렌 절연 비닐 시스 케이블 / 미네랄 인슐레이션 케이블",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "폴리에틸렌 절연 비닐 시스 케이블"
+    },
+    {
+     "label": "②",
+     "answer": "미네랄 인슐레이션 케이블"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-2회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-4-001",
+  "year": "2015-4회",
+  "examYear": 2015,
+  "round": 4,
+  "category": "접지",
+  "question": "보호도체 및 접지도체의 굵기 산정식을 쓰시오.",
+  "options": [
+   "S = √(I²t) / k [㎟]"
+  ],
+  "correct": 0,
+  "explain": "I: 고장전류[A], t: 차단기 동작시간[s], k: 도체·절연물 재질과 온도로 정해지는 계수입니다.",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-4회",
+   "topic": "보호도체·접지도체 굵기 산정식"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "보호도체 및 접지도체의 굵기 산정식을 쓰시오.",
+   "basisAnswer": "S = √(I²t) / k [㎟]",
+   "fields": [
+    {
+     "label": "답안",
+     "answer": "S = √(I²t) / k [㎟]"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-4-002",
+  "year": "2015-4회",
+  "examYear": 2015,
+  "round": 4,
+  "category": "조명",
+  "question": "EL램프(Electro Luminescent lamp)의 특징을 쓰시오.",
+  "options": [
+   "얇은 산화물 피막으로 전기저항이 낮다 / 기계적으로 강하다 / 빛의 투과율이 높다 / 램프 충전 시 제1피크, 램프 방전 시 제2피크가 나타나는 일종의 콘덴서와 비슷하다 / 정현파 전압을 높이면 광속발산도가 급격히 증가한다"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-4회",
+   "topic": "EL램프 특징"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "EL램프(Electro Luminescent lamp)의 특징을 쓰시오.",
+   "basisAnswer": "얇은 산화물 피막으로 전기저항이 낮다 / 기계적으로 강하다 / 빛의 투과율이 높다 / 램프 충전 시 제1피크, 램프 방전 시 제2피크가 나타나는 일종의 콘덴서와 비슷하다 / 정현파 전압을 높이면 광속발산도가 급격히 증가한다",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "얇은 산화물 피막으로 전기저항이 낮다"
+    },
+    {
+     "label": "답 2",
+     "answer": "기계적으로 강하다"
+    },
+    {
+     "label": "답 3",
+     "answer": "빛의 투과율이 높다"
+    },
+    {
+     "label": "답 4",
+     "answer": "램프 충전 시 제1피크, 램프 방전 시 제2피크가 나타나는 일종의 콘덴서와 비슷하다"
+    },
+    {
+     "label": "답 5",
+     "answer": "정현파 전압을 높이면 광속발산도가 급격히 증가한다"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-4-003",
+  "year": "2015-4회",
+  "examYear": 2015,
+  "round": 4,
+  "category": "수변전",
+  "question": "변전실의 위치 선정 시 고려사항 5가지를 쓰시오.",
+  "options": [
+   "부하 중심에 가까울 것 / 인입선의 인입이 쉽고 보수유지 및 점검이 용이할 것 / 간선 처리 및 증설이 용이할 것 / 기기 반출·입에 지장이 없는 곳 / 침수, 기타 재해발생의 우려가 적은 곳"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-4회",
+   "topic": "변전실 위치 선정 고려사항"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "short",
+   "prompt": "변전실의 위치 선정 시 고려사항 5가지를 쓰시오.",
+   "basisAnswer": "부하 중심에 가까울 것 / 인입선의 인입이 쉽고 보수유지 및 점검이 용이할 것 / 간선 처리 및 증설이 용이할 것 / 기기 반출·입에 지장이 없는 곳 / 침수, 기타 재해발생의 우려가 적은 곳",
+   "fields": [
+    {
+     "label": "답 1",
+     "answer": "부하 중심에 가까울 것"
+    },
+    {
+     "label": "답 2",
+     "answer": "인입선의 인입이 쉽고 보수유지 및 점검이 용이할 것"
+    },
+    {
+     "label": "답 3",
+     "answer": "간선 처리 및 증설이 용이할 것"
+    },
+    {
+     "label": "답 4",
+     "answer": "기기 반출·입에 지장이 없는 곳"
+    },
+    {
+     "label": "답 5",
+     "answer": "침수, 기타 재해발생의 우려가 적은 곳"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-4회"
+   },
+   "notes": []
+  }
+ },
+ {
+  "id": "pr-2015-4-004",
+  "year": "2015-4회",
+  "examYear": 2015,
+  "round": 4,
+  "category": "송배전",
+  "question": "특고압 가공전선의 지표상 높이에 대한 빈칸을 채우시오.\n- 35kV 이하 : (①)m\n- 35kV 초과 160kV 이하 : (②)m (산지 등에서 사람이 쉽게 들어갈 수 없는 장소 : (③)m)\n- 160kV 초과 : (④)m에 160kV를 초과하는 10kV 또는 그 단수마다 (⑤)m를 더한 값 (산지 등은 5m에 같은 값을 더함)",
+  "options": [
+   "5 / 6 / 5 / 6 / 0.12"
+  ],
+  "correct": 0,
+  "explain": "",
+  "diagram": null,
+  "caution": false,
+  "originalQuestion": null,
+  "source": {
+   "file": "practical-bank",
+   "exam": "2015-4회",
+   "topic": "특고압 가공전선 높이"
+  },
+  "verification": {
+   "status": "unverified",
+   "notes": []
+  },
+  "practical": {
+   "kind": "blank",
+   "prompt": "특고압 가공전선의 지표상 높이에 대한 빈칸을 채우시오.\n- 35kV 이하 : (①)m\n- 35kV 초과 160kV 이하 : (②)m (산지 등에서 사람이 쉽게 들어갈 수 없는 장소 : (③)m)\n- 160kV 초과 : (④)m에 160kV를 초과하는 10kV 또는 그 단수마다 (⑤)m를 더한 값 (산지 등은 5m에 같은 값을 더함)",
+   "basisAnswer": "5 / 6 / 5 / 6 / 0.12",
+   "fields": [
+    {
+     "label": "①",
+     "answer": "5"
+    },
+    {
+     "label": "②",
+     "answer": "6"
+    },
+    {
+     "label": "③",
+     "answer": "5"
+    },
+    {
+     "label": "④",
+     "answer": "6"
+    },
+    {
+     "label": "⑤",
+     "answer": "0.12"
+    }
+   ],
+   "source": {
+    "kind": "user-notes",
+    "exam": "2015-4회"
+   },
+   "notes": []
+  }
  }
 ]

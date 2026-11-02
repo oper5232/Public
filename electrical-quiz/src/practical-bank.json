@@ -1506,63 +1506,6 @@
   }
  },
  {
-  "id": "pr-2025-1-006",
-  "year": "2025-1회",
-  "examYear": 2025,
-  "round": 1,
-  "category": "조명·기호",
-  "question": "25-1 그림기호 문제로 나온 기기 5가지를 쓰고, 각각의 기호를 종이에 그려 보세요.",
-  "options": [
-   "누전경보기 / 배전반 / 경보수신반 / 누름버튼 / 연기감지기"
-  ],
-  "correct": 0,
-  "explain": "그림 문제입니다. 기호 모양은 교재로 확인하세요.",
-  "diagram": null,
-  "caution": false,
-  "originalQuestion": null,
-  "source": {
-   "file": "practical-bank",
-   "exam": "2025-1회",
-   "topic": "그림기호"
-  },
-  "verification": {
-   "status": "unverified",
-   "notes": []
-  },
-  "practical": {
-   "kind": "short",
-   "prompt": "25-1 그림기호 문제로 나온 기기 5가지를 쓰고, 각각의 기호를 종이에 그려 보세요.",
-   "basisAnswer": "누전경보기 / 배전반 / 경보수신반 / 누름버튼 / 연기감지기",
-   "fields": [
-    {
-     "label": "답 1",
-     "answer": "누전경보기"
-    },
-    {
-     "label": "답 2",
-     "answer": "배전반"
-    },
-    {
-     "label": "답 3",
-     "answer": "경보수신반"
-    },
-    {
-     "label": "답 4",
-     "answer": "누름버튼"
-    },
-    {
-     "label": "답 5",
-     "answer": "연기감지기"
-    }
-   ],
-   "source": {
-    "kind": "user-notes",
-    "exam": "2025-1회"
-   },
-   "notes": []
-  }
- },
- {
   "id": "pr-2025-1-007",
   "year": "2025-1회",
   "examYear": 2025,
@@ -3134,67 +3077,6 @@
     {
      "label": "지하 2~5층",
      "answer": "2%"
-    }
-   ],
-   "source": {
-    "kind": "user-notes",
-    "exam": "2024-1회"
-   },
-   "notes": []
-  }
- },
- {
-  "id": "pr-2024-1-007",
-  "year": "2024-1회",
-  "examYear": 2024,
-  "round": 1,
-  "category": "조명·기호",
-  "question": "KS C 0301 옥내배선 그림기호 문제로 나온 6가지를 쓰고, 기호를 종이에 그려 보세요.",
-  "options": [
-   "배전반 / 분전반 / 제어반 / 개폐기 / 배선차단기 / 누전차단기"
-  ],
-  "correct": 0,
-  "explain": "그림 문제입니다. 기호 모양은 교재로 확인하세요.",
-  "diagram": null,
-  "caution": false,
-  "originalQuestion": null,
-  "source": {
-   "file": "practical-bank",
-   "exam": "2024-1회",
-   "topic": "옥내배선 그림기호"
-  },
-  "verification": {
-   "status": "unverified",
-   "notes": []
-  },
-  "practical": {
-   "kind": "short",
-   "prompt": "KS C 0301 옥내배선 그림기호 문제로 나온 6가지를 쓰고, 기호를 종이에 그려 보세요.",
-   "basisAnswer": "배전반 / 분전반 / 제어반 / 개폐기 / 배선차단기 / 누전차단기",
-   "fields": [
-    {
-     "label": "답 1",
-     "answer": "배전반"
-    },
-    {
-     "label": "답 2",
-     "answer": "분전반"
-    },
-    {
-     "label": "답 3",
-     "answer": "제어반"
-    },
-    {
-     "label": "답 4",
-     "answer": "개폐기"
-    },
-    {
-     "label": "답 5",
-     "answer": "배선차단기"
-    },
-    {
-     "label": "답 6",
-     "answer": "누전차단기"
     }
    ],
    "source": {

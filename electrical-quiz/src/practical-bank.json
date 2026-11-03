@@ -4047,67 +4047,6 @@
   }
  },
  {
-  "id": "pr-2023-1-001",
-  "year": "2023-1회",
-  "examYear": 2023,
-  "round": 1,
-  "category": "송배전",
-  "question": "활선장구의 종류를 쓰고, 충전된 활선을 움직이거나 작업권 밖으로 밀어낼 때 쓰는 절연봉의 이름을 쓰시오.",
-  "options": [
-   "고무절연블랭킷 / 그립올 클램프 스틱 / 와이어 통 / 핫스틱 텐션 풀러 / 고무절연소매 / 밀어내는 절연봉: 와이어 통"
-  ],
-  "correct": 0,
-  "explain": "",
-  "diagram": null,
-  "caution": false,
-  "originalQuestion": null,
-  "source": {
-   "file": "practical-bank",
-   "exam": "2023-1회",
-   "topic": "활선장구"
-  },
-  "verification": {
-   "status": "unverified",
-   "notes": []
-  },
-  "practical": {
-   "kind": "short",
-   "prompt": "활선장구의 종류를 쓰고, 충전된 활선을 움직이거나 작업권 밖으로 밀어낼 때 쓰는 절연봉의 이름을 쓰시오.",
-   "basisAnswer": "고무절연블랭킷 / 그립올 클램프 스틱 / 와이어 통 / 핫스틱 텐션 풀러 / 고무절연소매 / 밀어내는 절연봉: 와이어 통",
-   "fields": [
-    {
-     "label": "답 1",
-     "answer": "고무절연블랭킷"
-    },
-    {
-     "label": "답 2",
-     "answer": "그립올 클램프 스틱"
-    },
-    {
-     "label": "답 3",
-     "answer": "와이어 통"
-    },
-    {
-     "label": "답 4",
-     "answer": "핫스틱 텐션 풀러"
-    },
-    {
-     "label": "답 5",
-     "answer": "고무절연소매"
-    },
-    {
-     "label": "밀어내는 절연봉",
-     "answer": "와이어 통"
-    }
-   ],
-   "source": {
-    "kind": "user-notes",
-    "exam": "2023-1회"
-   },
-   "notes": []
-  }
- },
- {
   "id": "pr-2023-1-002",
   "year": "2023-1회",
   "examYear": 2023,

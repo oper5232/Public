@@ -581,13 +581,13 @@
   "examYear": 2026,
   "round": 2,
   "category": "송배전",
-  "question": "철탑 각 부의 명칭 7가지를 위에서부터 쓰시오.",
+  "question": "그림의 철탑 각 부 ①~⑦의 명칭을 쓰시오.",
   "options": [
    "철탑 정부 / 주주재 / 거싯 플레이트 / 사재 / 주체부 / 상판부 / 앵커블록"
   ],
   "correct": 0,
-  "explain": "그림 문제입니다. 교재 그림에서 위치와 같이 외우세요.",
-  "diagram": null,
+  "explain": "",
+  "diagram": "towerParts",
   "caution": false,
   "originalQuestion": null,
   "source": {
@@ -601,35 +601,35 @@
   },
   "practical": {
    "kind": "short",
-   "prompt": "철탑 각 부의 명칭 7가지를 위에서부터 쓰시오.",
+   "prompt": "그림의 철탑 각 부 ①~⑦의 명칭을 쓰시오.",
    "basisAnswer": "철탑 정부 / 주주재 / 거싯 플레이트 / 사재 / 주체부 / 상판부 / 앵커블록",
    "fields": [
     {
-     "label": "답 1",
+     "label": "①",
      "answer": "철탑 정부"
     },
     {
-     "label": "답 2",
+     "label": "②",
      "answer": "주주재"
     },
     {
-     "label": "답 3",
+     "label": "③",
      "answer": "거싯 플레이트"
     },
     {
-     "label": "답 4",
+     "label": "④",
      "answer": "사재"
     },
     {
-     "label": "답 5",
+     "label": "⑤",
      "answer": "주체부"
     },
     {
-     "label": "답 6",
+     "label": "⑥",
      "answer": "상판부"
     },
     {
-     "label": "답 7",
+     "label": "⑦",
      "answer": "앵커블록"
     }
    ],

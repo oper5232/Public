@@ -3187,7 +3187,7 @@
    "밀폐구조로 소음이 적다 / 절연거리를 적게 할 수 있어 소형·경량화 가능 / 근거리 고장 등 가혹한 재기전압에도 성능 우수 / 불활성·난연성이라 화재 우려가 적다 / 아크 소호 능력이 우수하고 이상전압 발생이 적다"
   ],
   "correct": 0,
-  "explain": "",
+  "explain": "16-4에도 같은 5가지로 출제되었습니다.",
   "diagram": null,
   "caution": false,
   "originalQuestion": null,
@@ -9162,63 +9162,6 @@
    "source": {
     "kind": "user-notes",
     "exam": "2016-2회"
-   },
-   "notes": []
-  }
- },
- {
-  "id": "pr-2016-4-001",
-  "year": "2016-4회",
-  "examYear": 2016,
-  "round": 4,
-  "category": "수변전",
-  "question": "가스차단기(GCB : Gas Circuit Breaker)의 특징 5가지를 쓰시오.",
-  "options": [
-   "밀폐구조이므로 소음이 적다 / 절연거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다 / 근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다 / 불활성·난연성이므로 화재 우려가 적다 / 아크 소호능력이 우수하며 이상전압의 발생이 적다"
-  ],
-  "correct": 0,
-  "explain": "",
-  "diagram": null,
-  "caution": false,
-  "originalQuestion": null,
-  "source": {
-   "file": "practical-bank",
-   "exam": "2016-4회",
-   "topic": "가스차단기 특징 5가지"
-  },
-  "verification": {
-   "status": "unverified",
-   "notes": []
-  },
-  "practical": {
-   "kind": "short",
-   "prompt": "가스차단기(GCB : Gas Circuit Breaker)의 특징 5가지를 쓰시오.",
-   "basisAnswer": "밀폐구조이므로 소음이 적다 / 절연거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다 / 근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다 / 불활성·난연성이므로 화재 우려가 적다 / 아크 소호능력이 우수하며 이상전압의 발생이 적다",
-   "fields": [
-    {
-     "label": "답 1",
-     "answer": "밀폐구조이므로 소음이 적다"
-    },
-    {
-     "label": "답 2",
-     "answer": "절연거리를 적게 할 수 있어 차단기 전체를 소형화·경량화할 수 있다"
-    },
-    {
-     "label": "답 3",
-     "answer": "근거리 고장 등 가혹한 재기전압에 대해서도 성능이 우수하다"
-    },
-    {
-     "label": "답 4",
-     "answer": "불활성·난연성이므로 화재 우려가 적다"
-    },
-    {
-     "label": "답 5",
-     "answer": "아크 소호능력이 우수하며 이상전압의 발생이 적다"
-    }
-   ],
-   "source": {
-    "kind": "user-notes",
-    "exam": "2016-4회"
    },
    "notes": []
   }

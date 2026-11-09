@@ -725,7 +725,9 @@ function buildModel(wb, fileName) {
 }
 
 /* ── 파일 열기 · 기억하기 ── */
-const canPick = 'showOpenFilePicker' in window;
+// 휴대폰: 안드로이드 Chrome도 이 기능이 있지만, 엑셀 형식 조건 때문에 .xlsm이 회색으로 막혀요. 휴대폰은 일반 파일 선택만 써요
+const isMobile = !!(navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+const canPick = 'showOpenFilePicker' in window && !isMobile;
 const idb = (mode, fn) => new Promise((res, rej) => {
   const rq = indexedDB.open('gagyebu-dashboard', 1);
   rq.onupgradeneeded = () => rq.result.createObjectStore('kv');
@@ -780,7 +782,7 @@ $('#reloadBtn').onclick = reloadFile;
 document.addEventListener('click', e => { if (e.target.dataset.act === 'open') openFile(); });
 $('#fileInput').onchange = e => { if (e.target.files[0]) readFile(e.target.files[0]); e.target.value = ''; };
 // 안드로이드는 .xlsm 형식을 몰라서 거르기 조건이 있으면 파일이 회색으로 막혀요. 휴대폰에서는 조건을 빼고, 고른 뒤에 확인해요
-if ((navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) $('#fileInput').removeAttribute('accept');
+if (isMobile) $('#fileInput').removeAttribute('accept');
 let dragN = 0;
 addEventListener('dragenter', e => { e.preventDefault(); dragN++; $('#drop').classList.add('on'); });
 addEventListener('dragleave', () => { if (--dragN <= 0) { dragN = 0; $('#drop').classList.remove('on'); } });

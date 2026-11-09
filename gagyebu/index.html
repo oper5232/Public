@@ -741,6 +741,7 @@ const loadHandle = () => idb('readonly', st => st.get('file')).catch(() => null)
 function setStatus(msg, err) { const s = $('#status'); s.textContent = msg || ''; s.classList.toggle('err', !!err); }
 
 async function readFile(file) {
+  if (/\.[a-z0-9]+$/i.test(file.name) && !/\.xls[xm]$/i.test(file.name)) return setStatus(`'${file.name}'은 엑셀 파일이 아니에요. 가계부 .xlsm 파일을 골라 주세요.`, true);
   setStatus('읽는 중…');
   try {
     const buf = await file.arrayBuffer();
@@ -778,6 +779,8 @@ $('#openBtn').onclick = openFile;
 $('#reloadBtn').onclick = reloadFile;
 document.addEventListener('click', e => { if (e.target.dataset.act === 'open') openFile(); });
 $('#fileInput').onchange = e => { if (e.target.files[0]) readFile(e.target.files[0]); e.target.value = ''; };
+// 안드로이드는 .xlsm 형식을 몰라서 거르기 조건이 있으면 파일이 회색으로 막혀요. 휴대폰에서는 조건을 빼고, 고른 뒤에 확인해요
+if ((navigator.userAgentData && navigator.userAgentData.mobile) || /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) $('#fileInput').removeAttribute('accept');
 let dragN = 0;
 addEventListener('dragenter', e => { e.preventDefault(); dragN++; $('#drop').classList.add('on'); });
 addEventListener('dragleave', () => { if (--dragN <= 0) { dragN = 0; $('#drop').classList.remove('on'); } });

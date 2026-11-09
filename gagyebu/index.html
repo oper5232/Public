@@ -167,6 +167,13 @@
   .form-msg.err { color: var(--red); }
   .form-msg.ok { color: var(--green); }
   .btns-l { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .goal-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin: 6px 0 12px; }
+  .goal-pct { font-size: 34px; font-weight: 700; color: var(--accent); white-space: nowrap; line-height: 1; }
+  .goal-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+  @media (max-width: 560px) { .goal-form { grid-template-columns: 1fr; } .goal-pct { font-size: 26px; } }
+  .ver { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .ver b { font-size: 14px; } .ver .when { color: var(--muted); font-size: 12px; margin-left: 6px; }
+  .ver ul { margin: 6px 0 0; padding-left: 18px; color: var(--muted); font-size: 13px; line-height: 1.7; }
   .btns-r { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
 
   /* 개요 추가 */
@@ -463,6 +470,28 @@
       <div><h1>자산</h1><p id="asSub"></p></div>
     </div>
     <div class="grid g-4" id="asKpis"></div>
+    <div class="card glass mt" id="goalCard">
+      <div class="row-top"><span class="label">목표 저축액</span><span class="label" id="goalState"></span></div>
+      <div class="goal-top">
+        <div><div class="big" id="goalCur">-</div><div class="sub" style="margin-top:4px" id="goalOf"></div></div>
+        <div class="goal-pct" id="goalPct">-</div>
+      </div>
+      <div class="bar-thin blurable" style="height:10px"><span id="goalBar" class="ok" style="width:0"></span></div>
+      <div class="sub" id="goalSub"></div>
+      <div class="btns-l"><button type="button" class="btn" id="goalEdit">목표 정하기</button></div>
+      <form class="form" id="goalForm" hidden>
+        <div class="goal-form">
+          <label>목표 금액 (만원)<input type="number" id="goalAmt" min="1" step="1" inputmode="numeric" placeholder="예: 5000"></label>
+          <label>언제까지 (선택)<input type="month" id="goalBy"></label>
+        </div>
+        <label>저축액으로 볼 금액</label>
+        <div class="seg" id="goalBasis" style="margin-top:6px;width:max-content">
+          <button type="button" data-v="asset">기록된 자산</button><button type="button" data-v="net">할부를 뺀 자산</button>
+        </div>
+        <div class="form-msg" id="goalMsg"></div>
+        <div class="btns-l"><button class="btn primary">저장</button><button type="button" class="btn" id="goalCancel">취소</button><button type="button" class="btn" id="goalClear">목표 지우기</button></div>
+      </form>
+    </div>
     <div class="grid g-main mt">
       <div class="card glass">
         <div class="row-top"><span class="label">기록된 자산 구성</span><span class="label" id="dbAssetDate"></span></div>
@@ -535,6 +564,16 @@
           <div class="btns-l"><button type="button" class="btn" id="clearCache">저장된 화면 데이터 지우기</button></div>
         </div>
       </div>
+      <div class="set-item glass">
+        <button type="button" class="set-row" data-panel="ver" aria-expanded="false">
+          <span class="set-t"><b>업데이트 내역</b><small id="verRowState"></small></span><span class="set-chev">›</span></button>
+        <div class="set-panel" id="panel-ver" hidden>
+          <div class="sub" id="verInfo"></div>
+          <div class="btns-l"><button type="button" class="btn" id="verCheck">새 버전 확인</button><button type="button" class="btn primary" id="verApply" hidden>새 버전 적용</button></div>
+          <div class="form-msg" id="verMsg"></div>
+          <div id="verLog"></div>
+        </div>
+      </div>
       <div class="note">잠금은 화면을 가리는 기능이에요. 가계부.xlsm 파일 자체를 잠그지는 않고, 읽어 둔 데이터도 이 브라우저 저장소에 그대로 있어요.
         암호를 잊었을 때 초기화할 수 있는 만큼, 이 컴퓨터를 쓰는 사람이 마음먹으면 풀 수 있어요.
         Mac과 Windows 브라우저는 저장소가 따로라서 암호도 각각 정해야 해요.</div>
@@ -546,6 +585,15 @@
 const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
+// 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
+const APP_VERSION = '1.4';
+const CHANGES = [
+  ['1.4', '2026-11-09', ['자산 탭에 목표 저축액 추가 (목표 금액·기한을 정하면 달성률과 매달 더 모을 금액 표시)', '설정에 업데이트 내역과 새 버전 확인 추가']],
+  ['1.3', '2026-11-08', ['휴대폰에서 가계부.xlsm 파일이 회색으로 막혀 고를 수 없던 문제 수정', '인터넷 주소(GitHub Pages)로 열고 홈 화면에 앱처럼 추가할 수 있게 함']],
+  ['1.2', '', ['비상금을 자산 표와 분리하고 최근 사용 5건 표시', '개요에 공과금·자동차 지출 추이 차트 추가', '할부가 끝나면 완료 버튼으로 숨기기', '개요에 잉여금액(수입 − 예산 − 할부 월납입) 추가', '설정 항목을 누르면 펼쳐지게 바꿈']],
+  ['1.1', '', ['개요 맨 위를 월 수입·지출액·예산 잔액(%)으로 바꾸고 연도별 내용은 아래로', '고정비 납부 확인, 지난달과 비교, 지출 검색·필터, 구독 모아 보기 추가', '자산 탭을 기록된 자산 기준으로 정리']],
+  ['1.0', '', ['처음 버전: 개요·지출·자산·설정 화면, 암호를 넣기 전에는 금액을 ***로 가림']],
+];
 const COLORS = ['#ff8a5c', '#e8c46a', '#6fd3a3', '#7aa8ff', '#c79bff', '#ff9fb3', '#8fd9e8', '#d9c3a5', '#a3958c', '#b5e48c'];
 
 const store = {
@@ -1361,6 +1409,8 @@ function renderAssets() {
     kpi('할부를 뺀 자산', aTot - lBal, '기록된 자산 − 할부 남은 금액') +
     kpi('비상금', ef.cur || 0, efR == null ? '' : `목표의 ${pct(efR * 100)}`);
 
+  renderGoal(aTot, aTot - lBal);
+
   // 구성
   $('#dbAssetTotal').dataset.count = aTot; $('#dbAssetTotal').dataset.fmt = 'man';
   $('#dbAssetDate').textContent = date ? `기준일 ${date}` : '';
@@ -1416,6 +1466,72 @@ function renderAssets() {
     ends.map(l => { freed += l.monthly || 0; return `<tr><td>${ymShort(l.endYM)}</td><td>${esc(l.name)}</td><td class="n">+${won(l.monthly || 0)}</td><td class="n" style="color:var(--green)">${won(freed)}</td></tr>`; }).join('');
 }
 
+/* ── 목표 저축액: 목표는 이 브라우저에 저장, 저축액은 자산관리 시트 금액 ── */
+const goalOf = () => prefs().goal || null;
+const nowYM = () => { const d = new Date(); return d.getFullYear() * 100 + d.getMonth() + 1; };
+const ymDiff = (a, b) => (Math.floor(b / 100) - Math.floor(a / 100)) * 12 + (b % 100) - (a % 100);
+let goalBasisSel = 'asset';
+function renderGoal(asset, net) {
+  const g = goalOf();
+  $('#goalEdit').textContent = g ? '목표 바꾸기' : '목표 정하기';
+  $('#goalEdit').disabled = locked;
+  if (locked && !$('#goalForm').hidden) closeGoalForm();
+  $('#goalEdit').title = locked ? '잠금을 풀면 바꿀 수 있어요' : '';
+  if (!g) {
+    $('#goalCur').textContent = '목표 없음'; $('#goalCur').classList.add('none'); delete $('#goalCur').dataset.count;
+    $('#goalOf').textContent = '목표 금액을 정하면 지금 자산이 몇 % 왔는지 보여 줘요.';
+    $('#goalPct').textContent = ''; $('#goalState').innerHTML = ''; $('#goalBar').style.width = '0';
+    $('#goalSub').textContent = ''; return;
+  }
+  const cur = g.basis === 'net' ? net : asset, r = g.amt ? cur / g.amt : 0, left = g.amt - cur;
+  setNum('#goalCur', cur, 'won');
+  $('#goalOf').textContent = `목표 ${man(g.amt)} · ${g.basis === 'net' ? '할부를 뺀 자산' : '기록된 자산'} 기준`;
+  $('#goalPct').textContent = pct(Math.max(0, r) * 100);
+  $('#goalBar').style.width = Math.min(1, Math.max(0, r)) * 100 + '%';
+  let state = '', sub = '';
+  if (left <= 0) { state = chipOf('목표 달성', ''); sub = `목표보다 ${won(-left)} 더 모았어요.`; }
+  else {
+    sub = `목표까지 ${won(left)} 남았어요.`;
+    if (g.by) {
+      const n = ymDiff(nowYM(), g.by);
+      if (n < 0) { state = chipOf('기한 지남', 'bad'); sub += ` 정한 기한(${ymShort(g.by)})이 지났어요.`; }
+      else { const m = n + 1; state = chipOf(`${ymShort(g.by)}까지`, ''); sub += ` ${ymShort(g.by)}까지 ${m}개월 동안 매달 ${won(Math.ceil(left / m))}씩 더 모으면 돼요.`; }
+    }
+  }
+  $('#goalState').innerHTML = state;
+  $('#goalSub').textContent = sub;
+}
+function goalMsg(t, kind) { const m = $('#goalMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
+function setGoalBasis(v) { goalBasisSel = v; $$('#goalBasis button').forEach(b => b.classList.toggle('on', b.dataset.v === v)); }
+function closeGoalForm() { $('#goalForm').hidden = true; $('#goalEdit').hidden = false; goalMsg(''); }
+$('#goalEdit').onclick = () => {
+  if (locked) return;
+  const g = goalOf();
+  $('#goalAmt').value = g ? Math.round(g.amt / 10000) : '';
+  $('#goalBy').value = g && g.by ? `${Math.floor(g.by / 100)}-${String(g.by % 100).padStart(2, '0')}` : '';
+  setGoalBasis(g ? g.basis : 'asset');
+  $('#goalClear').hidden = !g;
+  $('#goalForm').hidden = false; $('#goalEdit').hidden = true; goalMsg('');
+  gsap.fromTo('#goalForm', { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: .3, ease: 'power2.out' });
+  $('#goalAmt').focus();
+};
+$('#goalBasis').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setGoalBasis(b.dataset.v); });
+$('#goalCancel').onclick = closeGoalForm;
+$('#goalForm').onsubmit = e => {
+  e.preventDefault();
+  if (locked) return;
+  const amt = Math.round(+$('#goalAmt').value * 10000);
+  if (!(amt > 0)) return goalMsg('목표 금액을 만원 단위 숫자로 넣어 주세요.', 'err');
+  const bv = $('#goalBy').value, by = bv ? +bv.replace('-', '') : null;
+  store.set(PREF_KEY, Object.assign(prefs(), { goal: { amt, by, basis: goalBasisSel } }));
+  closeGoalForm(); renderAssets(); countUp($('#assets'));
+};
+$('#goalClear').onclick = () => {
+  if (!confirm('목표 저축액을 지울까요? 엑셀 파일은 그대로예요.')) return;
+  const p = prefs(); delete p.goal; store.set(PREF_KEY, p);
+  closeGoalForm(); renderAssets(); countUp($('#assets'));
+};
+
 $('#dbLoans').addEventListener('click', e => {
   const b = e.target.closest('[data-done]'); if (!b) return;
   const key = b.dataset.done;
@@ -1444,8 +1560,33 @@ function renderSettings() {
   const p = prefs();
   $('#autoLock').innerHTML = [[0, '끄기'], [1, '1분'], [5, '5분'], [15, '15분']]
     .map(([v, l]) => `<button type="button" data-v="${v}" class="${p.autoLock === v ? 'on' : ''}">${l}</button>`).join('');
+  $('#verRowState').textContent = `지금 버전 ${APP_VERSION} · 바뀐 내용과 새 버전 확인`;
+  $('#verInfo').textContent = isWeb
+    ? '인터넷 주소로 열면 새로 열 때 보통 새 버전이 자동으로 들어와요. 휴대폰 홈 화면 앱은 브라우저가 잠시(최대 10분 정도) 예전 화면을 쓸 수 있어서, 바로 받고 싶으면 아래 버튼을 눌러 주세요.'
+    : '이 컴퓨터의 파일로 열었어요. 대시보드 파일을 고치면 다음에 열 때 바로 반영돼서 따로 적용할 필요가 없어요.';
+  $('#verCheck').hidden = !isWeb;
+  $('#verLog').innerHTML = CHANGES.map(([v, d, items]) => `<div class="ver"><b>${v}</b>${v === APP_VERSION ? ' ' + chipOf('지금 버전', '') : ''}<span class="when">${d}</span><ul>${items.map(t => `<li>${esc(t)}</li>`).join('')}</ul></div>`).join('');
   $('#cacheInfo').textContent = M ? `${M.fileName} · ${new Date(M.readAt).toLocaleString('ko-KR')}에 읽은 내용이 있어요.` : '저장된 데이터가 없어요.';
 }
+
+/* ── 새 버전 확인: 공개 페이지를 캐시 없이 다시 받아 APP_VERSION을 비교해요 ── */
+const isWeb = /^https?:$/.test(location.protocol);
+const verNum = v => v.split('.').map(Number);
+const newer = (a, b) => { const x = verNum(a), y = verNum(b); for (let i = 0; i < Math.max(x.length, y.length); i++) { if ((x[i] || 0) !== (y[i] || 0)) return (x[i] || 0) > (y[i] || 0); } return false; };
+function verMsg(t, kind) { const m = $('#verMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
+$('#verCheck').onclick = async () => {
+  const b = $('#verCheck'); b.disabled = true; verMsg('확인하는 중이에요…');
+  try {
+    const url = location.href.split('#')[0].split('?')[0];
+    const html = await (await fetch(url, { cache: 'reload' })).text();
+    const m = html.match(/const APP_VERSION = '([\d.]+)'/);
+    if (!m) verMsg('새 버전 정보를 읽지 못했어요. 잠시 뒤 다시 눌러 주세요.', 'err');
+    else if (newer(m[1], APP_VERSION)) { verMsg(`새 버전(${m[1]})이 있어요. 적용하면 화면을 다시 불러와요. 읽어 둔 가계부 내용과 설정은 그대로예요.`, 'ok'); $('#verApply').hidden = false; }
+    else verMsg(`지금 쓰는 버전(${APP_VERSION})이 최신이에요.`, 'ok');
+  } catch (e) { verMsg('인터넷에 연결되지 않아 확인하지 못했어요.', 'err'); }
+  b.disabled = false;
+};
+$('#verApply').onclick = () => location.reload();
 
 function openPanel(id, force) {
   $$('.set-row').forEach(b => {

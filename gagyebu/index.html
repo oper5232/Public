@@ -626,8 +626,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.6.1';
+const APP_VERSION = '1.6.2';
 const CHANGES = [
+  ['1.6.2', '2026-11-09', ['개인 Microsoft 계정용으로 등록한 앱 ID로 바꿈']],
   ['1.6.1', '2026-11-09', ['Microsoft 연결 앱 ID를 미리 넣어 둬서 설정에서 로그인만 누르면 돼요']],
   ['1.6', '2026-11-09', ['설정에 Microsoft 연결 추가: 로그인하면 열 때마다 OneDrive의 최신 가계부.xlsx를 읽어요', '+ 기록 버튼으로 지출·수입을 적으면 OneDrive 엑셀 파일에 바로 한 줄 추가돼요']],
   ['1.5', '2026-11-09', ['새 입력 양식(가계부.xlsx)도 읽을 수 있게 함. 월 합계·공과금·차량 추이·할부 남은 금액을 대시보드가 직접 계산', '예전 가계부.xlsm도 그대로 열 수 있어요']],
@@ -1740,7 +1741,7 @@ $('#verApply').onclick = () => location.reload();
 
 /* ── Microsoft 로그인 (PKCE, 라이브러리 없이) + OneDrive 읽기·쓰기 ──
    앱 ID는 비밀값이 아니에요. 로그인 토큰은 이 브라우저 저장소에만 두고, 어디에도 보내지 않아요(Microsoft 제외). */
-const MS_CLIENT_ID = '66bdccae-e27f-4a22-b1c7-8749c3375203'; // Entra에 등록한 앱 ID를 여기에 넣으면 설정에서 따로 안 적어도 돼요
+const MS_CLIENT_ID = '12b4d3a5-88a4-46fc-a25d-c9da33c55b35'; // Entra에 등록한 앱 ID를 여기에 넣으면 설정에서 따로 안 적어도 돼요
 const MS_TOKEN_KEY = 'gagyebu-ms-token-v1';
 const MS_AUTH = 'https://login.microsoftonline.com/consumers/oauth2/v2.0';
 const MS_SCOPE = 'Files.ReadWrite User.Read offline_access';

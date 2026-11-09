@@ -167,6 +167,9 @@
   .form-msg.err { color: var(--red); }
   .form-msg.ok { color: var(--green); }
   .btns-l { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  select.in { appearance: auto; }
+  select.in option { background: #1b1714; color: var(--text); }
+  #entry .row-top { align-items: center; }
   .goal-top { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; margin: 6px 0 12px; }
   .goal-pct { font-size: 34px; font-weight: 700; color: var(--accent); white-space: nowrap; line-height: 1; }
   .goal-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
@@ -285,6 +288,28 @@
   </form>
 </div>
 
+<!-- 지출·수입 입력 (OneDrive 엑셀에 바로 한 줄 추가) -->
+<div class="modal" id="entry">
+  <form class="box glass form" id="entryForm" style="width:min(420px,100%)">
+    <div class="row-top"><h2>기록하기</h2><div class="seg" id="entryKind"><button type="button" data-v="tx" class="on">지출</button><button type="button" data-v="inc">수입</button></div></div>
+    <p id="entryNote">OneDrive의 가계부.xlsx에 바로 한 줄 추가돼요.</p>
+    <div class="goal-form">
+      <label>날짜<input type="date" id="enDate" required></label>
+      <label>금액(원)<input type="number" id="enAmt" min="1" step="1" inputmode="numeric" required placeholder="예: 9000"></label>
+    </div>
+    <label><span id="enCatLbl">대분류</span><select class="in" id="enCat"></select></label>
+    <label>내용<input id="enItem" maxlength="60" placeholder="예: 점심" required></label>
+    <div id="enTxOnly">
+      <label>Needs/Wants</label>
+      <div class="seg" id="enNW" style="margin-top:6px;width:max-content"><button type="button" data-v="Needs" class="on">Needs</button><button type="button" data-v="Wants">Wants</button></div>
+    </div>
+    <label id="enGrossRow" hidden>세전 급여 (급여일 때만, 선택)<input type="number" id="enGross" min="0" step="1" inputmode="numeric"></label>
+    <label>메모 (선택)<input id="enMemo" maxlength="80"></label>
+    <div class="form-msg" id="entryMsg"></div>
+    <div class="btns-r"><button type="button" class="btn" data-close>닫기</button><button class="btn primary" id="entrySave">저장</button></div>
+  </form>
+</div>
+
 <div class="app">
   <header class="top glass">
     <div class="brand"><div class="logo"></div><div>가계부<small id="srcName">파일을 열어 주세요</small></div></div>
@@ -296,6 +321,7 @@
       <button data-page="settings">설정</button>
     </nav>
     <div class="actions">
+      <button class="btn primary" id="addBtn" hidden>+ 기록</button>
       <button class="btn" id="lockBtn">잠금 해제</button>
       <button class="btn" id="reloadBtn" title="기억한 파일을 다시 읽어요" disabled>새로고침</button>
       <button class="btn primary" id="openBtn">파일 열기</button>
@@ -566,6 +592,19 @@
         </div>
       </div>
       <div class="set-item glass">
+        <button type="button" class="set-row" data-panel="ms" aria-expanded="false">
+          <span class="set-t"><b>Microsoft 연결 (OneDrive)</b><small id="msRowState"></small></span><span class="set-chev">›</span></button>
+        <div class="set-panel" id="panel-ms" hidden>
+          <div class="sub" id="msInfo"></div>
+          <form class="form" id="msForm">
+            <label>앱 ID (Entra에서 받은 애플리케이션 ID)<input id="msClient" autocomplete="off" spellcheck="false" placeholder="00000000-0000-0000-0000-000000000000"></label>
+            <label>OneDrive 안 파일 위치<input id="msPath" autocomplete="off" spellcheck="false" placeholder="Desktop/가계부.xlsx"></label>
+            <div class="form-msg" id="msMsg"></div>
+            <div class="btns-l"><button class="btn primary" id="msLogin">저장하고 로그인</button><button type="button" class="btn" id="msPull">지금 OneDrive에서 읽기</button><button type="button" class="btn" id="msLogout">로그아웃</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="set-item glass">
         <button type="button" class="set-row" data-panel="ver" aria-expanded="false">
           <span class="set-t"><b>업데이트 내역</b><small id="verRowState"></small></span><span class="set-chev">›</span></button>
         <div class="set-panel" id="panel-ver" hidden>
@@ -587,8 +626,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.5';
+const APP_VERSION = '1.6';
 const CHANGES = [
+  ['1.6', '2026-11-09', ['설정에 Microsoft 연결 추가: 로그인하면 열 때마다 OneDrive의 최신 가계부.xlsx를 읽어요', '+ 기록 버튼으로 지출·수입을 적으면 OneDrive 엑셀 파일에 바로 한 줄 추가돼요']],
   ['1.5', '2026-11-09', ['새 입력 양식(가계부.xlsx)도 읽을 수 있게 함. 월 합계·공과금·차량 추이·할부 남은 금액을 대시보드가 직접 계산', '예전 가계부.xlsm도 그대로 열 수 있어요']],
   ['1.4', '2026-11-09', ['자산 탭에 목표 저축액 추가 (목표 금액·기한을 정하면 달성률과 매달 더 모을 금액 표시)', '설정에 업데이트 내역과 새 버전 확인 추가']],
   ['1.3', '2026-11-08', ['휴대폰에서 가계부.xlsm 파일이 회색으로 막혀 고를 수 없던 문제 수정', '인터넷 주소(GitHub Pages)로 열고 홈 화면에 앱처럼 추가할 수 있게 함']],
@@ -740,8 +780,8 @@ function buildModelV1(wb, fileName) {
   }
 
   const gb = need('예산');
-  const hb = findHeader(gb, ['대분류', '월 예산(원)']);
-  const budget = hb ? rowsAfter(gb, hb, '대분류', true).map(o => ({ cat: txt(o['대분류']), amt: num(o['월 예산(원)']) || 0 })) : [];
+  const hb = findHeader(gb, ['대분류', '월 예산(원)', '기본 성격']) || findHeader(gb, ['대분류', '월 예산(원)']);
+  const budget = hb ? rowsAfter(gb, hb, '대분류', true).map(o => ({ cat: txt(o['대분류']), amt: num(o['월 예산(원)']) || 0, nw: txt(o['기본 성격']) })) : [];
 
   const ga = need('자산');
   const ha = findHeader(ga, ['유형', '자산명', '기준일', '잔액(원)', '계좌별칭']);
@@ -925,6 +965,7 @@ async function openFile() {
   $('#fileInput').click();
 }
 async function reloadFile() {
+  if (msSignedIn()) return msPull();
   const h = await loadHandle();
   if (!h) return openFile();
   try {
@@ -1667,6 +1708,7 @@ function renderSettings() {
   const p = prefs();
   $('#autoLock').innerHTML = [[0, '끄기'], [1, '1분'], [5, '5분'], [15, '15분']]
     .map(([v, l]) => `<button type="button" data-v="${v}" class="${p.autoLock === v ? 'on' : ''}">${l}</button>`).join('');
+  renderMs();
   $('#verRowState').textContent = `지금 버전 ${APP_VERSION} · 바뀐 내용과 새 버전 확인`;
   $('#verInfo').textContent = isWeb
     ? '인터넷 주소로 열면 새로 열 때 보통 새 버전이 자동으로 들어와요. 휴대폰 홈 화면 앱은 브라우저가 잠시(최대 10분 정도) 예전 화면을 쓸 수 있어서, 바로 받고 싶으면 아래 버튼을 눌러 주세요.'
@@ -1694,6 +1736,172 @@ $('#verCheck').onclick = async () => {
   b.disabled = false;
 };
 $('#verApply').onclick = () => location.reload();
+
+/* ── Microsoft 로그인 (PKCE, 라이브러리 없이) + OneDrive 읽기·쓰기 ──
+   앱 ID는 비밀값이 아니에요. 로그인 토큰은 이 브라우저 저장소에만 두고, 어디에도 보내지 않아요(Microsoft 제외). */
+const MS_CLIENT_ID = ''; // Entra에 등록한 앱 ID를 여기에 넣으면 설정에서 따로 안 적어도 돼요
+const MS_TOKEN_KEY = 'gagyebu-ms-token-v1';
+const MS_AUTH = 'https://login.microsoftonline.com/consumers/oauth2/v2.0';
+const MS_SCOPE = 'Files.ReadWrite User.Read offline_access';
+const GRAPH = 'https://graph.microsoft.com/v1.0';
+const msConf = () => { const s = prefs().ms || {}; return Object.assign({}, s, { clientId: s.clientId || MS_CLIENT_ID, path: s.path || 'Desktop/가계부.xlsx' }); };
+const msRedirect = () => location.origin + location.pathname.replace(/index\.html$/, '');
+const msTok = () => store.get(MS_TOKEN_KEY);
+const msSignedIn = () => !!(msTok() && msTok().refresh);
+const b64url = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const randStr = n => b64url(crypto.getRandomValues(new Uint8Array(n)));
+function msMsg(t, kind) { const m = $('#msMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
+
+async function msLogin() {
+  const c = msConf();
+  if (!isWeb) return msMsg('로그인은 인터넷 주소(GitHub Pages)로 열었을 때만 돼요.', 'err');
+  if (!/^[0-9a-f-]{36}$/i.test(c.clientId)) return msMsg('앱 ID를 먼저 적어 주세요. 36자리(숫자·영문·하이픈)예요.', 'err');
+  const verifier = randStr(48), state = randStr(16);
+  const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
+  sessionStorage.setItem('gagyebu-ms-pkce', JSON.stringify({ verifier, state }));
+  const q = new URLSearchParams({ client_id: c.clientId, response_type: 'code', redirect_uri: msRedirect(), scope: MS_SCOPE,
+    response_mode: 'query', code_challenge: challenge, code_challenge_method: 'S256', state, prompt: 'select_account' });
+  location.assign(`${MS_AUTH}/authorize?${q}`);
+}
+async function msTokenCall(params) {
+  const r = await fetch(`${MS_AUTH}/token`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(Object.assign({ client_id: msConf().clientId, scope: MS_SCOPE }, params)) });
+  const j = await r.json();
+  if (!r.ok) throw new Error(j.error_description || j.error || r.status);
+  store.set(MS_TOKEN_KEY, { access: j.access_token, refresh: j.refresh_token, exp: Date.now() + (j.expires_in - 120) * 1000 });
+}
+// 로그인 화면에서 돌아왔을 때 (?code=…)
+async function msHandleRedirect() {
+  const p = new URLSearchParams(location.search);
+  if (!p.has('code') && !p.has('error')) return false;
+  history.replaceState(null, '', msRedirect());
+  const saved = JSON.parse(sessionStorage.getItem('gagyebu-ms-pkce') || 'null');
+  sessionStorage.removeItem('gagyebu-ms-pkce');
+  if (p.has('error')) { setStatus('Microsoft 로그인을 마치지 못했어요: ' + (p.get('error_description') || p.get('error')).split('\n')[0], true); return true; }
+  if (!saved || saved.state !== p.get('state')) { setStatus('로그인 응답이 맞지 않아요. 설정에서 다시 로그인해 주세요.', true); return true; }
+  try { await msTokenCall({ grant_type: 'authorization_code', code: p.get('code'), redirect_uri: msRedirect(), code_verifier: saved.verifier }); setStatus('Microsoft에 로그인했어요.'); }
+  catch (e) { setStatus('로그인 토큰을 받지 못했어요: ' + e.message, true); }
+  return true;
+}
+async function msAccess() {
+  const t = msTok();
+  if (!t || !t.refresh) return null;
+  if (t.access && Date.now() < t.exp) return t.access;
+  try { await msTokenCall({ grant_type: 'refresh_token', refresh_token: t.refresh }); return msTok().access; }
+  catch (e) { store.del(MS_TOKEN_KEY); return null; }
+}
+async function graph(path, opt = {}) {
+  const tok = await msAccess();
+  if (!tok) throw Object.assign(new Error('로그인이 끝났어요. 설정 → Microsoft 연결에서 다시 로그인해 주세요.'), { auth: true });
+  const r = await fetch(GRAPH + path, Object.assign({}, opt, { headers: Object.assign({ Authorization: 'Bearer ' + tok }, opt.json ? { 'Content-Type': 'application/json' } : {}),
+    body: opt.json ? JSON.stringify(opt.json) : opt.body }));
+  if (!r.ok) { let m = r.status; try { const j = await r.json(); m = (j.error && j.error.message) || m; } catch (e) {} throw Object.assign(new Error(m), { status: r.status }); }
+  return r;
+}
+const msItemPath = () => '/me/drive/root:/' + msConf().path.split('/').filter(Boolean).map(encodeURIComponent).join('/') + ':';
+async function msPull(quiet) {
+  if (!msSignedIn()) return false;
+  if (!quiet) setStatus('OneDrive에서 읽는 중…');
+  try {
+    const item = await (await graph(msItemPath() + '?$select=id,name,lastModifiedDateTime')).json();
+    const buf = await (await graph(`/me/drive/items/${item.id}/content`)).arrayBuffer();
+    store.set(PREF_KEY, Object.assign(prefs(), { ms: Object.assign(msConf(), { itemId: item.id }) }));
+    await readFile(new File([buf], item.name, { lastModified: Date.parse(item.lastModifiedDateTime) }));
+    setStatus(`OneDrive에서 읽었어요 · 파일 저장 시각 ${new Date(item.lastModifiedDateTime).toLocaleString('ko-KR')}`);
+    return true;
+  } catch (e) {
+    setStatus(e.status === 404 ? `OneDrive에서 '${msConf().path}' 파일을 찾지 못했어요. 설정에서 파일 위치를 확인해 주세요.` : 'OneDrive에서 읽지 못했어요: ' + e.message, true);
+    return false;
+  }
+}
+function renderMs() {
+  const c = msConf(), on = msSignedIn();
+  $('#msRowState').textContent = on ? `로그인됨 · ${c.path}` : '연결 안 됨 · 휴대폰에서도 바로 기록하려면 연결해요';
+  $('#msInfo').innerHTML = isWeb
+    ? '로그인하면 열 때마다 OneDrive의 최신 가계부를 읽고, <b>+ 기록</b>으로 적은 지출·수입이 엑셀 파일에 바로 들어가요. 새 양식(.xlsx)만 쓸 수 있어요.'
+    : '이 컴퓨터의 파일로 열었을 때는 로그인할 수 없어요. 인터넷 주소(GitHub Pages)로 열어 주세요.';
+  if (document.activeElement !== $('#msClient')) $('#msClient').value = c.clientId || '';
+  if (document.activeElement !== $('#msPath')) $('#msPath').value = c.path || '';
+  $('#msLogin').textContent = on ? '저장하고 다시 로그인' : '저장하고 로그인';
+  $('#msPull').hidden = $('#msLogout').hidden = !on;
+  $('#addBtn').hidden = !(M && M.form === 'v1');
+  if (!canPick) $('#reloadBtn').style.display = on ? '' : 'none';
+  if (on) $('#reloadBtn').disabled = false;
+}
+$('#msForm').onsubmit = e => {
+  e.preventDefault();
+  const clientId = $('#msClient').value.trim(), path = $('#msPath').value.trim().replace(/^\/+/, '') || 'Desktop/가계부.xlsx';
+  if (!/\.xlsx$/i.test(path)) return msMsg('파일 위치는 .xlsx로 끝나야 해요. 입력 기능은 .xlsm에는 쓸 수 없어요.', 'err');
+  store.set(PREF_KEY, Object.assign(prefs(), { ms: { clientId, path } }));
+  msLogin();
+};
+$('#msPull').onclick = () => msPull();
+$('#msLogout').onclick = () => {
+  store.del(MS_TOKEN_KEY); renderMs(); msMsg('로그아웃했어요. Microsoft 계정 자체의 로그인은 그대로일 수 있어요.', 'ok');
+};
+
+// 기록 창
+let entryKind = 'tx', entryNW = 'Needs';
+const INC_CATS = ['급여', '기타수입', '상여', '이자·배당'];
+function entryMsg(t, kind) { const m = $('#entryMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
+function setEntryKind(k) {
+  entryKind = k;
+  $$('#entryKind button').forEach(b => b.classList.toggle('on', b.dataset.v === k));
+  $('#enTxOnly').hidden = k !== 'tx';
+  $('#enCatLbl').textContent = k === 'tx' ? '대분류' : '분류';
+  const cats = k === 'tx' ? M.budget.map(b => b.cat).filter(Boolean) : INC_CATS;
+  $('#enCat').innerHTML = cats.map(c => `<option>${esc(c)}</option>`).join('');
+  $('#enGrossRow').hidden = k === 'tx' || $('#enCat').value !== '급여';
+  $('#enItem').placeholder = k === 'tx' ? '예: 점심' : '예: 급여';
+  syncNW();
+}
+function syncNW() {
+  if (entryKind !== 'tx') return;
+  const b = M.budget.find(x => x.cat === $('#enCat').value);
+  setNW(b && b.nw === 'Wants' ? 'Wants' : 'Needs');
+}
+function setNW(v) { entryNW = v; $$('#enNW button').forEach(b => b.classList.toggle('on', b.dataset.v === v)); }
+function openEntry() {
+  if (!M || M.form !== 'v1') return;
+  if (locked) return openUnlock();
+  const d = new Date();
+  $('#enDate').value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  ['#enAmt', '#enItem', '#enMemo', '#enGross'].forEach(s => $(s).value = '');
+  setEntryKind(entryKind);
+  entryMsg(msSignedIn() ? '' : '먼저 설정 → Microsoft 연결에서 로그인해 주세요.', msSignedIn() ? '' : 'err');
+  $('#entryNote').textContent = `OneDrive의 ${msConf().path}에 바로 한 줄 추가돼요.`;
+  $('#entrySave').disabled = !msSignedIn();
+  $('#entry').classList.add('on');
+  gsap.fromTo('#entry .box', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .35, ease: 'power3.out' });
+  setTimeout(() => $('#enAmt').focus(), 30);
+}
+const closeEntry = () => $('#entry').classList.remove('on');
+$('#addBtn').onclick = openEntry;
+$('#entry').addEventListener('click', e => { if (e.target.id === 'entry' || e.target.hasAttribute('data-close')) closeEntry(); });
+$('#entryKind').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setEntryKind(b.dataset.v); });
+$('#enNW').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setNW(b.dataset.v); });
+$('#enCat').addEventListener('change', () => { syncNW(); $('#enGrossRow').hidden = entryKind === 'tx' || $('#enCat').value !== '급여'; });
+$('#entryForm').onsubmit = async e => {
+  e.preventDefault();
+  if (locked) return entryMsg('잠금을 먼저 풀어 주세요.', 'err');
+  const date = $('#enDate').value, amt = Math.round(+$('#enAmt').value), cat = $('#enCat').value, item = $('#enItem').value.trim(), memo = $('#enMemo').value.trim();
+  if (!date || !(amt > 0) || !cat || !item) return entryMsg('날짜·금액·분류·내용을 모두 적어 주세요.', 'err');
+  const gross = Math.round(+$('#enGross').value) || '';
+  const [table, row] = entryKind === 'tx' ? ['tblTx', [date, cat, item, amt, entryNW, memo]] : ['tblIncome', [date, '수입', cat, item, gross, amt, memo]];
+  const btn = $('#entrySave'); btn.disabled = true; entryMsg('저장하는 중… (몇 초 걸릴 수 있어요)');
+  try {
+    const id = msConf().itemId || (await (await graph(msItemPath() + '?$select=id')).json()).id;
+    await graph(`/me/drive/items/${id}/workbook/tables/${table}/rows/add`, { method: 'POST', json: { index: null, values: [row] } });
+    entryMsg(`저장했어요: ${date.slice(5).replace('-', '.')} ${item} ${won(amt)}`, 'ok');
+    ['#enAmt', '#enItem', '#enMemo', '#enGross'].forEach(s => $(s).value = '');
+    $('#enAmt').focus();
+    msPull(true);
+  } catch (err) {
+    entryMsg(err.status === 404 ? `엑셀에서 ${table} 표를 찾지 못했어요. 새 양식(.xlsx) 파일이 맞는지 확인해 주세요.`
+      : err.status === 423 || err.status === 409 ? '다른 곳에서 파일을 고치는 중이라 잠겨 있어요. 잠시 뒤 다시 눌러 주세요.' : '저장하지 못했어요: ' + err.message, 'err');
+  }
+  btn.disabled = false;
+};
 
 function openPanel(id, force) {
   $$('.set-row').forEach(b => {
@@ -1798,6 +2006,8 @@ let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() 
   renderSettings();
   if (canPick && await loadHandle()) $('#reloadBtn').disabled = false;
   else if (!canPick) $('#reloadBtn').style.display = 'none';
+  // Microsoft에 로그인해 두었으면 열 때마다 OneDrive의 최신 파일을 읽어요
+  if (isWeb) { await msHandleRedirect(); renderSettings(); if (msSignedIn()) msPull(); }
   const q = new URLSearchParams(location.search).get('file'); // 확인용: ?file=주소
   // 같은 사이트 안의 상대 경로만 받아요 (다른 사이트 주소는 무시)
   if (q && !/^[a-z][a-z0-9+.-]*:|^\/\//i.test(q)) { const r = await fetch(q); readFile(new File([await r.blob()], q.split('/').pop())); }

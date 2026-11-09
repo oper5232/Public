@@ -168,6 +168,18 @@
   .form-msg.ok { color: var(--green); }
   .btns-l { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
   [hidden] { display: none !important; }
+  .btn.danger { color: var(--red); }
+  .btn.sm { padding: 4px 10px; font-size: 12px; border-radius: 8px; }
+  .icon-x { border: 0; background: none; color: var(--muted); cursor: pointer; font: inherit; padding: 2px 6px; border-radius: 6px; }
+  .icon-x:hover { color: var(--red); background: rgba(255,255,255,.06); }
+  #entry .row-top { flex-wrap: wrap; gap: 10px; }
+  #entry h2 { white-space: nowrap; }
+  #entryKind { display: flex; width: 100%; }
+  #entryKind button { flex: 1; padding: 6px 4px; }
+  .admin-row { display: flex; align-items: center; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); }
+  .admin-row .grow { flex: 1; min-width: 0; }
+  .admin-row .grow small { display: block; color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .admin-row .off { opacity: .5; }
   select.in { appearance: auto; }
   select.in option { background: #1b1714; color: var(--text); }
   #entry .row-top { align-items: center; }
@@ -292,13 +304,13 @@
 <!-- 지출·수입 입력 (OneDrive 엑셀에 바로 한 줄 추가) -->
 <div class="modal" id="entry">
   <form class="box glass form" id="entryForm" style="width:min(420px,100%)">
-    <div class="row-top"><h2>기록하기</h2><div class="seg" id="entryKind"><button type="button" data-v="tx" class="on">지출</button><button type="button" data-v="inc">수입</button><button type="button" data-v="ef">비상금</button></div></div>
+    <div class="row-top"><h2>기록하기</h2><div class="seg" id="entryKind"><button type="button" data-v="tx" class="on">지출</button><button type="button" data-v="inc">수입</button><button type="button" data-v="sv">저축</button><button type="button" data-v="ef">비상금</button><button type="button" data-v="loan">할부</button></div></div>
     <p id="entryNote">OneDrive의 가계부.xlsx에 바로 한 줄 추가돼요.</p>
     <div class="goal-form">
-      <label>날짜<input type="date" id="enDate" required></label>
-      <label>금액(원)<input type="number" id="enAmt" min="1" step="1" inputmode="numeric" required placeholder="예: 9000"></label>
+      <label><span id="enDateLbl">날짜</span><input type="date" id="enDate" required></label>
+      <label><span id="enAmtLbl">금액(원)</span><input type="number" id="enAmt" min="1" step="1" inputmode="numeric" required placeholder="예: 9000"></label>
     </div>
-    <label><span id="enCatLbl">대분류</span><select class="in" id="enCat"></select></label>
+    <label id="enCatRow"><span id="enCatLbl">대분류</span><select class="in" id="enCat"></select></label>
     <label><span id="enItemLbl">내용</span><input id="enItem" maxlength="60" placeholder="예: 점심" required></label>
     <div id="enTxOnly">
       <label>Needs/Wants</label>
@@ -309,9 +321,31 @@
       <label>공제 내역 (선택)<input id="enDeduct" maxlength="120" placeholder="예: 국민연금 15만, 건강보험 12만, 소득세 8만"></label>
       <div class="sub" id="enDeductSum"></div>
     </div>
+    <div id="enSvOnly" hidden>
+      <label>자산에도 더하기 (선택)<select class="in" id="enAsset"></select></label>
+      <div class="sub">고르면 그 자산의 잔액에 이 금액을 더하고 기준일을 이 날짜로 바꿔요.</div>
+    </div>
+    <div id="enLoanOnly" hidden>
+      <div class="goal-form">
+        <label>할부 개월<input type="number" id="enMonths" min="1" max="600" step="1" inputmode="numeric" placeholder="예: 12"></label>
+        <label>연 이자율(%)<input type="number" id="enRate" min="0" max="100" step="0.01" inputmode="decimal" placeholder="무이자면 0"></label>
+      </div>
+      <div class="sub" id="enLoanCalc"></div>
+    </div>
     <label id="enMemoRow">메모 (선택)<input id="enMemo" maxlength="80"></label>
     <div class="form-msg" id="entryMsg"></div>
-    <div class="btns-r"><button type="button" class="btn" data-close>닫기</button><button class="btn primary" id="entrySave">저장</button></div>
+    <div class="btns-r"><button type="button" class="btn" id="entryUndo" hidden style="margin-right:auto">방금 저장한 줄 지우기</button><button type="button" class="btn" data-close>닫기</button><button class="btn primary" id="entrySave">저장</button></div>
+  </form>
+</div>
+
+<!-- 엑셀 표 고치기 (자산·고정비·예산 등) -->
+<div class="modal" id="editor">
+  <form class="box glass form" id="edForm" style="width:min(420px,100%)">
+    <h2 id="edTitle"></h2>
+    <p id="edNote"></p>
+    <div id="edFields"></div>
+    <div class="form-msg" id="edMsg"></div>
+    <div class="btns-r"><button type="button" class="btn danger" id="edDanger" hidden style="margin-right:auto"></button><button type="button" class="btn" data-close>닫기</button><button class="btn primary" id="edSave">저장</button></div>
   </form>
 </div>
 
@@ -530,7 +564,7 @@
         <div class="big" id="dbAssetTotal">-</div>
         <div class="split blurable" id="dbAssetSplit"></div>
         <div class="split-legend" id="dbAssetLegend"></div>
-        <div class="next"><div class="label">계좌·자산별</div><div id="asItems"></div></div>
+        <div class="next"><div class="row-top"><span class="label">계좌·자산별</span><button type="button" class="btn sm" id="asAdd" hidden>+ 자산 추가</button></div><div id="asItems"></div></div>
       </div>
       <div class="card glass">
         <div class="label">유형별 합계</div>
@@ -551,14 +585,14 @@
         <div class="scroll-x"><table class="t" id="dbEfLog"></table></div>
       </div>
     </div>
-    <div class="subhead"><h2>할부</h2><span class="label" id="dbSub"></span></div>
+    <div class="subhead"><h2>할부 <button type="button" class="btn sm" id="loanAdd" hidden>+ 할부 추가</button></h2><span class="label" id="dbSub"></span></div>
     <div class="grid g-3" id="dbLoans"></div>
   </section>
 
   <!-- 설정 -->
   <section class="page" id="settings">
     <div class="head">
-      <div><h1>설정</h1><p>여기서 정한 내용은 이 브라우저에만 저장돼요.</p></div>
+      <div><h1>설정</h1><p>예산·고정비는 엑셀 파일에 저장되고, 나머지는 이 브라우저에만 저장돼요.</p></div>
     </div>
     <div class="set-list">
       <div class="set-item glass">
@@ -590,6 +624,25 @@
         <div class="set-panel" id="panel-data" hidden>
           <div class="sub" id="cacheInfo"></div>
           <div class="btns-l"><button type="button" class="btn" id="clearCache">저장된 화면 데이터 지우기</button></div>
+        </div>
+      </div>
+      <div class="set-item glass">
+        <button type="button" class="set-row" data-panel="budget" aria-expanded="false">
+          <span class="set-t"><b>예산</b><small id="budRowState"></small></span><span class="set-chev">›</span></button>
+        <div class="set-panel" id="panel-budget" hidden>
+          <div class="sub" id="budInfo"></div>
+          <div class="admin-row"><div class="grow">예산 시작일<small id="budStartInfo"></small></div><button type="button" class="btn sm" id="budStartBtn">바꾸기</button></div>
+          <div id="budList"></div>
+          <div class="btns-l"><button type="button" class="btn" id="budAdd">+ 대분류 추가</button></div>
+        </div>
+      </div>
+      <div class="set-item glass">
+        <button type="button" class="set-row" data-panel="fixed" aria-expanded="false">
+          <span class="set-t"><b>고정비</b><small id="fixRowState"></small></span><span class="set-chev">›</span></button>
+        <div class="set-panel" id="panel-fixed" hidden>
+          <div class="sub" id="fixInfo"></div>
+          <div id="fixList"></div>
+          <div class="btns-l"><button type="button" class="btn" id="fixAdd">+ 고정비 추가</button></div>
         </div>
       </div>
       <div class="set-item glass">
@@ -627,8 +680,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.7';
+const APP_VERSION = '1.8';
 const CHANGES = [
+  ['1.8', '2026-11-09', ['+ 기록에 저축(저축·투자, 자산 잔액에 바로 더하기)과 할부(원금·개월·연이자율로 월 납입 계산) 탭 추가', '방금 저장한 줄 지우기, 지출 목록의 ✕로 지출 지우기', '자산 탭에서 자산 잔액·기준일 고치기, 자산 추가·삭제, 할부 추가·삭제', '설정에 예산(대분류·월 예산 고치기, 추가·삭제)과 고정비(사용/중단, 추가·수정·삭제) 추가', '예산 시작일: 월급날처럼 한 달 예산이 시작되는 날을 정하면 예산 잔액을 그 기간으로 계산']],
   ['1.7', '2026-11-09', ['+ 기록에 비상금 적립·사용 추가', '수입 기록에 세전 급여·공제 내역 칸 추가 (공제 합계 자동 표시), 지출 기록에서는 세전 급여 칸을 없앰', '자산 탭의 할부가 끝나면 늘어나는 월 여유 표를 뺌', '엑셀 표의 열 이름에 맞춰 저장해서, 열 순서가 달라도 맞는 칸에 들어가요']],
   ['1.6.4', '2026-11-09', ["파일 위치에 탐색기 표시 이름('OOO - 개인/…')을 적어도 알아들음"]],
   ['1.6.3', '2026-11-09', ['파일 위치에 PC 경로(C:\\Users\\…)를 붙여 넣어도 OneDrive 안 경로로 바꿔 줌', '학교·회사 OneDrive 경로를 적으면 왜 안 되는지 알려 줌']],
@@ -733,6 +787,13 @@ function labelValue(g, label, maxRow = g.length) {
 const isFormV1 = wb => ['거래', '수입', '예산', '자산'].every(n => wb.Sheets[n]);
 const ymOf = d => d.y * 100 + d.m;
 const ymAdd = (ym, k) => { const t = Math.floor(ym / 100) * 12 + (ym % 100 - 1) + k; return Math.floor(t / 12) * 100 + t % 12 + 1; };
+// 예산 시작일(1~28): 엑셀 예산 시트의 '예산 시작일' 칸, 없으면 이 브라우저 설정, 그것도 없으면 1일
+const budStart = () => Math.min(28, Math.max(1, Math.round((M && M.budgetStart) || prefs().budStart || 1)));
+function budPeriod(ym, S) {
+  const y = Math.floor(ym / 100), m = ym % 100, from = iso({ y, m, d: S });
+  const end = new Date(Date.UTC(y, m, S - 1)); // S=1이면 이 달 말일, 아니면 다음 달 S-1일
+  return { from, to: iso({ y: end.getUTCFullYear(), m: end.getUTCMonth() + 1, d: end.getUTCDate() }) };
+}
 const ymSpan = (a, b) => (Math.floor(b / 100) - Math.floor(a / 100)) * 12 + (b % 100) - (a % 100);
 function buildModelV1(wb, fileName) {
   const missing = [];
@@ -786,8 +847,9 @@ function buildModelV1(wb, fileName) {
   }
 
   const gb = need('예산');
-  const hb = findHeader(gb, ['대분류', '월 예산(원)', '기본 성격']) || findHeader(gb, ['대분류', '월 예산(원)']);
-  const budget = hb ? rowsAfter(gb, hb, '대분류', true).map(o => ({ cat: txt(o['대분류']), amt: num(o['월 예산(원)']) || 0, nw: txt(o['기본 성격']) })) : [];
+  const hb = findHeader(gb, ['대분류', '월 예산(원)', '설명', '기본 성격']) || findHeader(gb, ['대분류', '월 예산(원)']);
+  const budget = hb ? rowsAfter(gb, hb, '대분류', true).map(o => ({ cat: txt(o['대분류']), amt: num(o['월 예산(원)']) || 0, nw: txt(o['기본 성격']), desc: txt(o['설명']) })) : [];
+  const budgetStart = num(labelValue(gb, '예산 시작일', 12));
 
   const ga = need('자산');
   const ha = findHeader(ga, ['유형', '자산명', '기준일', '잔액(원)', '계좌별칭']);
@@ -829,7 +891,7 @@ function buildModelV1(wb, fileName) {
                used: sum(log.filter(r => r.kind === '사용' && +r.d.slice(0, 4) * 100 + +r.d.slice(5, 7) === thisYM), r => r.amt),
                need: target ? Math.max(0, target - cur) : null };
 
-  return { fileName, form: 'v1', readAt: new Date().toISOString(), inputYM, monthly, flows, tx, budget, assets, loans, fixed, ef, car, missing };
+  return { fileName, form: 'v1', readAt: new Date().toISOString(), inputYM, monthly, flows, tx, budget, budgetStart, assets, loans, fixed, ef, car, missing };
 }
 
 function buildModel(wb, fileName) {
@@ -1318,17 +1380,21 @@ function renderOverview() {
     const ptx = ptxAll.filter(t => +t.d.slice(8) <= cutDay);
     $('#mExpSub').innerHTML = ptxAll.length ? diffHtml(spent - sum(ptx, t => t.amt), live ? `지난달 같은 기간(${cutDay}일까지)` : '지난달') : '';
 
-    const bt = sum(M.budget, b => b.amt), left = bt - spent, r = bt ? left / bt : 0;
-    $('#mBudTot').textContent = bt ? `예산 ${won(bt)}` : '';
+    // 예산 기간: 시작일이 1일이 아니면 '이 달 S일 ~ 다음 달 S-1일'
+    // 이번 달인데 아직 시작일 전이면, 오늘이 들어 있는 지난달 시작 기간을 보여 줘요
+    const S = budStart(), bp = budPeriod(ym === nowYM && now.getDate() < S ? prevYM(ym) : ym, S);
+    const bSpent = S === 1 ? spent : sum(M.tx.filter(t => t.d >= bp.from && t.d <= bp.to), t => t.amt);
+    const bt = sum(M.budget, b => b.amt), left = bt - bSpent, r = bt ? left / bt : 0;
+    $('#mBudTot').textContent = bt ? `예산 ${won(bt)}${S === 1 ? '' : ` · ${mmdd(bp.from)}~${mmdd(bp.to)}`}` : '';
     setNum('#mBudBig', bt ? left : null, 'won');
     $('#mBudBig').style.color = left < 0 ? 'var(--red)' : '';
     $('#mBudPct').textContent = !bt ? '' : left < 0 ? `(${pct(-r * 100)} 초과)` : `(${pct(r * 100)})`;
-    $('#mBudBar').style.width = (bt ? Math.min(100, Math.max(0, spent / bt * 100)) : 0) + '%';
-    $('#mBudBar').className = !bt ? '' : spent > bt ? 'over' : spent / bt > 0.7 ? '' : 'ok';
-    const daysIn = new Date(Date.UTC(yOf(ym), ym % 100, 0)).getUTCDate();
-    const daysLeft = ym === nowYM ? daysIn - now.getDate() + 1 : 0;
-    $('#mBudSub').innerHTML = !bt ? '설정 시트에 예산이 없어요'
-      : `${pct(spent / bt * 100)} 사용` + (left < 0 ? ` · <span style="color:var(--red)">${won(-left)} 초과</span>`
+    $('#mBudBar').style.width = (bt ? Math.min(100, Math.max(0, bSpent / bt * 100)) : 0) + '%';
+    $('#mBudBar').className = !bt ? '' : bSpent > bt ? 'over' : bSpent / bt > 0.7 ? '' : 'ok';
+    const todayIso = iso({ y: now.getFullYear(), m: now.getMonth() + 1, d: now.getDate() });
+    const daysLeft = todayIso >= bp.from && todayIso <= bp.to ? Math.round((Date.parse(bp.to) - Date.parse(todayIso)) / 864e5) + 1 : 0;
+    $('#mBudSub').innerHTML = !bt ? '예산 시트에 예산이 없어요'
+      : `${pct(bSpent / bt * 100)} 사용` + (left < 0 ? ` · <span style="color:var(--red)">${won(-left)} 초과</span>`
         : daysLeft ? ` · 남은 ${daysLeft}일 동안 하루 ${won(left / daysLeft)}까지 쓸 수 있어요` : '');
 
     // 잉여금액: 수입 − 예산 − 그 달에 걸쳐 있는 할부 월납입 (이번 달 수입이 아직 없으면 지난달 수입으로)
@@ -1524,10 +1590,11 @@ function renderSpendList() {
   const from = (spPage - 1) * per, rows = spTx.slice(from, from + per);
   $('#spListInfo').textContent = spTx.length
     ? `${filtered ? `${spTxAll.length}건 중 ` : ''}${spTx.length}건 · 합계 ${won(sum(spTx, t => t.amt))} · ${from + 1}–${from + rows.length}번째` : '';
-  $('#spList').innerHTML = `<tr><th>날짜</th><th>내용</th><th>분류</th><th>구분</th><th class="n">금액</th></tr>` +
+  const ed = canEdit();
+  $('#spList').innerHTML = `<tr><th>날짜</th><th>내용</th><th>분류</th><th>구분</th><th class="n">금액</th>${ed ? '<th></th>' : ''}</tr>` +
     (rows.map(t => `<tr><td class="nowrap" style="color:var(--muted)">${mmdd(t.d)} ${'일월화수목금토'[t.wd]}</td><td>${esc(t.item)}</td>
       <td style="color:var(--muted)">${esc(t.cat)}</td><td>${t.nw ? `<span class="tag ${t.nw === 'Wants' ? 'w' : ''}">${esc(t.nw)}</span>` : '<span style="color:var(--muted)">-</span>'}</td>
-      <td class="n">${won(t.amt)}</td></tr>`).join('') || `<tr><td colspan="5" style="color:var(--muted)">${filtered ? '조건에 맞는 지출이 없어요' : '기록이 없어요'}</td></tr>`);
+      <td class="n">${won(t.amt)}</td>${ed ? `<td class="n"><button type="button" class="icon-x" data-tx-del="${t.i}" title="엑셀에서 이 지출 지우기">✕</button></td>` : ''}</tr>`).join('') || `<tr><td colspan="${ed ? 6 : 5}" style="color:var(--muted)">${filtered ? '조건에 맞는 지출이 없어요' : '기록이 없어요'}</td></tr>`);
   const btn = (p, label, dis, on) => `<button data-p="${p}" ${dis ? 'disabled' : ''} class="${on ? 'on' : ''}">${label}</button>`;
   $('#spPager').innerHTML = pages > 1 ? btn(spPage - 1, '‹ 이전', spPage === 1) +
     Array.from({ length: pages }, (_, i) => btn(i + 1, i + 1, false, i + 1 === spPage)).join('') + btn(spPage + 1, '다음 ›', spPage === pages) : '';
@@ -1573,8 +1640,10 @@ function renderAssets() {
   Object.entries(as.reduce((m, a) => (m[a.type] = (m[a.type] || 0) + a.amt, m), {})).filter(t => t[1] > 0)
     .sort((a, b) => b[1] - a[1]).forEach(([t], i) => typeColor[t] = COLORS[(i + 3) % COLORS.length]);
   const amax = Math.max(1, ...as.map(a => a.amt));
+  const ed = canEdit();
+  $('#asAdd').hidden = $('#loanAdd').hidden = !ed;
   $('#asItems').innerHTML = [...as].sort((a, b) => b.amt - a.amt).map(a => `<div class="hbar">
-      <div class="hbar-top"><span>${esc(a.name)} <span style="color:var(--muted);font-size:12px">· ${esc(a.type)}${a.alias ? ' · ' + esc(a.alias) : ''}</span></span><b>${won(a.amt)}</b></div>
+      <div class="hbar-top"><span>${esc(a.name)} <span style="color:var(--muted);font-size:12px">· ${esc(a.type)}${a.alias ? ' · ' + esc(a.alias) : ''}</span></span><span><b>${won(a.amt)}</b>${ed ? ` <button type="button" class="btn sm" data-asset="${esc(a.name)}">수정</button>` : ''}</span></div>
       <div class="track blurable"><span style="width:${a.amt / amax * 100}%;background:${typeColor[a.type] || '#a3958c'}"></span></div>
       <div class="sub">${aTot ? `전체의 ${pct(a.amt / aTot * 100)}` : ''}${a.date && a.date !== date ? ` · 기준일 ${a.date}` : ''}${a.amt === 0 ? ' · 잔액 0원' : ''}</div></div>`).join('');
 
@@ -1611,7 +1680,7 @@ function renderAssets() {
       : `<div class="mid" data-count="${l.monthly || 0}" data-fmt="won">${locked ? MASK : 0}</div><div class="sub">남은 ${l.left ?? '-'}개월 · 남은 금액 약 ${man(l.bal || 0)}</div>`;
     const foot = done
       ? `<div class="btns-l"><button type="button" class="btn primary" data-done="${esc(loanKey(l))}">완료</button><span class="sub" style="align-self:center;margin:0">누르면 목록에서 사라져요</span></div>`
-      : `<div class="sub">${l.elapsed ?? 0} / ${l.total ?? '-'}개월 납부</div>`;
+      : `<div class="row-top"><span class="sub" style="margin:0">${l.elapsed ?? 0} / ${l.total ?? '-'}개월 납부</span>${ed ? `<button type="button" class="icon-x" data-loan-del="${esc(l.name)}" title="엑셀에서 이 할부 지우기">삭제</button>` : ''}</div>`;
     return `<div class="card glass">${head}${body}<div class="bar-thin"><span class="ok" style="width:${r * 100}%"></span></div>${foot}</div>`;
   }).join('') || '<div class="sub">보여 줄 할부가 없어요.</div>';
 }
@@ -1710,7 +1779,7 @@ function renderSettings() {
   const p = prefs();
   $('#autoLock').innerHTML = [[0, '끄기'], [1, '1분'], [5, '5분'], [15, '15분']]
     .map(([v, l]) => `<button type="button" data-v="${v}" class="${p.autoLock === v ? 'on' : ''}">${l}</button>`).join('');
-  renderMs();
+  renderMs(); renderBudgetAdmin(); renderFixedAdmin();
   $('#verRowState').textContent = `지금 버전 ${APP_VERSION} · 바뀐 내용과 새 버전 확인`;
   $('#verInfo').textContent = isWeb
     ? '인터넷 주소로 열면 새로 열 때 보통 새 버전이 자동으로 들어와요. 휴대폰 홈 화면 앱은 브라우저가 잠시(최대 10분 정도) 예전 화면을 쓸 수 있어서, 바로 받고 싶으면 아래 버튼을 눌러 주세요.'
@@ -1856,27 +1925,51 @@ let entryKind = 'tx', entryNW = 'Needs';
 const INC_CATS = ['급여', '기타수입', '상여', '이자·배당'];
 function entryMsg(t, kind) { const m = $('#entryMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
 const ENTRY_UI = {
-  tx: { cat: '대분류', item: '내용', ph: '예: 점심', cats: () => M.budget.map(b => b.cat).filter(Boolean) },
-  inc: { cat: '분류', item: '내용', ph: '예: 11월 급여', cats: () => INC_CATS },
-  ef: { cat: '구분', item: '사유', ph: '예: 월 적립, 경조사', cats: () => ['적립', '사용'] },
+  tx: { cat: '대분류', item: '내용', ph: '예: 점심', amt: '금액(원)', date: '날짜', cats: () => M.budget.map(b => b.cat).filter(Boolean) },
+  inc: { cat: '분류', item: '내용', ph: '예: 11월 급여', amt: '받은 금액(원)', date: '날짜', cats: () => INC_CATS },
+  sv: { cat: '유형', item: '내용', ph: '예: 적금 자동이체, ETF 매수', amt: '금액(원)', date: '날짜', cats: () => ['저축', '투자'] },
+  ef: { cat: '구분', item: '사유', ph: '예: 월 적립, 경조사', amt: '금액(원)', date: '날짜', cats: () => ['적립', '사용'] },
+  loan: { cat: '', item: '상품·내역', ph: '예: 노트북', amt: '원금(원)', date: '첫 납부일', cats: () => [] },
 };
 function setEntryKind(k) {
-  entryKind = k;
+  entryKind = ENTRY_UI[k] ? k : 'tx';
+  k = entryKind;
   const u = ENTRY_UI[k];
   $$('#entryKind button').forEach(b => b.classList.toggle('on', b.dataset.v === k));
   $('#enTxOnly').hidden = k !== 'tx';
   $('#enIncOnly').hidden = k !== 'inc';
+  $('#enSvOnly').hidden = k !== 'sv';
+  $('#enLoanOnly').hidden = k !== 'loan';
   $('#enMemoRow').hidden = k === 'ef';
+  $('#enCatRow').hidden = !u.cat;
   $('#enCatLbl').textContent = u.cat;
   $('#enItemLbl').textContent = u.item;
+  $('#enAmtLbl').textContent = u.amt;
+  $('#enDateLbl').textContent = u.date;
   $('#enCat').innerHTML = u.cats().map(c => `<option>${esc(c)}</option>`).join('');
   $('#enItem').placeholder = u.ph;
-  syncNW(); syncDeduct();
+  if (k === 'sv') $('#enAsset').innerHTML = '<option value="">더하지 않음</option>' + M.assets.map(a => `<option value="${esc(a.name)}">${esc(a.name)} (${esc(a.type)})</option>`).join('');
+  syncNW(); syncDeduct(); syncLoan();
 }
 // 세전 급여를 적으면 공제 합계(세전 − 실수령)를 바로 보여 줘요
 function syncDeduct() {
   const g = +$('#enGross').value, a = +$('#enAmt').value;
   $('#enDeductSum').textContent = entryKind === 'inc' && g > 0 && a > 0 ? `공제 합계 ${won(g - a)} (세전 − 받은 금액)` : '';
+}
+// 할부: 원금·개월·연이자율로 월 납입(원리금 균등)과 마지막 납부일 계산
+function loanCalc() {
+  const P = +$('#enAmt').value, n = Math.round(+$('#enMonths').value), rate = +$('#enRate').value || 0, r = rate / 1200, first = $('#enDate').value;
+  if (!(P > 0) || !(n > 0) || !first) return null;
+  const monthly = Math.round(r > 0 ? P * r / (1 - Math.pow(1 + r, -n)) : P / n);
+  const [y, m, d] = first.split('-').map(Number), e = new Date(Date.UTC(y, m - 1 + n - 1, 1));
+  const lastDayOf = new Date(Date.UTC(e.getUTCFullYear(), e.getUTCMonth() + 1, 0)).getUTCDate();
+  const last = iso({ y: e.getUTCFullYear(), m: e.getUTCMonth() + 1, d: Math.min(d, lastDayOf) });
+  return { P, n, rate, monthly, first, last, day: d, interest: monthly * n - P };
+}
+function syncLoan() {
+  if (entryKind !== 'loan') return;
+  const c = loanCalc();
+  $('#enLoanCalc').textContent = c ? `월 ${won(c.monthly)}씩 ${c.n}개월 · 마지막 납부 ${c.last.replace(/-/g, '.')}${c.rate ? ` · 이자 합계 약 ${won(c.interest)}` : ' · 무이자'}` : '원금·개월·첫 납부일을 넣으면 월 납입액을 계산해요.';
 }
 function syncNW() {
   if (entryKind !== 'tx') return;
@@ -1884,13 +1977,15 @@ function syncNW() {
   setNW(b && b.nw === 'Wants' ? 'Wants' : 'Needs');
 }
 function setNW(v) { entryNW = v; $$('#enNW button').forEach(b => b.classList.toggle('on', b.dataset.v === v)); }
-function openEntry() {
+const ENTRY_INPUTS = ['#enAmt', '#enItem', '#enMemo', '#enGross', '#enDeduct', '#enMonths', '#enRate'];
+let entryUndo = null;
+function openEntry(kind) {
   if (!M || M.form !== 'v1') return;
   if (locked) return openUnlock();
-  const d = new Date();
-  $('#enDate').value = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  ['#enAmt', '#enItem', '#enMemo', '#enGross', '#enDeduct'].forEach(s => $(s).value = '');
-  setEntryKind(entryKind);
+  $('#enDate').value = todayIso();
+  ENTRY_INPUTS.forEach(s => $(s).value = '');
+  setEntryKind(typeof kind === 'string' ? kind : entryKind);
+  entryUndo = null; $('#entryUndo').hidden = true;
   entryMsg(msSignedIn() ? '' : '먼저 설정 → Microsoft 연결에서 로그인해 주세요.', msSignedIn() ? '' : 'err');
   $('#entryNote').textContent = `OneDrive의 ${msConf().path}에 바로 한 줄 추가돼요.`;
   $('#entrySave').disabled = !msSignedIn();
@@ -1905,10 +2000,12 @@ $('#entryKind').addEventListener('click', e => { const b = e.target.closest('but
 $('#enNW').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setNW(b.dataset.v); });
 $('#enCat').addEventListener('change', syncNW);
 ['#enGross', '#enAmt'].forEach(s => $(s).addEventListener('input', syncDeduct));
+['#enAmt', '#enMonths', '#enRate', '#enDate'].forEach(s => $(s).addEventListener('input', syncLoan));
 
 // 표의 열 이름을 읽어 그 순서대로 값을 채워요. 엑셀에서 열 순서를 바꿔도 맞게 들어가요.
 // 필요한 열이 없으면(예: 예전 양식의 '공제 내역') 표 끝에 새 열을 만들어요.
 async function addTableRow(itemId, table, rec, ensure = []) {
+  itemId = itemId || await wbItemId();
   const base = `/me/drive/items/${itemId}/workbook/tables/${table}`;
   let cols = (await (await graph(`${base}/columns?$select=name`)).json()).value.map(c => c.name), grew = false;
   for (const name of ensure) if (!cols.includes(name)) {
@@ -1921,22 +2018,246 @@ async function addTableRow(itemId, table, rec, ensure = []) {
   // 새 열은 몇 초 뒤에 반영될 때가 있어서 한 번 더 시도해요
   try { await add(); } catch (e) { if (!grew) throw e; await new Promise(r => setTimeout(r, 4000)); await add(); }
 }
+/* ── 엑셀 표 읽기·고치기·지우기 (열 이름 기준) ── */
+function canEdit() { return !!(M && M.form === 'v1' && msSignedIn()); }
+const wbItemId = async () => msConf().itemId || (await (await graph(msItemPath() + '?$select=id')).json()).id;
+const DATE_COLS = ['날짜', '기준일', '첫 납부일', '마지막 납부일'];
+// 엑셀 값과 비교: 날짜 칸은 날짜끼리, 숫자는 숫자끼리
+function sameCell(col, cell, want) {
+  if (want == null || want === '') return true;
+  if (DATE_COLS.includes(col)) { const d = toDate(cell); return !!d && iso(d) === want; }
+  if (typeof want === 'number') return Number(cell) === want;
+  return txt(cell) === txt(want);
+}
+async function tblLoad(table) {
+  const base = `/me/drive/items/${await wbItemId()}/workbook/tables/${table}`;
+  const cols = (await (await graph(`${base}/columns?$select=name`)).json()).value.map(c => c.name);
+  const rows = (await (await graph(`${base}/rows?$select=index,values&$top=5000`)).json()).value.map(r => ({ index: r.index, values: r.values[0] }));
+  return { base, cols, rows, rec: r => Object.fromEntries(cols.map((c, i) => [c, r.values[i]])) };
+}
+async function tblFind(table, match) {
+  const t = await tblLoad(table);
+  const hits = t.rows.filter(r => Object.entries(match).every(([k, v]) => sameCell(k, t.rec(r)[k], v)));
+  if (!hits.length) throw new Error('엑셀에서 그 줄을 찾지 못했어요. 새로고침한 뒤 다시 해 주세요.');
+  return { t, row: hits[hits.length - 1] }; // 똑같은 줄이 여럿이면 맨 아래(가장 최근) 줄
+}
+async function tblGet(table, match) { const { t, row } = await tblFind(table, match); return t.rec(row); }
+async function tblUpdate(table, match, changes) {
+  const { t, row } = await tblFind(table, match);
+  const vals = row.values.slice();
+  for (const [k, v] of Object.entries(changes)) {
+    const i = t.cols.indexOf(k);
+    if (i < 0) throw new Error(`표에 '${k}' 열이 없어요`);
+    vals[i] = v;
+  }
+  await graph(`${t.base}/rows/itemAt(index=${row.index})`, { method: 'PATCH', json: { values: [vals] } });
+  return t.rec(row);
+}
+async function tblDelete(table, match) {
+  const { t, row } = await tblFind(table, match);
+  await graph(`${t.base}/rows/itemAt(index=${row.index})`, { method: 'DELETE' });
+  return t.rec(row);
+}
+// 고친 뒤에는 OneDrive에서 다시 읽어 화면을 맞춰요
+async function excelDo(label, task) {
+  if (locked) { openUnlock(); return false; }
+  if (!canEdit()) { setStatus('먼저 설정 → Microsoft 연결에서 로그인해 주세요.', true); return false; }
+  setStatus(`${label} 저장하는 중…`);
+  try { await task(); await msPull(true); setStatus(`${label} 엑셀에 저장했어요.`); return true; }
+  catch (e) { setStatus(`${label} 저장하지 못했어요: ` + (e.status === 423 || e.status === 409 ? '파일이 잠시 잠겨 있어요. 잠시 뒤 다시 해 주세요.' : e.message), true); return false; }
+}
+const todayIso = () => { const d = new Date(); return iso({ y: d.getFullYear(), m: d.getMonth() + 1, d: d.getDate() }); };
+
+/* ── 고치기 창 (자산·고정비·예산 공용) ── */
+let edSpec = null;
+function edMsg(t, kind) { const m = $('#edMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
+function openForm(spec) {
+  if (locked) return openUnlock();
+  if (!canEdit()) return setStatus('먼저 설정 → Microsoft 연결에서 로그인해 주세요.', true);
+  edSpec = spec;
+  $('#edTitle').textContent = spec.title;
+  $('#edNote').textContent = spec.note || '';
+  $('#edFields').innerHTML = spec.fields.map(f => `<label>${esc(f.label)}${f.options
+    ? `<select class="in" data-k="${esc(f.key)}">${f.options.map(o => `<option${o === f.value ? ' selected' : ''}>${esc(o)}</option>`).join('')}</select>`
+    : `<input data-k="${esc(f.key)}" type="${f.type || 'text'}" ${f.type === 'number' ? 'step="any" inputmode="decimal"' : ''} ${f.required ? 'required' : ''} value="${esc(f.value ?? '')}" placeholder="${esc(f.ph || '')}">`}</label>`).join('');
+  $('#edDanger').hidden = !spec.danger;
+  if (spec.danger) $('#edDanger').textContent = spec.danger.label;
+  $('#edSave').disabled = false; edMsg('');
+  $('#editor').classList.add('on');
+  gsap.fromTo('#editor .box', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .35, ease: 'power3.out' });
+}
+const closeForm = () => $('#editor').classList.remove('on');
+$('#editor').addEventListener('click', e => { if (e.target.id === 'editor' || e.target.hasAttribute('data-close')) closeForm(); });
+$('#edForm').onsubmit = async e => {
+  e.preventDefault();
+  const v = {};
+  $$('#edFields [data-k]').forEach(el => { const f = edSpec.fields.find(x => x.key === el.dataset.k); v[el.dataset.k] = f.type === 'number' ? (el.value === '' ? '' : +el.value) : el.value.trim(); });
+  const bad = edSpec.check && edSpec.check(v);
+  if (bad) return edMsg(bad, 'err');
+  $('#edSave').disabled = true; edMsg('저장하는 중…');
+  if (edSpec.lite) {
+    try { await edSpec.save(v); closeForm(); } catch (err) { edMsg(err.message, 'err'); $('#edSave').disabled = false; }
+    return;
+  }
+  if (await excelDo(edSpec.title, () => edSpec.save(v))) closeForm(); else { $('#edSave').disabled = false; edMsg($('#status').textContent, 'err'); }
+};
+$('#edDanger').onclick = async () => {
+  if (!confirm(edSpec.danger.confirm)) return;
+  if (await excelDo(edSpec.title, edSpec.danger.run)) closeForm();
+};
+
+// 자산: 잔액·기준일·별칭 고치기, 추가, 지우기
+const ASSET_TYPES = ['현금성', '예금', '저축', '투자', '기타'];
+$('#asItems').addEventListener('click', e => {
+  const b = e.target.closest('[data-asset]'); if (!b) return;
+  const a = M.assets.find(x => x.name === b.dataset.asset); if (!a) return;
+  openForm({ title: `${a.name} 고치기`, note: '저축하거나 꺼낸 만큼 잔액을 고치고, 기준일은 확인한 날로 바꿔요.',
+    fields: [{ key: '잔액(원)', label: '잔액(원)', type: 'number', value: a.amt, required: true }, { key: '기준일', label: '기준일', type: 'date', value: todayIso() },
+             { key: '유형', label: '유형', options: ASSET_TYPES, value: a.type }, { key: '계좌별칭', label: '계좌별칭', value: a.alias }],
+    save: v => tblUpdate('tblAssets', { '자산명': a.name }, v),
+    danger: { label: '이 자산 지우기', confirm: `'${a.name}'을 엑셀 자산 표에서 지울까요?`, run: () => tblDelete('tblAssets', { '자산명': a.name }) } });
+});
+$('#asAdd').onclick = () => openForm({ title: '자산 추가', fields: [
+    { key: '유형', label: '유형', options: ASSET_TYPES, value: '저축' }, { key: '자산명', label: '자산명', required: true, ph: '예: 청년도약계좌' },
+    { key: '잔액(원)', label: '잔액(원)', type: 'number', required: true }, { key: '기준일', label: '기준일', type: 'date', value: todayIso() },
+    { key: '계좌별칭', label: '계좌별칭 (선택)', ph: '예: 적금 통장' }],
+  check: v => M.assets.some(a => a.name === v['자산명']) ? '같은 이름의 자산이 이미 있어요.' : '',
+  save: v => addTableRow(null, 'tblAssets', v) });
+
+// 할부: 추가는 기록 창의 할부 탭, 지우기는 카드의 삭제
+$('#loanAdd').onclick = () => openEntry('loan');
+$('#dbLoans').addEventListener('click', async e => {
+  const b = e.target.closest('[data-loan-del]'); if (!b) return;
+  if (!confirm(`'${b.dataset.loanDel}' 할부를 엑셀 할부 표에서 지울까요?`)) return;
+  excelDo('할부 삭제', () => tblDelete('tblLoans', { '상품·내역': b.dataset.loanDel }));
+});
+
+// 지출 목록의 ✕
+$('#spList').addEventListener('click', e => {
+  const b = e.target.closest('[data-tx-del]'); if (!b) return;
+  const t = M.tx[+b.dataset.txDel]; if (!t) return;
+  if (!confirm(`${mmdd(t.d)} ${t.item} ${won(t.amt)}을 엑셀에서 지울까요?`)) return;
+  excelDo('지출 삭제', () => tblDelete('tblTx', { '날짜': t.d, '대분류': t.cat, '내용': t.item === '(내용 없음)' ? '' : t.item, '금액(원)': t.amt }));
+});
+
+// 설정: 예산
+function renderBudgetAdmin() {
+  const ed = canEdit(), S = budStart();
+  $('#budRowState').textContent = M ? `월 ${won(sum(M.budget, b => b.amt))} · ${M.budget.length}개 대분류 · ${S}일 시작` : '파일을 열면 보여요';
+  $('#budInfo').textContent = !M ? '' : ed ? '누르면 고칠 수 있어요. 바꾼 내용은 엑셀 예산 시트에 저장돼요.' : M.form === 'v1' ? 'Microsoft 연결로 로그인하면 여기서 고칠 수 있어요.' : '새 양식(.xlsx)에서만 여기서 고칠 수 있어요.';
+  $('#budStartInfo').textContent = S === 1 ? '매달 1일부터 말일까지를 한 달 예산으로 봐요' : `매달 ${S}일부터 다음 달 ${S - 1}일까지를 한 달 예산으로 봐요`;
+  $('#budStartBtn').hidden = !M;
+  $('#budList').innerHTML = !M ? '' : M.budget.map(b => `<div class="admin-row"><div class="grow">${esc(b.cat)}<small>${esc(b.nw || '-')}${b.desc ? ' · ' + esc(b.desc) : ''}</small></div><b>${won(b.amt)}</b>${ed ? `<button type="button" class="btn sm" data-bud="${esc(b.cat)}">수정</button>` : ''}</div>`).join('');
+  $('#budAdd').hidden = !ed;
+}
+const budFields = b => [{ key: '대분류', label: '대분류', value: b ? b.cat : '', required: true, ph: '예: 교육' }, { key: '월 예산(원)', label: '월 예산(원)', type: 'number', value: b ? b.amt : '', required: true },
+  { key: '설명', label: '설명 (선택)', value: b ? b.desc : '', ph: '예: 학원, 책' }, { key: '기본 성격', label: '기본 성격', options: ['Needs', 'Wants'], value: b ? b.nw || 'Needs' : 'Needs' }];
+$('#budList').addEventListener('click', e => {
+  const b = M.budget.find(x => x.cat === (e.target.closest('[data-bud]') || {}).dataset?.bud); if (!b) return;
+  openForm({ title: `예산 · ${b.cat}`, note: '대분류 이름을 바꾸면 예전 지출은 예전 이름 그대로 남아요.', fields: budFields(b),
+    check: v => v['대분류'] !== b.cat && M.budget.some(x => x.cat === v['대분류']) ? '같은 대분류가 이미 있어요.' : '',
+    save: v => tblUpdate('tblBudget', { '대분류': b.cat }, v),
+    danger: { label: '이 대분류 지우기', confirm: `'${b.cat}' 대분류를 예산에서 지울까요? 예전 지출 기록은 남아요.`, run: () => tblDelete('tblBudget', { '대분류': b.cat }) } });
+});
+$('#budAdd').onclick = () => openForm({ title: '대분류 추가', fields: budFields(null),
+  check: v => M.budget.some(x => x.cat === v['대분류']) ? '같은 대분류가 이미 있어요.' : '', save: v => addTableRow(null, 'tblBudget', v) });
+$('#budStartBtn').onclick = () => {
+  if (locked) return openUnlock();
+  const S = budStart(), toExcel = canEdit();
+  edSpec = null;
+  openFormLite({ title: '예산 시작일', note: toExcel ? '월급날처럼 한 달 예산이 시작되는 날을 정해요. 엑셀 예산 시트에 저장돼서 휴대폰과 PC가 같이 써요.'
+      : '월급날처럼 한 달 예산이 시작되는 날을 정해요. 로그인 전이라 이 브라우저에만 저장돼요.',
+    field: { key: 'S', label: '시작일 (1~28일)', type: 'number', value: S },
+    save: async v => {
+      const n = Math.round(v.S);
+      if (!(n >= 1 && n <= 28)) throw new Error('1부터 28 사이 숫자로 정해 주세요.');
+      if (toExcel) {
+        await graph(`/me/drive/items/${await wbItemId()}/workbook/worksheets('${encodeURIComponent('예산')}')/range(address='F6:G6')`, { method: 'PATCH', json: { values: [['예산 시작일', n]] } });
+        await msPull(true);
+      } else { store.set(PREF_KEY, Object.assign(prefs(), { budStart: n })); if (M) render(M); }
+      setStatus(`예산 시작일을 ${n}일로 정했어요.`);
+    } });
+};
+// 숫자 하나만 받는 간단한 창 (엑셀 표가 아닌 칸에 쓸 때)
+function openFormLite(spec) {
+  edSpec = { title: spec.title, fields: [spec.field], save: spec.save, lite: true };
+  $('#edTitle').textContent = spec.title; $('#edNote').textContent = spec.note || '';
+  const f = spec.field;
+  $('#edFields').innerHTML = `<label>${esc(f.label)}<input data-k="${f.key}" type="${f.type}" value="${esc(f.value)}" required ${f.type === 'number' ? 'inputmode="numeric"' : ''}></label>`;
+  $('#edDanger').hidden = true; $('#edSave').disabled = false; edMsg('');
+  $('#editor').classList.add('on');
+}
+
+// 설정: 고정비
+const FIX_KINDS = ['정액고정비', '변동예산', '저축/투자', '이체예산', '목적자금'];
+function renderFixedAdmin() {
+  const ed = canEdit(), fx = M ? M.fixed : [];
+  const on = fx.filter(f => f.status === '사용');
+  $('#fixRowState').textContent = M ? `사용 ${on.length}개 · 월 ${won(sum(on.filter(f => f.kind === '정액고정비'), f => f.amt))} (정액고정비)` : '파일을 열면 보여요';
+  $('#fixInfo').textContent = !M ? '' : ed ? '사용/중단을 눌러 바로 바꾸거나, 수정에서 금액·납부일을 고쳐요. 엑셀 고정비 시트에 저장돼요.' : M.form === 'v1' ? 'Microsoft 연결로 로그인하면 여기서 고칠 수 있어요.' : '새 양식(.xlsx)에서만 여기서 고칠 수 있어요.';
+  $('#fixList').innerHTML = fx.map(f => `<div class="admin-row"><div class="grow ${f.status === '사용' ? '' : 'off'}">${esc(f.name)}<small>${esc(f.kind)} · ${esc(f.cat)}${f.day ? ` · ${f.day}일` : ''}</small></div><b class="${f.status === '사용' ? '' : 'off'}">${won(f.amt)}</b>${ed
+    ? `<button type="button" class="btn sm" data-fx-toggle="${esc(f.name)}">${f.status === '사용' ? '사용 중' : '중단됨'}</button><button type="button" class="btn sm" data-fx="${esc(f.name)}">수정</button>`
+    : `<span class="sub" style="margin:0">${esc(f.status)}</span>`}</div>`).join('');
+  $('#fixAdd').hidden = !ed;
+}
+const fixFields = f => [{ key: '비용 성격', label: '비용 성격', options: FIX_KINDS, value: f ? f.kind : '정액고정비' }, { key: '대분류', label: '대분류', value: f ? f.cat : '', required: true, ph: '예: 구독' },
+  { key: '항목', label: '항목', value: f ? f.name : '', required: true, ph: '예: 넷플릭스' }, { key: '월 계획액', label: '월 금액(원)', type: 'number', value: f ? f.amt : '', required: true },
+  { key: '납부일', label: '납부일 (1~31, 선택)', type: 'number', value: f && f.day ? f.day : '' }, { key: '상태', label: '상태', options: ['사용', '중단'], value: f ? f.status || '사용' : '사용' }];
+$('#fixList').addEventListener('click', e => {
+  const tg = e.target.closest('[data-fx-toggle]');
+  if (tg) { const f = M.fixed.find(x => x.name === tg.dataset.fxToggle); if (f) excelDo(`${f.name} ${f.status === '사용' ? '중단' : '사용'}`, () => tblUpdate('tblFixed', { '항목': f.name }, { '상태': f.status === '사용' ? '중단' : '사용' })); return; }
+  const b = e.target.closest('[data-fx]'); if (!b) return;
+  const f = M.fixed.find(x => x.name === b.dataset.fx); if (!f) return;
+  openForm({ title: `고정비 · ${f.name}`, fields: fixFields(f),
+    check: v => v['항목'] !== f.name && M.fixed.some(x => x.name === v['항목']) ? '같은 항목이 이미 있어요.' : '',
+    save: v => tblUpdate('tblFixed', { '항목': f.name }, v),
+    danger: { label: '이 고정비 지우기', confirm: `'${f.name}'을 고정비에서 지울까요? 예전 지출 기록은 남아요.`, run: () => tblDelete('tblFixed', { '항목': f.name }) } });
+});
+$('#fixAdd').onclick = () => openForm({ title: '고정비 추가', fields: fixFields(null),
+  check: v => M.fixed.some(x => x.name === v['항목']) ? '같은 항목이 이미 있어요.' : '', save: v => addTableRow(null, 'tblFixed', v) });
+
 $('#entryForm').onsubmit = async e => {
   e.preventDefault();
   if (locked) return entryMsg('잠금을 먼저 풀어 주세요.', 'err');
+  const k = entryKind, u = ENTRY_UI[k];
   const date = $('#enDate').value, amt = Math.round(+$('#enAmt').value), cat = $('#enCat').value, item = $('#enItem').value.trim(), memo = $('#enMemo').value.trim();
-  if (!date || !(amt > 0) || !cat || !item) return entryMsg(`날짜·금액·${ENTRY_UI[entryKind].cat}·${ENTRY_UI[entryKind].item}을 모두 적어 주세요.`, 'err');
+  if (!date || !(amt > 0) || (u.cat && !cat) || !item) return entryMsg(`${u.date}·${u.amt.replace('(원)', '')}·${u.cat ? u.cat + '·' : ''}${u.item}을 모두 적어 주세요.`, 'err');
   const gross = Math.round(+$('#enGross').value) || '', deduct = $('#enDeduct').value.trim();
-  const [table, rec, ensure] =
-    entryKind === 'tx' ? ['tblTx', { '날짜': date, '대분류': cat, '내용': item, '금액(원)': amt, 'Needs/Wants': entryNW, '메모': memo }, []]
-    : entryKind === 'inc' ? ['tblIncome', { '날짜': date, '유형': '수입', '분류': cat, '내용': item, '세전 급여': gross, '공제 내역': deduct, '금액(원)': amt, '메모': memo }, deduct ? ['공제 내역'] : []]
-    : ['tblEF', { '날짜': date, '구분': cat, '금액(원)': amt, '사유': item }, []];
+  let table, rec, ensure = [], asset = null, label;
+  if (k === 'tx') { table = 'tblTx'; rec = { '날짜': date, '대분류': cat, '내용': item, '금액(원)': amt, 'Needs/Wants': entryNW, '메모': memo }; label = `${item} ${won(amt)}`; }
+  else if (k === 'inc') { table = 'tblIncome'; rec = { '날짜': date, '유형': '수입', '분류': cat, '내용': item, '세전 급여': gross, '공제 내역': deduct, '금액(원)': amt, '메모': memo }; if (deduct) ensure = ['공제 내역']; label = `${item} ${won(amt)}`; }
+  else if (k === 'sv') { table = 'tblIncome'; rec = { '날짜': date, '유형': cat, '분류': cat, '내용': item, '금액(원)': amt, '메모': memo }; asset = $('#enAsset').value; label = `${cat} · ${item} ${won(amt)}`; }
+  else if (k === 'ef') { table = 'tblEF'; rec = { '날짜': date, '구분': cat, '금액(원)': amt, '사유': item }; label = `비상금 ${cat} · ${item} ${won(amt)}`; }
+  else {
+    const c = loanCalc();
+    if (!c) return entryMsg('할부 개월을 1 이상으로 적어 주세요.', 'err');
+    if (M.loans.some(l => l.name === item)) return entryMsg('같은 이름의 할부가 이미 있어요. 이름을 조금 바꿔 주세요.', 'err');
+    table = 'tblLoans';
+    rec = { '유형': '할부', '상품·내역': item, '원금': c.P, '연금리(%)': c.rate, '월 납입': c.monthly, '첫 납부일': c.first, '마지막 납부일': c.last, '납부일': c.day, '비고': memo };
+    label = `할부 ${item} 월 ${won(c.monthly)} × ${c.n}개월`;
+  }
   const btn = $('#entrySave'); btn.disabled = true; entryMsg('저장하는 중… (몇 초 걸릴 수 있어요)');
   try {
-    const id = msConf().itemId || (await (await graph(msItemPath() + '?$select=id')).json()).id;
-    await addTableRow(id, table, rec, ensure);
-    entryMsg(`저장했어요: ${date.slice(5).replace('-', '.')} ${entryKind === 'ef' ? '비상금 ' + cat + ' · ' : ''}${item} ${won(amt)}`, 'ok');
-    ['#enAmt', '#enItem', '#enMemo', '#enGross', '#enDeduct'].forEach(s => $(s).value = ''); syncDeduct();
+    await addTableRow(null, table, rec, ensure);
+    let assetNote = '';
+    if (asset) {
+      const before = await tblGet('tblAssets', { '자산명': asset }); // 지금 잔액 읽기
+      const bal = (Number(before['잔액(원)']) || 0) + amt;
+      await tblUpdate('tblAssets', { '자산명': asset }, { '잔액(원)': bal, '기준일': date });
+      assetNote = ` · ${asset} 잔액 ${won(bal)}`;
+    }
+    // 되돌리기: 방금 넣은 줄을 지우고, 자산에 더했으면 다시 빼요
+    const match = Object.fromEntries(Object.entries(rec).filter(([, v]) => v !== ''));
+    entryUndo = async () => {
+      await tblDelete(table, match);
+      if (asset) {
+        const now = await tblGet('tblAssets', { '자산명': asset });
+        await tblUpdate('tblAssets', { '자산명': asset }, { '잔액(원)': (Number(now['잔액(원)']) || 0) - amt });
+      }
+    };
+    $('#entryUndo').hidden = false;
+    entryMsg(`저장했어요: ${date.slice(5).replace('-', '.')} ${label}${assetNote}`, 'ok');
+    ENTRY_INPUTS.forEach(s => $(s).value = ''); syncDeduct(); syncLoan();
     $('#enAmt').focus();
     msPull(true);
   } catch (err) {
@@ -1944,6 +2265,13 @@ $('#entryForm').onsubmit = async e => {
       : err.status === 423 || err.status === 409 ? '다른 곳에서 파일을 고치는 중이라 잠겨 있어요. 잠시 뒤 다시 눌러 주세요.' : '저장하지 못했어요: ' + err.message, 'err');
   }
   btn.disabled = false;
+};
+$('#entryUndo').onclick = async () => {
+  if (!entryUndo) return;
+  const b = $('#entryUndo'); b.disabled = true; entryMsg('방금 저장한 줄을 지우는 중…');
+  try { await entryUndo(); entryUndo = null; b.hidden = true; entryMsg('지웠어요. 엑셀도 저장 전으로 돌아갔어요.', 'ok'); msPull(true); }
+  catch (err) { entryMsg('지우지 못했어요: ' + err.message, 'err'); }
+  b.disabled = false;
 };
 
 function openPanel(id, force) {

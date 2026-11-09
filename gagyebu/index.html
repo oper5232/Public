@@ -626,8 +626,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.6.3';
+const APP_VERSION = '1.6.4';
 const CHANGES = [
+  ['1.6.4', '2026-11-09', ["파일 위치에 탐색기 표시 이름('OOO - 개인/…')을 적어도 알아들음"]],
   ['1.6.3', '2026-11-09', ['파일 위치에 PC 경로(C:\\Users\\…)를 붙여 넣어도 OneDrive 안 경로로 바꿔 줌', '학교·회사 OneDrive 경로를 적으면 왜 안 되는지 알려 줌']],
   ['1.6.2', '2026-11-09', ['개인 Microsoft 계정용으로 등록한 앱 ID로 바꿈']],
   ['1.6.1', '2026-11-09', ['Microsoft 연결 앱 ID를 미리 넣어 둬서 설정에서 로그인만 누르면 돼요']],
@@ -1840,7 +1841,8 @@ $('#msForm').onsubmit = e => {
   if (local && local[1]) return msMsg(`'OneDrive${local[1]}'는 학교·회사 OneDrive라서 개인 계정 로그인으로는 열 수 없어요. 개인 OneDrive 폴더(C:\\Users\\…\\OneDrive)에 파일을 두고 그 위치를 적어 주세요.`, 'err');
   if (local) path = local[2];
   if (/^[a-z]:\//i.test(path)) return msMsg('OneDrive 폴더 안의 위치를 적어 주세요. 예: Desktop/가계부.xlsx', 'err');
-  path = path.replace(/^\/+/, '') || 'Desktop/가계부.xlsx';
+  // 탐색기에 보이는 'OOO - 개인' 은 OneDrive 맨 위 폴더 이름이라 떼어 내요
+  path = path.replace(/^\/+/, '').replace(/^[^/]+ - (개인|Personal)\//i, '').replace(/^OneDrive\//i, '') || 'Desktop/가계부.xlsx';
   $('#msPath').value = path;
   if (!/\.xlsx$/i.test(path)) return msMsg('파일 위치는 .xlsx로 끝나야 해요. 입력 기능은 .xlsm에는 쓸 수 없어요.', 'err');
   store.set(PREF_KEY, Object.assign(prefs(), { ms: { clientId, path } }));

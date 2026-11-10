@@ -721,8 +721,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.1';
+const APP_VERSION = '1.9.2';
 const CHANGES = [
+  ['1.9.2', '2026-11-10', ['자산 수정 창에서 자산 이름도 바꿀 수 있음']],
   ['1.9.1', '2026-11-10', ['기록·수정·암호 창에서 글자를 드래그하다 창 밖에서 마우스를 떼면 창이 닫히던 문제 수정']],
   ['1.9', '2026-11-10', ['앱을 열 때 실행 화면 추가: 아이콘의 막대가 올라오고, 지난 기록·OneDrive를 읽는 동안 무엇을 하는지 보여 줘요', '화면을 그린 뒤에 라이브러리를 받아서 처음 여는 속도가 빨라짐', '빈 양식: 자산 합계가 첫 줄만 더하던 문제 수정 (합계는 자산 표 오른쪽 I4)', '빈 양식: 드롭다운의 오류 안내를 칸마다 맞게 고침, 수입 분류는 목록에 없는 값도 적을 수 있음']],
   ['1.8', '2026-11-09', ['+ 기록에 저축(저축·투자, 자산 잔액에 바로 더하기)과 할부(원금·개월·연이자율로 월 납입 계산) 탭 추가', '방금 저장한 줄 지우기, 지출 목록의 ✕로 지출 지우기', '자산 탭에서 자산 잔액·기준일 고치기, 자산 추가·삭제, 할부 추가·삭제', '설정에 예산(대분류·월 예산 고치기, 추가·삭제)과 고정비(사용/중단, 추가·수정·삭제) 추가', '예산 시작일: 월급날처럼 한 달 예산이 시작되는 날을 정하면 예산 잔액을 그 기간으로 계산']],
@@ -2164,9 +2165,11 @@ const ASSET_TYPES = ['현금성', '예금', '저축', '투자', '기타'];
 $('#asItems').addEventListener('click', e => {
   const b = e.target.closest('[data-asset]'); if (!b) return;
   const a = M.assets.find(x => x.name === b.dataset.asset); if (!a) return;
-  openForm({ title: `${a.name} 고치기`, note: '저축하거나 꺼낸 만큼 잔액을 고치고, 기준일은 확인한 날로 바꿔요.',
-    fields: [{ key: '잔액(원)', label: '잔액(원)', type: 'number', value: a.amt, required: true }, { key: '기준일', label: '기준일', type: 'date', value: todayIso() },
+  openForm({ title: `${a.name} 고치기`, note: '저축하거나 꺼낸 만큼 잔액을 고치고, 기준일은 확인한 날로 바꿔요. 이름도 바꿀 수 있어요.',
+    fields: [{ key: '자산명', label: '자산 이름', value: a.name, required: true }, { key: '잔액(원)', label: '잔액(원)', type: 'number', value: a.amt, required: true },
+             { key: '기준일', label: '기준일', type: 'date', value: todayIso() },
              { key: '유형', label: '유형', options: ASSET_TYPES, value: a.type }, { key: '계좌별칭', label: '계좌별칭', value: a.alias }],
+    check: v => !v['자산명'] ? '자산 이름을 적어 주세요.' : v['자산명'] !== a.name && M.assets.some(x => x.name === v['자산명']) ? '같은 이름의 자산이 이미 있어요.' : '',
     save: v => tblUpdate('tblAssets', { '자산명': a.name }, v),
     danger: { label: '이 자산 지우기', confirm: `'${a.name}'을 엑셀 자산 표에서 지울까요?`, run: () => tblDelete('tblAssets', { '자산명': a.name }) } });
 });

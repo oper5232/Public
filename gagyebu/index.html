@@ -11,8 +11,6 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
   :root {
     --bg: #0d0b0a;
@@ -30,6 +28,36 @@
   }
   * { box-sizing: border-box; margin: 0; }
   html, body { background: var(--bg); color: var(--text); }
+
+  /* 실행 화면: 아이콘의 막대 세 개가 차례로 올라와요. 준비되면 사라져요 */
+  .splash { position: fixed; inset: 0; z-index: 100; display: grid; place-content: center; justify-items: center; gap: 14px;
+            background: radial-gradient(55% 45% at 50% 44%, rgba(255, 138, 92, .17), transparent 72%), var(--bg);
+            padding: env(safe-area-inset-top) 16px env(safe-area-inset-bottom);
+            transition: opacity .45s ease, visibility .45s; }
+  .splash.out { opacity: 0; visibility: hidden; pointer-events: none; }
+  .splash-mark { width: 88px; height: 88px; border-radius: 26px; margin-bottom: 6px;
+                 background: linear-gradient(135deg, var(--accent), #c2502a);
+                 display: flex; align-items: flex-end; justify-content: center; gap: 8px; padding-bottom: 21px;
+                 box-shadow: 0 22px 50px -14px rgba(255, 120, 70, .55), inset 0 1px 0 rgba(255, 255, 255, .25);
+                 animation: splashPop .55s cubic-bezier(.2, .9, .3, 1.25) both; }
+  .splash-mark i { display: block; width: 10px; border-radius: 3px; transform-origin: bottom;
+                   animation: splashGrow .6s cubic-bezier(.2, .9, .3, 1.35) both; }
+  .splash-mark i:nth-child(1) { height: 19px; background: #f8dcd0; animation-delay: .25s; }
+  .splash-mark i:nth-child(2) { height: 31px; background: #fff;    animation-delay: .37s; }
+  .splash-mark i:nth-child(3) { height: 44px; background: #fcefe9; animation-delay: .49s; }
+  .splash-name { font-weight: 700; font-size: 21px; letter-spacing: .01em; animation: splashRise .5s .55s both; }
+  .splash-msg { color: var(--muted); font-size: 12.5px; min-height: 1.3em; animation: splashRise .5s .65s both; }
+  .splash-bar { width: 112px; height: 2px; margin-top: 4px; border-radius: 2px; background: var(--line); overflow: hidden;
+                animation: splashRise .5s .75s both; }
+  .splash-bar::after { content: ""; display: block; width: 40%; height: 100%; border-radius: 2px; background: var(--accent);
+                       animation: splashSlide 1.15s ease-in-out infinite; }
+  @keyframes splashPop { from { transform: scale(.7); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes splashGrow { from { transform: scaleY(0); } to { transform: none; } }
+  @keyframes splashRise { from { transform: translateY(8px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes splashSlide { from { transform: translateX(-100%); } to { transform: translateX(280%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .splash, .splash * { animation: none !important; transition: none !important; }
+  }
   body {
     font-family: Manrope, "IBM Plex Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
     font-size: 14px;
@@ -286,6 +314,16 @@
 </style>
 </head>
 <body class="locked">
+<div class="splash" id="splash" role="status" aria-live="polite">
+  <div class="splash-mark" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="splash-name">가계부</div>
+  <div class="splash-msg" id="splashMsg">여는 중</div>
+  <div class="splash-bar" aria-hidden="true"></div>
+</div>
+<script>
+  // 라이브러리를 못 받거나 오류가 나도 실행 화면이 화면을 가리지 않게 8초 뒤에는 무조건 걷어요
+  setTimeout(() => document.getElementById('splash').classList.add('out'), 8000);
+</script>
 <div class="backdrop"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div class="drop" id="drop"><div>가계부 파일을 여기에 놓으세요</div></div>
 <input type="file" id="fileInput" accept=".xlsm,.xlsx" hidden>
@@ -675,13 +713,17 @@
   </section>
 </div>
 
+<!-- 실행 화면이 먼저 그려지도록 라이브러리는 본문 끝에서 불러요 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
 const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.8';
+const APP_VERSION = '1.9';
 const CHANGES = [
+  ['1.9', '2026-11-10', ['앱을 열 때 실행 화면 추가: 아이콘의 막대가 올라오고, 지난 기록·OneDrive를 읽는 동안 무엇을 하는지 보여 줘요', '화면을 그린 뒤에 라이브러리를 받아서 처음 여는 속도가 빨라짐', '빈 양식: 자산 합계가 첫 줄만 더하던 문제 수정 (합계는 자산 표 오른쪽 I4)', '빈 양식: 드롭다운의 오류 안내를 칸마다 맞게 고침, 수입 분류는 목록에 없는 값도 적을 수 있음']],
   ['1.8', '2026-11-09', ['+ 기록에 저축(저축·투자, 자산 잔액에 바로 더하기)과 할부(원금·개월·연이자율로 월 납입 계산) 탭 추가', '방금 저장한 줄 지우기, 지출 목록의 ✕로 지출 지우기', '자산 탭에서 자산 잔액·기준일 고치기, 자산 추가·삭제, 할부 추가·삭제', '설정에 예산(대분류·월 예산 고치기, 추가·삭제)과 고정비(사용/중단, 추가·수정·삭제) 추가', '예산 시작일: 월급날처럼 한 달 예산이 시작되는 날을 정하면 예산 잔액을 그 기간으로 계산']],
   ['1.7', '2026-11-09', ['+ 기록에 비상금 적립·사용 추가', '수입 기록에 세전 급여·공제 내역 칸 추가 (공제 합계 자동 표시), 지출 기록에서는 세전 급여 칸을 없앰', '자산 탭의 할부가 끝나면 늘어나는 월 여유 표를 뺌', '엑셀 표의 열 이름에 맞춰 저장해서, 열 순서가 달라도 맞는 칸에 들어가요']],
   ['1.6.4', '2026-11-09', ["파일 위치에 탐색기 표시 이름('OOO - 개인/…')을 적어도 알아들음"]],
@@ -2371,17 +2413,42 @@ let rz; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() 
   if (M) { const p = $('.page.on'); if (p.id === 'overview') renderOverview(); if (p.id === 'assets') renderAssets(); countUp(p); }
 }, 150); });
 
+/* ── 실행 화면: 최소 0.9초 보여 주고, 준비가 끝나면 걷어요 ── */
+const splashAt = performance.now();
+const splashSay = t => { $('#splashMsg').textContent = t; };
+function hideSplash() {
+  const s = $('#splash');
+  if (!s || s.classList.contains('out')) return;
+  setTimeout(() => {
+    s.classList.add('out');
+    // 카드가 올라오는 움직임은 실행 화면에 가려 안 보였으니, 걷힐 때 한 번 더 보여 줘요
+    const p = $('.page.on');
+    if (M && p && p.id !== 'empty') enter(p);
+  }, Math.max(0, 900 - (performance.now() - splashAt)));
+}
+
 (async () => {
-  const c = store.get(CACHE_KEY);
-  if (c && c.car) { render(c); setStatus('지난번에 읽은 내용이에요. 엑셀을 고쳤다면 새로고침을 눌러 주세요.'); }
-  renderSettings();
-  if (canPick && await loadHandle()) $('#reloadBtn').disabled = false;
-  else if (!canPick) $('#reloadBtn').style.display = 'none';
-  // Microsoft에 로그인해 두었으면 열 때마다 OneDrive의 최신 파일을 읽어요
-  if (isWeb) { await msHandleRedirect(); renderSettings(); if (msSignedIn()) msPull(); }
-  const q = new URLSearchParams(location.search).get('file'); // 확인용: ?file=주소
-  // 같은 사이트 안의 상대 경로만 받아요 (다른 사이트 주소는 무시)
-  if (q && !/^[a-z][a-z0-9+.-]*:|^\/\//i.test(q)) { const r = await fetch(q); readFile(new File([await r.blob()], q.split('/').pop())); }
+  try {
+    const c = store.get(CACHE_KEY);
+    if (c && c.car) { splashSay('지난 기록을 펼치는 중'); render(c); setStatus('지난번에 읽은 내용이에요. 엑셀을 고쳤다면 새로고침을 눌러 주세요.'); }
+    renderSettings();
+    if (canPick && await loadHandle()) $('#reloadBtn').disabled = false;
+    else if (!canPick) $('#reloadBtn').style.display = 'none';
+    // Microsoft에 로그인해 두었으면 열 때마다 OneDrive의 최신 파일을 읽어요
+    if (isWeb) {
+      await msHandleRedirect(); renderSettings();
+      if (msSignedIn()) {
+        splashSay('OneDrive에서 최신 가계부를 읽는 중');
+        // 실행 화면은 2.5초까지만 기다리고, 읽기는 뒤에서 계속돼요
+        await Promise.race([msPull(), new Promise(r => setTimeout(r, 2500))]);
+      }
+    }
+    const q = new URLSearchParams(location.search).get('file'); // 확인용: ?file=주소
+    // 같은 사이트 안의 상대 경로만 받아요 (다른 사이트 주소는 무시)
+    if (q && !/^[a-z][a-z0-9+.-]*:|^\/\//i.test(q)) { const r = await fetch(q); readFile(new File([await r.blob()], q.split('/').pop())); }
+  } finally {
+    hideSplash();
+  }
 })();
 
 gsap.to('.b1', { x: 120, y: 80, duration: 14, yoyo: true, repeat: -1, ease: 'sine.inOut' });

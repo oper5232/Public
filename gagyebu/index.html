@@ -721,8 +721,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.2';
+const APP_VERSION = '1.9.3';
 const CHANGES = [
+  ['1.9.3', '2026-11-10', ['할부 카드에 수정 버튼 추가: 이름·원금·이자율·월 납입·첫/마지막 납부일·납부일·현재 잔액·비고를 고치면 엑셀 할부 표에 저장 (월 납입을 비우면 다시 계산)', '할부 삭제는 수정 창 안으로 옮김']],
   ['1.9.2', '2026-11-10', ['자산 수정 창에서 자산 이름도 바꿀 수 있음']],
   ['1.9.1', '2026-11-10', ['기록·수정·암호 창에서 글자를 드래그하다 창 밖에서 마우스를 떼면 창이 닫히던 문제 수정']],
   ['1.9', '2026-11-10', ['앱을 열 때 실행 화면 추가: 아이콘의 막대가 올라오고, 지난 기록·OneDrive를 읽는 동안 무엇을 하는지 보여 줘요', '화면을 그린 뒤에 라이브러리를 받아서 처음 여는 속도가 빨라짐', '빈 양식: 자산 합계가 첫 줄만 더하던 문제 수정 (합계는 자산 표 오른쪽 I4)', '빈 양식: 드롭다운의 오류 안내를 칸마다 맞게 고침, 수입 분류는 목록에 없는 값도 적을 수 있음']],
@@ -904,10 +905,13 @@ function buildModelV1(wb, fileName) {
 
   // 할부: 첫·마지막 납부일로 총·경과·남은 개월을 계산, 잔액은 적힌 값 > 이자 반영 추정 > 남은 개월×월 납입
   const gl = grid(wb.Sheets['할부']);
-  const hl = findHeader(gl, ['유형', '상품·내역', '원금', '연금리(%)', '월 납입', '첫 납부일', '마지막 납부일', '현재 잔액(선택)']);
+  const hl = findHeader(gl, ['유형', '상품·내역', '원금', '연금리(%)', '월 납입', '첫 납부일', '마지막 납부일', '납부일', '현재 잔액(선택)', '비고'])
+          || findHeader(gl, ['유형', '상품·내역', '원금', '연금리(%)', '월 납입', '첫 납부일', '마지막 납부일', '현재 잔액(선택)']);
   const loans = hl ? rowsAfter(gl, hl, '상품·내역', true).map(o => {
     const s = toDate(o['첫 납부일']), e = toDate(o['마지막 납부일']), monthly = num(o['월 납입']);
-    if (!s || !e) return { type: txt(o['유형']), name: txt(o['상품·내역']), principal: num(o['원금']) || 0, monthly, status: '' };
+    // 수정 창에 그대로 채우려고 엑셀 칸 값도 같이 들고 있어요
+    const raw = { first: s ? iso(s) : '', last: e ? iso(e) : '', rate: num(o['연금리(%)']) || 0, day: num(o['납부일']), given: num(o['현재 잔액(선택)']), note: txt(o['비고']) };
+    if (!s || !e) return { type: txt(o['유형']), name: txt(o['상품·내역']), principal: num(o['원금']) || 0, monthly, status: '', raw };
     const total = ymSpan(ymOf(s), ymOf(e)) + (e.d >= s.d ? 1 : 0);
     const elapsed = Math.max(0, Math.min(total, ymSpan(ymOf(s), thisYM) + (today.d >= s.d ? 1 : 0)));
     const left = total - elapsed, r = (num(o['연금리(%)']) || 0) / 1200;
@@ -915,7 +919,7 @@ function buildModelV1(wb, fileName) {
     const given = num(o['현재 잔액(선택)']);
     return { type: txt(o['유형']), name: txt(o['상품·내역']), principal: num(o['원금']) || 0, startYM: ymOf(s), endYM: ymOf(e),
              total, elapsed, left, bal: left === 0 ? 0 : given != null ? given : est != null ? Math.round(est) : null,
-             status: left === 0 ? '완료' : '진행중', monthly };
+             status: left === 0 ? '완료' : '진행중', monthly, raw };
   }).filter(l => l.type === '할부') : [];
 
   const gc = grid(wb.Sheets['고정비']);
@@ -1733,8 +1737,8 @@ function renderAssets() {
       ? `<div class="mid" style="color:var(--green)">다 갚았어요</div><div class="sub">원금 ${man(l.principal)}${l.endYM ? ` · ${ymShort(l.endYM)} 종료` : ''}</div>`
       : `<div class="mid" data-count="${l.monthly || 0}" data-fmt="won">${locked ? MASK : 0}</div><div class="sub">남은 ${l.left ?? '-'}개월 · 남은 금액 약 ${man(l.bal || 0)}</div>`;
     const foot = done
-      ? `<div class="btns-l"><button type="button" class="btn primary" data-done="${esc(loanKey(l))}">완료</button><span class="sub" style="align-self:center;margin:0">누르면 목록에서 사라져요</span></div>`
-      : `<div class="row-top"><span class="sub" style="margin:0">${l.elapsed ?? 0} / ${l.total ?? '-'}개월 납부</span>${ed ? `<button type="button" class="icon-x" data-loan-del="${esc(l.name)}" title="엑셀에서 이 할부 지우기">삭제</button>` : ''}</div>`;
+      ? `<div class="btns-l"><button type="button" class="btn primary" data-done="${esc(loanKey(l))}">완료</button>${ed ? `<button type="button" class="btn" data-loan-edit="${esc(l.name)}">수정</button>` : ''}<span class="sub" style="align-self:center;margin:0">완료를 누르면 목록에서 사라져요</span></div>`
+      : `<div class="row-top"><span class="sub" style="margin:0">${l.elapsed ?? 0} / ${l.total ?? '-'}개월 납부</span>${ed ? `<button type="button" class="btn sm" data-loan-edit="${esc(l.name)}">수정</button>` : ''}</div>`;
     return `<div class="card glass">${head}${body}<div class="bar-thin"><span class="ok" style="width:${r * 100}%"></span></div>${foot}</div>`;
   }).join('') || '<div class="sub">보여 줄 할부가 없어요.</div>';
 }
@@ -2180,12 +2184,46 @@ $('#asAdd').onclick = () => openForm({ title: '자산 추가', fields: [
   check: v => M.assets.some(a => a.name === v['자산명']) ? '같은 이름의 자산이 이미 있어요.' : '',
   save: v => addTableRow(null, 'tblAssets', v) });
 
-// 할부: 추가는 기록 창의 할부 탭, 지우기는 카드의 삭제
+// 할부: 추가는 기록 창의 할부 탭, 고치기·지우기는 카드의 수정
 $('#loanAdd').onclick = () => openEntry('loan');
-$('#dbLoans').addEventListener('click', async e => {
-  const b = e.target.closest('[data-loan-del]'); if (!b) return;
-  if (!confirm(`'${b.dataset.loanDel}' 할부를 엑셀 할부 표에서 지울까요?`)) return;
-  excelDo('할부 삭제', () => tblDelete('tblLoans', { '상품·내역': b.dataset.loanDel }));
+// 첫·마지막 납부일 사이 납부 횟수 (대시보드 계산과 같은 방식)
+const loanMonths = (first, last) => {
+  const s = toDate(first), e = toDate(last);
+  return s && e ? ymSpan(ymOf(s), ymOf(e)) + (e.d >= s.d ? 1 : 0) : 0;
+};
+$('#dbLoans').addEventListener('click', e => {
+  const b = e.target.closest('[data-loan-edit]'); if (!b) return;
+  const l = M.loans.find(x => x.name === b.dataset.loanEdit); if (!l) return;
+  const r = l.raw || {};
+  openForm({ title: `할부 · ${l.name} 고치기`,
+    note: '바꾼 내용은 엑셀 할부 표의 같은 줄에 저장돼요. 월 납입을 비우면 원금·기간·연이자율로 다시 계산해요(원리금 균등).',
+    fields: [
+      { key: '상품·내역', label: '상품·내역', value: l.name, required: true },
+      { key: '원금', label: '원금(원)', type: 'number', value: l.principal, required: true },
+      { key: '연금리(%)', label: '연 이자율(%)', type: 'number', value: r.rate ?? 0 },
+      { key: '월 납입', label: '월 납입(원)', type: 'number', value: l.monthly ?? '' },
+      { key: '첫 납부일', label: '첫 납부일', type: 'date', value: r.first, required: true },
+      { key: '마지막 납부일', label: '마지막 납부일', type: 'date', value: r.last, required: true },
+      { key: '납부일', label: '매달 납부일 (1~31)', type: 'number', value: r.day ?? '' },
+      { key: '현재 잔액(선택)', label: '현재 잔액 (알면, 선택)', type: 'number', value: r.given ?? '', ph: '비우면 대시보드가 추정해요' },
+      { key: '비고', label: '비고', value: r.note || '' }],
+    check: v => {
+      if (!v['상품·내역']) return '상품·내역을 적어 주세요.';
+      if (v['상품·내역'] !== l.name && M.loans.some(x => x.name === v['상품·내역'])) return '같은 이름의 할부가 이미 있어요.';
+      if (!(v['원금'] > 0)) return '원금을 적어 주세요.';
+      if (v['마지막 납부일'] < v['첫 납부일']) return '마지막 납부일이 첫 납부일보다 앞서요.';
+      if (v['납부일'] !== '' && !(v['납부일'] >= 1 && v['납부일'] <= 31)) return '납부일은 1~31 사이로 적어 주세요.';
+      return '';
+    },
+    save: v => {
+      if (v['월 납입'] === '') {
+        const n = loanMonths(v['첫 납부일'], v['마지막 납부일']), rr = (+v['연금리(%)'] || 0) / 1200;
+        v['월 납입'] = Math.round(rr > 0 ? v['원금'] * rr / (1 - Math.pow(1 + rr, -n)) : v['원금'] / n);
+      }
+      if (v['연금리(%)'] === '') v['연금리(%)'] = 0;
+      return tblUpdate('tblLoans', { '상품·내역': l.name }, v);
+    },
+    danger: { label: '이 할부 지우기', confirm: `'${l.name}' 할부를 엑셀 할부 표에서 지울까요?`, run: () => tblDelete('tblLoans', { '상품·내역': l.name }) } });
 });
 
 // 지출 목록의 ✕

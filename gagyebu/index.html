@@ -721,8 +721,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9';
+const APP_VERSION = '1.9.1';
 const CHANGES = [
+  ['1.9.1', '2026-11-10', ['기록·수정·암호 창에서 글자를 드래그하다 창 밖에서 마우스를 떼면 창이 닫히던 문제 수정']],
   ['1.9', '2026-11-10', ['앱을 열 때 실행 화면 추가: 아이콘의 막대가 올라오고, 지난 기록·OneDrive를 읽는 동안 무엇을 하는지 보여 줘요', '화면을 그린 뒤에 라이브러리를 받아서 처음 여는 속도가 빨라짐', '빈 양식: 자산 합계가 첫 줄만 더하던 문제 수정 (합계는 자산 표 오른쪽 I4)', '빈 양식: 드롭다운의 오류 안내를 칸마다 맞게 고침, 수입 분류는 목록에 없는 값도 적을 수 있음']],
   ['1.8', '2026-11-09', ['+ 기록에 저축(저축·투자, 자산 잔액에 바로 더하기)과 할부(원금·개월·연이자율로 월 납입 계산) 탭 추가', '방금 저장한 줄 지우기, 지출 목록의 ✕로 지출 지우기', '자산 탭에서 자산 잔액·기준일 고치기, 자산 추가·삭제, 할부 추가·삭제', '설정에 예산(대분류·월 예산 고치기, 추가·삭제)과 고정비(사용/중단, 추가·수정·삭제) 추가', '예산 시작일: 월급날처럼 한 달 예산이 시작되는 날을 정하면 예산 잔액을 그 기간으로 계산']],
   ['1.7', '2026-11-09', ['+ 기록에 비상금 적립·사용 추가', '수입 기록에 세전 급여·공제 내역 칸 추가 (공제 합계 자동 표시), 지출 기록에서는 세전 급여 칸을 없앰', '자산 탭의 할부가 끝나면 늘어나는 월 여유 표를 뺌', '엑셀 표의 열 이름에 맞춰 저장해서, 열 순서가 달라도 맞는 칸에 들어가요']],
@@ -1151,7 +1152,17 @@ $('#unlockForm').onsubmit = async e => {
   $('#unlockPw').select();
   gsap.fromTo('#unlock .box', { x: -8 }, { x: 0, duration: .4, ease: 'elastic.out(1.2, .3)' });
 };
-$('#unlock').addEventListener('click', e => { if (e.target.id === 'unlock' || e.target.hasAttribute('data-close')) closeUnlock(); });
+// 창 바깥(어두운 배경)을 '눌렀다 뗀' 경우에만 닫아요.
+// 창 안에서 글자를 드래그하다 바깥에서 마우스를 떼도 닫히지 않게, 누른 곳도 바깥이어야 해요.
+function backdropClose(modal, close) {
+  let downOut = false;
+  modal.addEventListener('pointerdown', e => { downOut = e.target === modal; });
+  modal.addEventListener('click', e => {
+    if (e.target.hasAttribute('data-close') || (e.target === modal && downOut)) close();
+    downOut = false;
+  });
+}
+backdropClose($('#unlock'), closeUnlock);
 addEventListener('keydown', e => { if (e.key === 'Escape') closeUnlock(); });
 
 let hiddenAt = 0;
@@ -2037,7 +2048,7 @@ function openEntry(kind) {
 }
 const closeEntry = () => $('#entry').classList.remove('on');
 $('#addBtn').onclick = openEntry;
-$('#entry').addEventListener('click', e => { if (e.target.id === 'entry' || e.target.hasAttribute('data-close')) closeEntry(); });
+backdropClose($('#entry'), closeEntry);
 $('#entryKind').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setEntryKind(b.dataset.v); });
 $('#enNW').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setNW(b.dataset.v); });
 $('#enCat').addEventListener('change', syncNW);
@@ -2129,7 +2140,7 @@ function openForm(spec) {
   gsap.fromTo('#editor .box', { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: .35, ease: 'power3.out' });
 }
 const closeForm = () => $('#editor').classList.remove('on');
-$('#editor').addEventListener('click', e => { if (e.target.id === 'editor' || e.target.hasAttribute('data-close')) closeForm(); });
+backdropClose($('#editor'), closeForm);
 $('#edForm').onsubmit = async e => {
   e.preventDefault();
   const v = {};

@@ -232,7 +232,7 @@
   .donut-wrap { display: flex; align-items: center; gap: 22px; margin-top: 14px; }
   .donut { position: relative; width: 176px; height: 176px; flex: none; }
   .donut svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-  .donut .ctr { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
+  .donut .ctr { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; pointer-events: none; }
   .donut .ctr small { color: var(--muted); font-size: 11px; }
   .donut .ctr b { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; margin-top: 2px; }
   .dlegend { list-style: none; padding: 0; flex: 1; min-width: 0; }
@@ -266,6 +266,23 @@
   .sbar .stk { width: 100%; display: flex; flex-direction: column-reverse; border-radius: 6px 6px 3px 3px; overflow: hidden; transform-origin: bottom; opacity: .55; }
   .sbar.on .stk { opacity: 1; }
   .sbar .stk span { display: block; width: 100%; }
+  /* 차트 툴팁: 마우스를 올리면 바로 떠요 */
+  .htip { position: fixed; left: 0; top: 0; z-index: 60; pointer-events: none; min-width: 150px; max-width: 260px;
+          padding: 10px 12px 9px; border-radius: 12px; background: rgba(30, 26, 23, .97); border: 1px solid var(--line);
+          box-shadow: 0 10px 28px rgba(0, 0, 0, .5); font-size: 12px; color: var(--text); opacity: 0; transition: opacity .1s; }
+  .htip.on { opacity: 1; }
+  .htip .t { font-weight: 600; font-size: 12.5px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .htip .r { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 3px; }
+  .htip .r span { display: flex; align-items: center; gap: 6px; color: var(--muted); }
+  .htip i { width: 8px; height: 8px; border-radius: 2px; display: inline-block; flex: none; }
+  .htip .r b { font-variant-numeric: tabular-nums; font-weight: 600; }
+  .htip .sum { border-top: 1px solid var(--line); margin-top: 7px; padding-top: 6px; }
+  .htip .sum span { color: var(--text); }
+  .sbars:hover .sbar .stk, .bars:hover .bar-col span { opacity: .4; }
+  .sbars .sbar:hover .stk, .bars .bar-col:hover span { opacity: 1; filter: brightness(1.15); }
+  .sbar, .bar-col { cursor: default; }
+  .donut svg circle[data-tip] { transition: stroke-width .12s; }
+  .donut svg circle[data-tip]:hover { stroke-width: 27; }
   .sbar small { color: var(--muted); font-size: 10px; }
   .sbar.on small { color: var(--text); font-weight: 600; }
   .g-4 .big { font-size: 26px; }
@@ -721,8 +738,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.3';
+const APP_VERSION = '1.9.4';
 const CHANGES = [
+  ['1.9.4', '2026-11-10', ['차트에 마우스를 올리면 바로 뜨는 툴팁으로 바꿈: 항목별 색·금액과 합계를 보여 주고, 올린 막대만 또렷하게 표시', '휴대폰에서는 막대를 누르면 2.5초 동안 보여 줘요']],
   ['1.9.3', '2026-11-10', ['할부 카드에 수정 버튼 추가: 이름·원금·이자율·월 납입·첫/마지막 납부일·납부일·현재 잔액·비고를 고치면 엑셀 할부 표에 저장 (월 납입을 비우면 다시 계산)', '할부 삭제는 수정 창 안으로 옮김']],
   ['1.9.2', '2026-11-10', ['자산 수정 창에서 자산 이름도 바꿀 수 있음']],
   ['1.9.1', '2026-11-10', ['기록·수정·암호 창에서 글자를 드래그하다 창 밖에서 마우스를 떼면 창이 닫히던 문제 수정']],
@@ -1250,9 +1268,45 @@ function lineChart(wrap, { labels, series, hlines = [], everyLabel = 2, smooth =
   };
   svg.onpointerleave = () => gsap.to([guide, dot, tip], { opacity: 0, duration: .2 });
 }
-function barCols(box, items) { // items: [{h:0~1, label, cls, title}]
-  box.innerHTML = items.map(b => `<div class="bar-col" title="${esc(b.title || '')}"><span class="${b.cls || ''}" style="height:${Math.max(2, b.h * 100)}%"></span><small>${esc(b.label)}</small></div>`).join('');
+// 툴팁 내용: 제목 + 줄(색·이름·값) + 합계
+function tipHtml(title, rows = [], total, color) {
+  return `<div class="t">${color ? `<i style="background:${color}"></i>` : ''}${esc(title)}</div>` +
+    rows.map(r => `<div class="r"><span>${r.color ? `<i style="background:${r.color}"></i>` : ''}${esc(r.name)}</span><b>${r.val}</b></div>`).join('') +
+    (total != null ? `<div class="r sum"><span>합계</span><b>${total}</b></div>` : '');
 }
+function barCols(box, items) { // items: [{h:0~1, label, cls, tip}]
+  box.classList.add('bars');
+  box.innerHTML = items.map(b => `<div class="bar-col" data-tip="${esc(b.tip || tipHtml(b.title || ''))}"><span class="${b.cls || ''}" style="height:${Math.max(2, b.h * 100)}%"></span><small>${esc(b.label)}</small></div>`).join('');
+}
+const hoverTip = document.createElement('div');
+hoverTip.className = 'htip'; hoverTip.setAttribute('role', 'tooltip');
+document.body.appendChild(hoverTip);
+let tipEl = null, tipTimer;
+function placeTip(x, y) {
+  const w = hoverTip.offsetWidth, h = hoverTip.offsetHeight;
+  let L = Math.max(8, Math.min(innerWidth - w - 8, x - w / 2)), T = y - h - 14;
+  if (T < 8) T = y + 18;
+  hoverTip.style.transform = `translate(${Math.round(L)}px, ${Math.round(T)}px)`;
+}
+function showTip(el, x, y) {
+  if (el !== tipEl) { hoverTip.innerHTML = el.getAttribute('data-tip'); tipEl = el; }
+  hoverTip.classList.add('on'); placeTip(x, y);
+}
+function hideTip() { tipEl = null; hoverTip.classList.remove('on'); }
+document.addEventListener('pointermove', e => {
+  if (e.pointerType !== 'mouse') return;
+  const el = e.target.closest && e.target.closest('[data-tip]');
+  if (el && el.getAttribute('data-tip')) showTip(el, e.clientX, e.clientY); else if (tipEl) hideTip();
+});
+document.addEventListener('pointerdown', e => {
+  if (e.pointerType === 'mouse') return;
+  const el = e.target.closest && e.target.closest('[data-tip]');
+  if (!el) return hideTip();
+  const r = el.getBoundingClientRect(); showTip(el, r.left + r.width / 2, r.top);
+  clearTimeout(tipTimer); tipTimer = setTimeout(hideTip, 2500);
+});
+document.addEventListener('pointerleave', hideTip);
+addEventListener('scroll', hideTip, { passive: true });
 function split(bar, legend, parts) { // parts: [{name, v, color}]
   const tot = parts.reduce((a, p) => a + p.v, 0) || 1;
   bar.innerHTML = parts.map(p => `<span style="width:${p.v / tot * 100}%;background:${p.color}"></span>`).join('');
@@ -1263,7 +1317,7 @@ function donut(box, legend, parts, total) { // parts: [{name, v, color}]
   let off = 0;
   const segs = parts.map(p => {
     const len = p.v / tot * C, gap = parts.length > 1 ? Math.min(2.5, len / 3) : 0;
-    const s = `<circle cx="90" cy="90" r="${R}" fill="none" stroke="${p.color}" stroke-width="22" stroke-dasharray="${Math.max(0, len - gap)} ${C}" stroke-dashoffset="${-off}"><title>${esc(p.name)} ${pct(p.v / tot * 100)}</title></circle>`;
+    const s = `<circle cx="90" cy="90" r="${R}" fill="none" stroke="${p.color}" stroke-width="22" stroke-dasharray="${Math.max(0, len - gap)} ${C}" stroke-dashoffset="${-off}" data-tip="${esc(tipHtml(p.name, [{ name: '비중', val: pct(p.v / tot * 100) }, { name: '금액', val: won(p.v) }], null, p.color))}"></circle>`;
     off += len;
     return s;
   }).join('');
@@ -1338,8 +1392,8 @@ function stackBars(box, legend, rows, series) {
   const max = Math.max(1, ...rows.map(tot));
   legend.innerHTML = series.map(s => `<span><i class="dotc" style="background:${s.color}"></i>${s.name}</span>`).join('');
   box.innerHTML = rows.map(r => {
-    const t = tot(r), tip = `${r.ym % 100}월 ` + series.map(s => `${s.name} ${won(r[s.key] || 0)}`).join(' · ');
-    return `<div class="sbar${r.ym === ovYM ? ' on' : ''}" title="${esc(tip)}"><div class="stk" style="height:${Math.max(t ? 2 : 0, t / max * 100)}%">` +
+    const t = tot(r), tip = tipHtml(`${Math.floor(r.ym / 100)}년 ${r.ym % 100}월`, [...series].reverse().map(s => ({ name: s.name, color: s.color, val: won(r[s.key] || 0) })), won(t));
+    return `<div class="sbar${r.ym === ovYM ? ' on' : ''}" data-tip="${esc(tip)}"><div class="stk" style="height:${Math.max(t ? 2 : 0, t / max * 100)}%">` +
       series.map(s => `<span style="height:${t ? (r[s.key] || 0) / t * 100 : 0}%;background:${s.color}"></span>`).join('') +
       `</div><small>${r.ym % 100}</small></div>`;
   }).join('');
@@ -1382,7 +1436,7 @@ function renderOverview() {
   else if (I.months) subs.push('이 해는 세전 급여를 적지 않아 세후만 있어요');
   $('#incSub').innerHTML = subs.join('<br>');
   const imax = Math.max(1, ...I.net.map(v => v || 0));
-  barCols($('#incBars'), I.net.map((v, i) => ({ h: (v || 0) / imax, label: String(i + 1), cls: 'inc', title: `${i + 1}월 세후 ${v == null ? '기록 없음' : won(v)}` })));
+  barCols($('#incBars'), I.net.map((v, i) => ({ h: (v || 0) / imax, label: String(i + 1), cls: 'inc', tip: tipHtml(`${i + 1}월`, [{ name: '세후 수입', color: 'rgba(111,211,163,.9)', val: v == null ? '기록 없음' : won(v) }]) })));
 
   // 지출: 월별 소비
   const expOf = yr => Array.from({ length: 12 }, (_, i) => { const r = M.monthly.find(m => m.ym === yr * 100 + i + 1); return r && r.exp != null ? r.exp : null; });
@@ -1400,7 +1454,7 @@ function renderOverview() {
   const emax = Math.max(1, ...exps.map(v => v || 0));
   barCols($('#expBars'), exps.map((v, i) => {
     const now = y * 100 + i + 1 === M.inputYM;
-    return { h: (v || 0) / emax, label: String(i + 1), cls: now ? 'dim' : '', title: `${i + 1}월 ${v == null ? '기록 없음' : won(v)}${now ? ' (입력 중)' : ''}` };
+    return { h: (v || 0) / emax, label: String(i + 1), cls: now ? 'dim' : '', tip: tipHtml(`${i + 1}월${now ? ' · 입력 중' : ''}`, [{ name: '지출', color: 'var(--accent)', val: v == null ? '기록 없음' : won(v) }]) };
   }));
   $('#yrSub').innerHTML = I.netTot && expTot ? `${y}년 실수입의 <b>${pct((1 - expTot / I.netTot) * 100)}</b>가 지출 뒤에 남았어요.` : '';
 
@@ -1563,7 +1617,7 @@ function renderSpend() {
   const wd = [0, 0, 0, 0, 0, 0, 0];
   tx.forEach(t => wd[t.wd] += t.amt);
   const wmax = Math.max(1, ...wd), order = [1, 2, 3, 4, 5, 6, 0], wn = ['일', '월', '화', '수', '목', '금', '토'];
-  barCols($('#spWeek'), order.map(i => ({ h: wd[i] / wmax, label: wn[i], cls: i === 0 || i === 6 ? 'hot' : '', title: `${wn[i]}요일 ${won(wd[i])}` })));
+  barCols($('#spWeek'), order.map(i => ({ h: wd[i] / wmax, label: wn[i], cls: i === 0 || i === 6 ? 'hot' : '', tip: tipHtml(`${wn[i]}요일`, [{ name: '지출 합계', val: won(wd[i]) }]) })));
 
   // Needs / Wants 가로 막대
   const kind = t => t.nw === 'Needs' || t.nw === 'Wants' ? t.nw : '미분류';

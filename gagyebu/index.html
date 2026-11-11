@@ -590,7 +590,7 @@
     <div class="head">
       <div><h1>자산</h1><p id="asSub"></p></div>
     </div>
-    <div class="grid g-4" id="asKpis"></div>
+    <div class="grid g-3" id="asKpis"></div>
     <div class="card glass mt" id="goalCard">
       <div class="row-top"><span class="label">목표 저축액</span><span class="label" id="goalState"></span></div>
       <div class="goal-top">
@@ -738,8 +738,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.4';
+const APP_VERSION = '1.9.5';
 const CHANGES = [
+  ['1.9.5', '2026-11-11', ['자산 탭의 할부를 뺀 자산 카드를 뺌', '잉여금액을 수입 − 고정비(사용 중인 정액고정비) − 할부로 계산', '비상금에 이번 달 적립 여부 표시 (적립 완료/적립 전, 날짜와 금액)']],
   ['1.9.4', '2026-11-10', ['차트에 마우스를 올리면 바로 뜨는 툴팁으로 바꿈: 항목별 색·금액과 합계를 보여 주고, 올린 막대만 또렷하게 표시', '휴대폰에서는 막대를 누르면 2.5초 동안 보여 줘요']],
   ['1.9.3', '2026-11-10', ['할부 카드에 수정 버튼 추가: 이름·원금·이자율·월 납입·첫/마지막 납부일·납부일·현재 잔액·비고를 고치면 엑셀 할부 표에 저장 (월 납입을 비우면 다시 계산)', '할부 삭제는 수정 창 안으로 옮김']],
   ['1.9.2', '2026-11-10', ['자산 수정 창에서 자산 이름도 바꿀 수 있음']],
@@ -953,7 +954,7 @@ function buildModelV1(wb, fileName) {
   }).filter(Boolean) : [];
   const target = num(labelValue(ge, '목표금액', 8)), start = num(labelValue(ge, '시작 잔액', 8)) || 0;
   const cur = start + sum(log.filter(r => r.kind === '적립'), r => r.amt) - sum(log.filter(r => r.kind === '사용'), r => r.amt);
-  const ef = { target, cur, min: num(labelValue(ge, '최저유지액', 8)), log,
+  const ef = { target, cur, min: num(labelValue(ge, '최저유지액', 8)), plan: num(labelValue(ge, '월 적립계획', 8)), log,
                used: sum(log.filter(r => r.kind === '사용' && +r.d.slice(0, 4) * 100 + +r.d.slice(5, 7) === thisYM), r => r.amt),
                need: target ? Math.max(0, target - cur) : null };
 
@@ -1509,16 +1510,17 @@ function renderOverview() {
       : `${pct(bSpent / bt * 100)} 사용` + (left < 0 ? ` · <span style="color:var(--red)">${won(-left)} 초과</span>`
         : daysLeft ? ` · 남은 ${daysLeft}일 동안 하루 ${won(left / daysLeft)}까지 쓸 수 있어요` : '');
 
-    // 잉여금액: 수입 − 예산 − 그 달에 걸쳐 있는 할부 월납입 (이번 달 수입이 아직 없으면 지난달 수입으로)
+    // 잉여금액: 수입 − 고정비(사용 중인 정액고정비) − 그 달에 걸쳐 있는 할부 월납입 (이번 달 수입이 아직 없으면 지난달 수입으로)
+    const fixM = sum(M.fixed.filter(f => f.status === '사용' && f.kind === '정액고정비'), f => f.amt);
     const instM = sum(M.loans.filter(l => l.monthly && l.startYM && l.startYM <= ym && (!l.endYM || ym <= l.endYM)), l => l.monthly);
     const incBase = inc.length ? sum(inc, f => f.net) : pinc.length ? sum(pinc, f => f.net) : null;
     $('#mSurBasis').textContent = inc.length ? `${ym % 100}월 수입 기준` : pinc.length ? '지난달 수입 기준' : '';
     if (incBase == null) { setNum('#mSurBig', null); $('#mSurBig').style.color = ''; $('#mSurSub').textContent = '수입 기록이 없어요'; }
     else {
-      const sur = incBase - bt - instM;
+      const sur = incBase - fixM - instM;
       setNum('#mSurBig', sur, 'won');
       $('#mSurBig').style.color = sur < 0 ? 'var(--red)' : '';
-      $('#mSurSub').innerHTML = `수입 ${won(incBase)} − 예산 ${won(bt)} − 할부 ${won(instM)}<br>실제 지출${live ? '(지금까지)' : ''} 기준이면 ${won(incBase - spent - instM)}`;
+      $('#mSurSub').innerHTML = `수입 ${won(incBase)} − 고정비 ${won(fixM)} − 할부 ${won(instM)}<br>실제 지출${live ? '(지금까지)' : ''} 기준이면 ${won(incBase - spent - instM)}`;
     }
   }
 
@@ -1735,12 +1737,14 @@ function renderAssets() {
   const lBal = sum(ls, l => l.bal || 0), lMon = sum(ls, l => l.monthly || 0);
   const date = as[0] && as[0].date ? as[0].date : '';
   const ef = M.ef, efR = ef.target ? (ef.cur || 0) / ef.target : null;
+  const nowD = new Date(), ymNow = `${nowD.getFullYear()}-${String(nowD.getMonth() + 1).padStart(2, '0')}`;
+  const efSaved = (ef.log || []).filter(r => r.kind === '적립' && r.d.startsWith(ymNow));
   $('#asSub').innerHTML = as.length ? `${M.form === 'v1' ? '자산' : '자산관리'} 시트 기준 ·${as.length}개 항목${date ? ` · 기준일 <b>${date}</b>` : ''}` : '자산관리 시트에서 자산 표를 찾지 못했어요.';
   $('#asKpis').innerHTML =
     kpi('기록된 자산', aTot, `${as.filter(a => a.amt > 0).length}개 계좌·자산`) +
     kpi('할부 남은 금액', lBal, `월 ${won(lMon)} · ${ls.length}건`) +
-    kpi('할부를 뺀 자산', aTot - lBal, '기록된 자산 − 할부 남은 금액') +
-    kpi('비상금', ef.cur || 0, efR == null ? '' : `목표의 ${pct(efR * 100)}`);
+    kpi('비상금', ef.cur || 0, efR == null ? '' : `목표의 ${pct(efR * 100)}`, 'man',
+        efSaved.length ? chipOf('적립 완료', '') : chipOf('적립 전', 'bad'));
 
   renderGoal(aTot, aTot - lBal);
 
@@ -1768,7 +1772,10 @@ function renderAssets() {
     $('#dbEfPct').textContent = pct(Math.min(1, efR) * 100);
     $('#dbEfBar').style.width = Math.min(1, efR) * 100 + '%';
     $('#dbEfBar').className = low ? 'over' : 'ok';
-    $('#dbEfSub').innerHTML = `최저 유지액 ${won(ef.min || 0)} · 이번 달 사용 ${won(ef.used || 0)}` + (ef.need ? `<br>목표까지 ${won(ef.need)} 남았어요` : '');
+    $('#dbEfSub').innerHTML = (efSaved.length
+        ? `<span style="color:var(--green)">✓ 이번 달 적립 ${won(sum(efSaved, r => r.amt))}</span> (${efSaved.map(r => mmdd(r.d)).join(', ')})`
+        : `<span style="color:var(--red)">이번 달 적립을 아직 안 했어요</span>${ef.plan ? ` · 계획 ${won(ef.plan)}` : ''}`)
+      + `<br>최저 유지액 ${won(ef.min || 0)} · 이번 달 사용 ${won(ef.used || 0)}` + (ef.need ? `<br>목표까지 ${won(ef.need)} 남았어요` : '');
   }
   const uses = (ef.log || []).filter(r => r.kind === '사용').sort((a, b) => b.d.localeCompare(a.d) || b.i - a.i).slice(0, 5);
   $('#dbEfLog').innerHTML = uses.length

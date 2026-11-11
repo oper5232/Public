@@ -608,10 +608,6 @@
           <label>목표 금액 (만원)<input type="number" id="goalAmt" min="1" step="1" inputmode="numeric" placeholder="예: 5000"></label>
           <label>언제까지 (선택)<input type="month" id="goalBy"></label>
         </div>
-        <label>저축액으로 볼 금액</label>
-        <div class="seg" id="goalBasis" style="margin-top:6px;width:max-content">
-          <button type="button" data-v="asset">기록된 자산</button><button type="button" data-v="net">할부를 뺀 자산</button>
-        </div>
         <div class="form-msg" id="goalMsg"></div>
         <div class="btns-l"><button class="btn primary">저장</button><button type="button" class="btn" id="goalCancel">취소</button><button type="button" class="btn" id="goalClear">목표 지우기</button></div>
       </form>
@@ -748,8 +744,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.7';
+const APP_VERSION = '1.9.8';
 const CHANGES = [
+  ['1.9.8', '2026-11-12', ['목표 저축액 설정에서 할부를 뺀 자산 선택을 뺌: 목표는 기록된 자산 기준으로만 계산']],
   ['1.9.7', '2026-11-11', ['잉여금액의 고정비를 설정 → 고정비에 있는 항목 전체(사용 중) 합계로 바꿈: 변동예산·저축/투자·이체예산·목적자금도 포함']],
   ['1.9.6', '2026-11-11', ['저축 기록에서 계좌를 고르게 함: 계좌 이름이 수입 시트 분류 칸에 적히고, 체크하면 그 계좌 잔액에도 더해요', '자산 탭에 이번 달 저축·투자를 계좌별로 보여 주는 카드 추가 (지난달 금액, 고정비의 저축/투자 계획과 비교)']],
   ['1.9.5', '2026-11-11', ['자산 탭의 할부를 뺀 자산 카드를 뺌', '잉여금액을 수입 − 고정비(사용 중인 정액고정비) − 할부로 계산', '비상금에 이번 달 적립 여부 표시 (적립 완료/적립 전, 날짜와 금액)']],
@@ -1758,7 +1755,7 @@ function renderAssets() {
     kpi('비상금', ef.cur || 0, efR == null ? '' : `목표의 ${pct(efR * 100)}`, 'man',
         efSaved.length ? chipOf('적립 완료', '') : chipOf('적립 전', 'bad'));
 
-  renderGoal(aTot, aTot - lBal);
+  renderGoal(aTot);
 
   // 구성
   $('#dbAssetTotal').dataset.count = aTot; $('#dbAssetTotal').dataset.fmt = 'man';
@@ -1855,8 +1852,7 @@ function renderSavings() {
 const goalOf = () => prefs().goal || null;
 const nowYM = () => { const d = new Date(); return d.getFullYear() * 100 + d.getMonth() + 1; };
 const ymDiff = (a, b) => (Math.floor(b / 100) - Math.floor(a / 100)) * 12 + (b % 100) - (a % 100);
-let goalBasisSel = 'asset';
-function renderGoal(asset, net) {
+function renderGoal(asset) {
   const g = goalOf();
   $('#goalEdit').textContent = g ? '목표 바꾸기' : '목표 정하기';
   $('#goalEdit').disabled = locked;
@@ -1868,9 +1864,9 @@ function renderGoal(asset, net) {
     $('#goalPct').textContent = ''; $('#goalState').innerHTML = ''; $('#goalBar').style.width = '0';
     $('#goalSub').textContent = ''; return;
   }
-  const cur = g.basis === 'net' ? net : asset, r = g.amt ? cur / g.amt : 0, left = g.amt - cur;
+  const cur = asset, r = g.amt ? cur / g.amt : 0, left = g.amt - cur;
   setNum('#goalCur', cur, 'won');
-  $('#goalOf').textContent = `목표 ${man(g.amt)} · ${g.basis === 'net' ? '할부를 뺀 자산' : '기록된 자산'} 기준`;
+  $('#goalOf').textContent = `목표 ${man(g.amt)} · 기록된 자산 기준`;
   $('#goalPct').textContent = pct(Math.max(0, r) * 100);
   $('#goalBar').style.width = Math.min(1, Math.max(0, r)) * 100 + '%';
   let state = '', sub = '';
@@ -1887,20 +1883,17 @@ function renderGoal(asset, net) {
   $('#goalSub').textContent = sub;
 }
 function goalMsg(t, kind) { const m = $('#goalMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
-function setGoalBasis(v) { goalBasisSel = v; $$('#goalBasis button').forEach(b => b.classList.toggle('on', b.dataset.v === v)); }
 function closeGoalForm() { $('#goalForm').hidden = true; $('#goalEdit').hidden = false; goalMsg(''); }
 $('#goalEdit').onclick = () => {
   if (locked) return;
   const g = goalOf();
   $('#goalAmt').value = g ? Math.round(g.amt / 10000) : '';
   $('#goalBy').value = g && g.by ? `${Math.floor(g.by / 100)}-${String(g.by % 100).padStart(2, '0')}` : '';
-  setGoalBasis(g ? g.basis : 'asset');
   $('#goalClear').hidden = !g;
   $('#goalForm').hidden = false; $('#goalEdit').hidden = true; goalMsg('');
   gsap.fromTo('#goalForm', { opacity: 0, y: -6 }, { opacity: 1, y: 0, duration: .3, ease: 'power2.out' });
   $('#goalAmt').focus();
 };
-$('#goalBasis').addEventListener('click', e => { const b = e.target.closest('button'); if (b) setGoalBasis(b.dataset.v); });
 $('#goalCancel').onclick = closeGoalForm;
 $('#goalForm').onsubmit = e => {
   e.preventDefault();
@@ -1908,7 +1901,7 @@ $('#goalForm').onsubmit = e => {
   const amt = Math.round(+$('#goalAmt').value * 10000);
   if (!(amt > 0)) return goalMsg('목표 금액을 만원 단위 숫자로 넣어 주세요.', 'err');
   const bv = $('#goalBy').value, by = bv ? +bv.replace('-', '') : null;
-  store.set(PREF_KEY, Object.assign(prefs(), { goal: { amt, by, basis: goalBasisSel } }));
+  store.set(PREF_KEY, Object.assign(prefs(), { goal: { amt, by } }));
   closeGoalForm(); renderAssets(); countUp($('#assets'));
 };
 $('#goalClear').onclick = () => {

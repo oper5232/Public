@@ -178,21 +178,36 @@
   .drop div { padding: 40px 56px; border: 2px dashed var(--accent); border-radius: 22px; font-size: 18px; font-weight: 600; }
   .status { color: var(--muted); font-size: 12px; margin-top: 10px; text-align: right; }
   .status.err { color: var(--red); }
-  /* 알림: 저장·오류 같은 동작 결과를 아래에 잠깐 띄워요 */
-  .toast { position: fixed; left: 50%; bottom: calc(22px + env(safe-area-inset-bottom)); z-index: 70; display: flex; align-items: center; gap: 10px;
-           width: max-content; max-width: min(460px, calc(100vw - 32px)); padding: 11px 12px 11px 14px; border-radius: 14px; background: rgba(30, 26, 23, .97);
-           border: 1px solid var(--line); box-shadow: 0 12px 32px rgba(0, 0, 0, .5); font-size: 13px; color: var(--text);
-           opacity: 0; transform: translate(-50%, 12px); transition: opacity .2s, transform .2s; pointer-events: none; }
-  .toast.on { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
-  .toast .ic { flex: none; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 700; }
-  .toast.ok .ic { background: rgba(111, 211, 163, .18); color: var(--green); }
-  .toast.err .ic { background: rgba(255, 107, 107, .18); color: var(--red); }
-  .toast.busy .ic { border: 2px solid var(--line); border-top-color: var(--accent); animation: tspin .8s linear infinite; }
-  .toast .tx { flex: 1; line-height: 1.45; }
-  .toast .x { flex: none; border: 0; background: none; color: var(--muted); font-size: 16px; line-height: 1; padding: 4px; cursor: pointer; border-radius: 6px; }
-  .toast .x:hover { color: var(--text); }
+  /* 알림 종: 저장·오류 같은 동작 결과를 윗줄 종 아이콘에 모아요 */
+  .bell-btn { position: relative; flex: none; width: 36px; height: 36px; padding: 0; display: grid; place-items: center; margin-right: -8px; }
+  .bell-btn svg { width: 18px; height: 18px; display: block; transform-origin: 50% 3px; }
+  .bell-btn .dot { position: absolute; top: 5px; right: 6px; min-width: 9px; height: 9px; border-radius: 99px; background: var(--green);
+                   border: 2px solid #1b1714; display: none; }
+  .bell-btn.new .dot { display: block; }
+  .bell-btn.err .dot { background: var(--red); }
+  .bell-btn.busy::after { content: ''; position: absolute; inset: -1px; border-radius: 50%; border: 2px solid transparent;
+                          border-top-color: var(--accent); animation: tspin .8s linear infinite; }
+  .bell-btn.ring svg { animation: bring .7s ease; }
+  @keyframes bring { 0%,100% { transform: rotate(0); } 20% { transform: rotate(14deg); } 40% { transform: rotate(-12deg); } 60% { transform: rotate(7deg); } 80% { transform: rotate(-4deg); } }
   @keyframes tspin { to { transform: rotate(360deg); } }
-  @media (prefers-reduced-motion: reduce) { .toast { transition: opacity .2s; transform: translate(-50%, 0); } .toast.busy .ic { animation: none; } }
+  .npanel { position: fixed; z-index: 70; width: min(340px, calc(100vw - 24px)); max-height: min(420px, 70vh); display: none; flex-direction: column;
+            border-radius: 16px; background: rgba(30, 26, 23, .98); border: 1px solid var(--line); box-shadow: 0 16px 40px rgba(0, 0, 0, .55); overflow: hidden; }
+  .npanel.on { display: flex; }
+  .npanel .nh { display: flex; align-items: center; justify-content: space-between; padding: 12px 14px 10px; border-bottom: 1px solid var(--line); font-weight: 600; font-size: 13px; }
+  .npanel .nh button { border: 0; background: none; color: var(--muted); font: inherit; font-size: 12px; font-weight: 500; cursor: pointer; padding: 2px 4px; }
+  .npanel .nh button:hover { color: var(--text); }
+  .npanel .nl { overflow-y: auto; padding: 4px 0; }
+  .npanel .ni { display: flex; gap: 10px; padding: 9px 14px; font-size: 13px; line-height: 1.45; }
+  .npanel .ni + .ni { border-top: 1px solid rgba(255, 255, 255, .04); }
+  .npanel .ni.unread { background: rgba(255, 255, 255, .03); }
+  .npanel .ic { flex: none; width: 20px; height: 20px; margin-top: 1px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; }
+  .npanel .ok .ic { background: rgba(111, 211, 163, .18); color: var(--green); }
+  .npanel .err .ic { background: rgba(255, 107, 107, .18); color: var(--red); }
+  .npanel .busy .ic { border: 2px solid var(--line); border-top-color: var(--accent); animation: tspin .8s linear infinite; }
+  .npanel .tx { flex: 1; }
+  .npanel .tm { flex: none; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .npanel .empty { padding: 22px 14px; text-align: center; color: var(--muted); font-size: 13px; }
+  @media (prefers-reduced-motion: reduce) { .bell-btn.ring svg { animation: none; } .bell-btn.busy::after, .npanel .busy .ic { animation: none; } }
   .note { color: var(--muted); font-size: 12px; line-height: 1.6; margin-top: 12px; }
 
   /* 잠금 */
@@ -337,6 +352,7 @@
     .top { flex-wrap: wrap; }
     .nav { order: 3; width: 100%; margin: 0; }
     .actions { margin-left: auto; }
+    .bell-btn { margin-left: auto; margin-right: 0; }
   }
   @media (max-width: 520px) {
     .head h1 { font-size: 22px; }
@@ -432,6 +448,7 @@
       <button data-page="assets">자산</button>
       <button data-page="settings">설정</button>
     </nav>
+    <button class="btn bell-btn" id="bellBtn" type="button" aria-label="알림" aria-expanded="false" title="알림"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
     <div class="actions">
       <button class="btn primary" id="addBtn" hidden>+ 기록</button>
       <button class="btn" id="lockBtn">잠금 해제</button>
@@ -440,7 +457,8 @@
     </div>
   </header>
   <div class="status" id="status"></div>
-  <div class="toast" id="toast" role="status" aria-live="polite"><span class="ic"></span><span class="tx"></span><button type="button" class="x" aria-label="알림 닫기">×</button></div>
+  <div class="npanel" id="npanel" role="dialog" aria-label="알림"><div class="nh"><span>알림</span><button type="button" id="nClear">모두 지우기</button></div><div class="nl" id="nList"></div></div>
+  <div class="sr-only" id="nLive" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></div>
 
   <!-- 파일을 열기 전 -->
   <section class="page on" id="empty">
@@ -760,8 +778,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.9';
+const APP_VERSION = '1.10';
 const CHANGES = [
+  ['1.10', '2026-11-12', ['동작 결과 알림을 윗줄 종 아이콘으로 옮김: 새 알림이 오면 종이 흔들리고 점이 생겨요 (오류는 빨간 점)', '종을 누르면 최근 알림 30개를 시각과 함께 볼 수 있어요', '저장하는 동안은 종 둘레가 돌아가요']],
   ['1.9.9', '2026-11-12', ['저장·삭제·로그인·오류 같은 동작 결과를 화면 아래 알림으로 띄움 (몇 초 뒤 사라지고, 오류는 조금 더 오래 보여요)', '오른쪽 위 줄에는 파일을 언제 어디서 읽었는지만 보여 줘요']],
   ['1.9.8', '2026-11-12', ['목표 저축액 설정에서 할부를 뺀 자산 선택을 뺌: 목표는 기록된 자산 기준으로만 계산']],
   ['1.9.7', '2026-11-11', ['잉여금액의 고정비를 설정 → 고정비에 있는 항목 전체(사용 중) 합계로 바꿈: 변동예산·저축/투자·이체예산·목적자금도 포함']],
@@ -1097,22 +1116,47 @@ const saveHandle = h => idb('readwrite', st => st.put(h, 'file')).catch(() => {}
 const loadHandle = () => idb('readonly', st => st.get('file')).catch(() => null);
 
 // 오른쪽 위 한 줄: 파일을 어디서·언제 읽었는지 같은 계속 보여 줄 정보
-function setStatus(msg, err) { const s = $('#status'); s.textContent = msg || ''; s.classList.toggle('err', !!err); hideToast(true); }
-// 알림: 저장·로그인·오류 같은 동작 결과. kind = ok | err | busy (busy는 다음 알림이 올 때까지 남아요)
-let toastTimer;
-function hideToast(onlyBusy) { const t = $('#toast'); if (onlyBusy && !t.classList.contains('busy')) return; clearTimeout(toastTimer); t.classList.remove('on'); }
-function notify(msg, kind = 'ok') {
-  const t = $('#toast');
-  t.className = 'toast on ' + kind;
-  t.querySelector('.ic').textContent = kind === 'ok' ? '✓' : kind === 'err' ? '!' : '';
-  t.querySelector('.tx').textContent = msg;
-  t.setAttribute('role', kind === 'err' ? 'alert' : 'status');
-  clearTimeout(toastTimer);
-  if (kind !== 'busy') toastTimer = setTimeout(() => t.classList.remove('on'), kind === 'err' ? 7000 : 3200);
+function setStatus(msg, err) { const s = $('#status'); s.textContent = msg || ''; s.classList.toggle('err', !!err); hideToast(); }
+// 알림: 저장·로그인·오류 같은 동작 결과를 윗줄 종에 모아요. kind = ok | err | busy (busy는 다음 알림이 오면 바뀌어요)
+const notes = [];
+const hhmm = d => `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+function renderNotes() {
+  const b = $('#bellBtn'), unread = notes.filter(n => n.unread && n.kind !== 'busy');
+  b.classList.toggle('busy', notes.some(n => n.kind === 'busy'));
+  b.classList.toggle('new', unread.length > 0);
+  b.classList.toggle('err', unread.some(n => n.kind === 'err'));
+  b.setAttribute('aria-label', unread.length ? `알림 ${unread.length}개 새로 옴` : '알림');
+  $('#nList').innerHTML = notes.length ? notes.map(n => `<div class="ni ${n.kind}${n.unread ? ' unread' : ''}"><span class="ic">${n.kind === 'ok' ? '✓' : n.kind === 'err' ? '!' : ''}</span><span class="tx">${esc(n.msg)}</span><span class="tm">${hhmm(n.t)}</span></div>`).join('')
+    : '<div class="empty">아직 알림이 없어요.<br>저장하거나 고치면 여기에 결과가 쌓여요.</div>';
 }
-$('#toast .x').onclick = () => hideToast();
-$('#toast').addEventListener('pointerenter', () => clearTimeout(toastTimer));
-$('#toast').addEventListener('pointerleave', () => { const t = $('#toast'); if (t.classList.contains('on') && !t.classList.contains('busy')) toastTimer = setTimeout(() => t.classList.remove('on'), 2000); });
+function hideToast() { const i = notes.findIndex(n => n.kind === 'busy'); if (i >= 0) { notes.splice(i, 1); renderNotes(); } }
+function notify(msg, kind = 'ok') {
+  const i = notes.findIndex(n => n.kind === 'busy');
+  if (i >= 0) notes.splice(i, 1);
+  const open = $('#npanel').classList.contains('on');
+  notes.unshift({ msg, kind, t: new Date(), unread: !open });
+  notes.length = Math.min(notes.length, 30);
+  renderNotes();
+  $('#nLive').textContent = msg;
+  if (kind !== 'busy') { const b = $('#bellBtn'); b.classList.remove('ring'); void b.offsetWidth; b.classList.add('ring'); }
+}
+function placePanel() {
+  const r = $('#bellBtn').getBoundingClientRect(), w = $('#npanel').offsetWidth;
+  $('#npanel').style.top = `${Math.round(r.bottom + 8)}px`;
+  $('#npanel').style.left = `${Math.round(Math.max(12, Math.min(innerWidth - w - 12, r.right - w)))}px`;
+}
+function toggleNotes(show) {
+  const p = $('#npanel'), on = show ?? !p.classList.contains('on');
+  p.classList.toggle('on', on); $('#bellBtn').setAttribute('aria-expanded', on);
+  if (on) { placePanel(); } else { notes.forEach(n => n.unread = false); renderNotes(); }
+}
+$('#bellBtn').onclick = e => { e.stopPropagation(); toggleNotes(); };
+$('#bellBtn').addEventListener('animationend', e => e.target.closest('.bell-btn').classList.remove('ring'));
+$('#nClear').onclick = () => { notes.length = 0; renderNotes(); };
+document.addEventListener('pointerdown', e => { if ($('#npanel').classList.contains('on') && !e.target.closest('#npanel, #bellBtn')) toggleNotes(false); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#npanel').classList.contains('on')) toggleNotes(false); });
+addEventListener('resize', () => { if ($('#npanel').classList.contains('on')) placePanel(); });
+renderNotes();
 
 async function readFile(file) {
   if (/\.[a-z0-9]+$/i.test(file.name) && !/\.xls[xm]$/i.test(file.name)) return notify(`'${file.name}'은 엑셀 파일이 아니에요. 가계부 엑셀 파일(.xlsx 또는 .xlsm)을 골라 주세요.`, 'err');

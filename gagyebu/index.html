@@ -191,6 +191,8 @@
                      background: rgba(0,0,0,.3); color: var(--text); font: inherit; }
   .in:focus, .form input:focus { outline: 2px solid var(--accent-soft); border-color: var(--accent); }
   .form label { display: block; color: var(--muted); font-size: 12px; margin-top: 12px; }
+  .form label.check { display: flex; align-items: center; gap: 8px; color: var(--text); font-size: 13px; cursor: pointer; }
+  .form label.check input { width: 16px; height: 16px; accent-color: var(--accent); margin: 0; }
   .form-msg { min-height: 18px; font-size: 12px; margin-top: 10px; color: var(--muted); }
   .form-msg.err { color: var(--red); }
   .form-msg.ok { color: var(--green); }
@@ -377,8 +379,9 @@
       <div class="sub" id="enDeductSum"></div>
     </div>
     <div id="enSvOnly" hidden>
-      <label>자산에도 더하기 (선택)<select class="in" id="enAsset"></select></label>
-      <div class="sub">고르면 그 자산의 잔액에 이 금액을 더하고 기준일을 이 날짜로 바꿔요.</div>
+      <label>계좌<select class="in" id="enAsset"></select></label>
+      <label class="check"><input type="checkbox" id="enAddBal" checked> 이 계좌 잔액에도 더하기</label>
+      <div class="sub">계좌 이름은 수입 시트의 분류 칸에 적혀요. 체크하면 그 계좌 잔액에 이 금액을 더하고 기준일을 이 날짜로 바꿔요.</div>
     </div>
     <div id="enLoanOnly" hidden>
       <div class="goal-form">
@@ -626,6 +629,13 @@
         <div class="scroll-x"><table class="t" id="asTypes"></table></div>
       </div>
     </div>
+    <div class="card glass mt" id="svCard">
+      <div class="row-top"><span class="label">이번 달 저축·투자 (계좌별)</span><span class="label" id="svState"></span></div>
+      <div class="big" id="svTot">-</div>
+      <div class="sub" id="svSub"></div>
+      <div class="next" id="svItems"></div>
+      <div class="note">수입 시트에서 유형이 저축·투자인 줄을 분류(계좌 이름)로 묶었어요. 예전 기록처럼 분류가 '저축'·'투자'면 내용에 적힌 이름으로 계좌를 찾아요. 계획은 설정 → 고정비의 '저축/투자' 항목 합계예요.</div>
+    </div>
     <div class="grid g-2 mt">
       <div class="card glass">
         <div class="row-top"><span class="label">비상금</span><span class="label" id="dbEfState"></span></div>
@@ -738,8 +748,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.5';
+const APP_VERSION = '1.9.6';
 const CHANGES = [
+  ['1.9.6', '2026-11-11', ['저축 기록에서 계좌를 고르게 함: 계좌 이름이 수입 시트 분류 칸에 적히고, 체크하면 그 계좌 잔액에도 더해요', '자산 탭에 이번 달 저축·투자를 계좌별로 보여 주는 카드 추가 (지난달 금액, 고정비의 저축/투자 계획과 비교)']],
   ['1.9.5', '2026-11-11', ['자산 탭의 할부를 뺀 자산 카드를 뺌', '잉여금액을 수입 − 고정비(사용 중인 정액고정비) − 할부로 계산', '비상금에 이번 달 적립 여부 표시 (적립 완료/적립 전, 날짜와 금액)']],
   ['1.9.4', '2026-11-10', ['차트에 마우스를 올리면 바로 뜨는 툴팁으로 바꿈: 항목별 색·금액과 합계를 보여 주고, 올린 막대만 또렷하게 표시', '휴대폰에서는 막대를 누르면 2.5초 동안 보여 줘요']],
   ['1.9.3', '2026-11-10', ['할부 카드에 수정 버튼 추가: 이름·원금·이자율·월 납입·첫/마지막 납부일·납부일·현재 잔액·비고를 고치면 엑셀 할부 표에 저장 (월 납입을 비우면 다시 계산)', '할부 삭제는 수정 창 안으로 옮김']],
@@ -1763,6 +1774,8 @@ function renderAssets() {
       <div class="track blurable"><span style="width:${a.amt / amax * 100}%;background:${typeColor[a.type] || '#a3958c'}"></span></div>
       <div class="sub">${aTot ? `전체의 ${pct(a.amt / aTot * 100)}` : ''}${a.date && a.date !== date ? ` · 기준일 ${a.date}` : ''}${a.amt === 0 ? ' · 잔액 0원' : ''}</div></div>`).join('');
 
+  renderSavings();
+
   // 비상금
   if (ef.target) {
     const low = (ef.cur || 0) < (ef.min || 0);
@@ -1802,6 +1815,39 @@ function renderAssets() {
       : `<div class="row-top"><span class="sub" style="margin:0">${l.elapsed ?? 0} / ${l.total ?? '-'}개월 납부</span>${ed ? `<button type="button" class="btn sm" data-loan-edit="${esc(l.name)}">수정</button>` : ''}</div>`;
     return `<div class="card glass">${head}${body}<div class="bar-thin"><span class="ok" style="width:${r * 100}%"></span></div>${foot}</div>`;
   }).join('') || '<div class="sub">보여 줄 할부가 없어요.</div>';
+}
+
+/* ── 저축·투자 계좌별: 분류 칸 = 계좌 이름 (예전 기록은 내용으로 계좌 찾기) ── */
+const normName = t => String(t || '').replace(/[\s·.()\-_]/g, '').toLowerCase();
+function svAccount(f) {
+  if (f.cat && f.cat !== '저축' && f.cat !== '투자') return f.cat;
+  const it = normName(f.item);
+  const hit = it && M.assets.find(a => { const n = normName(a.name); return n && (n.includes(it) || it.includes(n)); });
+  return hit ? hit.name : '계좌 미지정';
+}
+function renderSavings() {
+  const ym = nowYM(), pym = ym % 100 === 1 ? ym - 89 : ym - 1;
+  const isSv = f => f.type === '저축' || f.type === '투자';
+  const rows = M.flows.filter(f => isSv(f) && f.ym === ym), prev = M.flows.filter(f => isSv(f) && f.ym === pym);
+  const tot = sum(rows, f => f.net), pTot = sum(prev, f => f.net);
+  const plan = sum(M.fixed.filter(f => f.kind === '저축/투자' && f.status === '사용'), f => f.amt);
+  setNum('#svTot', tot, 'won');
+  $('#svState').innerHTML = plan ? (tot >= plan ? chipOf('계획 달성', '') : chipOf(`계획까지 ${won(plan - tot)}`, 'bad')) : '';
+  $('#svSub').innerHTML = (plan ? `계획 ${won(plan)} 중 ${pct(Math.min(1, tot / plan) * 100)}` : '고정비에 저축/투자 계획이 없어요')
+    + ` · 지난달 ${won(pTot)}`;
+  const by = {};
+  rows.forEach(f => { const a = svAccount(f); (by[a] = by[a] || { amt: 0, n: [], types: new Set() }); by[a].amt += f.net; by[a].n.push(mmdd(f.d)); by[a].types.add(f.type); });
+  const prevBy = {};
+  prev.forEach(f => { const a = svAccount(f); prevBy[a] = (prevBy[a] || 0) + f.net; });
+  const names = [...new Set([...Object.keys(by), ...Object.keys(prevBy)])].sort((a, b) => ((by[b] || {}).amt || 0) - ((by[a] || {}).amt || 0) || (prevBy[b] || 0) - (prevBy[a] || 0));
+  const mx = Math.max(1, ...names.map(n => Math.max((by[n] || {}).amt || 0, prevBy[n] || 0)));
+  $('#svItems').innerHTML = names.length ? names.map((n, i) => {
+    const o = by[n], asset = M.assets.find(a => a.name === n);
+    return `<div class="hbar">
+      <div class="hbar-top"><span>${esc(n)} <span style="color:var(--muted);font-size:12px">${o ? '· ' + esc([...o.types].join('·')) : ''}${asset ? ` · 잔액 ${man(asset.amt)}` : ''}</span></span><span><b>${won(o ? o.amt : 0)}</b></span></div>
+      <div class="track blurable"><span style="width:${(o ? o.amt : 0) / mx * 100}%;background:${COLORS[(i + 3) % COLORS.length]}"></span></div>
+      <div class="sub">${o ? `이번 달 ${o.n.join(', ')}` : '이번 달 기록 없음'}${prevBy[n] ? ` · 지난달 ${won(prevBy[n])}` : ''}</div></div>`;
+  }).join('') : '<div class="sub">이번 달과 지난달 저축·투자 기록이 없어요. + 기록 → 저축에서 계좌를 골라 적어 주세요.</div>';
 }
 
 /* ── 목표 저축액: 목표는 이 브라우저에 저장, 저축액은 자산관리 시트 금액 ── */
@@ -2067,7 +2113,11 @@ function setEntryKind(k) {
   $('#enDateLbl').textContent = u.date;
   $('#enCat').innerHTML = u.cats().map(c => `<option>${esc(c)}</option>`).join('');
   $('#enItem').placeholder = u.ph;
-  if (k === 'sv') $('#enAsset').innerHTML = '<option value="">더하지 않음</option>' + M.assets.map(a => `<option value="${esc(a.name)}">${esc(a.name)} (${esc(a.type)})</option>`).join('');
+  if (k === 'sv') {
+    const order = t => { const i = ['투자', '저축', '예금', '현금성'].indexOf(t); return i < 0 ? 9 : i; };
+    $('#enAsset').innerHTML = [...M.assets].sort((a, b) => order(a.type) - order(b.type)).map(a => `<option value="${esc(a.name)}">${esc(a.name)} (${esc(a.type)})</option>`).join('')
+      + '<option value="">계좌 없음 (분류에 유형만 적기)</option>';
+  }
   syncNW(); syncDeduct(); syncLoan();
 }
 // 세전 급여를 적으면 공제 합계(세전 − 실수령)를 바로 보여 줘요
@@ -2381,7 +2431,7 @@ $('#entryForm').onsubmit = async e => {
   let table, rec, ensure = [], asset = null, label;
   if (k === 'tx') { table = 'tblTx'; rec = { '날짜': date, '대분류': cat, '내용': item, '금액(원)': amt, 'Needs/Wants': entryNW, '메모': memo }; label = `${item} ${won(amt)}`; }
   else if (k === 'inc') { table = 'tblIncome'; rec = { '날짜': date, '유형': '수입', '분류': cat, '내용': item, '세전 급여': gross, '공제 내역': deduct, '금액(원)': amt, '메모': memo }; if (deduct) ensure = ['공제 내역']; label = `${item} ${won(amt)}`; }
-  else if (k === 'sv') { table = 'tblIncome'; rec = { '날짜': date, '유형': cat, '분류': cat, '내용': item, '금액(원)': amt, '메모': memo }; asset = $('#enAsset').value; label = `${cat} · ${item} ${won(amt)}`; }
+  else if (k === 'sv') { const acct = $('#enAsset').value; table = 'tblIncome'; rec = { '날짜': date, '유형': cat, '분류': acct || cat, '내용': item, '금액(원)': amt, '메모': memo }; asset = acct && $('#enAddBal').checked ? acct : null; label = `${cat} · ${acct ? acct + ' · ' : ''}${item} ${won(amt)}`; }
   else if (k === 'ef') { table = 'tblEF'; rec = { '날짜': date, '구분': cat, '금액(원)': amt, '사유': item }; label = `비상금 ${cat} · ${item} ${won(amt)}`; }
   else {
     const c = loanCalc();

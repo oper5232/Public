@@ -748,8 +748,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.9.6';
+const APP_VERSION = '1.9.7';
 const CHANGES = [
+  ['1.9.7', '2026-11-11', ['잉여금액의 고정비를 설정 → 고정비에 있는 항목 전체(사용 중) 합계로 바꿈: 변동예산·저축/투자·이체예산·목적자금도 포함']],
   ['1.9.6', '2026-11-11', ['저축 기록에서 계좌를 고르게 함: 계좌 이름이 수입 시트 분류 칸에 적히고, 체크하면 그 계좌 잔액에도 더해요', '자산 탭에 이번 달 저축·투자를 계좌별로 보여 주는 카드 추가 (지난달 금액, 고정비의 저축/투자 계획과 비교)']],
   ['1.9.5', '2026-11-11', ['자산 탭의 할부를 뺀 자산 카드를 뺌', '잉여금액을 수입 − 고정비(사용 중인 정액고정비) − 할부로 계산', '비상금에 이번 달 적립 여부 표시 (적립 완료/적립 전, 날짜와 금액)']],
   ['1.9.4', '2026-11-10', ['차트에 마우스를 올리면 바로 뜨는 툴팁으로 바꿈: 항목별 색·금액과 합계를 보여 주고, 올린 막대만 또렷하게 표시', '휴대폰에서는 막대를 누르면 2.5초 동안 보여 줘요']],
@@ -1521,8 +1522,8 @@ function renderOverview() {
       : `${pct(bSpent / bt * 100)} 사용` + (left < 0 ? ` · <span style="color:var(--red)">${won(-left)} 초과</span>`
         : daysLeft ? ` · 남은 ${daysLeft}일 동안 하루 ${won(left / daysLeft)}까지 쓸 수 있어요` : '');
 
-    // 잉여금액: 수입 − 고정비(사용 중인 정액고정비) − 그 달에 걸쳐 있는 할부 월납입 (이번 달 수입이 아직 없으면 지난달 수입으로)
-    const fixM = sum(M.fixed.filter(f => f.status === '사용' && f.kind === '정액고정비'), f => f.amt);
+    // 잉여금액: 수입 − 고정비(설정 → 고정비에서 사용 중인 항목 전체) − 그 달에 걸쳐 있는 할부 월납입 (이번 달 수입이 아직 없으면 지난달 수입으로)
+    const fixM = sum(M.fixed.filter(f => f.status === '사용'), f => f.amt);
     const instM = sum(M.loans.filter(l => l.monthly && l.startYM && l.startYM <= ym && (!l.endYM || ym <= l.endYM)), l => l.monthly);
     const incBase = inc.length ? sum(inc, f => f.net) : pinc.length ? sum(pinc, f => f.net) : null;
     $('#mSurBasis').textContent = inc.length ? `${ym % 100}월 수입 기준` : pinc.length ? '지난달 수입 기준' : '';
@@ -2398,7 +2399,7 @@ const FIX_KINDS = ['정액고정비', '변동예산', '저축/투자', '이체�
 function renderFixedAdmin() {
   const ed = canEdit(), fx = M ? M.fixed : [];
   const on = fx.filter(f => f.status === '사용');
-  $('#fixRowState').textContent = M ? `사용 ${on.length}개 · 월 ${won(sum(on.filter(f => f.kind === '정액고정비'), f => f.amt))} (정액고정비)` : '파일을 열면 보여요';
+  $('#fixRowState').textContent = M ? `사용 ${on.length}개 · 월 ${won(sum(on, f => f.amt))}` : '파일을 열면 보여요';
   $('#fixInfo').textContent = !M ? '' : ed ? '사용/중단을 눌러 바로 바꾸거나, 수정에서 금액·납부일을 고쳐요. 엑셀 고정비 시트에 저장돼요.' : M.form === 'v1' ? 'Microsoft 연결로 로그인하면 여기서 고칠 수 있어요.' : '새 양식(.xlsx)에서만 여기서 고칠 수 있어요.';
   $('#fixList').innerHTML = fx.map(f => `<div class="admin-row"><div class="grow ${f.status === '사용' ? '' : 'off'}">${esc(f.name)}<small>${esc(f.kind)} · ${esc(f.cat)}${f.day ? ` · ${f.day}일` : ''}</small></div><b class="${f.status === '사용' ? '' : 'off'}">${won(f.amt)}</b>${ed
     ? `<button type="button" class="btn sm" data-fx-toggle="${esc(f.name)}">${f.status === '사용' ? '사용 중' : '중단됨'}</button><button type="button" class="btn sm" data-fx="${esc(f.name)}">수정</button>`

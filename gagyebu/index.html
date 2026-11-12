@@ -781,8 +781,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.2';
+const APP_VERSION = '1.10.3';
 const CHANGES = [
+  ['1.10.3', '2026-11-13', ['휴대폰에서 OneDrive 파일을 읽을 때 Failed to fetch가 나던 문제 고침: 미리 인증된 다운로드 주소로 바로 받고, 연결이 잠깐 끊기면 한 번 더 시도해요']],
   ['1.10.2', '2026-11-12', ['지출 메모를 금액 왼쪽 메모 칸으로 옮김 (휴대폰처럼 좁은 화면에서는 내용 아래에 보여요)']],
   ['1.10.1', '2026-11-12', ['최근 지출과 지출 내역에 메모 표시 (내용 아래 작은 글씨)', '지출 내역 검색에서 메모도 찾아요']],
   ['1.10', '2026-11-12', ['동작 결과 알림을 윗줄 종 아이콘으로 옮김: 새 알림이 오면 종이 흔들리고 점이 생겨요 (오류는 빨간 점)', '종을 누르면 최근 알림 30개를 시각과 함께 볼 수 있어요', '저장하는 동안은 종 둘레가 돌아가요']],
@@ -2117,19 +2118,32 @@ async function graph(path, opt = {}) {
   if (!r.ok) { let m = r.status; try { const j = await r.json(); m = (j.error && j.error.message) || m; } catch (e) {} throw Object.assign(new Error(m), { status: r.status }); }
   return r;
 }
+// 파일 내용 받기: 미리 인증된 다운로드 주소를 바로 받아요. /content는 다른 서버로 넘겨주는데, 휴대폰 브라우저에서 그 단계가 막힐 때가 있어요.
+async function msDownload(item) {
+  const u = item['@microsoft.graph.downloadUrl'];
+  if (u) { try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) return await r.arrayBuffer(); } catch (e) { /* 아래 방법으로 다시 */ } }
+  return (await graph(`/me/drive/items/${item.id}/content`)).arrayBuffer();
+}
+// 네트워크가 잠깐 끊긴 경우(Failed to fetch)만 1.5초 뒤 한 번 더
+async function netRetry(fn) {
+  try { return await fn(); }
+  catch (e) { if (!(e instanceof TypeError)) throw e; await new Promise(r => setTimeout(r, 1500)); return fn(); }
+}
 const msItemPath = () => '/me/drive/root:/' + msConf().path.split('/').filter(Boolean).map(encodeURIComponent).join('/') + ':';
 async function msPull(quiet) {
   if (!msSignedIn()) return false;
   if (!quiet) notify('OneDrive에서 읽는 중…', 'busy');
   try {
-    const item = await (await graph(msItemPath() + '?$select=id,name,lastModifiedDateTime')).json();
-    const buf = await (await graph(`/me/drive/items/${item.id}/content`)).arrayBuffer();
+    const item = await netRetry(async () => (await graph(msItemPath())).json());
+    const buf = await netRetry(() => msDownload(item));
     store.set(PREF_KEY, Object.assign(prefs(), { ms: Object.assign(msConf(), { itemId: item.id }) }));
     await readFile(new File([buf], item.name, { lastModified: Date.parse(item.lastModifiedDateTime) }));
     setStatus(`OneDrive에서 읽었어요 · 파일 저장 시각 ${new Date(item.lastModifiedDateTime).toLocaleString('ko-KR')}`);
     return true;
   } catch (e) {
-    notify(e.status === 404 || e.status === 400 ? `OneDrive에서 '${msConf().path}' 파일을 찾지 못했어요. 설정에서 파일 위치를 확인해 주세요.` : 'OneDrive에서 읽지 못했어요: ' + e.message, 'err');
+    notify(e.status === 404 || e.status === 400 ? `OneDrive에서 '${msConf().path}' 파일을 찾지 못했어요. 설정에서 파일 위치를 확인해 주세요.`
+      : e instanceof TypeError ? 'OneDrive에 닿지 못했어요. 인터넷 연결을 확인하고 새로고침을 눌러 주세요. (' + e.message + ')'
+      : 'OneDrive에서 읽지 못했어요: ' + e.message, 'err');
     return false;
   }
 }

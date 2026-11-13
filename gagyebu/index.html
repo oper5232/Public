@@ -788,8 +788,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.4';
+const APP_VERSION = '1.10.5';
 const CHANGES = [
+  ['1.10.5', '2026-11-13', ['삼성 인터넷처럼 OneDrive 파일 내려받기가 막힌 브라우저에서도 읽어요: 막히면 Graph로 시트 값을 직접 받아 같은 화면을 그려요']],
   ['1.10.4', '2026-11-13', ['설정 → Microsoft 연결에 연결 진단 버튼 추가: 로그인 서버, Graph 서버, 토큰, 파일 정보, 내려받기 중 어디서 막히는지 차례로 보여 줘요']],
   ['1.10.3', '2026-11-13', ['휴대폰에서 OneDrive 파일을 읽을 때 Failed to fetch가 나던 문제 고침: 미리 인증된 다운로드 주소로 바로 받고, 연결이 잠깐 끊기면 한 번 더 시도해요']],
   ['1.10.2', '2026-11-12', ['지출 메모를 금액 왼쪽 메모 칸으로 옮김 (휴대폰처럼 좁은 화면에서는 내용 아래에 보여요)']],
@@ -1179,17 +1180,20 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#npanel
 addEventListener('resize', () => { if ($('#npanel').classList.contains('on')) placePanel(); });
 renderNotes();
 
+function showWorkbook(wb, name, lastModified) {
+  const model = buildModel(wb, name);
+  store.set(CACHE_KEY, model);
+  render(model);
+  const when = lastModified ? new Date(lastModified).toLocaleString('ko-KR') : '';
+  setStatus(model.missing.length ? `찾지 못한 시트: ${model.missing.join(', ')}` : `파일 저장 시각 ${when} 기준`, model.missing.length > 0);
+  return model;
+}
 async function readFile(file) {
   if (/\.[a-z0-9]+$/i.test(file.name) && !/\.xls[xm]$/i.test(file.name)) return notify(`'${file.name}'은 엑셀 파일이 아니에요. 가계부 엑셀 파일(.xlsx 또는 .xlsm)을 골라 주세요.`, 'err');
   notify('파일을 읽는 중…', 'busy');
   try {
     const buf = await file.arrayBuffer();
-    const wb = XLSX.read(buf, { type: 'array', cellDates: false });
-    const model = buildModel(wb, file.name);
-    store.set(CACHE_KEY, model);
-    render(model);
-    const when = file.lastModified ? new Date(file.lastModified).toLocaleString('ko-KR') : '';
-    setStatus(model.missing.length ? `찾지 못한 시트: ${model.missing.join(', ')}` : `파일 저장 시각 ${when} 기준`, model.missing.length > 0);
+    showWorkbook(XLSX.read(buf, { type: 'array', cellDates: false }), file.name, file.lastModified);
   } catch (e) {
     console.error(e);
     notify('파일을 읽지 못했어요. 가계부 엑셀 파일이 맞는지 확인해 주세요.', 'err');
@@ -2132,6 +2136,23 @@ async function msDownload(item) {
   if (u) { try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) return await r.arrayBuffer(); } catch (e) { /* 아래 방법으로 다시 */ } }
   return (await graph(`/me/drive/items/${item.id}/content`)).arrayBuffer();
 }
+// 내려받기 대신: 시트마다 사용 범위의 값을 받아 SheetJS 통합문서로 다시 만들어요 (수식은 계산된 값으로 와요)
+async function msWorkbookViaGraph(id) {
+  const base = `/me/drive/items/${id}/workbook/worksheets`;
+  const list = (await (await netRetry(() => graph(base + '?$select=name'))).json()).value || [];
+  const wb = XLSX.utils.book_new();
+  const sheets = await Promise.all(list.map(async ({ name }) => {
+    const q = `${base}('${encodeURIComponent(name.replace(/'/g, "''"))}')/usedRange(valuesOnly=true)?$select=address,values`;
+    return [name, await (await netRetry(() => graph(q))).json()];
+  }));
+  for (const [name, r] of sheets) {
+    const ws = XLSX.utils.aoa_to_sheet([]);
+    const origin = String(r.address || 'A1').split('!').pop().split(':')[0].replace(/\$/g, '');
+    if (r.values && r.values.length) XLSX.utils.sheet_add_aoa(ws, r.values.map(row => row.map(v => v === '' ? null : v)), { origin });
+    XLSX.utils.book_append_sheet(wb, ws, name);
+  }
+  return wb;
+}
 // 네트워크가 잠깐 끊긴 경우(Failed to fetch)만 1.5초 뒤 한 번 더
 async function netRetry(fn) {
   try { return await fn(); }
@@ -2143,10 +2164,17 @@ async function msPull(quiet) {
   if (!quiet) notify('OneDrive에서 읽는 중…', 'busy');
   try {
     const item = await netRetry(async () => (await graph(msItemPath())).json());
-    const buf = await netRetry(() => msDownload(item));
     store.set(PREF_KEY, Object.assign(prefs(), { ms: Object.assign(msConf(), { itemId: item.id }) }));
-    await readFile(new File([buf], item.name, { lastModified: Date.parse(item.lastModifiedDateTime) }));
-    setStatus(`OneDrive에서 읽었어요 · 파일 저장 시각 ${new Date(item.lastModifiedDateTime).toLocaleString('ko-KR')}`);
+    let buf = null, via = '';
+    try { buf = await netRetry(() => msDownload(item)); }
+    catch (e) { if (!(e instanceof TypeError)) throw e; }
+    if (buf) await readFile(new File([buf], item.name, { lastModified: Date.parse(item.lastModifiedDateTime) }));
+    else { // 파일 내려받기 서버가 막힌 브라우저(삼성 인터넷 등): 시트 값을 Graph로 받아 같은 방식으로 읽어요
+      if (!quiet) notify('파일 내려받기가 막혀서 시트 값을 직접 읽는 중…', 'busy');
+      showWorkbook(await msWorkbookViaGraph(item.id), item.name, Date.parse(item.lastModifiedDateTime));
+      via = ' (시트 값으로 읽음)';
+    }
+    setStatus(`OneDrive에서 읽었어요${via} · 파일 저장 시각 ${new Date(item.lastModifiedDateTime).toLocaleString('ko-KR')}`);
     return true;
   } catch (e) {
     notify(e.status === 404 || e.status === 400 ? `OneDrive에서 '${msConf().path}' 파일을 찾지 못했어요. 설정에서 파일 위치를 확인해 주세요.`

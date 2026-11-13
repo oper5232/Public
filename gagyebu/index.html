@@ -788,8 +788,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.6';
+const APP_VERSION = '1.10.7';
 const CHANGES = [
+  ['1.10.7', '2026-11-13', ['시트 값으로 읽을 때 504가 나던 문제 손봄: 엑셀 세션을 한 번 열고 시트를 차례로 읽어요', 'OneDrive 서버가 바쁘다고 답하면(429·502·503·504) 잠시 기다렸다 두 번까지 다시 읽어요']],
   ['1.10.6', '2026-11-13', ['내려받기가 막힌 휴대폰에서 15초 넘게 기다리지 않고 바로 시트 값으로 읽어요 (막힌 기기는 7일 동안 기억)', '연결 진단에 7번 \'시트 값으로 읽기\' 추가: 6번이 막혀도 7번이 되면 정상이에요']],
   ['1.10.5', '2026-11-13', ['삼성 인터넷처럼 OneDrive 파일 내려받기가 막힌 브라우저에서도 읽어요: 막히면 Graph로 시트 값을 직접 받아 같은 화면을 그려요']],
   ['1.10.4', '2026-11-13', ['설정 → Microsoft 연결에 연결 진단 버튼 추가: 로그인 서버, Graph 서버, 토큰, 파일 정보, 내려받기 중 어디서 막히는지 차례로 보여 줘요']],
@@ -2126,8 +2127,16 @@ async function msAccess() {
 async function graph(path, opt = {}) {
   const tok = await msAccess();
   if (!tok) throw Object.assign(new Error('로그인이 끝났어요. 설정 → Microsoft 연결에서 다시 로그인해 주세요.'), { auth: true });
-  const r = await fetch(GRAPH + path, Object.assign({}, opt, { headers: Object.assign({ Authorization: 'Bearer ' + tok }, opt.json ? { 'Content-Type': 'application/json' } : {}),
-    body: opt.json ? JSON.stringify(opt.json) : opt.body }));
+  // 읽기(GET)나 retry 표시가 있는 요청만, 서버가 바쁠 때(429·502·503·504) 기다렸다 다시 해요. 기록 추가는 두 번 들어가지 않게 다시 하지 않아요.
+  const again = (!opt.method || opt.method === 'GET' || opt.retry);
+  let r;
+  for (let n = 0; ; n++) {
+    r = await fetch(GRAPH + path, Object.assign({}, opt, { headers: Object.assign({ Authorization: 'Bearer ' + tok }, opt.json ? { 'Content-Type': 'application/json' } : {}, opt.headers || {}),
+      body: opt.json ? JSON.stringify(opt.json) : opt.body }));
+    if (!again || n >= 2 || ![429, 502, 503, 504].includes(r.status)) break;
+    const wait = Math.min(10, Number(r.headers.get('Retry-After')) || 2 * (n + 1));
+    await new Promise(res => setTimeout(res, wait * 1000));
+  }
   if (!r.ok) { let m = r.status; try { const j = await r.json(); m = (j.error && j.error.message) || m; } catch (e) {} throw Object.assign(new Error(m), { status: r.status }); }
   return r;
 }
@@ -2150,13 +2159,20 @@ const dlBlocked = () => Date.now() - (prefs().dlBlockedAt || 0) < DL_SKIP_MS;
 const setDlBlocked = on => store.set(PREF_KEY, Object.assign(prefs(), { dlBlockedAt: on ? Date.now() : 0 }));
 // 내려받기 대신: 시트마다 사용 범위의 값을 받아 SheetJS 통합문서로 다시 만들어요 (수식은 계산된 값으로 와요)
 async function msWorkbookViaGraph(id) {
-  const base = `/me/drive/items/${id}/workbook/worksheets`;
-  const list = (await (await netRetry(() => graph(base + '?$select=name'))).json()).value || [];
+  // 엑셀 세션을 한 번 열어 두고(저장 안 함) 시트를 차례로 읽어요. 한꺼번에 읽으면 서버가 504로 끊을 때가 있어요.
+  const wbBase = `/me/drive/items/${id}/workbook`, base = wbBase + '/worksheets';
+  let sid = null;
+  try { sid = (await (await graph(wbBase + '/createSession', { method: 'POST', retry: true, json: { persistChanges: false } })).json()).id; } catch (e) { /* 세션 없이도 읽을 수 있어요 */ }
+  const opt = sid ? { headers: { 'workbook-session-id': sid } } : {};
+  const sheets = [];
+  try {
+    const list = (await (await netRetry(() => graph(base + '?$select=name', opt))).json()).value || [];
+    for (const { name } of list) {
+      const q = `${base}('${encodeURIComponent(name.replace(/'/g, "''"))}')/usedRange(valuesOnly=true)?$select=address,values`;
+      sheets.push([name, await (await netRetry(() => graph(q, opt))).json()]);
+    }
+  } finally { if (sid) graph(wbBase + '/closeSession', { method: 'POST', headers: { 'workbook-session-id': sid } }).catch(() => {}); }
   const wb = XLSX.utils.book_new();
-  const sheets = await Promise.all(list.map(async ({ name }) => {
-    const q = `${base}('${encodeURIComponent(name.replace(/'/g, "''"))}')/usedRange(valuesOnly=true)?$select=address,values`;
-    return [name, await (await netRetry(() => graph(q))).json()];
-  }));
   for (const [name, r] of sheets) {
     const ws = XLSX.utils.aoa_to_sheet([]);
     const origin = String(r.address || 'A1').split('!').pop().split(':')[0].replace(/\$/g, '');

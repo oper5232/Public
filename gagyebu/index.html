@@ -788,8 +788,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.5';
+const APP_VERSION = '1.10.6';
 const CHANGES = [
+  ['1.10.6', '2026-11-13', ['내려받기가 막힌 휴대폰에서 15초 넘게 기다리지 않고 바로 시트 값으로 읽어요 (막힌 기기는 7일 동안 기억)', '연결 진단에 7번 \'시트 값으로 읽기\' 추가: 6번이 막혀도 7번이 되면 정상이에요']],
   ['1.10.5', '2026-11-13', ['삼성 인터넷처럼 OneDrive 파일 내려받기가 막힌 브라우저에서도 읽어요: 막히면 Graph로 시트 값을 직접 받아 같은 화면을 그려요']],
   ['1.10.4', '2026-11-13', ['설정 → Microsoft 연결에 연결 진단 버튼 추가: 로그인 서버, Graph 서버, 토큰, 파일 정보, 내려받기 중 어디서 막히는지 차례로 보여 줘요']],
   ['1.10.3', '2026-11-13', ['휴대폰에서 OneDrive 파일을 읽을 때 Failed to fetch가 나던 문제 고침: 미리 인증된 다운로드 주소로 바로 받고, 연결이 잠깐 끊기면 한 번 더 시도해요']],
@@ -2131,11 +2132,22 @@ async function graph(path, opt = {}) {
   return r;
 }
 // 파일 내용 받기: 미리 인증된 다운로드 주소를 바로 받아요. /content는 다른 서버로 넘겨주는데, 휴대폰 브라우저에서 그 단계가 막힐 때가 있어요.
+// 15초 안에 못 받으면 막힌 것으로 봐요. /content도 결국 같은 다운로드 서버로 넘겨주므로 주소가 있으면 다시 시도하지 않아요.
 async function msDownload(item) {
   const u = item['@microsoft.graph.downloadUrl'];
-  if (u) { try { const r = await fetch(u, { cache: 'no-store' }); if (r.ok) return await r.arrayBuffer(); } catch (e) { /* 아래 방법으로 다시 */ } }
-  return (await graph(`/me/drive/items/${item.id}/content`)).arrayBuffer();
+  if (!u) return (await graph(`/me/drive/items/${item.id}/content`)).arrayBuffer();
+  const ac = new AbortController(), t = setTimeout(() => ac.abort(), 15000);
+  try {
+    const r = await fetch(u, { cache: 'no-store', signal: ac.signal });
+    if (!r.ok) throw new TypeError('응답 ' + r.status);
+    return await r.arrayBuffer();
+  } catch (e) { throw e instanceof TypeError ? e : new TypeError(e.name === 'AbortError' ? '15초 안에 응답 없음' : e.message); }
+  finally { clearTimeout(t); }
 }
+// 내려받기가 막힌 기기는 7일 동안 바로 시트 값으로 읽어요 (기다리는 시간 줄이기)
+const DL_SKIP_MS = 7 * 864e5;
+const dlBlocked = () => Date.now() - (prefs().dlBlockedAt || 0) < DL_SKIP_MS;
+const setDlBlocked = on => store.set(PREF_KEY, Object.assign(prefs(), { dlBlockedAt: on ? Date.now() : 0 }));
 // 내려받기 대신: 시트마다 사용 범위의 값을 받아 SheetJS 통합문서로 다시 만들어요 (수식은 계산된 값으로 와요)
 async function msWorkbookViaGraph(id) {
   const base = `/me/drive/items/${id}/workbook/worksheets`;
@@ -2166,8 +2178,10 @@ async function msPull(quiet) {
     const item = await netRetry(async () => (await graph(msItemPath())).json());
     store.set(PREF_KEY, Object.assign(prefs(), { ms: Object.assign(msConf(), { itemId: item.id }) }));
     let buf = null, via = '';
-    try { buf = await netRetry(() => msDownload(item)); }
-    catch (e) { if (!(e instanceof TypeError)) throw e; }
+    if (!dlBlocked()) {
+      try { buf = await netRetry(() => msDownload(item)); setDlBlocked(false); }
+      catch (e) { if (!(e instanceof TypeError)) throw e; setDlBlocked(true); }
+    }
     if (buf) await readFile(new File([buf], item.name, { lastModified: Date.parse(item.lastModifiedDateTime) }));
     else { // 파일 내려받기 서버가 막힌 브라우저(삼성 인터넷 등): 시트 값을 Graph로 받아 같은 방식으로 읽어요
       if (!quiet) notify('파일 내려받기가 막혀서 시트 값을 직접 읽는 중…', 'busy');
@@ -2236,7 +2250,14 @@ $('#msDiag').onclick = async () => {
     await step('4. Graph 서버 (로그인해서)', () => code(GRAPH + '/me?$select=id', { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }));
     let item = null;
     await step('5. 파일 정보', async () => { const r = await fetch(GRAPH + msItemPath(), { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }); if (r.ok) item = await r.json(); return `응답 ${r.status}${item ? ' · ' + item.name : ''}`; });
-    if (item && item['@microsoft.graph.downloadUrl']) await step('6. 파일 내려받기', async () => { const r = await fetch(item['@microsoft.graph.downloadUrl'], { cache: 'no-store' }); const b = await r.arrayBuffer(); return `응답 ${r.status} · ${Math.round(b.byteLength / 1024)}KB`; });
+    let dlOk = null;
+    if (item && item['@microsoft.graph.downloadUrl']) dlOk = await step('6. 파일 내려받기', async () => { const b = await msDownload(item); return `${Math.round(b.byteLength / 1024)}KB`; });
+    if (dlOk === false) rows[rows.length - 1].res += ' → 괜찮아요, 7번 방법으로 대신 읽어요';
+    if (item) await step('7. 시트 값으로 읽기 (대신 읽는 방법)', async () => {
+      const wb = await msWorkbookViaGraph(item.id);
+      const n = wb.SheetNames.reduce((a, k) => a + (XLSX.utils.decode_range(wb.Sheets[k]['!ref'] || 'A1').e.r + 1), 0);
+      return `시트 ${wb.SheetNames.length}개 · ${n}줄`;
+    });
   }
   show();
 };

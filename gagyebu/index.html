@@ -337,6 +337,12 @@
   .filters .in { width: auto; margin: 0; padding: 7px 10px; font-size: 13px; }
   .filters #fQ { flex: 1 1 160px; min-width: 0; }
   .t .memo { display: none; color: var(--muted); font-size: 12px; margin-top: 2px; line-height: 1.4; }
+  .diag { margin-top: 12px; border: 1px solid var(--line); border-radius: 12px; padding: 6px 10px; font-size: 12.5px; }
+  .diag .dr { display: grid; grid-template-columns: 18px auto 1fr; gap: 8px; align-items: baseline; padding: 5px 0; }
+  .diag .dr + .dr { border-top: 1px solid rgba(255,255,255,.05); }
+  .diag .dr span { color: var(--muted); font-weight: 700; }
+  .diag .dr.ok span { color: var(--green); } .diag .dr.err span, .diag .dr.err em { color: var(--red); }
+  .diag .dr b { font-weight: 600; white-space: nowrap; } .diag .dr em { font-style: normal; color: var(--muted); text-align: right; overflow-wrap: anywhere; }
   .t .memo-col { color: var(--muted); font-size: 13px; max-width: 260px; }
   @media (max-width: 640px) { .t .memo-col { display: none; } .t .memo { display: block; } }
   select.in option { background: #1c1816; color: var(--text); }
@@ -752,7 +758,8 @@
             <label>앱 ID (Entra에서 받은 애플리케이션 ID)<input id="msClient" autocomplete="off" spellcheck="false" placeholder="00000000-0000-0000-0000-000000000000"></label>
             <label>개인 OneDrive 안 파일 위치 (PC 경로를 붙여 넣어도 돼요)<input id="msPath" autocomplete="off" spellcheck="false" placeholder="Desktop/가계부.xlsx"></label>
             <div class="form-msg" id="msMsg"></div>
-            <div class="btns-l"><button class="btn primary" id="msLogin">저장하고 로그인</button><button type="button" class="btn" id="msPull">지금 OneDrive에서 읽기</button><button type="button" class="btn" id="msLogout">로그아웃</button></div>
+            <div class="btns-l"><button class="btn primary" id="msLogin">저장하고 로그인</button><button type="button" class="btn" id="msPull">지금 OneDrive에서 읽기</button><button type="button" class="btn" id="msLogout">로그아웃</button><button type="button" class="btn" id="msDiag">연결 진단</button></div>
+            <div class="diag" id="msDiagOut" hidden></div>
           </form>
         </div>
       </div>
@@ -781,8 +788,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.3';
+const APP_VERSION = '1.10.4';
 const CHANGES = [
+  ['1.10.4', '2026-11-13', ['설정 → Microsoft 연결에 연결 진단 버튼 추가: 로그인 서버, Graph 서버, 토큰, 파일 정보, 내려받기 중 어디서 막히는지 차례로 보여 줘요']],
   ['1.10.3', '2026-11-13', ['휴대폰에서 OneDrive 파일을 읽을 때 Failed to fetch가 나던 문제 고침: 미리 인증된 다운로드 주소로 바로 받고, 연결이 잠깐 끊기면 한 번 더 시도해요']],
   ['1.10.2', '2026-11-12', ['지출 메모를 금액 왼쪽 메모 칸으로 옮김 (휴대폰처럼 좁은 화면에서는 내용 아래에 보여요)']],
   ['1.10.1', '2026-11-12', ['최근 지출과 지출 내역에 메모 표시 (내용 아래 작은 글씨)', '지출 내역 검색에서 메모도 찾아요']],
@@ -2178,6 +2186,32 @@ $('#msForm').onsubmit = e => {
   msLogin();
 };
 $('#msPull').onclick = () => msPull();
+// 연결 진단: 어느 단계에서 막히는지 차례로 확인해서 보여 줘요 (토큰 값은 보여 주지 않아요)
+$('#msDiag').onclick = async () => {
+  const out = $('#msDiagOut'), rows = [];
+  const show = () => { out.hidden = false; out.innerHTML = rows.map(r => `<div class="dr ${r.ok === true ? 'ok' : r.ok === false ? 'err' : ''}"><span>${r.ok === true ? '✓' : r.ok === false ? '!' : r.res === '확인 중' ? '…' : '·'}</span><b>${esc(r.name)}</b><em>${esc(r.res)}</em></div>`).join(''); };
+  const step = async (name, fn) => {
+    const r = { name, res: '확인 중' }; rows.push(r); show();
+    const t0 = performance.now();
+    try { const res = await fn(); r.ok = true; r.res = `${res} · ${Math.round(performance.now() - t0)}ms`; }
+    catch (e) { r.ok = false; r.res = `${e.name === 'TypeError' ? '연결 막힘' : '오류'}: ${e.message}`; }
+    show(); return r.ok;
+  };
+  const code = async (u, o) => { const r = await fetch(u, o); return `응답 ${r.status}`; };
+  rows.length = 0;
+  rows.push({ name: '브라우저', res: (navigator.userAgent.match(/(SamsungBrowser|Edg|Firefox|Whale|Chrome|Safari)\/[\d.]+/) || ['알 수 없음'])[0] + (matchMedia('(display-mode: standalone)').matches ? ' · 앱으로 실행' : ' · 브라우저 탭') });
+  await step('1. Microsoft 로그인 서버', () => code('https://login.microsoftonline.com/consumers/v2.0/.well-known/openid-configuration', { cache: 'no-store' }));
+  await step('2. Graph 서버 (로그인 없이)', () => code(GRAPH + '/me', { cache: 'no-store' }));
+  let tok = null;
+  await step('3. 로그인 토큰', async () => { tok = await msAccess(); if (!tok) throw new Error('없음 · 다시 로그인해 주세요'); return '있음'; });
+  if (tok) {
+    await step('4. Graph 서버 (로그인해서)', () => code(GRAPH + '/me?$select=id', { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }));
+    let item = null;
+    await step('5. 파일 정보', async () => { const r = await fetch(GRAPH + msItemPath(), { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }); if (r.ok) item = await r.json(); return `응답 ${r.status}${item ? ' · ' + item.name : ''}`; });
+    if (item && item['@microsoft.graph.downloadUrl']) await step('6. 파일 내려받기', async () => { const r = await fetch(item['@microsoft.graph.downloadUrl'], { cache: 'no-store' }); const b = await r.arrayBuffer(); return `응답 ${r.status} · ${Math.round(b.byteLength / 1024)}KB`; });
+  }
+  show();
+};
 $('#msLogout').onclick = () => {
   store.del(MS_TOKEN_KEY); renderMs(); msMsg('로그아웃했어요. Microsoft 계정 자체의 로그인은 그대로일 수 있어요.', 'ok');
 };

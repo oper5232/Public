@@ -788,8 +788,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.7';
+const APP_VERSION = '1.10.8';
 const CHANGES = [
+  ['1.10.8', '2026-11-13', ['연결 진단에 6-1 추가: 내려받기가 실패하면 서버가 오류로 답한 건지, 연결 자체가 막힌 건지 구분해서 보여 줘요']],
   ['1.10.7', '2026-11-13', ['시트 값으로 읽을 때 504가 나던 문제 손봄: 엑셀 세션을 한 번 열고 시트를 차례로 읽어요', 'OneDrive 서버가 바쁘다고 답하면(429·502·503·504) 잠시 기다렸다 두 번까지 다시 읽어요']],
   ['1.10.6', '2026-11-13', ['내려받기가 막힌 휴대폰에서 15초 넘게 기다리지 않고 바로 시트 값으로 읽어요 (막힌 기기는 7일 동안 기억)', '연결 진단에 7번 \'시트 값으로 읽기\' 추가: 6번이 막혀도 7번이 되면 정상이에요']],
   ['1.10.5', '2026-11-13', ['삼성 인터넷처럼 OneDrive 파일 내려받기가 막힌 브라우저에서도 읽어요: 막히면 Graph로 시트 값을 직접 받아 같은 화면을 그려요']],
@@ -2268,7 +2269,18 @@ $('#msDiag').onclick = async () => {
     await step('5. 파일 정보', async () => { const r = await fetch(GRAPH + msItemPath(), { headers: { Authorization: 'Bearer ' + tok }, cache: 'no-store' }); if (r.ok) item = await r.json(); return `응답 ${r.status}${item ? ' · ' + item.name : ''}`; });
     let dlOk = null;
     if (item && item['@microsoft.graph.downloadUrl']) dlOk = await step('6. 파일 내려받기', async () => { const b = await msDownload(item); return `${Math.round(b.byteLength / 1024)}KB`; });
-    if (dlOk === false) rows[rows.length - 1].res += ' → 괜찮아요, 7번 방법으로 대신 읽어요';
+    if (dlOk === false) {
+      rows[rows.length - 1].res += ' → 7번 방법으로 대신 읽어요';
+      // 원인 가르기: CORS를 빼고 요청해서 서버에 닿기라도 하는지 봐요. 닿으면 '서버 오류 응답(헤더 없음)', 안 닿으면 '연결 자체가 막힘'
+      const host = new URL(item['@microsoft.graph.downloadUrl']).host;
+      await step(`6-1. 내려받기 서버 (${host})`, async () => {
+        const ac = new AbortController(), t = setTimeout(() => ac.abort(), 15000);
+        try { await fetch(item['@microsoft.graph.downloadUrl'], { mode: 'no-cors', cache: 'no-store', signal: ac.signal }); }
+        catch (e) { throw new Error(e.name === 'AbortError' ? '15초 안에 응답 없음 · 서버가 멈춘 상태' : '닿지 않음 · 브라우저·네트워크가 막는 중'); }
+        finally { clearTimeout(t); }
+        return '서버는 응답함 · 오류 응답이라 브라우저가 내용을 막음 (Microsoft 쪽 문제)';
+      });
+    }
     if (item) await step('7. 시트 값으로 읽기 (대신 읽는 방법)', async () => {
       const wb = await msWorkbookViaGraph(item.id);
       const n = wb.SheetNames.reduce((a, k) => a + (XLSX.utils.decode_range(wb.Sheets[k]['!ref'] || 'A1').e.r + 1), 0);

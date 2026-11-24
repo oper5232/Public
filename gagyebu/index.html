@@ -177,6 +177,12 @@
   .drop.on { display: grid; }
   .drop div { padding: 40px 56px; border: 2px dashed var(--accent); border-radius: 22px; font-size: 18px; font-weight: 600; }
   .status { color: var(--muted); font-size: 12px; margin-top: 10px; text-align: right; }
+  .ms-need { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+             margin-top: 12px; padding: 12px 16px; border-radius: 16px; font-size: 13.5px; }
+  .ms-need[hidden] { display: none; }
+  .ms-need b { display: block; margin-bottom: 2px; }
+  .ms-need span { color: var(--muted); font-size: 12.5px; }
+  .ms-need-btns { display: flex; gap: 8px; margin-left: auto; }
   .status.err { color: var(--red); }
   /* 알림 종: 저장·오류 같은 동작 결과를 윗줄 종 아이콘에 모아요 */
   .bell-btn { position: relative; flex: none; width: 36px; height: 36px; padding: 0; display: grid; place-items: center; margin-right: -8px; }
@@ -466,6 +472,10 @@
     </div>
   </header>
   <div class="status" id="status"></div>
+  <div class="ms-need glass" id="msNeed" hidden>
+    <div><b>Microsoft 연결이 필요해요</b><span>연결하면 OneDrive의 최신 가계부를 읽고, + 기록이 엑셀에 바로 저장돼요.</span></div>
+    <div class="ms-need-btns"><button type="button" class="btn" id="msNeedLater">나중에</button><button type="button" class="btn primary" id="msNeedGo">연결</button></div>
+  </div>
   <div class="npanel" id="npanel" role="dialog" aria-label="알림"><div class="nh"><span>알림</span><button type="button" id="nClear">모두 지우기</button></div><div class="nl" id="nList"></div></div>
   <div class="sr-only" id="nLive" aria-live="polite" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)"></div>
 
@@ -788,8 +798,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.10.8';
+const APP_VERSION = '1.11';
 const CHANGES = [
+  ['1.11', '2026-11-24', ['Microsoft 로그인이 만료되면(브라우저 앱은 24시간) 버튼 없이 자동으로 다시 연결해요', '인터넷이 끊기거나 Microsoft 서버가 바쁠 때는 로그인 정보를 지우지 않아요', '연결이 안 돼 있으면 시작할 때 위쪽에 연결 안내가 떠요']],
   ['1.10.8', '2026-11-13', ['연결 진단에 6-1 추가: 내려받기가 실패하면 서버가 오류로 답한 건지, 연결 자체가 막힌 건지 구분해서 보여 줘요']],
   ['1.10.7', '2026-11-13', ['시트 값으로 읽을 때 504가 나던 문제 손봄: 엑셀 세션을 한 번 열고 시트를 차례로 읽어요', 'OneDrive 서버가 바쁘다고 답하면(429·502·503·504) 잠시 기다렸다 두 번까지 다시 읽어요']],
   ['1.10.6', '2026-11-13', ['내려받기가 막힌 휴대폰에서 15초 넘게 기다리지 않고 바로 시트 값으로 읽어요 (막힌 기기는 7일 동안 기억)', '연결 진단에 7번 \'시트 값으로 읽기\' 추가: 6번이 막혀도 7번이 되면 정상이에요']],
@@ -2087,22 +2098,47 @@ const b64url = buf => btoa(String.fromCharCode(...new Uint8Array(buf))).replace(
 const randStr = n => b64url(crypto.getRandomValues(new Uint8Array(n)));
 function msMsg(t, kind) { const m = $('#msMsg'); m.textContent = t || ''; m.className = 'form-msg' + (kind ? ' ' + kind : ''); }
 
-async function msLogin() {
+// 브라우저 앱(SPA)의 로그인 유지 토큰은 Microsoft 정책상 24시간 뒤 만료돼요.
+// 만료되면 화면 없이(prompt=none) Microsoft에 다녀와서 새 토큰을 받아요. Microsoft 로그인이 남아 있으면 버튼을 누를 필요가 없어요.
+const MS_SILENT_KEY = 'gagyebu-ms-silent', MS_LATER_KEY = 'gagyebu-ms-later';
+let msRedirecting = false;
+function msTrySilent() {
+  const c = msConf();
+  if (!isWeb || !(c.hint || c.itemId)) return false; // 한 번도 연결한 적 없거나 로그아웃했으면 하지 않아요
+  const last = Number(sessionStorage.getItem(MS_SILENT_KEY)) || 0;
+  if (Date.now() - last < 10 * 60e3) return false;    // 실패했을 때 계속 오가지 않게 10분에 한 번만
+  sessionStorage.setItem(MS_SILENT_KEY, String(Date.now()));
+  msRedirecting = true; // 바로 표시해야 실행 화면이 걷히지 않아요 (msLogin은 비동기)
+  msLogin({ silent: true });
+  return true;
+}
+function showMsNeed() {
+  let later = false; try { later = !!sessionStorage.getItem(MS_LATER_KEY); } catch (e) {}
+  $('#msNeed').hidden = !isWeb || msSignedIn() || later;
+}
+// 토큰이 정말 만료됐을 때: 조용한 재로그인을 해 보고, 안 되면 연결 안내를 띄워요
+function msExpired() {
+  store.del(MS_TOKEN_KEY);
+  if (!msTrySilent()) { showMsNeed(); renderMs(); }
+}
+async function msLogin(opt = {}) {
   const c = msConf();
   if (!isWeb) return msMsg('로그인은 인터넷 주소(GitHub Pages)로 열었을 때만 돼요.', 'err');
   if (!/^[0-9a-f-]{36}$/i.test(c.clientId)) return msMsg('앱 ID를 먼저 적어 주세요. 36자리(숫자·영문·하이픈)예요.', 'err');
   const verifier = randStr(48), state = randStr(16);
   const challenge = b64url(await crypto.subtle.digest('SHA-256', new TextEncoder().encode(verifier)));
-  sessionStorage.setItem('gagyebu-ms-pkce', JSON.stringify({ verifier, state }));
+  sessionStorage.setItem('gagyebu-ms-pkce', JSON.stringify({ verifier, state, silent: !!opt.silent }));
   const q = new URLSearchParams({ client_id: c.clientId, response_type: 'code', redirect_uri: msRedirect(), scope: MS_SCOPE,
-    response_mode: 'query', code_challenge: challenge, code_challenge_method: 'S256', state, prompt: 'select_account' });
+    response_mode: 'query', code_challenge: challenge, code_challenge_method: 'S256', state, prompt: opt.silent ? 'none' : 'select_account' });
+  if (opt.silent && c.hint) q.set('login_hint', c.hint);
+  msRedirecting = true;
   location.assign(`${MS_AUTH}/authorize?${q}`);
 }
 async function msTokenCall(params) {
   const r = await fetch(`${MS_AUTH}/token`, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(Object.assign({ client_id: msConf().clientId, scope: MS_SCOPE }, params)) });
-  const j = await r.json();
-  if (!r.ok) throw new Error(j.error_description || j.error || r.status);
+  let j = {}; try { j = await r.json(); } catch (e) {}
+  if (!r.ok) throw Object.assign(new Error(String(j.error_description || j.error || r.status).split('\n')[0]), { status: r.status, code: j.error });
   store.set(MS_TOKEN_KEY, { access: j.access_token, refresh: j.refresh_token, exp: Date.now() + (j.expires_in - 120) * 1000 });
 }
 // 로그인 화면에서 돌아왔을 때 (?code=…)
@@ -2112,10 +2148,24 @@ async function msHandleRedirect() {
   history.replaceState(null, '', msRedirect());
   const saved = JSON.parse(sessionStorage.getItem('gagyebu-ms-pkce') || 'null');
   sessionStorage.removeItem('gagyebu-ms-pkce');
-  if (p.has('error')) { notify('Microsoft 로그인을 마치지 못했어요: ' + (p.get('error_description') || p.get('error')).split('\n')[0], 'err'); return true; }
-  if (!saved || saved.state !== p.get('state')) { notify('로그인 응답이 맞지 않아요. 설정에서 다시 로그인해 주세요.', 'err'); return true; }
-  try { await msTokenCall({ grant_type: 'authorization_code', code: p.get('code'), redirect_uri: msRedirect(), code_verifier: saved.verifier }); notify('Microsoft에 로그인했어요.'); }
-  catch (e) { notify('로그인 토큰을 받지 못했어요: ' + e.message, 'err'); }
+  const silent = !!(saved && saved.silent);
+  if (p.has('error')) {
+    if (silent) showMsNeed(); // 조용한 재로그인이 안 됐어요 (Microsoft 로그인이 풀렸거나 계정을 골라야 함)
+    else notify('Microsoft 로그인을 마치지 못했어요: ' + (p.get('error_description') || p.get('error')).split('\n')[0], 'err');
+    return true;
+  }
+  if (!saved || saved.state !== p.get('state')) { notify('로그인 응답이 맞지 않아요. 설정에서 다시 로그인해 주세요.', 'err'); showMsNeed(); return true; }
+  try {
+    await msTokenCall({ grant_type: 'authorization_code', code: p.get('code'), redirect_uri: msRedirect(), code_verifier: saved.verifier });
+    if (!silent) notify('Microsoft에 로그인했어요.');
+    $('#msNeed').hidden = true;
+    // 다음 조용한 재로그인 때 쓸 계정 이름을 기억해요 (토큰은 저장소에만 두고 이 이름만 Microsoft에 다시 보내요)
+    graph('/me?$select=userPrincipalName,mail').then(r => r.json()).then(u => {
+      const hint = u.userPrincipalName || u.mail;
+      if (hint) store.set(PREF_KEY, Object.assign(prefs(), { ms: Object.assign(msConf(), { hint }) }));
+    }).catch(() => {});
+  }
+  catch (e) { notify('로그인 토큰을 받지 못했어요: ' + e.message, 'err'); showMsNeed(); }
   return true;
 }
 async function msAccess() {
@@ -2123,7 +2173,11 @@ async function msAccess() {
   if (!t || !t.refresh) return null;
   if (t.access && Date.now() < t.exp) return t.access;
   try { await msTokenCall({ grant_type: 'refresh_token', refresh_token: t.refresh }); return msTok().access; }
-  catch (e) { store.del(MS_TOKEN_KEY); return null; }
+  catch (e) {
+    // 인터넷이 끊기거나 Microsoft 서버가 바쁜 경우는 만료가 아니에요: 로그인 정보는 그대로 두고 오류만 알려요
+    if (e instanceof TypeError || !e.status || e.status >= 500 || e.status === 429) throw e;
+    msExpired(); return null;
+  }
 }
 async function graph(path, opt = {}) {
   const tok = await msAccess();
@@ -2208,6 +2262,8 @@ async function msPull(quiet) {
     setStatus(`OneDrive에서 읽었어요${via} · 파일 저장 시각 ${new Date(item.lastModifiedDateTime).toLocaleString('ko-KR')}`);
     return true;
   } catch (e) {
+    if (msRedirecting) { hideToast(); return false; }
+    if (e.auth) { hideToast(); showMsNeed(); return false; }
     notify(e.status === 404 || e.status === 400 ? `OneDrive에서 '${msConf().path}' 파일을 찾지 못했어요. 설정에서 파일 위치를 확인해 주세요.`
       : e instanceof TypeError ? 'OneDrive에 닿지 못했어요. 인터넷 연결을 확인하고 새로고침을 눌러 주세요. (' + e.message + ')'
       : 'OneDrive에서 읽지 못했어요: ' + e.message, 'err');
@@ -2290,7 +2346,9 @@ $('#msDiag').onclick = async () => {
   show();
 };
 $('#msLogout').onclick = () => {
-  store.del(MS_TOKEN_KEY); renderMs(); msMsg('로그아웃했어요. Microsoft 계정 자체의 로그인은 그대로일 수 있어요.', 'ok');
+  store.del(MS_TOKEN_KEY);
+  const c = prefs().ms || {}; delete c.hint; delete c.itemId; store.set(PREF_KEY, Object.assign(prefs(), { ms: c }));
+  renderMs(); msMsg('로그아웃했어요. Microsoft 계정 자체의 로그인은 그대로일 수 있어요.', 'ok');
 };
 
 // 기록 창
@@ -2808,6 +2866,7 @@ function hideSplash() {
     // Microsoft에 로그인해 두었으면 열 때마다 OneDrive의 최신 파일을 읽어요
     if (isWeb) {
       await msHandleRedirect(); renderSettings();
+      if (!msSignedIn()) { if (msTrySilent()) return; showMsNeed(); }
       if (msSignedIn()) {
         splashSay('OneDrive에서 최신 가계부를 읽는 중');
         // 실행 화면은 2.5초까지만 기다리고, 읽기는 뒤에서 계속돼요
@@ -2818,9 +2877,11 @@ function hideSplash() {
     // 같은 사이트 안의 상대 경로만 받아요 (다른 사이트 주소는 무시)
     if (q && !/^[a-z][a-z0-9+.-]*:|^\/\//i.test(q)) { const r = await fetch(q); readFile(new File([await r.blob()], q.split('/').pop())); }
   } finally {
-    hideSplash();
+    if (!msRedirecting) hideSplash(); // Microsoft에 다녀오는 중에는 실행 화면을 그대로 둬요
   }
 })();
+$('#msNeedGo').onclick = () => msLogin();
+$('#msNeedLater').onclick = () => { try { sessionStorage.setItem(MS_LATER_KEY, '1'); } catch (e) {} $('#msNeed').hidden = true; };
 
 gsap.to('.b1', { x: 120, y: 80, duration: 14, yoyo: true, repeat: -1, ease: 'sine.inOut' });
 gsap.to('.b2', { x: -100, y: -60, duration: 17, yoyo: true, repeat: -1, ease: 'sine.inOut' });

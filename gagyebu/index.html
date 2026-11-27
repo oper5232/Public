@@ -299,6 +299,9 @@
   .pager button.on { background: var(--panel-hi); color: var(--text); }
   .pager button:disabled { opacity: .35; cursor: default; }
   .t td.nowrap { white-space: nowrap; }
+  .st-up { color: #ff6b6b; } .st-dn { color: #6ea8ff; } .st-0 { color: var(--muted); }
+  .st-t td, .st-t th { white-space: nowrap; }
+  .st-t .nm small { display: block; color: var(--muted); font-size: 11.5px; margin-top: 2px; }
   .sbars { display: flex; align-items: flex-end; gap: 6px; height: 150px; margin-top: 16px; }
   .sbar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%; min-width: 0; }
   .sbar .stk { width: 100%; display: flex; flex-direction: column-reverse; border-radius: 6px 6px 3px 3px; overflow: hidden; transform-origin: bottom; opacity: .55; }
@@ -461,6 +464,7 @@
       <button class="on" data-page="overview">개요</button>
       <button data-page="spend">지출</button>
       <button data-page="assets">자산</button>
+      <button data-page="stocks">주식</button>
       <button data-page="settings">설정</button>
     </nav>
     <button class="btn bell-btn" id="bellBtn" type="button" aria-label="알림" aria-expanded="false" title="알림"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span class="dot"></span></button>
@@ -703,6 +707,31 @@
     <div class="grid g-3" id="dbLoans"></div>
   </section>
 
+  <!-- 주식 -->
+  <section class="page" id="stocks">
+    <div class="head">
+      <div><h1>주식</h1><p id="stSub"></p></div>
+    </div>
+    <div class="grid g-3" id="stKpis"></div>
+    <div class="grid g-2 mt" id="stCharts">
+      <div class="card glass">
+        <div class="label">종목별 비중 (평가금액)</div>
+        <div class="donut-wrap"><div class="donut blurable" id="stDonut"></div><ul class="dlegend" id="stLegend"></ul></div>
+      </div>
+      <div class="card glass">
+        <div class="label">계좌별</div>
+        <div id="stAccts"></div>
+      </div>
+    </div>
+    <div class="card glass mt">
+      <div class="row-top"><span class="label">보유 종목 <span id="stDate"></span></span><button type="button" class="btn sm" id="stAdd" hidden>+ 종목 추가</button></div>
+      <div class="scroll-x"><table class="t st-t" id="stTable"></table></div>
+      <div class="note">엑셀 주식 시트(tblStocks 표)에 적은 값으로 계산해요. 현재가는 실시간 시세가 아니라 적어 둔 값이고, 기준일이 그 값을 확인한 날이에요.
+        USD 종목은 환율 칸 하나로 매입·평가를 모두 원화로 바꿔서 환율 변동 손익은 따로 나누지 않아요. 수량이 0인 종목은 숨겨요.
+        자산 탭의 '투자' 계좌 잔액과는 따로 계산해요. 색은 국내 증권 앱처럼 이익은 빨강, 손실은 파랑이에요.</div>
+    </div>
+  </section>
+
   <!-- 설정 -->
   <section class="page" id="settings">
     <div class="head">
@@ -798,8 +827,9 @@ const CACHE_KEY = 'gagyebu-dashboard-cache-v4';
 const LOCK_KEY = 'gagyebu-dashboard-lock-v1';
 const PREF_KEY = 'gagyebu-dashboard-prefs-v1';
 // 고칠 때마다 APP_VERSION을 올리고 CHANGES 맨 앞에 한 줄 추가해요. '새 버전 확인'이 이 값을 비교해요.
-const APP_VERSION = '1.11';
+const APP_VERSION = '1.12';
 const CHANGES = [
+  ['1.12', '2026-11-27', ['주식 탭 추가: 엑셀 주식 시트의 보유 종목으로 평가금액·손익·수익률, 종목별 비중, 계좌별 합계를 보여 줘요', 'Microsoft에 연결돼 있으면 주식 탭에서 종목을 추가·수정·삭제할 수 있어요']],
   ['1.11', '2026-11-24', ['Microsoft 로그인이 만료되면(브라우저 앱은 24시간) 버튼 없이 자동으로 다시 연결해요', '인터넷이 끊기거나 Microsoft 서버가 바쁠 때는 로그인 정보를 지우지 않아요', '연결이 안 돼 있으면 시작할 때 위쪽에 연결 안내가 떠요']],
   ['1.10.8', '2026-11-13', ['연결 진단에 6-1 추가: 내려받기가 실패하면 서버가 오류로 답한 건지, 연결 자체가 막힌 건지 구분해서 보여 줘요']],
   ['1.10.7', '2026-11-13', ['시트 값으로 읽을 때 504가 나던 문제 손봄: 엑셀 세션을 한 번 열고 시트를 차례로 읽어요', 'OneDrive 서버가 바쁘다고 답하면(429·502·503·504) 잠시 기다렸다 두 번까지 다시 읽어요']],
@@ -1037,7 +1067,19 @@ function buildModelV1(wb, fileName) {
                used: sum(log.filter(r => r.kind === '사용' && +r.d.slice(0, 4) * 100 + +r.d.slice(5, 7) === thisYM), r => r.amt),
                need: target ? Math.max(0, target - cur) : null };
 
-  return { fileName, form: 'v1', readAt: new Date().toISOString(), inputYM, monthly, flows, tx, budget, budgetStart, assets, loans, fixed, ef, car, missing };
+  // 주식: 선택 시트. 통화가 USD면 환율 칸으로 원화 환산, 현재가가 비면 평균단가로 봐요(손익 0)
+  const gs = grid(wb.Sheets['주식']);
+  const hs = optCols(gs, findHeader(gs, ['종목명', '수량', '평균단가', '현재가']), ['종목코드', '계좌', '통화', '환율', '기준일', '메모']);
+  const stocks = hs ? rowsAfter(gs, hs, '종목명', false).map((o, i) => {
+    const cur = (txt(o['통화']) || 'KRW').toUpperCase(), fx = cur === 'KRW' ? 1 : num(o['환율']);
+    const qty = num(o['수량']) || 0, avg = num(o['평균단가']) || 0, price = num(o['현재가']), d = toDate(o['기준일']);
+    const k = fx || 0;
+    return { i, name: txt(o['종목명']), code: txt(o['종목코드']), acct: txt(o['계좌']), cur, qty, avg, price, fx, date: d ? iso(d) : '',
+             memo: txt(o['메모']), cost: qty * avg * k, val: qty * (price ?? avg) * k, noPrice: price == null, noFx: cur !== 'KRW' && !fx };
+  }).filter(x => x.qty > 0) : [];
+  const stocksSheet = !!hs;
+
+  return { fileName, form: 'v1', readAt: new Date().toISOString(), inputYM, monthly, flows, tx, budget, budgetStart, assets, loans, fixed, ef, car, stocks, stocksSheet, missing };
 }
 
 function buildModel(wb, fileName) {
@@ -1931,6 +1973,92 @@ function renderAssets() {
   }).join('') || '<div class="sub">보여 줄 할부가 없어요.</div>';
 }
 
+/* ── 주식 포트폴리오 ── */
+const stCls = v => v > 0 ? 'st-up' : v < 0 ? 'st-dn' : 'st-0';
+const stWon = v => locked ? MASK : (v > 0 ? '+' : '') + won(v);
+const stPct = v => v == null ? '-' : locked ? MASK : (v > 0 ? '+' : '') + v.toFixed(2) + '%';
+const stPrice = (v, cur) => v == null ? '-' : locked ? MASK : cur === 'KRW' ? Math.round(v).toLocaleString('ko-KR') + '원'
+  : (cur === 'USD' ? '$' : cur + ' ') + v.toLocaleString('en-US', { maximumFractionDigits: 4 });
+const stQty = v => locked ? MASK : v.toLocaleString('ko-KR', { maximumFractionDigits: 6 });
+function renderStocks() {
+  const S = (M && M.stocks) || [], has = !!(M && M.stocksSheet), ed = canEdit();
+  $('#stAdd').hidden = !(ed && has);
+  $('#stCharts').hidden = !S.length;
+  if (!has) {
+    $('#stSub').textContent = "엑셀에서 '주식' 시트를 찾지 못했어요. 종목명·수량·평균단가·현재가 머리글이 있는 표를 만들면 여기에 보여요.";
+    $('#stKpis').innerHTML = ''; $('#stTable').innerHTML = ''; $('#stDate').textContent = '';
+    return;
+  }
+  const ok = S.filter(x => !x.noFx), val = sum(ok, x => x.val), cost = sum(ok, x => x.cost), pl = val - cost;
+  const ret = cost ? pl / cost * 100 : null;
+  const dates = S.map(x => x.date).filter(Boolean).sort(), d0 = dates[0] || '', d1 = dates[dates.length - 1] || '';
+  const warn = [];
+  if (S.some(x => x.noFx)) warn.push(`환율이 비어 있는 외화 종목 ${S.filter(x => x.noFx).length}개는 합계에서 빠졌어요`);
+  if (S.some(x => x.noPrice)) warn.push(`현재가가 빈 종목 ${S.filter(x => x.noPrice).length}개는 평균단가로 계산했어요`);
+  $('#stSub').innerHTML = S.length
+    ? `주식 시트 기준 · ${S.length}종목${d1 ? ` · 현재가 기준일 <b>${d0 && d0 !== d1 ? d0 + ' ~ ' : ''}${d1}</b>` : ''}${warn.length ? `<br><span style="color:var(--red)">${warn.join(' · ')}</span>` : ''}`
+    : `주식 시트에 보유 종목이 없어요. ${ed ? '+ 종목 추가로 넣어 보세요.' : '엑셀 주식 시트에 적거나, 설정에서 Microsoft에 연결하면 여기서 추가할 수 있어요.'}`;
+  const top = [...ok].sort((a, b) => b.val - a.val)[0];
+  $('#stKpis').innerHTML =
+    kpi('평가금액', val, `매입 ${won(cost)}`, 'won') +
+    `<div class="card glass"><div class="label">평가손익</div><div class="mid ${stCls(pl)}" data-count="${pl}" data-fmt="won">${locked ? MASK : 0}</div><div class="sub">수익률 <b class="${stCls(pl)}">${stPct(ret)}</b></div></div>` +
+    `<div class="card glass"><div class="label">보유 종목</div><div class="mid">${S.length}종목</div><div class="sub">${top && val ? `가장 큰 비중: ${esc(top.name)} ${pct(top.val / val * 100)}` : ''}</div></div>`;
+
+  // 비중: 상위 7개 + 기타
+  const sorted = [...ok].filter(x => x.val > 0).sort((a, b) => b.val - a.val);
+  const parts = sorted.slice(0, 7).map((x, i) => ({ name: x.name + (S.filter(y => y.name === x.name).length > 1 && x.acct ? ` (${x.acct})` : ''), v: x.val, color: COLORS[i % COLORS.length] }));
+  if (sorted.length > 7) parts.push({ name: `기타 ${sorted.length - 7}종목`, v: sum(sorted.slice(7), x => x.val), color: '#a3958c' });
+  if (S.length) donut($('#stDonut'), $('#stLegend'), parts, val);
+
+  // 계좌별
+  const acc = {};
+  ok.forEach(x => { const k = x.acct || '(계좌 없음)'; acc[k] = acc[k] || { name: k, val: 0, cost: 0, n: 0 }; acc[k].val += x.val; acc[k].cost += x.cost; acc[k].n++; });
+  const accs = Object.values(acc).sort((a, b) => b.val - a.val), amax = Math.max(1, ...accs.map(a => a.val));
+  $('#stAccts').innerHTML = accs.map((a, i) => { const p = a.val - a.cost; return `<div class="hbar">
+      <div class="hbar-top"><span>${esc(a.name)} <span style="color:var(--muted);font-size:12px">· ${a.n}종목</span></span><span><b>${won(a.val)}</b></span></div>
+      <div class="track blurable"><span style="width:${a.val / amax * 100}%;background:${COLORS[(i + 3) % COLORS.length]}"></span></div>
+      <div class="sub">손익 <span class="${stCls(p)}">${stWon(p)} (${stPct(a.cost ? p / a.cost * 100 : null)})</span>${val ? ` · 전체의 ${pct(a.val / val * 100)}` : ''}</div></div>`; }).join('');
+
+  // 표
+  $('#stDate').textContent = '';
+  $('#stTable').innerHTML = S.length ? `<tr><th>종목</th><th class="n">수량</th><th class="n">평균단가</th><th class="n">현재가</th><th class="n">평가금액</th><th class="n">손익</th><th class="n">수익률</th><th class="n">비중</th>${ed ? '<th></th>' : ''}</tr>` +
+    [...S].sort((a, b) => b.val - a.val).map(x => { const p = x.val - x.cost; return `<tr>
+      <td class="nm">${esc(x.name)}<small>${[x.code, x.acct, x.cur !== 'KRW' ? `${x.cur}${x.fx ? ' · 환율 ' + x.fx.toLocaleString('ko-KR') : ' · 환율 없음'}` : '', x.date ? '기준 ' + x.date.slice(2).replace(/-/g, '.') : ''].filter(Boolean).map(esc).join(' · ')}</small></td>
+      <td class="n">${stQty(x.qty)}</td><td class="n">${stPrice(x.avg, x.cur)}</td><td class="n">${x.noPrice ? '<span style="color:var(--muted)">-</span>' : stPrice(x.price, x.cur)}</td>
+      <td class="n"><b>${x.noFx ? '-' : won(x.val)}</b></td><td class="n ${stCls(p)}">${x.noFx ? '-' : stWon(p)}</td>
+      <td class="n ${stCls(p)}">${stPct(x.cost ? p / x.cost * 100 : null)}</td><td class="n">${val && !x.noFx ? pct(x.val / val * 100) : '-'}</td>
+      ${ed ? `<td><button type="button" class="btn sm" data-stock="${x.i}">수정</button></td>` : ''}</tr>`; }).join('')
+    : '';
+}
+// 종목 추가·고치기·지우기 (tblStocks)
+const STOCK_FIELDS = (x = {}) => [
+  { key: '종목명', label: '종목명', value: x.name, required: true, ph: '예: SK하이닉스' },
+  { key: '종목코드', label: '종목코드 (선택)', value: x.code, ph: '예: 000660, NVDA' },
+  { key: '계좌', label: '계좌 (선택)', value: x.acct, ph: '예: 토스증권' },
+  { key: '통화', label: '통화', options: ['KRW', 'USD'], value: x.cur || 'KRW' },
+  { key: '수량', label: '수량', type: 'number', value: x.qty, required: true },
+  { key: '평균단가', label: '평균단가 (통화 기준)', type: 'number', value: x.avg, required: true },
+  { key: '현재가', label: '현재가 (통화 기준)', type: 'number', value: x.price },
+  { key: '환율', label: '환율 (USD일 때, 원/달러)', type: 'number', value: x.cur && x.cur !== 'KRW' ? x.fx : '', ph: '예: 1380' },
+  { key: '기준일', label: '기준일 (현재가 확인한 날)', type: 'date', value: todayIso() },
+  { key: '메모', label: '메모 (선택)', value: x.memo }];
+const stockCheck = (v, self) => !v['종목명'] ? '종목명을 적어 주세요.'
+  : !(v['수량'] >= 0) || v['수량'] === '' ? '수량을 적어 주세요.'
+  : v['평균단가'] === '' ? '평균단가를 적어 주세요.'
+  : v['통화'] !== 'KRW' && !(v['환율'] > 0) ? 'USD 종목은 환율을 적어 주세요.'
+  : (M.stocks || []).some(x => x !== self && x.name === v['종목명'] && x.acct === (v['계좌'] || '')) ? '같은 계좌에 같은 종목이 이미 있어요. 수량과 평균단가를 고쳐 주세요.' : '';
+$('#stAdd').onclick = () => openForm({ title: '종목 추가', note: '평균단가와 현재가는 1주 가격이에요. USD 종목은 달러 가격과 환율을 적어요.',
+  fields: STOCK_FIELDS(), check: v => stockCheck(v), save: v => addTableRow(null, 'tblStocks', v) });
+$('#stTable').addEventListener('click', e => {
+  const b = e.target.closest('[data-stock]'); if (!b) return;
+  const x = (M.stocks || []).find(y => y.i === +b.dataset.stock); if (!x) return;
+  const key = { '종목명': x.name, '계좌': x.acct };
+  openForm({ title: `${x.name} 고치기`, note: '사고팔았으면 수량·평균단가를, 시세를 확인했으면 현재가와 기준일을 고쳐요. 수량을 0으로 하면 화면에서 숨겨요.',
+    fields: STOCK_FIELDS(x), check: v => stockCheck(v, x),
+    save: v => tblUpdate('tblStocks', key, v),
+    danger: { label: '이 종목 지우기', confirm: `'${x.name}'을 엑셀 주식 표에서 지울까요?`, run: () => tblDelete('tblStocks', key) } });
+});
+
 /* ── 저축·투자 계좌별: 분류 칸 = 계좌 이름 (예전 기록은 내용으로 계좌 찾기) ── */
 const normName = t => String(t || '').replace(/[\s·.()\-_]/g, '').toLowerCase();
 function svAccount(f) {
@@ -2796,7 +2924,7 @@ function syncPages() {
 function render(model) {
   M = model;
   $('#srcName').textContent = `${model.fileName} · ${new Date(model.readAt).toLocaleString('ko-KR', { month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit' })} 읽음`;
-  renderOverview(); renderSpend(); renderAssets(); renderSettings();
+  renderOverview(); renderSpend(); renderAssets(); renderStocks(); renderSettings();
   enter(syncPages());
 }
 
@@ -2816,7 +2944,7 @@ function slidePill(btn, instant) {
 }
 function enter(page, quick) {
   // 차트는 보이는 상태에서 폭을 재야 해서 들어올 때 다시 그려요
-  if (M && !quick) { if (page.id === 'overview') renderOverview(); if (page.id === 'assets') renderAssets(); }
+  if (M && !quick) { if (page.id === 'overview') renderOverview(); if (page.id === 'assets') renderAssets(); if (page.id === 'stocks') renderStocks(); }
   if (page.id === 'settings') renderSettings();
   if (!quick) gsap.fromTo($$('.card, .set-item', page), { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .5, stagger: .035, ease: 'power3.out' });
   gsap.fromTo($$('.sbar .stk', page), { scaleY: 0 }, { scaleY: 1, duration: .6, stagger: .02, ease: 'back.out(1.4)', delay: .15 });
